@@ -95,7 +95,7 @@ Scénario principal:
 1.	Rentrer la taille du tableau et la limite.
 Scénario alternatif:
 Postconditions: L’ordi revient à son état prêt.
-7.	
+
 
 
 
