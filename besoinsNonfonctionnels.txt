@@ -1,9 +1,0 @@
-- le robot doit avoir une bonne performance, ce qui veut dire, quand on essaie d'enregistrer une action chez lui, ca ne doit pas prendre 
-trop de temps pour qu'il l'accomplisse.
-- les capteurs doivent être de bonne qualité, sinon ils risquent de briser et causer des accidents
-- le robot doit être facile à maintenir pour qu'un utilisateur sans beaucoup de connaissances techniques puisse le maintenir
- pour éviter les accidents causés par la malfonction.
-- Les robots devraient être capable de comprendre les accents, ainsi que parler plusieurs langues pour
-faciliter la communication.
-- le système devrait être compatible avec plusieurs systèmes d'opérations pour rendre le produit
-plus accessible à tout le monde.
