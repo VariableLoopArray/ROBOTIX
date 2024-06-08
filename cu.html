@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            text-align: center;
+        }
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    Voici un <a href="rapport.html">lien</a> vers le rapport.</li>
+    <h2>Tâche 3</h2>
+    <h3><u>Cas d'utilisation : S'inscrire en tant qu'utilisateur</u></h3>
+
+    <p><strong>But :</strong> Permettre de devenir un utilisateur, ce qui donne accès aux robots.</p>
+    <p><strong>Acteur :</strong> Utilisateur</p>
+    <p><strong>Préconditions :</strong></p>
+    <ul>
+        <li>Fournir les données personnelles.</li>
+        <li>Fournir le nom de la compagnie.</li>
+    </ul>
+    <p><strong>Scénario principal :</strong></p>
+    <ol>
+        <li>Choisir "créer un compte".</li>
+        <li>Fournir les données personnelles.</li>
+        <li>Créer un mot de passe.</li>
+        <li>Confirmer le mot de passe.</li>
+        <li>Vérifier si le mot de passe est valide.</li>
+        <li>Vérifier si le mot de passe est disponible.</li>
+        <li>Enregistrer le mot de passe.</li>
+        <li>Créer un nouveau compte dans le système.</li>
+        <li>Afficher un message de succès à l'utilisateur.</li>
+    </ol>
+    <p><strong>Scénario alternatif :</strong></p>
+
+  <p>
+   <div class="indented">4.1. Si la confirmation du mot de passe est incorrecte.</div> <br>
+   <div class="indented">4.2. Afficher un message d'erreur "le mot de passe de confirmation est invalide".</div><br>
+   <div class="indented">4.3. Reprendre à partir de l'étape 4 du scénario principal.</div>
+  </p>
+
+
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Enregistrer l'utilisateur.</li>
+    <li>Sauvegarder un numéro de référence pour l'utilisateur dans le système.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Enregistrer un robot</u></h3>
+
+<p><strong>But :</strong> Enregistrer le robot dans la flotte de l’utilisateur.</p>
+<p><strong>Acteur principal :</strong> L'utilisateur</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Fournir un nom et le type du robot.</li>
+    <li>Fournir le numéro de série donné par le fournisseur.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>Choisir « enregistrer un robot ».</li>
+    <li>Fournir le nom et le type du robot.</li>
+    <li>Fournir le numéro de série.</li>
+    <li>Valider le numéro de série.</li>
+    <li>Ajouter le robot dans la flotte.</li>
+    <li>Afficher un message de succès.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">4.1. Si le numéro de série fourni n’est pas valide.</div> <br>
+    <div class="indented">4.2. Revenir à l’étape 3 du scénario principal.</div><br>
+</p>
+
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Le robot est enregistré dans la flotte.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Acheter des composantes</u></h3>
+
+<p><strong>But :</strong> Acheter les composantes nécessaires pour construire ou réparer le robot.</p>
+<p><strong>Acteur principal :</strong> L'utilisateur</p>
+<p><strong>Acteur secondaire :</strong> Fournisseur</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Avoir les fonds nécessaires.</li>
+    <li>Avoir un fournisseur.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>Aller sur le site du fournisseur.</li>
+    <li>Rentrer dans le compte.</li>
+    <li>Choisir l’option « commander des composantes ».</li>
+    <li>Ajouter les composantes désirées au panier.</li>
+    <li>Choisir la méthode de paiement.</li>
+    <li>Payer.</li>
+    <li>Validation du paiement.</li>
+    <li>Afficher un message de succès.</li>
+    <li>Attendre la commande.</li>
+    <li>Recevoir les composantes.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">6.1. Si les fonds dans la carte ne sont pas suffisants.</div> <br>
+    <div class="indented">6.2. Afficher un message d’erreur « fonds insuffisants ».</div><br>
+</p>
+
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Les composantes sont livrées avec factures.</li>
+    <li>Un numéro de transaction est créé pour sauvegarder l’historique des transactions.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Contrôle des mouvements</u></h3>
+
+<p><strong>Acteur principal :</strong> L'utilisateur</p>
+<p><strong>Acteur secondaire :</strong> Le robot</p>
+<p><strong>But :</strong> Contrôler les mouvements du robot en lui donnant des ordres de déplacement.</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Le robot doit avoir des roues ou des hélices pour pouvoir se déplacer.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>L'utilisateur essaie de se connecter au robot.</li>
+    <li>Le robot se connecte à l'utilisateur.</li>
+    <li>L'utilisateur reçoit une confirmation.</li>
+    <li>L'utilisateur contrôle le déplacement du robot en donnant des ordres avec son propre mouvement.</li>
+    <li>Le robot détecte le mouvement de l'utilisateur.</li>
+    <li>Le robot utilise ses roues ou hélices pour se déplacer.</li>
+    <li>Le robot attend les prochains ordres de l'utilisateur.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">1.1. Si le robot n'arrive pas à se connecter à l'utilisateur.</div> <br>
+    <div class="indented">1.2. Afficher un message d'échec à l'utilisateur.</div><br>
+    <div class="indented">1.3. Retourner à l'étape 1.</div>
+</p>
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Le robot revient dans son état de repos.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Création des actions</u></h3>
+
+<p><strong>But :</strong> Permettre de donner des ordres mécaniques aux robots.</p>
+<p><strong>Acteur principal :</strong> L'utilisateur</p>
+<p><strong>Acteur secondaire :</strong> Le robot</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Les composantes nécessaires pour exécuter l’action doivent être disponibles.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>Choisir l’option « créer une action ».</li>
+    <li>Choisir le robot désiré.</li>
+    <li>Choisir le type d’action.</li>
+    <li>Validation des composantes.</li>
+    <li>Donner les spécificités de l’action.</li>
+    <li>Le robot enregistre l’action.</li>
+    <li>Revenir au menu.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">4.1. Si les composantes sont manquantes.</div> <br>
+    <div class="indented">4.2. Afficher le message d’erreur « ces pièces sont manquantes, veuillez les installer avant de continuer ».</div><br>
+    <div class="indented">4.3. Reprendre à l’étape 4 du scénario principal.</div>
+</p>
+
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Le robot enregistre les actions et les exécute quand on les appelle.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Gestion des tâches</u></h3>
+
+<p><strong>But :</strong> Donner des tâches au robot en fonction de leur disponibilité et compétences au moment souhaité sans l’intervention de l’utilisateur.</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Le robot doit être connecté à l’utilisateur et disponible à être utilisé.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>L’utilisateur choisit un robot pour exécuter une tâche.</li>
+    <li>L’utilisateur choisit la tâche et l’heure de la tâche.</li>
+    <li>L’utilisateur envoie l’ordre au robot.</li>
+    <li>Le robot s’assure qu’il est capable de réaliser la tâche.</li>
+    <li>Le robot regarde s'il y a d'autres tâches à faire et regarde quelle transition est possible.</li>
+    <li>Le robot donne une confirmation à l'utilisateur pour confirmer.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">4.1. Si le robot n’est pas assez compétent pour réaliser la tâche.</div> <br>
+    <div class="indented">4.2. Le robot envoie un message d’erreur à l'utilisateur pour lui dire qu’il n’est pas disponible.</div><br>
+    <div class="indented">4.3. Retourner à l'étape 4.</div>
+</p>
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Le robot revient à son état normal.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Afficher l’état de mon robot</u></h3>
+
+<p><strong>But :</strong> Afficher les données de mon robot pour permettre de savoir son état.</p>
+<p><strong>Acteur principal :</strong> L’utilisateur</p>
+<p><strong>Acteur secondaire :</strong> Le robot</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Avoir les bons capteurs installés.</li>
+    <li>Être connecté à la flotte.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>Se connecter au compte.</li>
+    <li>Accéder à la flotte.</li>
+    <li>Choisir le robot désiré.</li>
+    <li>Choisir l’option « afficher l’état ».</li>
+    <li>Validation des capteurs.</li>
+    <li>Afficher les données demandées.</li>
+    <li>Fermer la fenêtre des données quand satisfait.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">5.1. Si les capteurs sont manquants.</div> <br>
+    <div class="indented">5.2. Afficher le message d’erreur : « Les capteurs nécessaires sont manqués, veuillez les installer avant de continuer ».</div><br>
+    <div class="indented">5.3. Le programme reprend à l’étape 5 du scénario principal.</div>
+</p>
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Le robot revient à son état prêt.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Afficher les métriques de ma flotte</u></h3>
+
+<p><strong>But :</strong> Afficher la condition de mes robots.</p>
+<p><strong>Acteur principal :</strong> L’utilisateur</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Avoir les bons capteurs installés.</li>
+    <li>Être connecté à la flotte.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>L’utilisateur clique sur un bouton pour afficher les détails de la flotte.</li>
+    <li>L’utilisateur vérifie si tous les robots ont un capteur.</li>
+    <li>Le système retourne les détails de la flotte.</li>
+    <li>L’utilisateur peut voir les activités et informations des robots.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">1.1. Si certains robots ne sont pas bien connectés au capteur.</div> <br>
+    <div class="indented">1.2. L’utilisateur s’assure que tous les robots sont connectés.</div><br>
+    <div class="indented">1.3. Retour à l’étape 1.</div>
+</p>
+<p><strong>Postcondition :</strong></p>
+<ul>
+    <li>Le robot revient à son état normal.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : Gestion de problèmes</u></h3>
+
+<p><strong>But :</strong> Détection d'erreurs et gérer ces erreurs en fournissant des alertes et messages d'erreur.</p>
+<p><strong>Acteur Principal :</strong> L'utilisateur</p>
+<p><strong>Précondition :</strong></p>
+<ul>
+    <li>Définition des critères d'erreurs.</li>
+    <li>Système de surveillance, que ce soit des capteurs, système interne, etc.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>Détection de l'erreur.</li>
+    <li>Enregistrement de l'erreur.</li>
+    <li>Génération d'une alerte.</li>
+    <li>Affichage du message d'erreur.</li>
+    <li>Initiation des actions correctives.</li>
+    <li>Enregistrement des actions.</li>
+    <li>Résolution de l'erreur.</li>
+    <li>Analyse post-incident.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">7.1. N'arrive pas à régler l'erreur.</div> <br>
+    <div class="indented">7.2. Générer un rapport.</div><br>
+    <div class="indented">7.3. Arrêt du programme.</div>
+</p>
+<p><strong>Postcondition :</strong></p>
+<ul>
+    <li>Alerte envoyée.</li>
+    <li>Résolution d'erreur.</li>
+</ul>
+
+<h3><u>Cas d'utilisation : S'inscrire comme fournisseur</u></h3>
+
+<p><strong>But :</strong> Permet de devenir un fournisseur et d'accéder à la vente de robots et de leurs composants.</p>
+<p><strong>Acteur Principal :</strong> Le fournisseur</p>
+<p><strong>Préconditions :</strong></p>
+<ul>
+    <li>Posséder une entreprise.</li>
+    <li>Disposer d'un nom, d'une adresse, d'une adresse courriel et d'un numéro de téléphone.</li>
+    <li>Fournir une capacité de fabrication.</li>
+</ul>
+<p><strong>Scénario principal :</strong></p>
+<ol>
+    <li>Choisir « créer un compte ».</li>
+    <li>Fournir les données personnelles.</li>
+    <li>Créer un mot de passe.</li>
+    <li>Confirmer le mot de passe.</li>
+    <li>Vérifier si le mot de passe est valide.</li>
+    <li>Vérifier si le mot de passe est disponible.</li>
+    <li>Enregistrer le mot de passe.</li>
+    <li>Créer un nouveau compte chez le système.</li>
+    <li>Afficher un message de succès fournisseur.</li>
+</ol>
+<p><strong>Scénario alternatif :</strong></p>
+<p>
+    <div class="indented">4.1. Afficher un message d’erreur « le mot de passe de confirmation est invalide ».</div> <br>
+    <div class="indented">4.2. Reprendre à partir de l’étape 4.</div><br>
+</p>
+<p><strong>Postconditions :</strong></p>
+<ul>
+    <li>Enregistrer le fournisseur.</li>
+    <li>Sauvegarder un numéro de référence pour le fournisseur dans le système.</li>
+</ul>
+</body>
+</html>
