@@ -7,7 +7,6 @@ public class Main {
         ArrayList<User> allUsers = new ArrayList<User>();
         ArrayList<Activity> allActivities = new ArrayList<Activity>(); 
         Menu menu = new Menu(allUsers, allActivities);
-        menu.displayLoginPage();
         //hard code users
 
         Client user1 = new Client("John","Doe","johndoe123","password1",UUID.randomUUID(),
@@ -70,7 +69,23 @@ public class Main {
         UUID.randomUUID(),"EdwardBlair@gmail.com","No Company","514-123-4567",new RobotFleet(),
         new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 8, new ArrayList<Component>());
 
+        allUsers.add(user1);
+        allUsers.add(user2);
+        allUsers.add(user3);
+        allUsers.add(user4);
+        allUsers.add(user5);
+        allUsers.add(user6);
+        allUsers.add(user7);
+        allUsers.add(user8);
+        allUsers.add(user9);
+        allUsers.add(user10);
+        allUsers.add(user11);
+        allUsers.add(user12);
+        allUsers.add(user13);
+        allUsers.add(user14);
+        allUsers.add(user15);
 
+        menu.displayLoginPage();
         //hard code componentTags
         ArrayList<String> componentTags =  new ArrayList<String>();
         componentTags.add("lightweight");

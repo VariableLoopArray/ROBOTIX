@@ -8,6 +8,7 @@ public class Menu {
         this.allUsers = allUsers;
         this.allActivities = allActivities;
     }
+    
     public void displayLoginPage(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to ROBOTIX");
@@ -20,50 +21,20 @@ public class Menu {
                 String username = scanner.nextLine();
                 System.out.println("Enter Password:");
                 String password = scanner.nextLine();
-                LoginController.login(username,password,this.allUsers);
+
+                if (LoginController.login(username,password,this.allUsers)){
+                    System.out.println("welcome to the homepage");
+                }
+
+                else{
+                    System.out.println("wrong  password please try again");
+                    displayLoginPage();
+                }
                 break;
             case "2":
+
+                AdminController.createAccount(this, scanner);
                 
-
-                System.out.println("enter first name");
-                String firstName = scanner.nextLine();
-
-                System.out.println("enter last name");
-                String lastName = scanner.nextLine();
-
-                System.out.println("enter username");
-                String userName = scanner.nextLine();
-
-                System.out.println("enter password");
-                String passWord = scanner.nextLine();
-
-                UUID userID = UUID.randomUUID();
-
-                System.out.println("enter email");
-                String email = scanner.nextLine();
-
-                System.out.println("enter company");
-                String companyName = scanner.nextLine();
-                
-                System.out.println("enter phone number");
-                String phoneNumber = scanner.nextLine();
-
-                RobotFleet robotFleet = new RobotFleet();
-
-                ArrayList<String> interests = new ArrayList<String>();
-
-                ArrayList<Activity> activities = new ArrayList<Activity>();
-
-                ArrayList<User> Followers = new ArrayList<User>();
-
-                ArrayList<User> Following = new ArrayList<User>();
-
-                User newUser = new User(firstName, lastName, userName, passWord, userID,
-                email, companyName, phoneNumber, robotFleet, interests, activities,
-                Followers, Following);
-
-                allUsers.add(newUser);
-
                 break;
             default:
                 break;
