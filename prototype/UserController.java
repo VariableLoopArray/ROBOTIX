@@ -2,11 +2,6 @@ import java.util.ArrayList;
 
 public class UserController {
     public User model;
-
-    User user = new User("firstName", "lastName", "userName", "password", 123, "email",
-    "companyName", "phoneNumber", new RobotFleet(), new ArrayList<Activity>(), 
-    new ArrayList<User>(), new ArrayList<User>()); 
-
     public UserView view;
 
     public UserController (User user, UserView userView){

@@ -5,7 +5,8 @@ public class Robot {
 
     String name;
     String type;
-    ArrayList<component> components;
+    ArrayList<Component> components;
+    RobotFleet fleet;
     UUID serialNumber;
     int battery;
     float [] position;
@@ -13,11 +14,12 @@ public class Robot {
     float CPUUsage;
     float memory;
 
-    public Robot(String name, String type, ArrayList<component> components, UUID serialNumber, int battery, float [] position,
+    public Robot(String name, String type, ArrayList<Component> components,RobotFleet robotFleet, UUID serialNumber, int battery, float [] position,
     float speed, float CPUUsage, float memory){
         this.name = name;
         this.type = type;
         this.components = components;
+        this.fleet = robotFleet;
         this.serialNumber = serialNumber;
         this.battery = battery;
         this.position = position;

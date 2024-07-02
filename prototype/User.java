@@ -3,32 +3,32 @@ import java.util.UUID;
 
 public class User {
 
-    String firstName;
-    String lastName;
-    String userName;
-    String password;
+    private String firstName;
+    private String lastName;
+    private String userName;
+    private String password;
 
-    UUID uuid;
-    String email;
-    String companyName;
-    String phoneNumber;
+    private UUID userID;
+    private String email;
+    private String companyName;
+    private String phoneNumber;
     
 
-    RobotFleet RobotFleet;
-    ArrayList<String> interests;
-    ArrayList<Activity> activities;
-    ArrayList<User> Followers;
-    ArrayList<User> Following; 
+    private RobotFleet RobotFleet;
+    private ArrayList<String> interests;
+    private ArrayList<Activity> activities;
+    private ArrayList<User> Followers;
+    private ArrayList<User> Following; 
 
     public User( String firstName, String lastName, String username, String password,
-    UUID uuid, String email, String companyName, String phoneNumber, RobotFleet RobotFleet, ArrayList<String> interests, ArrayList<Activity> activities, 
+    UUID userID, String email, String companyName, String phoneNumber, RobotFleet RobotFleet, ArrayList<Activity> activities, 
     ArrayList<User> Followers, ArrayList<User> Following ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = username;
         this.password = password;
 
-        this.uuid = uuid;
+        this.userID = userID;
         this.email = email;
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
@@ -43,7 +43,7 @@ public class User {
     }
 
     public void unfollowFollower(User user) {
-        this.Followers.remove(user)
+        this.Followers.remove(user);
     }
 
     public void removeFollower(User user){
