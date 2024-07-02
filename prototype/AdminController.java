@@ -12,8 +12,8 @@ public class AdminController {
                 String userType = scanner.nextLine();
                 userType = userType.toLowerCase();
                 if (!userType.equals("fournisseur" ) && !userType.equals("client") ){
-                    System.out.println("erreur, svp réessayer \n");
-                    Menu.displayLoginPage();
+                    System.out.println("Veuillez choisir entre [fournisseur] ou [client]  \n");
+                    createAccount();
                 }
 
                 System.out.println("Indiquez votre prénom");
@@ -44,17 +44,39 @@ public class AdminController {
                 float wallet = 0;
 
                 ArrayList<String> interests = new ArrayList<String>();
-                if(userType.equals("client")){
+
+                try {
+                    if(userType.equals("client")){
+
                     System.out.println("Quelles catégories parmi les suivantes vous intéresse?(selectionnez le numéro correspondant à la catégorie en les separant par des virgules) \n");
+
                     for (int i = 0; i < Database.getInterests().size(); i++){
                         System.out.println( "[" + i + "]" + Database.getInterests().get(i));
                     }
                     String[] interestsArray = scanner.nextLine().split(",");
-                    for (int j = 0; j < interests.size(); j++){
+                    for (int j = 0; j < interestsArray.length; j++){
                         interests.add(Database.getInterests().get(Integer.parseInt(interestsArray[j])));
                     }
-
+                    
                 }
+                } catch (Exception e) {
+                    System.out.println(e);
+                    createAccount();
+                }
+
+                int productionCapacity = 0;
+                try {
+                    if(userType.equals("fournisseur")){
+                        System.out.println("Quelle est votre capacité de production?");
+                        productionCapacity = scanner.nextInt();
+                    }
+                } catch (Exception e) {
+                    System.out.println("Entrée Invalide \n");
+                    createAccount();
+                }
+
+
+                ArrayList<Component> storage = new ArrayList<Component>();
 
                 ArrayList<Activity> activities = new ArrayList<Activity>();
 
@@ -67,14 +89,14 @@ public class AdminController {
                 if (userType.equals("fournisseur")){
                     Supplier newUser = new Supplier(firstName, lastName, userName, passWord, userID,
                     email, companyName, phoneNumber,wallet, robotFleet, activities,
-                    Followers, Following,);
+                    Followers, Following,productionCapacity, storage);
                     Database.getAllUsers().add(newUser);
                     Database.getAllSuppliers().add(newUser);
                     System.out.println("user successfully created");
                     Menu.displayLoginPage();
                 }
 
-                else if (userType.equals("utilisateur")){
+                else if (userType.equals("client")){
                     Client newUser = new Client(firstName, lastName, userName, passWord, userID,
                     email, companyName, phoneNumber,wallet, robotFleet,interests, activities,
                     Followers, Following, orders);
