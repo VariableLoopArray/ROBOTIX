@@ -21,7 +21,7 @@ public class User {
     private ArrayList<User> Following; 
 
     public User( String firstName, String lastName, String username, String password,
-    UUID userID, String email, String companyName, String phoneNumber, RobotFleet RobotFleet, ArrayList<Activity> activities, 
+    UUID userID, String email, String companyName, String phoneNumber,float money, RobotFleet RobotFleet, ArrayList<Activity> activities, 
     ArrayList<User> Followers, ArrayList<User> Following ){
         this.firstName = firstName;
         this.lastName = lastName;

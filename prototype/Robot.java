@@ -14,12 +14,11 @@ public class Robot {
     private float CPUUsage;
     private float memory;
 
-    public Robot(String name, String type, ArrayList<Component> components,RobotFleet robotFleet, UUID serialNumber, int battery, float [] position,
+    public Robot(String name, String type, ArrayList<Component> components, UUID serialNumber, int battery, float [] position,
     float speed, float CPUUsage, float memory){
         this.name = name;
         this.type = type;
         this.components = components;
-        this.fleet = robotFleet;
         this.serialNumber = serialNumber;
         this.battery = battery;
         this.position = position;
@@ -50,14 +49,6 @@ public class Robot {
 
     public void setComponents(ArrayList<Component> components) {
         this.components = components;
-    }
-
-    public RobotFleet getFleet() {
-        return fleet;
-    }
-
-    public void setFleet(RobotFleet fleet) {
-        this.fleet = fleet;
     }
 
     public UUID getSerialNumber() {
