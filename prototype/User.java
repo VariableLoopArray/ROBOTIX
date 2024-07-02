@@ -12,6 +12,7 @@ public class User {
     private String email;
     private String companyName;
     private String phoneNumber;
+    private float wallet;
     
 
     private RobotFleet RobotFleet;
@@ -21,7 +22,7 @@ public class User {
     private ArrayList<User> Following; 
 
     public User( String firstName, String lastName, String username, String password,
-    UUID userID, String email, String companyName, String phoneNumber,float money, RobotFleet RobotFleet, ArrayList<Activity> activities, 
+    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet, ArrayList<Activity> activities, 
     ArrayList<User> Followers, ArrayList<User> Following ){
         this.firstName = firstName;
         this.lastName = lastName;
@@ -40,7 +41,45 @@ public class User {
     }
 
 
-    
+    public void addFollower(User user){
+        this.Followers.add(user);
+    }
+
+    public void unfollowFollower(User user) {
+        this.Followers.remove(user);
+    }
+
+    public void removeFollower(User user){
+        this.Following.remove(user);
+    }
+    public void deleteInterest(String interest) {
+        this.interests.remove(interest);
+    }
+	public void addInterest(String interest) {
+		this.interests.add(interest);
+	}
+	public void removeActivity(Activity activity) {
+		this.activities.remove(activity);
+	}
+	public boolean changePassword(String oldPass, String newPass) {
+        return true;
+	}
+
+    public void printUserDetails() {
+        System.out.println("User ID: " + userID);
+        System.out.println("First Name: " + firstName);
+        System.out.println("Last Name: " + lastName);
+        System.out.println("Username: " + userName);
+        System.out.println("Email: " + email);
+        System.out.println("Company: " + companyName);
+        System.out.println("Phone Number: " + phoneNumber);
+        System.out.println();
+    }
+
+
+
+
+
     public String getFirstName() {
         return firstName;
     }
@@ -137,6 +176,18 @@ public class User {
 
 
 
+    public float getWallet() {
+        return wallet;
+    }
+
+
+
+    public void setWallet(float wallet) {
+        this.wallet = wallet;
+    }
+
+
+
     public RobotFleet getRobotFleet() {
         return RobotFleet;
     }
@@ -194,32 +245,6 @@ public class User {
     public void setFollowing(ArrayList<User> following) {
         Following = following;
     }
-
-
-
-    public void addFollower(User user){
-        this.Followers.add(user);
-    }
-
-    public void unfollowFollower(User user) {
-        this.Followers.remove(user);
-    }
-
-    public void removeFollower(User user){
-        this.Following.remove(user);
-    }
-    public void deleteInterest(String interest) {
-        this.interests.remove(interest);
-    }
-	public void addInterest(String interest) {
-		this.interests.add(interest);
-	}
-	public void removeActivity(Activity activity) {
-		this.activities.remove(activity);
-	}
-	public boolean changePassword(String oldPass, String newPass) {
-        return true;
-	}
     
     public User(){
 

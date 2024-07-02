@@ -5,12 +5,12 @@ public class Activity {
     private Robot robot;
     private String startDate;
     private String endDate;
-    private ArrayList<String> interests;   
+    private String interests;   
     private int points;
     private User creator;
     private ArrayList<Task> tasks;
 
-    public Activity(String name, Robot robot, String startDate, String endDate, ArrayList<String> interests, int points, User creator, ArrayList<Task> tasks){
+    public Activity(String name, Robot robot, String startDate, String endDate, String interests, int points, User creator, ArrayList<Task> tasks){
         this.name = name;
         this.robot = robot;
         this.startDate = startDate;
@@ -53,11 +53,11 @@ public class Activity {
         this.endDate = endDate;
     }
 
-    public ArrayList<String> getInterests() {
+    public String getInterests() {
         return interests;
     }
 
-    public void setInterests(ArrayList<String> interests) {
+    public void setInterests(String interests) {
         this.interests = interests;
     }
 
