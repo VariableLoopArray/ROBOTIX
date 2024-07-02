@@ -5,17 +5,17 @@ public class Component {
     private ArrayList<String> tags;
     private float price;
     private float width;
-    private float height;
+    private float length;
     private float weight;
     private Supplier supplier;
     private UUID serialNumber;
     
-    public Component(String name, ArrayList<String> tags, float price, float width, float height, float weight, Supplier supplier, UUID serialNumber){
+    public Component(String name, ArrayList<String> tags, float price, float width, float length, float weight, Supplier supplier, UUID serialNumber){
         this.name = name;
         this.tags = tags;
         this.price = price;
         this.width = width;
-        this.height = height;
+        this.length = length;
         this.weight = weight;
         this.supplier = supplier;
         this.serialNumber = serialNumber;
@@ -53,12 +53,12 @@ public class Component {
         this.width = width;
     }
 
-    public float getHeight() {
-        return height;
+    public float getLength() {
+        return length;
     }
 
-    public void setHeight(float height) {
-        this.height = height;
+    public void setLength(float length) {
+        this.length = length;
     }
 
     public float getWeight() {
