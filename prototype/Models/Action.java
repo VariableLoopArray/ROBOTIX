@@ -1,3 +1,7 @@
+package Models;
+
+import Controllers.UserController;
+
 public class Action {
     private String action;
 

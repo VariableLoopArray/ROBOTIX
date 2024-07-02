@@ -1,6 +1,19 @@
+package Database;
+
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
+
+import Models.Activity;
+import Models.Client;
+import Models.Component;
+import Models.Order;
+import Models.Robot;
+import Models.RobotFleet;
+import Models.Supplier;
+import Models.Task;
+import Models.User;
 
 public class Database{
         private static ArrayList<User> allUsers = new ArrayList<User>();

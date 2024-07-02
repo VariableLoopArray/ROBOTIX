@@ -1,12 +1,13 @@
+package Controllers;
+import Models.User;
+import Models.Activity;
 import java.util.ArrayList;
 
 public class UserController {
     public User model;
-    public UserView view;
 
-    public UserController (User user, UserView userView){
+    public UserController (User user){
         this.model = user;
-        this.view = userView;
     }
 
 
