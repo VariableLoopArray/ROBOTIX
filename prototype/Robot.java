@@ -3,16 +3,16 @@ import java.util.UUID;
 
 public class Robot {
 
-    String name;
-    String type;
-    ArrayList<Component> components;
-    RobotFleet fleet;
-    UUID serialNumber;
-    int battery;
-    float [] position;
-    float speed;
-    float CPUUsage;
-    float memory;
+    private String name;
+    private String type;
+    private ArrayList<Component> components;
+    private RobotFleet fleet;
+    private UUID serialNumber;
+    private int battery;
+    private float [] position;
+    private float speed;
+    private float CPUUsage;
+    private float memory;
 
     public Robot(String name, String type, ArrayList<Component> components,RobotFleet robotFleet, UUID serialNumber, int battery, float [] position,
     float speed, float CPUUsage, float memory){
