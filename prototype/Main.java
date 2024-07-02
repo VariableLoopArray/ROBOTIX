@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
-        
+        ArrayList<User> allUsers = new ArrayList<User>();
+        ArrayList<Activity> allActivities = new ArrayList<Activity>(); 
+        Menu menu = new Menu(allUsers, allActivities);
         //hard code users
         Client user1 = new Client("John","Doe","johndoe123","password1",UUID.randomUUID(),"johndoe@gmail.com","No Company","514-111-1111",new RobotFleet(),
         new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<String>(),new ArrayList<Order>());
@@ -26,6 +28,16 @@ public class Main {
         new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 5, new ArrayList<Component>());
         Supplier user10 = new Supplier("Edward","Blair","EdwardBlair413","password10",UUID.randomUUID(),"EdwardBlair@gmail.com","No Company","514-123-4567",new RobotFleet(),
         new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 8, new ArrayList<Component>());
+        Client user11 = new Client("Ray","Charles","JazzyBoy","password11",UUID.randomUUID(),"RayCharles@gmail.com","No Company","514-101-0101",new RobotFleet(),
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<String>(),new ArrayList<Order>());
+        Client user12 = new Client("Frank","Sinatra","DeepBlueEyes","password12",UUID.randomUUID(),"FrankSinatra@gmail.com","No Company","514-111-1111",new RobotFleet(),
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<String>(),new ArrayList<Order>());
+        Client user13 = new Client("George","Washington","MakeAmerica","password13",UUID.randomUUID(),"GeorgeWashington@gmail.com","No Company","514-121-2121",new RobotFleet(),
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<String>(),new ArrayList<Order>());
+        Client user14 = new Client("Teddy","Roosevelt","BullMoose","password14",UUID.randomUUID(),"TeddyRoosevelt@gmail.com","No Company","514-131-3131",new RobotFleet(),
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<String>(),new ArrayList<Order>());
+        Client user15 = new Client("Manfred","Albert","TheRedBaron","password15",UUID.randomUUID(),"ManfredAlbert@gmail.com","No Company","514-141-4141",new RobotFleet(),
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<String>(),new ArrayList<Order>());
 
 
         //hard code componentTags
@@ -47,13 +59,15 @@ public class Main {
 
 
         //hard code components
-        Component CPU = new Component("CPU", new ArrayList<String>(), 350.0, 10.0,1.0,1.0, user6 ,UUID.randomUUID());
-
+        Component CPU = new Component("CPU", new ArrayList<String>(), (float) 350.0, (float)10.0,(float)1.0,(float)1.0, user6 ,UUID.randomUUID());
+        RobotFleet robotFleet1 = new RobotFleet();
         //hard code Robots
-        Robot robot1 = new Robot("Rob Bott", "aquaticRobot", "2021-10-10", "2021-10-11", "Montreal", "Canada", "10:00", "12:00", user1);
-
+        //Robot robot1 = new Robot("Rob Bott", "aquaticRobot", "2021-10-10", "2021-10-11", "Montreal", "Canada", "10:00", "12:00", user1);
+        Robot correctRobot1 = new Robot ("Rob Bott", "aquaticRobot", new ArrayList<Component>(), robotFleet1, UUID.randomUUID(), 10, new float[]{(float)0.0,(float)1.0,(float)2.0}, (float) 0.0, (float) 0.0, (float) 16.0);
         //hard code activities
-        Activity activity1 = new Activity("Activity 1", , "2021-10-10", "2021-10-11", "Montreal", "Canada", "10:00", "12:00", user1);
-        Activity activity2 = new Activity("Activity 2", "Description 2", "2021-10-11", "2021-10-12", "Montreal", "Canada", "10:00", "12:00", user2);
+        //Activity activity1 = new Activity("Activity 1", , "2021-10-10", "2021-10-11", "Montreal", "Canada", "10:00", "12:00", user1);
+        Activity correcActivity1 = new Activity("Activity 1", correctRobot1, "2024-07-03", "2024-07-03", interests, 0, user10, new ArrayList<Task>());
+        //Activity activity2 = new Activity("Activity 2", "Description 2", "2021-10-11", "2021-10-12", "Montreal", "Canada", "10:00", "12:00", user2);
+        Activity correcActivity2 = new Activity("Activity 2", correctRobot1, "2025-07-03", "2025-07-03", interests, 0, user10, new ArrayList<Task>());
     }
 }
