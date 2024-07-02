@@ -67,6 +67,6 @@ public class UserController {
     }
 
     public void changePassword(String oldPass, String newPass){
-        model.changePassword(oldPass,newPass)
+        model.changePassword(oldPass,newPass);
     }
 }

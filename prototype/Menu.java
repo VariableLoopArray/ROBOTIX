@@ -19,10 +19,10 @@ public class Menu {
                 String username = scanner.nextLine();
                 System.out.println("Enter Password:");
                 String password = scanner.nextLine();
-                loginController.login(username,password,this.allUsers);
+                LoginController.login(username,password,this.allUsers);
                 break;
             case "2":
-                System.out.println("")
+                System.out.println("");
                 break;
             default:
                 break;
