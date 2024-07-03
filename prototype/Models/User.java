@@ -19,7 +19,6 @@ public class User {
     private String phoneNumber;
     private float wallet;
     
-
     private RobotFleet RobotFleet;
     private ArrayList<String> interests;
     private ArrayList<Activity> activities;
@@ -27,8 +26,8 @@ public class User {
     private ArrayList<User> Following; 
 
     public User( String firstName, String lastName, String username, String password,
-    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet, ArrayList<Activity> activities, 
-    ArrayList<User> Followers, ArrayList<User> Following ){
+    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet, 
+    ArrayList<String> interests, ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = username;
@@ -40,6 +39,7 @@ public class User {
         this.phoneNumber = phoneNumber;
 
         this.RobotFleet = RobotFleet;
+        this.interests = interests;
         this.activities = activities;
         this.Followers = Followers;
         this.Following = Following; 
@@ -52,11 +52,9 @@ public class User {
         ActivityMenu.displayManageActivities(this);
     }
 	public void removeActivity(Activity activity) {
-        for (int i = 0; i < this.activities.size(); i++) {
-            if (this.activities.get(i).equals(activity)) {
-                this.activities.remove(i);
-            }
-        }
+        this.activities.remove(activity);
+        ActivityMenu.displayManageActivities(this);
+
 	}
 
     public void addFollower(User user){
@@ -156,7 +154,9 @@ public class User {
                 RobotFleetMenu.displayManageRobotFleet(this);
     }
 
-
+    public void addMoney(double money){
+        this.wallet += money;
+    }
 	public boolean changePassword(String oldPass, String newPass) {
         return true;
 	}

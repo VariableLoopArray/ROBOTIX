@@ -63,24 +63,26 @@ public class Menu {
         switch (value) {
             case "0":
                 UserMenu.displayManageProfile(user);
-                scanner.close();
+                
                 break;
             case "1":
-
+                UserMenu.displayManageWallet(user);
                 break;
             case "2":
-
+                System.out.println("cette page est indisponible pour le moment");
+                displayHomePage(user);
                 break;
             case "3":
                 ActivityMenu.displayManageActivities(user);
-                scanner.close();
+                
                 break;
             case "4":
                 RobotFleetMenu.displayManageRobotFleet(user);
-                scanner.close();
+                
                 break;
             case "5":
-
+                System.out.println("cette page est indisponible pour le moment");
+                displayHomePage(user);
                 break;
             case "6":
                 Menu.displayLoginPage();

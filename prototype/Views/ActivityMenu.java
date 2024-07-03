@@ -2,6 +2,9 @@ package Views;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import javax.xml.crypto.Data;
+
 import Database.Database;
 import Models.Activity;
 import Models.User;
@@ -45,7 +48,8 @@ public class ActivityMenu {
         System.out.println("[3] Créer une activité");
         System.out.println("[4] Ajouter un interet");
         System.out.println("[5] Supprimer un interet");
-        System.out.println("[6] Retour");
+        System.out.println("[6] Affichier mes intérêts");
+        System.out.println("[7] Retour");
         String value = scanner.nextLine();
 
         switch(value){
@@ -63,6 +67,7 @@ public class ActivityMenu {
                 }
                 
                 user.addActivity(toAdd);
+                displayManageActivities(user);
                 break;
 
             case "1":
@@ -71,30 +76,80 @@ public class ActivityMenu {
 
                 break;
             case "2":
+
+                
                 System.out.println("Entrez le numéro de l'activité que vous voulez supprimer (Colonne de gauche)");
+
                 Activity toDelete = new Activity();
                 boolean isInt2 = true;
-                while(isInt2)
-                try {
-                    String activityToDelete = scanner.nextLine();
-                    toDelete = user.getActivities().get(Integer.parseInt(activityToDelete));
-                    isInt2 = false;
-                } catch (Exception e) {
-                    System.out.println("Erreur: Entrez un numéro valide");
+                while(isInt2){
+                    try {
+                        String activityToDelete = scanner.nextLine();
+                        toDelete = user.getActivities().get(Integer.parseInt(activityToDelete));
+                        isInt2 = false;
+                    } catch (Exception e) {
+                        System.out.println("Erreur: Entrez un numéro valide");
+                    }
                 }
                 user.removeActivity(toDelete);
+                displayManageActivities(user);
                 break;
             case "3":                
 
 
                 break;
             case "4":
-                //user.deleteInterest();
+                
+                int interestCount = 0;
+                int interestToAdd;
+                while(true){
+                    System.out.println("Choisissez l'intérêt que vous voulez ajouter");
+                    for (String interest : Database.getInterests()){
+                        if (!user.getInterests().contains(interest)){
+                            System.out.println(interestCount + " " + interest);
+                            interestCount ++;
+                        }
+                    }
+
+                    interestToAdd = Integer.parseInt(scanner.nextLine());
+                    if (interestToAdd > interestCount - 1 || interestToAdd < 0){
+                        System.out.println("Vous ne pouvez pas choisir ce numéro, svp réessayez");
+                    }
+                    else{
+                        user.addInterest(Database.getInterests().get(interestToAdd));
+                        break;
+                    }
+                }
+                displayManageActivities(user);
                 break;
             case "5":
-                Menu.displayHomePage(user);
+
+                int userInterestCount = 0;
+                for (String userInterest : user.getInterests()){
+                    System.out.println(userInterestCount + " " + userInterest);
+                    userInterestCount++;
+                }
+                while (true){
+                    System.out.println("Choisissez le numéro de l'intérêt que vous voulez enlever");
+                    int interestToDelete = Integer.parseInt(scanner.nextLine()); 
+
+                    if (interestToDelete > userInterestCount - 1 || interestToDelete < 0){
+                        System.out.println("Vous ne pouvez pas choisir ce numéro, svp réessayez");
+                    }
+                    else{
+                        user.deleteInterest(Database.getInterests().get(interestToDelete));
+                        break;
+                    }
+                }
+                displayManageActivities(user);
                 break;
             case "6":
+                for (String interestToShow : user.getInterests()){
+                    System.out.println(interestToShow);
+                }
+                displayManageActivities(user);
+                break;
+            case "7":
                 Menu.displayHomePage(user);
                 break;
             default:
