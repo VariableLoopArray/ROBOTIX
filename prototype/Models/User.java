@@ -2,6 +2,8 @@ package Models;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import Views.ActivityMenu;
+
 public class User {
 
     private String firstName;
@@ -41,27 +43,34 @@ public class User {
         this.Following = Following; 
     }
 
+    public void addActivity(Activity activity){
+        this.activities.add(activity);
+        ActivityMenu.displayManageActivities(this);
+    }
+	public void removeActivity(Activity activity) {
+        for (int i = 0; i < this.activities.size(); i++) {
+            if (this.activities.get(i).equals(activity)) {
+                this.activities.remove(i);
+            }
+        }
+	}
 
     public void addFollower(User user){
         this.Followers.add(user);
     }
 
-    public void unfollowFollower(User user) {
-        this.Followers.remove(user);
-    }
-
     public void removeFollower(User user){
         this.Following.remove(user);
     }
+
     public void deleteInterest(String interest) {
         this.interests.remove(interest);
     }
+
 	public void addInterest(String interest) {
 		this.interests.add(interest);
 	}
-	public void removeActivity(Activity activity) {
-		this.activities.remove(activity);
-	}
+
 	public boolean changePassword(String oldPass, String newPass) {
         return true;
 	}
@@ -87,8 +96,6 @@ public class User {
     public void changeProfile(){
 
     }
-
-
 
 
     public String getFirstName() {
