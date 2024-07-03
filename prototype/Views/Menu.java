@@ -41,26 +41,35 @@ public class Menu {
 
     public static void displayHomePage(){
         System.out.println("Welcome to ROBOTIX");
-        System.out.println("[1] ManageProfile");
-        System.out.println("[2] ManageWallet");
-        System.out.println("[3] ManageOrders");
-        System.out.println("[4] ManageActivities");
-        System.out.println("[5] MyRobotFleet");
-        System.out.println("[6] MyInventory");
-        System.out.println("[7] Logout");
+        System.out.println("[0] ManageProfile");
+        System.out.println("[1] ManageWallet");
+        System.out.println("[2] ManageOrders");
+        System.out.println("[3] ManageActivities");
+        System.out.println("[4] MyRobotFleet");
+        System.out.println("[5] MyInventory");
+        System.out.println("[6] Logout");
         Scanner scanner = new Scanner(System.in);
         String value = scanner.nextLine();
         switch (value) {
+            case "0":
+                    
+                break;
             case "1":
-                System.out.println("Profile");
+                displayWalletPage();
                 break;
             case "2":
-                System.out.println("Orders");
+                displayOrdersPage();
                 break;
             case "3":
-                System.out.println("Activities");
+                displayActivitiesPage();
                 break;
             case "4":
+                displayRobotFleetPage();
+                break;
+            case "5":
+                displayInventoryPage();
+                break;
+            case "6":
                 displayLoginPage();
                 break;
             default:
