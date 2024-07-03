@@ -165,11 +165,11 @@ public class Database{
     
 
         //hard code Robots
-        Robot Robot1 = new Robot ("Rob Bott", "explorationRobot", new ArrayList<Component>(Arrays.asList(CPU,Bras,Camera,Helice,Roue)), UUID.randomUUID(), 100, new float[]{0.0f,1.0f,2.0f}, 0.0f,  0.0f, 2048.0f);
-        Robot Robot2 = new Robot("Apon", "serviceRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran,Roue)), UUID.randomUUID(), 100, new float[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 512.0f);
-        Robot Robot3 = new Robot("Robo", "entertainmentRobot", new ArrayList<Component>(Arrays.asList(CPU,HautParleur,Ecran)), UUID.randomUUID(), 100, new float[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 256.0f);
-        Robot Robot4 = new Robot("Copper", "militaryRobot", new ArrayList<Component>(Arrays.asList(CPU,Helice,Bras,Roue)), UUID.randomUUID(), 100, new float[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 2048.0f);
-        Robot Robot5 = new Robot("Bolt", "educationalRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran)), UUID.randomUUID(), 100, new float[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 1024.0f);
+        Robot Robot1 = new Robot ("Rob Bott", "explorationRobot", new ArrayList<Component>(Arrays.asList(CPU,Bras,Camera,Helice,Roue)), UUID.randomUUID(), 100, new double[]{0.0f,1.0f,2.0f}, 0.0f,  0.0f, 2048.0f);
+        Robot Robot2 = new Robot("Apon", "serviceRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran,Roue)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 512.0f);
+        Robot Robot3 = new Robot("Robo", "entertainmentRobot", new ArrayList<Component>(Arrays.asList(CPU,HautParleur,Ecran)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 256.0f);
+        Robot Robot4 = new Robot("Copper", "militaryRobot", new ArrayList<Component>(Arrays.asList(CPU,Helice,Bras,Roue)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 2048.0f);
+        Robot Robot5 = new Robot("Bolt", "educationalRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 1024.0f);
 
         allRobots.add(Robot1);
         allRobots.add(Robot2);

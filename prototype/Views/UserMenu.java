@@ -73,7 +73,7 @@ public class UserMenu {
                         displayManageProfile(user);
                         break;
                     case "8":
-                        System.out.println("Entrez le nouveau portefeuille");
+                        System.out.println("Entrez la quantité d'argent que vous voulez ajouter");
                         user.setWallet(Float.parseFloat(scanner.nextLine()));
                         displayManageProfile(user);
                         break;
@@ -98,6 +98,7 @@ public class UserMenu {
                             if (user2.getFirstName().equalsIgnoreCase(nameToUnffolow)){
                                 user.getFollowers().remove(user2);
                                 System.out.println("La personne a été unfollow avec succès");
+                                scanner.close();
                                 displayManageProfile(user);
 
                                 break;

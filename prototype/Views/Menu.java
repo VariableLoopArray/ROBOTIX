@@ -56,11 +56,14 @@ public class Menu {
         System.out.println("[4] MyRobotFleet");
         System.out.println("[5] MyInventory");
         System.out.println("[6] Logout");
+
         Scanner scanner = new Scanner(System.in);
         String value = scanner.nextLine();
+        
         switch (value) {
             case "0":
                 UserMenu.displayManageProfile(user);
+                scanner.close();
                 break;
             case "1":
 
@@ -70,9 +73,11 @@ public class Menu {
                 break;
             case "3":
                 ActivityMenu.displayManageActivities(user);
+                scanner.close();
                 break;
             case "4":
                 RobotFleetMenu.displayManageRobotFleet(user);
+                scanner.close();
                 break;
             case "5":
 
