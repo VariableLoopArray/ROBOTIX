@@ -26,8 +26,8 @@ public class User {
     private ArrayList<User> Following; 
 
     public User( String firstName, String lastName, String username, String password,
-    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet, 
-    ArrayList<String> interests, ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following ){
+    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet,
+    ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = username;
@@ -39,7 +39,6 @@ public class User {
         this.phoneNumber = phoneNumber;
 
         this.RobotFleet = RobotFleet;
-        this.interests = interests;
         this.activities = activities;
         this.Followers = Followers;
         this.Following = Following; 
@@ -103,7 +102,7 @@ public class User {
             String type = scanner.nextLine();
 
             this.getRobotFleet().add(new Robot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
-            10,new double[] {0.0,0.0,0.0}, 0, 0, 0));
+            0,new double[] {0.0,0.0,0.0}, 0, 0, 0));
 
             System.out.println("Le robot a été créé avec succès\n");
             RobotFleetMenu.displayManageRobotFleet(this);

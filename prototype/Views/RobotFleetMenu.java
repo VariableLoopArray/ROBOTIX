@@ -47,6 +47,7 @@ public class RobotFleetMenu {
                 break;
             default:
                 System.out.println("commande non connue");
+                displayManageRobotFleet(user);
         }
 
     }

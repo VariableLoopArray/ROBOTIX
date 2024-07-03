@@ -18,6 +18,7 @@ public class Menu {
         System.out.println("Welcome to ROBOTIX");
         System.out.println("[1] Login");
         System.out.println("[2] Create Account");
+        System.out.println("[3] Exit");
         String value = scanner.nextLine();
         switch (value) {
             case "1":
@@ -38,7 +39,9 @@ public class Menu {
             case "2":
 
                 AdminController.createAccount();
-                
+                break;
+            case "3":
+                System.exit(0);
                 break;
             default:
                 break;
