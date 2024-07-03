@@ -3,9 +3,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.UUID;
 
+import javax.xml.crypto.Data;
+
 import Controllers.AdminController;
 import Controllers.LoginController;
+import Controllers.UserController;
 import Database.Database;
+import Models.User;
 public class Menu {
 
     public static void displayLoginPage(){
@@ -20,11 +24,13 @@ public class Menu {
                 String username = scanner.nextLine();
                 System.out.println("Enter Password:");
                 String password = scanner.nextLine();
-
-                if (LoginController.login(username,password,Database.getAllUsers())){
-                    displayHomePage();
+                User user = new User();
+                
+                if (LoginController.login(username,password,Database.getAllUsers()) >= 0){
+                    user = Database.getAllUsers().get(LoginController.login(username,password,Database.getAllUsers()));
+                    displayHomePage(user);
                 } else {
-                    System.out.println("wrong  password please try again");
+                    System.out.println("wrong  password or username please try again");
                     displayLoginPage();
                 }
                 break;
@@ -39,7 +45,7 @@ public class Menu {
 
     }
 
-    public static void displayHomePage(){
+    public static void displayHomePage(User user){
         System.out.println("Welcome to ROBOTIX");
         System.out.println("[1] ManageProfile");
         System.out.println("[2] ManageWallet");
@@ -52,7 +58,7 @@ public class Menu {
         String value = scanner.nextLine();
         switch (value) {
             case "1":
-                System.out.println("Profile");
+                UserController.manageProfile(user, scanner);
                 break;
             case "2":
                 System.out.println("Orders");
