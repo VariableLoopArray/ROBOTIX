@@ -119,6 +119,7 @@ public class AdminController {
                     System.out.println("user successfully created");
                     Menu.displayLoginPage();
                 }
+                scanner.close();
     }
         catch (InputMismatchException e){
             System.out.println("wrong type of input please try again \n");
