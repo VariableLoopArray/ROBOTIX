@@ -7,6 +7,7 @@ import javax.xml.crypto.Data;
 
 import Database.Database;
 import Models.Activity;
+import Models.Client;
 import Models.User;
 
 public class ActivityMenu {
@@ -46,10 +47,14 @@ public class ActivityMenu {
         System.out.println("[1] Modifier une activité");
         System.out.println("[2] Supprimer une activité");
         System.out.println("[3] Créer une activité");
-        System.out.println("[4] Ajouter un interet");
-        System.out.println("[5] Supprimer un interet");
-        System.out.println("[6] Affichier mes intérêts");
-        System.out.println("[7] Retour");
+        if(user instanceof Client){
+            System.out.println("[4] Ajouter un interet");
+            System.out.println("[5] Supprimer un interet");
+            System.out.println("[6] Affichier mes intérêts");
+            System.out.println("[7] Retour");
+        }else{
+            System.out.println("[4] Retour");
+        }
         String value = scanner.nextLine();
 
         switch(value){

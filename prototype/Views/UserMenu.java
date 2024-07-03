@@ -14,10 +14,12 @@ public class UserMenu {
         Scanner scanner = new Scanner(System.in);
         System.out.println("*** Menu UTILISATEUR ***");
         System.out.println("[1] Voir mes données");
-        System.out.println("[2] Changer mes donnée ou suivre quelqu'un");
+        System.out.println("[2] Gérer mes données");
+        System.out.println("[3] Retour");
         switch(scanner.nextLine()){
             case "1":
                 user.userData();
+                displayManageProfile(user);
                 break;
             case "2":
                 System.out.println("Choisissez l'aspect que vous voulez Changer");
@@ -108,18 +110,20 @@ public class UserMenu {
                         displayManageProfile(user);
                         break;
                     case "11":
-                        Menu.displayHomePage(user);
+                        displayManageProfile(user);
                     default:
                         System.out.println("commande non connue");
+                        displayManageProfile(user);
                         break;
                 }
+                break;
 
-
-
-
+            case "3":
+                Menu.displayHomePage(user);
                 break;
             default:
                 System.out.println("commande non connue");
+                displayManageProfile(user);
                 break;
         }
 }
@@ -132,16 +136,21 @@ public class UserMenu {
         switch(scanner.nextLine()){
             case "1":
                 System.out.println("Montant: " + user.getWallet());
+                displayManageWallet(user);
                 break;
             case "2":
                 System.out.println("Indiquez combien d'argent vous voulez ajouter");
-                double money = Double.parseDouble(scanner.nextLine());
-                if (money <= 0 ){
-                    System.out.println("Vous ne pouvez pas ajouter 0$ ou de l'argent négatif, Stupid.");
+                while (true) {
+                    double money = Double.parseDouble(scanner.nextLine());
+                    if (money <= 0 ){
+                        System.out.println("Vous ne pouvez pas ajouter 0$ ou de l'argent négatif.");
+                    }
+                    else{
+                        user.addMoney(money);
+                        break;
+                    }
                 }
-                else{
-                    user.addMoney(money);
-                }
+                displayManageWallet(user);
                 break;
             case "3":
                 Menu.displayHomePage(user);
