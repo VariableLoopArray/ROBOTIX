@@ -38,11 +38,6 @@ public class UserController {
     public static  void follow(User user){
         user.addFollower(user);
     }
-
-    public static void unfollow(User user){
-        user.unfollowFollower(user);
-    }
-
     public static void removeFollower(User user){
         user.removeFollower(user);
     }

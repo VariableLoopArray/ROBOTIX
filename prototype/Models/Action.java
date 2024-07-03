@@ -5,7 +5,7 @@ import Controllers.UserController;
 public class Action {
     private String action;
 
-    public Action(String action, String target, String value){
+    public Action(String action){
         this.action = action;
 
     }

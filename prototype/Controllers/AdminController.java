@@ -115,6 +115,7 @@ public class AdminController {
                     email, companyName, phoneNumber,wallet, robotFleet,interests, activities,
                     Followers, Following, orders);
                     Database.getAllUsers().add(newUser);
+                    Database.getAllClients().add(newUser);
                     System.out.println("user successfully created");
                     Menu.displayLoginPage();
                 }
