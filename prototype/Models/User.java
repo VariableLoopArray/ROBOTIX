@@ -66,17 +66,27 @@ public class User {
         return true;
 	}
 
-    public void printUserDetails() {
-        System.out.println("User ID: " + userID);
-        System.out.println("First Name: " + firstName);
-        System.out.println("Last Name: " + lastName);
-        System.out.println("Username: " + userName);
-        System.out.println("Email: " + email);
-        System.out.println("Company: " + companyName);
-        System.out.println("Phone Number: " + phoneNumber);
-        System.out.println();
+    public void userData(){
+        System.out.println("first name: " + this.firstName);
+        System.out.println("last name: " + this.lastName);
+        System.out.println("username: " + this.userName);
+        System.out.println("password: " + this.password);
+        System.out.println("userID: " + this.userID);
+        System.out.println("email: " + this.email);
+        System.out.println("company name: " + this.companyName);
+        System.out.println("phone number: " + this.phoneNumber);
+        System.out.println("wallet: " + this.wallet);
+        System.out.println("robot fleet: " + (this.RobotFleet).toString());
+        System.out.println("interests: " + this.interests);
+        System.out.println("activities: " + this.activities);
+        System.out.println("Followers: " + this.Followers);
+        System.out.println("Following: " + this.Following);
+
     }
 
+    public void changeProfile(){
+
+    }
 
 
 
