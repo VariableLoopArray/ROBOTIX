@@ -3,13 +3,13 @@ import java.util.ArrayList;
 
 import Models.User;
 public class LoginController{
-    public static boolean login(String username, String password,ArrayList<User> allUsers){
+    public static int login(String username, String password,ArrayList<User> allUsers){
         for(int i = 0; i < allUsers.size(); i++){
             if(username.equals(allUsers.get(i).getUserName()) && password.equals(allUsers.get(i).getPassword())){
-                return true;
+                return i;
             }
         }
-        return false;
+        return -1;
 
     }
 
