@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
 
+import Models.Action;
 import Models.Activity;
 import Models.Client;
 import Models.Component;
@@ -176,12 +177,132 @@ public class Database{
         allRobots.add(Robot4);
         allRobots.add(Robot5);
 
+        //hard code Tasks and Actions
+        ArrayList<Action> Arriver = new ArrayList<Action>();
+        Arriver.add(new Action("Planifiez votre itinéraire vers le lieu"));
+        Arriver.add(new Action("Réservez un moyen de transport ou assurez-vous que votre véhicule est prêt"));
+        Arriver.add(new Action("Quittez votre domicile à temps pour arriver à l'heure"));
+        Arriver.add(new Action("Enregistrez-vous à l'arrivée"));
+
+        ArrayList<Action> Coder = new ArrayList<Action>();
+        Coder.add(new Action("Lisez et comprenez les règles du concours"));
+        Coder.add(new Action("Installez votre poste de travail"));
+        Coder.add(new Action("Commencez à coder selon les exigences"));
+        Coder.add(new Action("Soumettez votre code avant la date limite"));
+
+        ArrayList<Action> Presenter = new ArrayList<Action>();
+        Presenter.add(new Action("Préparez vos diapositives de présentation"));
+        Presenter.add(new Action("Entraînez-vous à présenter"));
+        Presenter.add(new Action("Installez votre matériel de présentation"));
+        Presenter.add(new Action("Présentez votre projet aux juges"));
+
+        Task task1ForActivity1 = new Task("Arriver", Arriver);
+        Task task2ForActivity1 = new Task("Coder", Coder);
+        Task task3ForActivity1 = new Task("Presenter", Presenter);
+
+
+
+        ArrayList<Action> Preparer = new ArrayList<>();
+        Preparer.add(new Action("Lire la recette en entier"));
+        Preparer.add(new Action("Faire une liste des ingrédients nécessaires"));
+        Preparer.add(new Action("Acheter les ingrédients manquants"));
+        Preparer.add(new Action("Mesurer et préparer les ingrédients"));
+
+        ArrayList<Action> cuisson = new ArrayList<>();
+        cuisson.add(new Action("Préchauffer le four ou préparer la cuisinière"));
+        cuisson.add(new Action("Suivre les étapes de la recette pour cuire les ingrédients"));
+        cuisson.add(new Action("Remuer ou ajuster la cuisson selon les indications"));
+        cuisson.add(new Action("Vérifier la cuisson et ajuster le temps si nécessaire"));
+
+        ArrayList<Action> presentationEtService = new ArrayList<>();
+        presentationEtService.add(new Action("Préparer les plats ou assiettes de service"));
+        presentationEtService.add(new Action("Dresser la table"));
+        presentationEtService.add(new Action("Disposer les aliments de manière appétissante"));
+        presentationEtService.add(new Action("Servir les plats à table"));
+
+        Task task1ForActivity2 = new Task("Préparation", Preparer);
+        Task task2ForActivity2 = new Task("Cuisson", cuisson);
+        Task task3ForActivity2 = new Task("Présentation et service", presentationEtService);
+
+
+        ArrayList<Action> preparerEvenement = new ArrayList<>();
+        preparerEvenement.add(new Action("Réserver la salle de concert"));
+        preparerEvenement.add(new Action("Engager les musiciens"));
+        preparerEvenement.add(new Action("Promouvoir l'événement"));
+        preparerEvenement.add(new Action("Vendre des billets"));
+
+        ArrayList<Action> installerEquipement = new ArrayList<>();
+        installerEquipement.add(new Action("Installer le système de sonorisation"));
+        installerEquipement.add(new Action("Configurer les instruments de musique"));
+        installerEquipement.add(new Action("Vérifier les éclairages"));
+        installerEquipement.add(new Action("Faire un test de son"));
+
+        ArrayList<Action> gererConcert = new ArrayList<>();
+        gererConcert.add(new Action("Accueillir les spectateurs"));
+        gererConcert.add(new Action("Superviser l'entrée et la sortie"));
+        gererConcert.add(new Action("Assurer la sécurité pendant le concert"));
+        gererConcert.add(new Action("Coordonner avec les musiciens et le personnel"));
+
+        Task task1ForActivity3 = new Task("Préparer l'événement", preparerEvenement);
+        Task task2ForActivity3 = new Task("Installer l'équipement", installerEquipement);
+        Task task3ForActivity3 = new Task("Gérer le concert", gererConcert);
+
+
+
+        ArrayList<Action> preparerExploration = new ArrayList<>();
+        preparerExploration.add(new Action("Rassembler l'équipement nécessaire"));
+        preparerExploration.add(new Action("Vérifier les lampes torches et les batteries"));
+        preparerExploration.add(new Action("Porter des vêtements appropriés"));
+        preparerExploration.add(new Action("Informer quelqu'un de votre plan d'exploration"));
+
+        ArrayList<Action> descendreDansLaCave = new ArrayList<>();
+        descendreDansLaCave.add(new Action("Ouvrir la porte de la cave"));
+        descendreDansLaCave.add(new Action("Descendre les escaliers prudemment"));
+        descendreDansLaCave.add(new Action("Allumer la lampe torche"));
+        descendreDansLaCave.add(new Action("Observer les environs pour tout danger potentiel"));
+
+        ArrayList<Action> explorerLaCave = new ArrayList<>();
+        explorerLaCave.add(new Action("Chercher des objets intéressants"));
+        explorerLaCave.add(new Action("Prendre des notes ou des photos"));
+        explorerLaCave.add(new Action("Éviter les zones dangereuses ou instables"));
+        explorerLaCave.add(new Action("Remonter à la surface prudemment"));
+
+        Task task1ForActivity4 = new Task("Préparer l'exploration", preparerExploration);
+        Task task2ForActivity4 = new Task("Descendre dans la cave", descendreDansLaCave);
+        Task task3ForActivity4 = new Task("Explorer la cave", explorerLaCave);
+
+
+
+        ArrayList<Action> preparerLeRangement = new ArrayList<>();
+        preparerLeRangement.add(new Action("Rassembler les produits de nettoyage nécessaires"));
+        preparerLeRangement.add(new Action("Préparer des sacs pour les déchets et le recyclage"));
+        preparerLeRangement.add(new Action("Mettre de la musique motivante"));
+        preparerLeRangement.add(new Action("Faire une liste des pièces à ranger"));
+
+        ArrayList<Action> rangerLesObjets = new ArrayList<>();
+        rangerLesObjets.add(new Action("Remettre chaque objet à sa place"));
+        rangerLesObjets.add(new Action("Trier les objets inutiles à jeter ou à donner"));
+        rangerLesObjets.add(new Action("Organiser les placards et les tiroirs"));
+        rangerLesObjets.add(new Action("Vider les poubelles"));
+
+        ArrayList<Action> nettoyerLesSurfaces = new ArrayList<>();
+        nettoyerLesSurfaces.add(new Action("Dépoussiérer les meubles"));
+        nettoyerLesSurfaces.add(new Action("Passer l'aspirateur sur les tapis et les moquettes"));
+        nettoyerLesSurfaces.add(new Action("Laver les sols"));
+        nettoyerLesSurfaces.add(new Action("Nettoyer les fenêtres et les miroirs"));
+
+        Task task1ForActivity5 = new Task("Préparer le rangement", preparerLeRangement);
+        Task task2ForActivity5 = new Task("Ranger les objets", rangerLesObjets);
+        Task task3ForActivity5 = new Task("Nettoyer les surfaces", nettoyerLesSurfaces);
+
+
+        
         //hard code activities
-        Activity Activity1 = new Activity("CodingBootCamp", Robot5, "2024-07-03", "2024-09-03", "Éducation et Apprentissage", 150, user10, new ArrayList<Task>());
-        Activity Activity2 = new Activity("Recette de cuisine", Robot5, "2024-07-30", "2024-07-30","Éducation et Apprentissage" , 15, user9, new ArrayList<Task>());
-        Activity Activity3 = new Activity("Concert de Jazz", Robot3, "2024-08-03", "2024-08-03", "Musique et Arts du Spectacle", 10, user8, new ArrayList<Task>());
-        Activity Activity4 = new Activity("Exploration de la cave", Robot1, "2024-08-10", "2024-08-10", "Activité de Plein Air et Aventure", 20, user7, new ArrayList<Task>());
-        Activity Activity5 = new Activity("Ranger la maison", Robot2, "2024-08-17", "2024-08-17", "Santé et Bien-être", 10, user6, new ArrayList<Task>());
+        Activity Activity1 = new Activity("CodingBootCamp", Robot5, "2024-07-03", "2024-09-03", "Éducation et Apprentissage", 150, user10, new ArrayList<Task>(Arrays.asList(task1ForActivity1,task2ForActivity1,task3ForActivity1)));
+        Activity Activity2 = new Activity("Recette de cuisine", Robot5, "2024-07-30", "2024-07-30","Éducation et Apprentissage" , 15, user9, new ArrayList<Task>(Arrays.asList(task1ForActivity2,task2ForActivity2,task3ForActivity2)));
+        Activity Activity3 = new Activity("Concert de Jazz", Robot3, "2024-08-03", "2024-08-03", "Musique et Arts du Spectacle", 10, user8, new ArrayList<Task>(Arrays.asList(task1ForActivity3,task2ForActivity3,task3ForActivity3)));
+        Activity Activity4 = new Activity("Exploration de la cave", Robot1, "2024-08-10", "2024-08-10", "Activité de Plein Air et Aventure", 20, user7, new ArrayList<Task>(Arrays.asList(task1ForActivity4,task2ForActivity4,task3ForActivity4)));
+        Activity Activity5 = new Activity("Ranger la maison", Robot2, "2024-08-17", "2024-08-17", "Santé et Bien-être", 10, user6, new ArrayList<Task>(Arrays.asList(task1ForActivity5,task2ForActivity5,task3ForActivity5)));
 
         allActivities.add(Activity1);
         allActivities.add(Activity2);
