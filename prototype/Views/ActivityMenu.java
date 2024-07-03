@@ -41,9 +41,10 @@ public class ActivityMenu {
         System.out.println("[0] Ajouter une activité");
         System.out.println("[1] Modifier une activité");
         System.out.println("[2] Supprimer une activité");
-        System.out.println("[3] Ajouter un interet");
-        System.out.println("[4] Supprimer un interet");
-        System.out.println("[5] Retour");
+        System.out.println("[3] Créer une activité");
+        System.out.println("[4] Ajouter un interet");
+        System.out.println("[5] Supprimer un interet");
+        System.out.println("[6] Retour");
         String value = scanner.nextLine();
 
         switch(value){
@@ -63,7 +64,9 @@ public class ActivityMenu {
                 user.addActivity(toAdd);
                 break;
             case "1":
-                //user.modifyActivity();
+                System.out.println("Entrez le numéro de l'activité que vous voulez modifier (Seul créateur de l'activité)");
+
+
                 break;
             case "2":
                 System.out.println("Entrez le numéro de l'activité que vous voulez supprimer (Colonne de gauche)");
@@ -79,13 +82,17 @@ public class ActivityMenu {
                 }
                 user.removeActivity(toDelete);
                 break;
-            case "3":
-                //user.addInterest();
+            case "3":                
+
+
                 break;
             case "4":
                 //user.deleteInterest();
                 break;
             case "5":
+                Menu.displayHomePage(user);
+                break;
+            case "6":
                 Menu.displayHomePage(user);
                 break;
             default:

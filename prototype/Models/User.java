@@ -1,7 +1,6 @@
 package Models;
 import java.util.ArrayList;
 import java.util.UUID;
-
 import Views.ActivityMenu;
 
 public class User {
@@ -41,6 +40,8 @@ public class User {
         this.activities = activities;
         this.Followers = Followers;
         this.Following = Following; 
+
+
     }
 
     public void addActivity(Activity activity){
