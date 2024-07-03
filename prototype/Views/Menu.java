@@ -83,7 +83,7 @@ public class Menu {
 
                 break;
             case "6":
-
+                Menu.displayLoginPage();
                 break;
             default:
                 break;
