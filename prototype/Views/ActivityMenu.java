@@ -22,7 +22,8 @@ public class ActivityMenu {
         int count = 0;
         for (int i = 0; i < Math.min(user.getActivities().size(),Available.size()); i++){
 
-            System.out.printf("%-30s %s%n","["+ i +"] "+ user.getActivities().get(i).getName(), "["+ i +"] " + Database.getAllActivities().get(i).getName());
+            System.out.printf("%-30s %s%n","["+ i +"] "+ user.getActivities().get(i).getName(), "["+ i +"] " +
+           Available.get(i).getName());
             count ++;
         }
 
@@ -33,7 +34,7 @@ public class ActivityMenu {
             }
         }else{
             for (int i = count; i < bigger; i++){
-                System.out.printf("%-30s %s%n","" , "["+ i +"] " + Database.getAllActivities().get(i).getName());
+                System.out.printf("%-30s %s%n","" , "["+ i +"] " + Available.get(i).getName());
             }
         }
 
@@ -63,6 +64,7 @@ public class ActivityMenu {
                 
                 user.addActivity(toAdd);
                 break;
+
             case "1":
                 System.out.println("Entrez le numéro de l'activité que vous voulez modifier (Seul créateur de l'activité)");
 
