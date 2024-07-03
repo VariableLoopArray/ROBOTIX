@@ -58,25 +58,25 @@ public class Menu {
         String value = scanner.nextLine();
         switch (value) {
             case "0":
-                    
-                break;
-            case "1":
                 UserController.manageProfile(user, scanner);
                 break;
+            case "1":
+
+                break;
             case "2":
-                displayOrdersPage();
+
                 break;
             case "3":
-                displayActivitiesPage();
+
                 break;
             case "4":
-                displayRobotFleetPage();
+
                 break;
             case "5":
-                displayInventoryPage();
+
                 break;
             case "6":
-                displayLoginPage();
+
                 break;
             default:
                 break;
