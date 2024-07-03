@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.xml.crypto.Data;
 
+import Controllers.ActivityController;
 import Controllers.AdminController;
 import Controllers.LoginController;
 import Controllers.UserController;
@@ -46,7 +47,8 @@ public class Menu {
     }
 
     public static void displayHomePage(User user){
-        System.out.println("Welcome to ROBOTIX");
+        System.out.println("Welcome to ROBOTIX " + user.getFirstName() +" "+  user.getLastName());
+
         System.out.println("[0] ManageProfile");
         System.out.println("[1] ManageWallet");
         System.out.println("[2] ManageOrders");
@@ -58,7 +60,7 @@ public class Menu {
         String value = scanner.nextLine();
         switch (value) {
             case "0":
-                UserController.manageProfile(user, scanner);
+                UserMenu.displayManageProfile(user);
                 break;
             case "1":
 
@@ -67,10 +69,10 @@ public class Menu {
 
                 break;
             case "3":
-
+                ActivityMenu.displayManageActivities(user);
                 break;
             case "4":
-
+                RobotFleetMenu.displayManageRobotFleet(user);
                 break;
             case "5":
 

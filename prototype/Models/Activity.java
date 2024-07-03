@@ -21,6 +21,8 @@ public class Activity {
         this.creator = creator;
         this.tasks = tasks;
     }
+    public Activity(){
+    }
 
     public String getName() {
         return name;
