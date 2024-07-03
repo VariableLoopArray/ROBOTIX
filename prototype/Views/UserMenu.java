@@ -123,4 +123,30 @@ public class UserMenu {
                 break;
         }
 }
+    public static void displayManageWallet(User user){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("[1] Regarder la quantité d'argent dans ma portefeuille");
+        System.out.println("[2] Ajouter de l'argent dans mon compte");
+        System.out.println("[3] retour");
+
+        switch(scanner.nextLine()){
+            case "1":
+                System.out.println("Montant: " + user.getWallet());
+                break;
+            case "2":
+                System.out.println("Indiquez combien d'argent vous voulez ajouter");
+                double money = Double.parseDouble(scanner.nextLine());
+                if (money <= 0 ){
+                    System.out.println("Vous ne pouvez pas ajouter 0$ ou de l'argent négatif, Stupid.");
+                }
+                else{
+                    user.addMoney(money);
+                }
+                break;
+            case "3":
+                Menu.displayHomePage(user);
+                break;
+
+        }
+    }
 }
