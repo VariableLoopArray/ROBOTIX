@@ -1,8 +1,13 @@
 package Models;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.UUID;
+
+import Models.typeOfRobots.AerialRobot;
+import Models.typeOfRobots.AquaticRobot;
+import Models.typeOfRobots.TerrestrialRobot;
 import Views.ActivityMenu;
 import Views.RobotFleetMenu;
 
@@ -20,7 +25,6 @@ public class User {
     private float wallet;
     
     private RobotFleet RobotFleet;
-    private ArrayList<String> interests;
     private ArrayList<Activity> activities;
     private ArrayList<User> Followers;
     private ArrayList<User> Following; 
@@ -55,6 +59,21 @@ public class User {
         ActivityMenu.displayManageActivities(this);
 
 	}
+    public void deleteInterest(String interest) {
+    }
+    public void addInterest(String interest) {
+    }
+
+    public void userData(){
+    }
+
+
+
+    public ArrayList<String> getInterests(){
+        return null;
+    }
+    public void setInterests(ArrayList<String> interests){
+    }
 
     public void addFollower(User user){
         this.Followers.add(user);
@@ -64,119 +83,12 @@ public class User {
         this.Following.remove(user);
     }
 
-    public void deleteInterest(String interest) {
-        this.interests.remove(interest);
-    }
-
-	public void addInterest(String interest) {
-		this.interests.add(interest);
-	}
-
-    public void addRobot(){
-        String name;
-        Scanner scanner = new Scanner(System.in);
-            while (true){
-
-                System.out.println("Entrer le nom de votre robot\n");
-                name = scanner.nextLine();
-                boolean nameTaken = false;
-
-                if(name.equals("quitter")){
-                    System.out.println("nom invalide, réessayez un autre nom\n");
-                    nameTaken = true;
-                }
-
-                for (Robot robot : this.getRobotFleet().getRobots()){
-                    if (robot.getName().equals(name)){
-                        System.out.println("nom déjà pris, svp réessayez\n");
-                        nameTaken = true;
-                    }
-                }
-                if (!nameTaken){
-                    break;
-                }
-                
-            }
-
-            System.out.println("Entrer le type de votre robot\n"); 
-            String type = scanner.nextLine();
-
-            this.getRobotFleet().add(new Robot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
-            0,new double[] {0.0,0.0,0.0}, 0, 0, 0));
-
-            System.out.println("Le robot a été créé avec succès\n");
-            RobotFleetMenu.displayManageRobotFleet(this);
-    }
-
-    public void deleteRobot(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" Entrer le nom du robot que vous voulez enlever " + 
-                "\nou quitter pour quitter");
-        while (true){
-            String nameToRemove = scanner.nextLine();
-            if (nameToRemove.equals("quitter")){
-                break;
-            }
-            boolean nameInList = false;
-            Iterator<Robot> robotIterator = this.getRobotFleet().getRobots().iterator();
-            while (robotIterator.hasNext()){
-                Robot robot = robotIterator.next();
-                if (robot.getName().equals(nameToRemove)){
-                    robotIterator.remove();
-                    nameInList = true;
-                }
-            }
-            if (nameInList){
-                break;
-            }
-            System.out.println("the nom n'est pas dans votre liste de robots, svp réessyez\n");
-        
-        }
-        RobotFleetMenu.displayManageRobotFleet(this);
-    }
-
-    public void lookRobot(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Entrez le nom du robot que vous voulez examiner\n");
-                String searchName = scanner.nextLine();
-                boolean inList = false;
-                for (Robot robot : this.getRobotFleet().getRobots()){
-                    if (robot.getName().equals(searchName)){
-                        robot.robotData();
-                        inList = true;
-                        break;
-                    }
-                }
-                if (!inList){
-                    System.out.println("Vous n'avez pas de robot avec ce nom.\n");
-                }
-                RobotFleetMenu.displayManageRobotFleet(this);
-    }
-
     public void addMoney(double money){
         this.wallet += money;
     }
 	public boolean changePassword(String oldPass, String newPass) {
         return true;
 	}
-
-    public void userData(){
-        System.out.println("first name: " + this.firstName);
-        System.out.println("last name: " + this.lastName);
-        System.out.println("username: " + this.userName);
-        System.out.println("password: " + this.password);
-        System.out.println("userID: " + this.userID);
-        System.out.println("email: " + this.email);
-        System.out.println("company name: " + this.companyName);
-        System.out.println("phone number: " + this.phoneNumber);
-        System.out.println("wallet: " + this.wallet);
-        System.out.println("robot fleet: " + (this.RobotFleet).toString());
-        System.out.println("interests: " + this.interests);
-        System.out.println("activities: " + this.activities);
-        System.out.println("Followers: " + this.Followers);
-        System.out.println("Following: " + this.Following);
-
-    }
 
     public void changeProfile(){
 
@@ -302,19 +214,6 @@ public class User {
     }
 
 
-
-    public ArrayList<String> getInterests() {
-        return interests;
-    }
-
-
-
-    public void setInterests(ArrayList<String> interests) {
-        this.interests = interests;
-    }
-
-
-
     public ArrayList<Activity> getActivities() {
         return activities;
     }
@@ -334,7 +233,7 @@ public class User {
 
 
     public void setFollowers(ArrayList<User> followers) {
-        Followers = followers;
+        this.Followers = followers;
     }
 
 

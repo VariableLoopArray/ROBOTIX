@@ -5,6 +5,8 @@ import java.util.Scanner;
 
 import javax.xml.crypto.Data;
 
+import Controllers.ActivityController;
+import Controllers.UserController;
 import Database.Database;
 import Models.Activity;
 import Models.Client;
@@ -13,32 +15,32 @@ import Models.User;
 public class ActivityMenu {
     public static void displayManageActivities(User user){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\t\t*** Menu Activité *** \n");
+        System.out.println("\n\n\n\t\t*** Menu Activité *** \n");
         
-        ArrayList<Activity> Available = new ArrayList<Activity>();
+        ArrayList<Activity> availableActivities = new ArrayList<Activity>();
         for (Activity activity : Database.getAllActivities()){
             if (!user.getActivities().contains(activity)){
-                Available.add(activity);
+                availableActivities.add(activity);
             }
         }
 
         System.out.printf("%-30s %s%n", "Mes Activités", "Les Activités Disponibles \n");
         int count = 0;
-        for (int i = 0; i < Math.min(user.getActivities().size(),Available.size()); i++){
+        for (int i = 0; i < Math.min(user.getActivities().size(),availableActivities.size()); i++){
 
             System.out.printf("%-30s %s%n","["+ i +"] "+ user.getActivities().get(i).getName(), "["+ i +"] " +
-           Available.get(i).getName());
+           availableActivities.get(i).getName());
             count ++;
         }
 
-        int bigger = Math.max(user.getActivities().size(), Available.size());
-        if(user.getActivities().size() > Available.size()){
+        int bigger = Math.max(user.getActivities().size(), availableActivities.size());
+        if(user.getActivities().size() > availableActivities.size()){
             for (int i = count; i < bigger; i++){
                 System.out.printf("%-30s %s%n","["+ i +"] "+ user.getActivities().get(i).getName(), "" );
             }
         }else{
             for (int i = count; i < bigger; i++){
-                System.out.printf("%-30s %s%n","" , "["+ i +"] " + Available.get(i).getName());
+                System.out.printf("%-30s %s%n","" , "["+ i +"] " + availableActivities.get(i).getName());
             }
         }
 
@@ -59,93 +61,28 @@ public class ActivityMenu {
 
         switch(value){
             case "0":
-                System.out.println("Entrez le numéro de l'activité que vous voulez ajouter (Colonne de droite)");
-                Activity toAdd = new Activity();
-                boolean isInt = true;
-                while(isInt)
-                try {
-                    String activityToAdd = scanner.nextLine();
-                    toAdd = Available.get(Integer.parseInt(activityToAdd));
-                    isInt = false;
-                } catch (Exception e) {
-                    System.out.println("Erreur: Entrez un numéro valide");
-                }
-                
-                user.addActivity(toAdd);
+                ActivityController.addActivity(user, availableActivities);
                 displayManageActivities(user);
                 break;
 
             case "1":
                 System.out.println("Entrez le numéro de l'activité que vous voulez modifier (Seul créateur de l'activité)");
-
-
+                
                 break;
             case "2":
-
-                
-                System.out.println("Entrez le numéro de l'activité que vous voulez supprimer (Colonne de gauche)");
-
-                Activity toDelete = new Activity();
-                boolean isInt2 = true;
-                while(isInt2){
-                    try {
-                        String activityToDelete = scanner.nextLine();
-                        toDelete = user.getActivities().get(Integer.parseInt(activityToDelete));
-                        isInt2 = false;
-                    } catch (Exception e) {
-                        System.out.println("Erreur: Entrez un numéro valide");
-                    }
-                }
-                user.removeActivity(toDelete);
+                ActivityController.deleteActivity(user);
                 displayManageActivities(user);
                 break;
             case "3":                
 
 
                 break;
-            case "4":
-                
-                int interestCount = 0;
-                int interestToAdd;
-                while(true){
-                    System.out.println("Choisissez l'intérêt que vous voulez ajouter");
-                    for (String interest : Database.getInterests()){
-                        if (!user.getInterests().contains(interest)){
-                            System.out.println(interestCount + " " + interest);
-                            interestCount ++;
-                        }
-                    }
-
-                    interestToAdd = Integer.parseInt(scanner.nextLine());
-                    if (interestToAdd > interestCount - 1 || interestToAdd < 0){
-                        System.out.println("Vous ne pouvez pas choisir ce numéro, svp réessayez");
-                    }
-                    else{
-                        user.addInterest(Database.getInterests().get(interestToAdd));
-                        break;
-                    }
-                }
+            case "4":         
+                UserController.addInterest(user);
                 displayManageActivities(user);
                 break;
             case "5":
-
-                int userInterestCount = 0;
-                for (String userInterest : user.getInterests()){
-                    System.out.println(userInterestCount + " " + userInterest);
-                    userInterestCount++;
-                }
-                while (true){
-                    System.out.println("Choisissez le numéro de l'intérêt que vous voulez enlever");
-                    int interestToDelete = Integer.parseInt(scanner.nextLine()); 
-
-                    if (interestToDelete > userInterestCount - 1 || interestToDelete < 0){
-                        System.out.println("Vous ne pouvez pas choisir ce numéro, svp réessayez");
-                    }
-                    else{
-                        user.deleteInterest(Database.getInterests().get(interestToDelete));
-                        break;
-                    }
-                }
+                UserController.deleteInterest(user);
                 displayManageActivities(user);
                 break;
             case "6":
@@ -160,6 +97,7 @@ public class ActivityMenu {
             default:
                 break;
         }
+        scanner.close();
     }
 
 }

@@ -1,9 +1,15 @@
 package Models;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.UUID;
 
-public class Robot {
+import Models.typeOfRobots.AerialRobot;
+import Models.typeOfRobots.AquaticRobot;
+import Models.typeOfRobots.TerrestrialRobot;
+import Views.RobotFleetMenu;
+
+public abstract class Robot {
 
     private String name;
     private String type;
@@ -29,17 +35,7 @@ public class Robot {
         this.memory = memory;
     }
 
-    public void robotData(){
-        System.out.println("\nNom " + this.name);
-        System.out.println("Type " + this.type);
-        System.out.println("Numéro de série " + this.serialNumber);
-        System.out.println("Battery " + this.battery);
-        System.out.println("Position " + Arrays.toString(this.position));
-        System.out.println("Speed " + this.speed);
-        System.out.println("L'utilisation de CPU " + this.CPUUsage);
-        System.out.println("Utilisation de mémoire " + this.memory+ "\n");
-
-    }
+    public abstract void robotData();
 
     public String getName() {
         return name;

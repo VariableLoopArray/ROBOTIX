@@ -12,12 +12,6 @@ public class RobotFleet {
         this.robots.add(robot);
     }
 
-    public void showRobots(){
-        for (Robot robot : robots){
-            System.out.println(robot.getName() + "\n");
-        }
-    }
-
     public ArrayList<Robot> getRobots() {
         return robots;
     }
