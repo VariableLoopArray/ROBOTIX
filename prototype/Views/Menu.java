@@ -44,6 +44,7 @@ public class Menu {
                 System.exit(0);
                 break;
             default:
+                displayLoginPage();
                 break;
         }
 

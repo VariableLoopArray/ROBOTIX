@@ -10,6 +10,7 @@ public class Activity {
     private int points;
     private User creator;
     private ArrayList<Task> tasks;
+    public Object getTasks;
 
     public Activity(String name, Robot robot, String startDate, String endDate, String interests, int points, User creator, ArrayList<Task> tasks){
         this.name = name;

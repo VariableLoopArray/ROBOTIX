@@ -54,7 +54,7 @@ public class RobotController {
 
             String value = scanner.nextLine();
             switch (value) {
-                case "o":
+                case "0":
                     user.getRobotFleet().add(new AerialRobot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
                     0,new double[] {0.0,0.0,0.0}, 0, 0, 0,0 ));
                     break;
