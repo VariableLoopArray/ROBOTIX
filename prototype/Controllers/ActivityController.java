@@ -205,6 +205,8 @@ public class ActivityController {
             System.out.println(i + ")"+ toView.getTasks().get(i).getName());
         }
     }
+
+    
     public static void createActivity(User user){
         try {
         System.out.println("Création d'une activité pour la plateforme ROBOTIX");
