@@ -92,6 +92,7 @@ public class Menu {
                 Menu.displayLoginPage();
                 break;
             default:
+                displayHomePage(user);
                 break;
         }
 
