@@ -15,6 +15,9 @@ import Models.RobotFleet;
 import Models.Supplier;
 import Models.Task;
 import Models.User;
+import Models.typeOfRobots.AerialRobot;
+import Models.typeOfRobots.AquaticRobot;
+import Models.typeOfRobots.TerrestrialRobot;
 
 public class Database{
         private static ArrayList<User> allUsers = new ArrayList<User>();
@@ -165,11 +168,11 @@ public class Database{
     
 
         //hard code Robots
-        Robot Robot1 = new Robot ("Rob Bott", "explorationRobot", new ArrayList<Component>(Arrays.asList(CPU,Bras,Camera,Helice,Roue)), UUID.randomUUID(), 100, new double[]{0.0f,1.0f,2.0f}, 0.0f,  0.0f, 2048.0f);
-        Robot Robot2 = new Robot("Apon", "serviceRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran,Roue)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 512.0f);
-        Robot Robot3 = new Robot("Robo", "entertainmentRobot", new ArrayList<Component>(Arrays.asList(CPU,HautParleur,Ecran)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 256.0f);
-        Robot Robot4 = new Robot("Copper", "militaryRobot", new ArrayList<Component>(Arrays.asList(CPU,Helice,Bras,Roue)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 2048.0f);
-        Robot Robot5 = new Robot("Bolt", "educationalRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran)), UUID.randomUUID(), 100, new double[]{0.0f,0.0f,0.0f}, 0.0f,  0.0f, 1024.0f);
+        Robot Robot1 = new TerrestrialRobot("Rob Bott", "explorationRobot", new ArrayList<Component>(Arrays.asList(CPU,Bras,Camera,Helice,Roue)), UUID.randomUUID(), 100, new double[]{0.0,1.0,2.0}, 2.5,  0.0, 2048.0, 1500.0);
+        Robot Robot2 = new AerialRobot("DronerX", "explorationRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran,Roue)), UUID.randomUUID(), 100, new double[]{234.0,0.0,10.0}, 3.0,  1.3, 512.0, 2500);
+        Robot Robot3 = new TerrestrialRobot("Robo", "entertainmentRobot", new ArrayList<Component>(Arrays.asList(CPU,HautParleur,Ecran)), UUID.randomUUID(), 100, new double[]{852.0,2453.0,-123.0}, 12.0,  2.0, 256.0,500);
+        Robot Robot4 = new AquaticRobot("Copper", "militaryRobot", new ArrayList<Component>(Arrays.asList(CPU,Helice,Bras,Roue)), UUID.randomUUID(), 100, new double[]{120.0,730.0,30.0}, 130.0,  4.0, 2048.0,2000);
+        Robot Robot5 = new TerrestrialRobot("Bolt", "educationalRobot", new ArrayList<Component>(Arrays.asList(CPU,Ecran)), UUID.randomUUID(), 100, new double[]{42.0,63.0,103.0}, 0.0,  1.0, 1024.0, 100);
 
         allRobots.add(Robot1);
         allRobots.add(Robot2);

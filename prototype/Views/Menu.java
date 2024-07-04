@@ -16,12 +16,12 @@ public class Menu {
     public static void displayLoginPage(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to ROBOTIX");
-        System.out.println("[1] Login");
-        System.out.println("[2] Create Account");
-        System.out.println("[3] Exit");
+        System.out.println("[0] Login");
+        System.out.println("[1] Create Account");
+        System.out.println("[2] Exit");
         String value = scanner.nextLine();
         switch (value) {
-            case "1":
+            case "0":
                 System.out.println("Enter Username:");
                 String username = scanner.nextLine();
                 System.out.println("Enter Password:");
@@ -36,11 +36,11 @@ public class Menu {
                     displayLoginPage();
                 }
                 break;
-            case "2":
+            case "1":
 
                 AdminController.createAccount();
                 break;
-            case "3":
+            case "2":
                 System.exit(0);
                 break;
             default:
@@ -50,15 +50,15 @@ public class Menu {
     }
 
     public static void displayHomePage(User user){
-        System.out.println("Welcome to ROBOTIX " + user.getFirstName() +" "+  user.getLastName());
+        System.out.println("\n\n\nWelcome to ROBOTIX " + user.getFirstName() +" "+  user.getLastName());
 
-        System.out.println("[0] ManageProfile");
-        System.out.println("[1] ManageWallet");
-        System.out.println("[2] ManageOrders");
-        System.out.println("[3] ManageActivities");
-        System.out.println("[4] MyRobotFleet");
-        System.out.println("[5] MyInventory");
-        System.out.println("[6] Logout");
+        System.out.println("[0] Gérer Profile");
+        System.out.println("[1] Gérer Portefeuille");
+        System.out.println("[2] Gérer Commandes");
+        System.out.println("[3] Gérer Activités");
+        System.out.println("[4] Ma Flotte De Robots");
+        System.out.println("[5] Mon Inventaire");
+        System.out.println("[6] Se Déconnecter");
 
         Scanner scanner = new Scanner(System.in);
         String value = scanner.nextLine();
@@ -94,7 +94,7 @@ public class Menu {
                 break;
         }
 
-
+        scanner.close();
     }
     
 }
