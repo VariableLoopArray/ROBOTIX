@@ -144,14 +144,21 @@ public class UserMenu {
                 displayManageWallet(user);
                 break;
             case "1":
-                System.out.println("Indiquez combien d'argent vous voulez ajouter");
+                System.out.println("Entrez le montant que vous voulez ajouter dans votre compte");
                 while (true) {
+                    try {
                     double money = Double.parseDouble(scanner.nextLine());
-                    if (money <= 0 ){
-                        System.out.println("Vous ne pouvez pas ajouter 0$ ou de l'argent négatif.");
-                    }
-                    else{
-                        user.addMoney(money);
+                        if (money <= 0 ){
+                            System.out.println("Entrez un montant valide");
+                            break;
+                        }
+                        else{
+                            user.addMoney(money);
+                            break;
+                        }
+                    } catch (Exception e) {
+                        System.out.println("Entrez un montant valide");
+                        displayManageProfile(user);
                         break;
                     }
                 }
@@ -159,6 +166,10 @@ public class UserMenu {
                 break;
             case "2":
                 Menu.displayHomePage(user);
+                break;
+            default:
+                System.out.println("commande non connue");
+                displayManageWallet(user);
                 break;
 
         }

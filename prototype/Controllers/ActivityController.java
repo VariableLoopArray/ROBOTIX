@@ -69,7 +69,8 @@ public class ActivityController {
                 toModify = Database.getAllActivities().get(Integer.parseInt(activityToModify));
                 isInt3 = false;
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println("Erreur: Entrez un numéro valide");
+                modifyActivity(user);
             }
         }
         System.out.println("Entrez un nouveau nom pour l'activité ou \"skip\" pour ne pas modifier");
