@@ -64,7 +64,7 @@ public class UserController {
             System.out.println("Choisissez le numéro de l'intérêt que vous voulez enlever");
             int interestToDelete = Integer.parseInt(scanner.nextLine()); 
 
-            if (interestToDelete > userInterestCount - 1 || interestToDelete < 0){
+            if (interestToDelete > userInterestCount || interestToDelete < 0){
                 System.out.println("Vous ne pouvez pas choisir ce numéro, svp réessayez");
             }
             else{
