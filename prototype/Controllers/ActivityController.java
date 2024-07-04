@@ -142,4 +142,36 @@ public class ActivityController {
             System.out.println(e.getMessage());
         }
     }
+
+    public static void activityData(User user){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Voici les activités que vous avez ajouté");
+        for (int i = 0; i < user.getActivities().size(); i++){
+            System.out.println("["+i+"] "+ user.getActivities().get(i).getName());
+        }
+
+        System.out.println("Entrez le numéro de l'activité que vous voulez visualiser");
+        Activity toView = new Activity();
+        boolean isInt4 = true;
+        while(isInt4){
+            try {
+                String activityToView = scanner.nextLine();
+                toView = user.getActivities().get(Integer.parseInt(activityToView));
+                isInt4 = false;
+            } catch (Exception e) {
+                System.out.println("Erreur: Entrez un numéro valide");
+            }
+        }
+        System.out.println("Nom: "+ toView.getName());
+        System.out.println("Robot: "+ toView.getRobot().getName());
+        System.out.println("Date de début: "+ toView.getStartDate());
+        System.out.println("Date de fin: "+ toView.getEndDate());
+        System.out.println("Catégorie d'intérêt: "+ toView.getInterests());
+        System.out.println("Points gagnés: "+ toView.getPoints());
+        System.out.println("Créateur: "+ toView.getCreator().getUserName());
+        System.out.println("Tâches: ");
+        for (int i = 0; i < toView.getTasks().size(); i++){
+            System.out.println(i + ")"+ toView.getTasks().get(i).getName());
+        }
+    }
 }
