@@ -23,7 +23,12 @@ public class UserController {
         Scanner scanner = new Scanner(System.in);
         int interestCount = 0;
                     int interestToAdd;
-                    ArrayList<String> availableInterests = new ArrayList<String>(Database.getInterests());
+                    ArrayList<String> availableInterests = new ArrayList<String>();
+                    for (String interest : Database.getInterests()){
+                        if (!user.getInterests().contains(interest)){
+                            availableInterests.add(interest);
+                        }
+                    }
                     while(true){
                         System.out.println("Choisissez l'intérêt que vous voulez ajouter");
                         for (String interest : Database.getInterests()){
@@ -33,9 +38,7 @@ public class UserController {
                             }
                         }
 
-
                         interestToAdd = Integer.parseInt(scanner.nextLine());
-                        availableInterests.remove(interestToAdd);
                         if (interestToAdd > interestCount || interestToAdd < 0){
                             System.out.println("Vous ne pouvez pas choisir ce numéro, svp réessayez");
                         }
