@@ -18,22 +18,8 @@ public class UserController {
 
     }
 
-    public static void manageProfile (User user, Scanner scanner){
-        System.out.println("choisissez ce que vous voulez faire\n"
-        + "1. voir mes données \n2. changer mes données ");
-        switch(scanner.nextLine()){
-            case "1":
-                user.userData();
-                break;
-            case "2":
-                break;
-            default:
-                System.out.println("commande non connue");
-                break;
-        }
-    }
-
     public static void addInterest(User user){
+        try{
         Scanner scanner = new Scanner(System.in);
         int interestCount = 0;
                     int interestToAdd;
@@ -58,9 +44,13 @@ public class UserController {
                             break;
                         }
         }
+        }catch(Exception e){
+            System.out.println("Erreur: Entrez un numéro valide");
+        }
     }
 
     public static void deleteInterest(User user){
+        try{
         Scanner scanner = new Scanner(System.in);
         int userInterestCount = 0;
         for (String userInterest : user.getInterests()){
@@ -78,6 +68,10 @@ public class UserController {
                 user.deleteInterest(user.getInterests().get(interestToDelete));
                 break;
             }
+        }
+    
+        } catch(Exception e){
+            System.out.println("Erreur: Entrez un numéro valide");
         }
     }
 }

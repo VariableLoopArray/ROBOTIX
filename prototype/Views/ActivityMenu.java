@@ -66,16 +66,16 @@ public class ActivityMenu {
                 break;
 
             case "1":
-                System.out.println("Entrez le numéro de l'activité que vous voulez modifier (Seul créateur de l'activité)");
-                
+                ActivityController.modifyActivity(user);
+                displayManageActivities(user);
                 break;
             case "2":
                 ActivityController.deleteActivity(user);
                 displayManageActivities(user);
                 break;
             case "3":                
-
-
+                //ActivityController.createActivity(user);
+                displayManageActivities(user);
                 break;
             case "4":         
                 UserController.addInterest(user);
