@@ -15,6 +15,10 @@ import Views.RobotFleetMenu;
 
 public class RobotController {
     public static void showRobots(User user){
+        if(user.getRobotFleet().getRobots().isEmpty()){
+            System.out.println("\n\n\nVous n'avez pas de robots\n");
+            RobotFleetMenu.displayManageRobotFleet(user);
+        }
         System.out.println("\n\n\nVoici la liste de vos robots:\n");
         for (Robot robot : user.getRobotFleet().getRobots()){
             System.out.println(robot.getName());
@@ -68,7 +72,7 @@ public class RobotController {
                     break;
                 default:
                     System.out.println("\ncommande non connue");
-                    
+                    RobotFleetMenu.displayManageRobotFleet(user);
                     break;
             }
             System.out.println("\nLe robot a été créé avec succès\n");
@@ -77,6 +81,10 @@ public class RobotController {
 
 
     public static void deleteRobot(User user){
+        if(user.getRobotFleet().getRobots().isEmpty()){
+            System.out.println("\n\n\nVous n'avez pas de robots\n");
+            RobotFleetMenu.displayManageRobotFleet(user);
+        }
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\n\n***Suppression de robot***\n");
         System.out.println("Voici la liste de vos robots\n");
@@ -109,8 +117,16 @@ public class RobotController {
 
 
     public static void lookRobot(User user){
+        if(user.getRobotFleet().getRobots().isEmpty()){
+            System.out.println("\n\n\nVous n'avez pas de robots\n");
+            RobotFleetMenu.displayManageRobotFleet(user);
+        }
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\nEntrez le nom du robot que vous voulez examiner\n");
+        System.out.println("\nVoici la liste de vos robots: ");
+        for (Robot robot : user.getRobotFleet().getRobots()){
+            System.out.println(robot.getName());
+        }
+        System.out.println("\nEntrez le nom du robot que vous voulez examiner");
                 String searchName = scanner.nextLine();
                 boolean inList = false;
                 for (Robot robot : user.getRobotFleet().getRobots()){
