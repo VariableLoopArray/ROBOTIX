@@ -13,7 +13,7 @@ public class UserMenu {
     public static void displayManageProfile(User user){
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\n\n*** Menu UTILISATEUR ***");
-        System.out.println("[0] Voir mes données");
+        System.out.println("[0] Visualiser mes données");
         System.out.println("[1] Gérer mes données");
         System.out.println("[2] Retour");
         switch(scanner.nextLine()){
