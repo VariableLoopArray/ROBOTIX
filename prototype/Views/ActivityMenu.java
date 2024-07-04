@@ -15,7 +15,7 @@ import Models.User;
 public class ActivityMenu {
     public static void displayManageActivities(User user){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n\n\n\t\t*** Menu Activité *** \n");
+        System.out.println("\n\n\n\t\t*** Menu Activités *** \n");
         
         ArrayList<Activity> availableActivities = new ArrayList<Activity>();
         for (Activity activity : Database.getAllActivities()){
@@ -72,7 +72,7 @@ public class ActivityMenu {
                     displayManageActivities(user);
                     break;
                 case "3":                
-                    //ActivityController.createActivity(user);
+                    ActivityController.createActivity(user);
                     displayManageActivities(user);
                     break;
                 case "4":
@@ -88,9 +88,7 @@ public class ActivityMenu {
                     displayManageActivities(user);
                     break;
                 case "7":
-                    for (String interestToShow : user.getInterests()){
-                        System.out.println(interestToShow);
-                    }
+                    UserController.interestData(user);
                     displayManageActivities(user);
                     break;
                 case "8":
@@ -126,7 +124,7 @@ public class ActivityMenu {
                     displayManageActivities(user);
                     break;
                 case "3":                
-                    //ActivityController.createActivity(user);
+                    ActivityController.createActivity(user);
                     displayManageActivities(user);
                     break;
                 case "4":

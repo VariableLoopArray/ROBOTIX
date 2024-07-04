@@ -12,7 +12,7 @@ public class UserMenu {
 
     public static void displayManageProfile(User user){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n\n\n*** Menu UTILISATEUR ***");
+        System.out.println("\n\n\n\t\t*** Menu Utilisateur ***");
         System.out.println("[0] Visualiser mes données");
         System.out.println("[1] Gérer mes données");
         System.out.println("[2] Retour");
@@ -74,6 +74,10 @@ public class UserMenu {
                         displayManageProfile(user);
                         break;
                     case "7":
+                        if(Database.getAllUsers().size() == 0){
+                            System.out.println("Il n'y a personne à follow");
+                            displayManageProfile(user);
+                        } else {
                         System.out.println("Voici la liste des personnes que vous pouvez follow");
                         for (User user2 : Database.getAllUsers()){
                             if (!user.getFollowers().contains(user2)){
@@ -93,7 +97,12 @@ public class UserMenu {
                         System.out.println("Le nom est invalide");
                         displayManageProfile(user);
                         break;
+                        }
                     case "8":
+                        if(user.getFollowers().size() == 0){
+                            System.out.println("Vous n'avez personne à unfollow");
+                            displayManageProfile(user);
+                        } else {
                         System.out.println("Voici la liste des personnes que vous pouvez unfollow");
                         for (User user2 : user.getFollowers()){
                             System.out.println(user2.getFirstName());
@@ -113,6 +122,7 @@ public class UserMenu {
                         System.out.println("Le nom est invalide");
                         displayManageProfile(user);
                         break;
+                        }
                     case "9":
                         displayManageProfile(user);
                     default:

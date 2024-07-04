@@ -15,16 +15,16 @@ public class Menu {
 
     public static void displayLoginPage(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Welcome to ROBOTIX");
-        System.out.println("[0] Login");
-        System.out.println("[1] Create Account");
-        System.out.println("[2] Exit");
+        System.out.println("\n\n\n\t\t*** Menu de Connexion ***\n");
+        System.out.println("[0] Se connecter");
+        System.out.println("[1] Créer un compte");
+        System.out.println("[2] Quitter");
         String value = scanner.nextLine();
         switch (value) {
             case "0":
-                System.out.println("Enter Username:");
+                System.out.println("Entrez votre nom d'utilisateur:");
                 String username = scanner.nextLine();
-                System.out.println("Enter Password:");
+                System.out.println("Entrez votre mot de passe:");
                 String password = scanner.nextLine();
                 User user = new User();
                 
@@ -32,7 +32,7 @@ public class Menu {
                     user = Database.getAllUsers().get(LoginController.login(username,password,Database.getAllUsers()));
                     displayHomePage(user);
                 } else {
-                    System.out.println("wrong  password or username please try again");
+                    System.out.println("Nom d'utilisateur ou mot de passe incorrect, veuillez réessayer");
                     displayLoginPage();
                 }
                 break;
@@ -51,7 +51,7 @@ public class Menu {
     }
 
     public static void displayHomePage(User user){
-        System.out.println("\n\n\nWelcome to ROBOTIX " + user.getFirstName() +" "+  user.getLastName());
+        System.out.println("\n\n\nBienvenue chez ROBOTIX " + user.getFirstName() +" "+  user.getLastName());
 
         System.out.println("[0] Gérer Profile");
         System.out.println("[1] Gérer Portefeuille");
