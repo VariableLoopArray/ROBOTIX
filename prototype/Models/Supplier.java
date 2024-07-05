@@ -44,10 +44,61 @@ public class Supplier extends User{
             System.out.println(following.getUserName());
         }
         System.out.println("\nCapacité de production: " + this.productionCapacity);
-        System.out.println("\nComposants: ");
-        for (Component component : this.storage){
-            System.out.println(component.getName());
+    }
+
+    public void showInventory(){
+        int CPUCount = 0;
+        int roueCount = 0;
+        int brasCount = 0;
+        int heliceCount = 0;
+        int cameraCount = 0;
+        int hautParleurCount = 0;
+        int microCount = 0;
+        int ecranCount = 0;
+
+        for (Component component : this.getStorage()){
+            if (component.getName().contains("CPU")){
+                CPUCount++;
+            }
+            if (component.getName().contains("Roue")){
+                roueCount++;
+            }
+            if (component.getName().contains("Bras")){
+                brasCount++;
+            }
+            if (component.getName().contains("Hélice")){
+                heliceCount++;
+            }
+            if (component.getName().contains("Caméra")){
+                cameraCount++;
+            }
+            if (component.getName().contains("Haut-Parleur")){
+                hautParleurCount++;
+            }
+            if (component.getName().contains("Microphone")){
+                microCount++;
+            }
+            if (component.getName().contains("Écran")){
+                ecranCount++;
+            }
         }
 
+        System.out.println(CPUCount + " CPU");
+        System.out.println(roueCount + " Roues");
+        System.out.println(brasCount + " Bras");
+        System.out.println(heliceCount + " Hélices");
+        System.out.println(cameraCount + " Caméras");
+        System.out.println(hautParleurCount + " Haut-Parleurs");
+        System.out.println(microCount + " Microphone");
+        System.out.println(ecranCount + " Écran");
+
+    }
+    
+    public ArrayList<Component> getStorage(){
+        return storage;
+    }
+
+    public void setStorage(ArrayList<Component> storage){
+        this.storage = storage;
     }
 }

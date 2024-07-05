@@ -1,18 +1,19 @@
 package Models;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Activity {
     private String name;
     private Robot robot;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String interests;   
     private int points;
     private User creator;
     private ArrayList<Task> tasks;
     public Object getTasks;
 
-    public Activity(String name, Robot robot, String startDate, String endDate, String interests, int points, User creator, ArrayList<Task> tasks){
+    public Activity(String name, Robot robot, LocalDate startDate, LocalDate endDate, String interests, int points, User creator, ArrayList<Task> tasks){
         this.name = name;
         this.robot = robot;
         this.startDate = startDate;
@@ -41,19 +42,19 @@ public class Activity {
         this.robot = robot;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

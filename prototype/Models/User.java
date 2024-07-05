@@ -30,8 +30,7 @@ public class User {
     private ArrayList<User> Following; 
 
     public User( String firstName, String lastName, String username, String password,
-    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet,
-    ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following ){
+    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet, ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = username;
@@ -67,6 +66,9 @@ public class User {
     public void userData(){
     }
 
+    public void showInventory(){
+        
+    }
 
 
     public ArrayList<String> getInterests(){
