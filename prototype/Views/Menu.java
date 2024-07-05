@@ -76,7 +76,6 @@ public class Menu {
                 break;
             case "2":
                 UserMenu.displayManageOrders(user);
-                displayHomePage(user);
                 break;
             case "3":
                 ActivityMenu.displayManageActivities(user);

@@ -1,13 +1,18 @@
 package Views;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
+import java.util.UUID;
 
+import Controllers.UserController;
+import Models.Supplier;
 import Database.Database;
+import Models.Client;
+import Models.Component;
+import Models.Order;
 import Models.User;
 
-/**
- * UserMenu
- */
 public class UserMenu {
 
     public static void displayManageProfile(User user){
@@ -186,30 +191,124 @@ public class UserMenu {
     }
     
     public static void displayManageOrders(User user){
-        System.out.println("\n\n\n*** Menu COMMANDES ***");
-        System.out.println("[0] Voir mes commandes");
-        System.out.println("[1] Commander une composante");
-        System.out.println("[2] Retour");
+        try {
+            if(user instanceof User){
+                System.out.println("\n\n\n*** Menu COMMANDES ***");
+            System.out.println("[0] Voir mes commandes");
+            System.out.println("[1] Commander une composante");
+            System.out.println("[2] Retour");
+            Scanner scanner = new Scanner(System.in);
+            switch(scanner.nextLine()){
+                case "0":
+                    user.showOrders();
+                    displayManageOrders(user);
+                    break;
+                case "1":
+                    UserController.order(user);
+                    break;
+                case "2":
+                    Menu.displayHomePage(user);
+                    break;
+                default:
+                    System.out.println("Entrée invalide");
+                    displayManageOrders(user);
+                    break;
+            }
+            } else if (user instanceof Supplier) {
+                System.out.println("\n\n\n*** Menu COMMANDES ***");
+                System.out.println("[0] Voir mes ventes");
+                System.out.println("[1] Quitter");
+                Scanner scanner = new Scanner(System.in);
+                switch(scanner.nextLine()){
+                    case "0":
+                        user.showOrders();
+                        displayManageOrders(user);
+                        break;
+                    case "1":
+                        Menu.displayHomePage(user);
+                        break;
+                    default:
+                        System.out.println("Entrée invalide");
+                        displayManageOrders(user);
+                        break;
+                }
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Entrée invalide");
+            displayManageOrders(user);
+        }
     }
 
+
+    
     public static void displayManageInventory(User user){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choisissez ce que vous voulez faire");
-        System.out.println("[0] Voir mon inventaire ");
-        System.out.println("[1] Enlever des composantes de mon inventaire");
-        System.out.println("[2] Retour");
-        while(true){
-            try {
+        
+        try {
+            if (user instanceof Client) {
+                System.out.println("Choisissez ce que vous voulez faire");
+                System.out.println("[0] Voir mon inventaire ");
+                System.out.println("[1] Enlever des composantes de mon inventaire");
+                System.out.println("[2] Retour");
+
+                
+                
                 switch(scanner.nextLine()){
                     case "0":
                         user.showInventory();
+                        displayManageInventory(user);
                         break;
                     case "1":
-                        
-                }
-            } catch (Exception e) {
+                        user.deleteInventory();
+                        displayManageInventory(user);
+                        break;
+                    case "2":
+                        Menu.displayHomePage(user);
+                        break;
+                    default:
+                        System.out.println("Commande Inconnue, veuillez réessayer");
+                        displayManageInventory(user);
+                        break;
+                    }
+                    
+            } else if (user instanceof Supplier)
+            {
+                System.out.println("Choisissez ce que vous voulez faire");
+                System.out.println("[0] Voir mon inventaire ");
+                System.out.println("[1] Enlever une composantes de mon inventaire");
+                System.out.println("[2] Ajouter une composante à mon inventaire");
+                System.out.println("[3] Retour");
+
+
+                    switch(scanner.nextLine()){
+                        case "0":
+                            user.showInventory();
+                            displayManageInventory(user);
+                            break;
+                        case "1":
+                            user.deleteInventory();
+                            displayManageInventory(user);
+                            break;
+                        case "2":
+                            Supplier userS = (Supplier) user;
+                            userS.addComponents();
+                            displayManageInventory(user);
+                            break;
+                        case "3":
+                            Menu.displayHomePage(user);
+                            break;
+                        default:
+                            System.out.println("Commande Inconnue, veuillez réessayer");
+                            displayManageInventory(user);
+                            break;
+                    }
+                    
+            
+            }
+            }catch (Exception e) {
                 System.out.println("Entrée invalide veuillez réessayez.");
             }
-        }
+        
     }
 }

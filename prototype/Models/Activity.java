@@ -7,17 +7,19 @@ public class Activity {
     private Robot robot;
     private LocalDate startDate;
     private LocalDate endDate;
+    private String status;
     private String interests;   
     private int points;
     private User creator;
     private ArrayList<Task> tasks;
     public Object getTasks;
 
-    public Activity(String name, Robot robot, LocalDate startDate, LocalDate endDate, String interests, int points, User creator, ArrayList<Task> tasks){
+    public Activity(String name, Robot robot, LocalDate startDate, LocalDate endDate, String status, String interests, int points, User creator, ArrayList<Task> tasks){
         this.name = name;
         this.robot = robot;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.status = status;
         this.interests = interests;
         this.points = points;
         this.creator = creator;
@@ -56,6 +58,12 @@ public class Activity {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getInterests() {

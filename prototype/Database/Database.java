@@ -79,23 +79,23 @@ public class Database{
 
         Supplier user11 = new Supplier("Michael","Oliver","MichaelOliver521","password6",UUID.randomUUID(),
         "MichaelOliver@gmail.com","Amazon","514-666-6666",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 10, new ArrayList<Component>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 10, new ArrayList<Component>(), new ArrayList<Order>());
 
         Supplier user12 = new Supplier("Frankie","Charles","FrankieCharles178","password7",UUID.randomUUID(),
         "FrankieCharles@gmail.com","WheelCar.inc","514-777-7777",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 7, new ArrayList<Component>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 7, new ArrayList<Component>(), new ArrayList<Order>());
 
         Supplier user13 = new Supplier("Josh","Burton","JoshBurton412","password8",UUID.randomUUID(),
         "JoshBurton@gmail.com","Apple","514-888-8888",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 4, new ArrayList<Component>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 4, new ArrayList<Component>(), new ArrayList<Order>());
 
         Supplier user14 = new Supplier("Sophie","Moreno","SophieMoreno723","password9",UUID.randomUUID(),
         "SophieMoreno@gmail.com","Google","514-999-9999",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 5, new ArrayList<Component>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 5, new ArrayList<Component>(), new ArrayList<Order>());
 
         Supplier user15 = new Supplier("Edward","Blair","EdwardBlair413","password10",UUID.randomUUID(),
         "EdwardBlair@gmail.com","AeroX","514-123-4567",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 8, new ArrayList<Component>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 8, new ArrayList<Component>(), new ArrayList<Order>());
 
         allUsers.add(user1);
         allClients.add(user1);
@@ -308,11 +308,11 @@ public class Database{
 
         
         //hard code activities
-        Activity Activity1 = new Activity("CodingBootCamp", Robot5, "2024-07-03", "2024-09-03", "Éducation et Apprentissage", 150, user10, new ArrayList<Task>(Arrays.asList(task1ForActivity1,task2ForActivity1,task3ForActivity1)));
-        Activity Activity2 = new Activity("Recette de cuisine", Robot5, "2024-07-30", "2024-07-30","Éducation et Apprentissage" , 15, user9, new ArrayList<Task>(Arrays.asList(task1ForActivity2,task2ForActivity2,task3ForActivity2)));
-        Activity Activity3 = new Activity("Concert de Jazz", Robot3, "2024-08-03", "2024-08-03", "Musique et Arts du Spectacle", 10, user8, new ArrayList<Task>(Arrays.asList(task1ForActivity3,task2ForActivity3,task3ForActivity3)));
-        Activity Activity4 = new Activity("Exploration de la cave", Robot1, "2024-08-10", "2024-08-10", "Activité de Plein Air et Aventure", 20, user7, new ArrayList<Task>(Arrays.asList(task1ForActivity4,task2ForActivity4,task3ForActivity4)));
-        Activity Activity5 = new Activity("Ranger la maison", Robot2, "2024-08-17", "2024-08-17", "Santé et Bien-être", 10, user6, new ArrayList<Task>(Arrays.asList(task1ForActivity5,task2ForActivity5,task3ForActivity5)));
+        Activity Activity1 = new Activity("CodingBootCamp", Robot5, LocalDate.parse("2024-07-03"), LocalDate.parse("2024-09-03"),"En cours", "Éducation et Apprentissage", 150, user10, new ArrayList<Task>(Arrays.asList(task1ForActivity1,task2ForActivity1,task3ForActivity1)));
+        Activity Activity2 = new Activity("Recette de cuisine", Robot5, LocalDate.parse("2024-07-30"), LocalDate.parse("2024-07-30"),"Non débutée", "Éducation et Apprentissage" , 15, user9, new ArrayList<Task>(Arrays.asList(task1ForActivity2,task2ForActivity2,task3ForActivity2)));
+        Activity Activity3 = new Activity("Concert de Jazz", Robot3, LocalDate.parse("2024-08-03"), LocalDate.parse("2024-08-03"),"Non débutée", "Musique et Arts du Spectacle", 10, user8, new ArrayList<Task>(Arrays.asList(task1ForActivity3,task2ForActivity3,task3ForActivity3)));
+        Activity Activity4 = new Activity("Exploration de la cave", Robot1, LocalDate.parse("2024-08-10"), LocalDate.parse("2024-08-10"), "Non débutée", "Activité de Plein Air et Aventure", 20, user7, new ArrayList<Task>(Arrays.asList(task1ForActivity4,task2ForActivity4,task3ForActivity4)));
+        Activity Activity5 = new Activity("Ranger la maison", Robot2, LocalDate.parse("2024-06-17"), LocalDate.parse("2024-06-17"),"Terminée","Santé et Bien-être", 10, user6, new ArrayList<Task>(Arrays.asList(task1ForActivity5,task2ForActivity5,task3ForActivity5)));
 
         allActivities.add(Activity1);
         allActivities.add(Activity2);
