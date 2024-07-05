@@ -28,9 +28,11 @@ public class User {
     private ArrayList<Activity> activities;
     private ArrayList<User> Followers;
     private ArrayList<User> Following; 
+    private ArrayList<Order> orders;
 
     public User( String firstName, String lastName, String username, String password,
-    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet, ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following ){
+    UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet,
+    ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following, ArrayList<Order> orders){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = username;
@@ -40,13 +42,18 @@ public class User {
         this.email = email;
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
+        this.wallet = wallet;
 
         this.RobotFleet = RobotFleet;
         this.activities = activities;
         this.Followers = Followers;
         this.Following = Following; 
+        this.orders = orders;
 
 
+    }
+
+    public void showOrders(){
     }
 
     public void addActivity(Activity activity){
@@ -69,7 +76,13 @@ public class User {
     public void showInventory(){
         
     }
+    public void deleteInventory(){
 
+    }
+
+    public ArrayList<Component> getInventory(){
+        return new ArrayList<Component>();
+    }
 
     public ArrayList<String> getInterests(){
         return null;
@@ -249,8 +262,17 @@ public class User {
     public void setFollowing(ArrayList<User> following) {
         Following = following;
     }
+
+    public ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(ArrayList<Order> orders) {
+        this.orders = orders;
+    }
     
     public User(){
 
     }
+
 }

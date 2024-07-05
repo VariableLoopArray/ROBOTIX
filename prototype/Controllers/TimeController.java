@@ -28,7 +28,11 @@ public class TimeController {
                 for (User u : Database.getAllUsers()){
                     for (Activity activity : u.getActivities()){
                         if (activity.getEndDate().isBefore(Database.getTime())){
-                            u.getActivities().remove(activity);
+                            activity.setStatus("Terminée");
+                        } else if (activity.getStartDate().isBefore(Database.getTime()) && activity.getEndDate().isAfter(Database.getTime())) {
+                            activity.setStatus("En cours");
+                        } else {
+                            activity.setStatus("Non débutée");
                         }
                     }
                 }
@@ -41,8 +45,6 @@ public class TimeController {
                 System.out.println("Entrée invalide");
                 displayTimeMenu(user);
                 break;
-        }
-        
+        }    
     }
-
 }

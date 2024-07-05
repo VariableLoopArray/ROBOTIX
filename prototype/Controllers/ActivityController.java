@@ -1,4 +1,5 @@
 package Controllers;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -116,12 +117,12 @@ public class ActivityController {
         System.out.println("Entrez une nouvelle date de début (format: yyyy-mm-dd) ou \"skip\" pour ne pas modifier");
         answers = scanner.nextLine();
         if (!answers.equals("skip")){
-            toModify.setStartDate(answers);
+            toModify.setStartDate(LocalDate.parse(answers));
         }
         System.out.println("Entrez une nouvelle date de fin (format: yyyy-mm-dd) ou \"skip\" pour ne pas modifier");
         answers = scanner.nextLine();
         if (!answers.equals("skip")){
-            toModify.setEndDate(answers);
+            toModify.setEndDate(LocalDate.parse(answers));
         }
         System.out.println("Entrez une nouvelle catégorie d'intérèt ou \"skip\" pour ne pas modifier");
         System.out.println("Les intérêts actuels sont: ");
@@ -231,9 +232,9 @@ public class ActivityController {
         }
 
         System.out.println("Entrez la date de début (format: yyyy-mm-dd)");
-        newActivity.setStartDate(scanner.nextLine());
+        newActivity.setStartDate(LocalDate.parse(scanner.nextLine()));
         System.out.println("Entrez la date de fin (format: yyyy-mm-dd)");
-        newActivity.setEndDate(scanner.nextLine());
+        newActivity.setEndDate(LocalDate.parse(scanner.nextLine()));
         System.out.println("Voici les catégories d'intérêts disponibles:");
         for (int i = 0; i < Database.getInterests().size(); i++){
             System.out.println("["+i+"] "+ Database.getInterests().get(i));

@@ -1,17 +1,24 @@
 package Models;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
 public class Order {
     private UUID orderNumber;
-    private String orderDate;
+    private LocalDate orderDate;
     private ArrayList<Component> components;
+    private Client client;
+    private Supplier supplier;
     private String status;
 
-    public Order(UUID orderNumber, String orderDate, ArrayList<Component> components, String status){
+
+    public Order(UUID orderNumber, LocalDate orderDate, ArrayList<Component> components, String status, Client client, Supplier supplier){
         this.orderNumber = orderNumber;
         this.orderDate = orderDate;
         this.components = components;
+        this.client = client;
+        this.supplier = supplier;
+        this.status = status;
     }
 
     public UUID getOrderNumber() {
@@ -22,11 +29,11 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
-    public String getOrderDate() {
+    public LocalDate getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(String orderDate) {
+    public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
     }
 
@@ -38,6 +45,19 @@ public class Order {
         this.components = components;
     }
 
+    public Client getClient() {
+        return client;
+    }
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
     public String getStatus() {
         return status;
     }

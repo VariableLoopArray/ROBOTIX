@@ -105,7 +105,7 @@ public class AdminController {
                 if (userType.equals("fournisseur")){
                     Supplier newUser = new Supplier(firstName, lastName, userName, passWord, userID,
                     email, companyName, phoneNumber,wallet, robotFleet, activities,
-                    Followers, Following,productionCapacity, storage);
+                    Followers, Following,productionCapacity, storage, orders);
                     Database.getAllUsers().add(newUser);
                     Database.getAllSuppliers().add(newUser);
                     System.out.println("user successfully created");
