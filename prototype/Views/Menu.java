@@ -8,6 +8,7 @@ import javax.xml.crypto.Data;
 import Controllers.ActivityController;
 import Controllers.AdminController;
 import Controllers.LoginController;
+import Controllers.TimeController;
 import Controllers.UserController;
 import Database.Database;
 import Models.User;
@@ -59,7 +60,8 @@ public class Menu {
         System.out.println("[3] Gérer Activités");
         System.out.println("[4] Ma Flotte De Robots");
         System.out.println("[5] Mon Inventaire");
-        System.out.println("[6] Se Déconnecter");
+        System.out.println("[6] Sauter une journée");
+        System.out.println("[7] Se Déconnecter");
 
         Scanner scanner = new Scanner(System.in);
         String value = scanner.nextLine();
@@ -73,22 +75,23 @@ public class Menu {
                 UserMenu.displayManageWallet(user);
                 break;
             case "2":
-                System.out.println("cette page est indisponible pour le moment");
+                UserMenu.displayManageOrders(user);
                 displayHomePage(user);
                 break;
             case "3":
                 ActivityMenu.displayManageActivities(user);
-                
                 break;
             case "4":
                 RobotFleetMenu.displayManageRobotFleet(user);
-                
                 break;
             case "5":
                 System.out.println("cette page est indisponible pour le moment");
-                displayHomePage(user);
+                UserMenu.displayManageInventory(user);
                 break;
             case "6":
+                TimeController.displayTimeMenu(user);
+                break;
+            case "7":
                 Menu.displayLoginPage();
                 break;
             default:

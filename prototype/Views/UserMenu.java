@@ -126,7 +126,7 @@ public class UserMenu {
                     case "9":
                         displayManageProfile(user);
                     default:
-                        System.out.println("commande non connue");
+                        System.out.println("Entrée invalide");
                         displayManageProfile(user);
                         break;
                 }
@@ -136,14 +136,14 @@ public class UserMenu {
                 Menu.displayHomePage(user);
                 break;
             default:
-                System.out.println("commande non connue");
+                System.out.println("Entrée invalide");
                 displayManageProfile(user);
                 break;
         }
 }
     public static void displayManageWallet(User user){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\n\n\n*** Menu PORTEFEUILLE ***");
+        System.out.println("\n\n\n*** Menu Portefeuille ***");
         System.out.println("[0] Regarder la quantité d'argent dans ma portefeuille");
         System.out.println("[1] Ajouter de l'argent dans mon compte");
         System.out.println("[2] retour");
@@ -182,6 +182,34 @@ public class UserMenu {
                 displayManageWallet(user);
                 break;
 
+        }
+    }
+    
+    public static void displayManageOrders(User user){
+        System.out.println("\n\n\n*** Menu COMMANDES ***");
+        System.out.println("[0] Voir mes commandes");
+        System.out.println("[1] Commander une composante");
+        System.out.println("[2] Retour");
+    }
+
+    public static void displayManageInventory(User user){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choisissez ce que vous voulez faire");
+        System.out.println("[0] Voir mon inventaire ");
+        System.out.println("[1] Enlever des composantes de mon inventaire");
+        System.out.println("[2] Retour");
+        while(true){
+            try {
+                switch(scanner.nextLine()){
+                    case "0":
+                        user.showInventory();
+                        break;
+                    case "1":
+                        
+                }
+            } catch (Exception e) {
+                System.out.println("Entrée invalide veuillez réessayez.");
+            }
         }
     }
 }

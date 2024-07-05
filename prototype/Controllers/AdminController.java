@@ -55,6 +55,8 @@ public class AdminController {
 
                 RobotFleet robotFleet = new RobotFleet(new ArrayList<Robot>());
 
+                ArrayList<Component> inventory = new ArrayList<Component>();
+
                 float wallet = 0;
 
                 ArrayList<String> interests = new ArrayList<String>();
@@ -112,7 +114,7 @@ public class AdminController {
 
                 else if (userType.equals("client")){
                     Client newUser = new Client(firstName, lastName, userName, passWord, userID,
-                    email, companyName, phoneNumber,wallet, robotFleet,interests, activities,
+                    email, companyName, phoneNumber,wallet, robotFleet,inventory, interests, activities,
                     Followers, Following, orders);
                     Database.getAllUsers().add(newUser);
                     Database.getAllClients().add(newUser);
