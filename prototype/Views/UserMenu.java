@@ -193,7 +193,7 @@ public class UserMenu {
     public static void displayManageOrders(User user){
         try {
             if(user instanceof User){
-                System.out.println("\n\n\n*** Menu COMMANDES ***");
+                System.out.println("\n\n\n*** Menu Commandes ***");
             System.out.println("[0] Voir mes commandes");
             System.out.println("[1] Commander une composante");
             System.out.println("[2] Retour");
@@ -215,7 +215,7 @@ public class UserMenu {
                     break;
             }
             } else if (user instanceof Supplier) {
-                System.out.println("\n\n\n*** Menu COMMANDES ***");
+                System.out.println("\n\n\n*** Menu Commandes ***");
                 System.out.println("[0] Voir mes ventes");
                 System.out.println("[1] Quitter");
                 Scanner scanner = new Scanner(System.in);

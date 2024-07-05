@@ -129,7 +129,7 @@ public class UserController {
                         for (Component component : supplier.getStorage()){
 
                             if (component.getName().equalsIgnoreCase(supplierOrComponent[1].trim())){
-                                Order order = new Order(UUID.randomUUID(),Database.getTime(),new ArrayList<>(Arrays.asList(component)),"En attente", (Client) user,supplier);
+                                Order order = new Order(UUID.randomUUID(),Database.getTime(),Database.getTime().plusDays(5),new ArrayList<>(Arrays.asList(component)),"En cours", (Client) user,supplier);
                                 user.getOrders().add(order);
                                 System.out.println("La commande a été passée avec succès");
                                 UserMenu.displayManageOrders(user);

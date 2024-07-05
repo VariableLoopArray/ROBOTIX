@@ -284,6 +284,7 @@ public class Client extends User{
                                 UserMenu.displayManageInventory(this);
                                 break;
                             }
+                            
                 } catch (Exception e) {
                     System.out.println("Entrée Invalide, veuillez réessayer");
                     UserMenu.displayManageInventory(this);
@@ -292,6 +293,20 @@ public class Client extends User{
                 UserMenu.displayManageInventory(this);
                 
         
+    }
+    
+    public void showOrders(){
+        for (Order order : this.getOrders()){
+            System.out.println("ID de la commande: " + order.getOrderNumber());
+            System.out.println("Date de la commande: " + order.getOrderDate());
+            System.out.println("Date de livraison: " + order.getArrivalDate());
+            System.out.println("Composantes: ");
+            for (Component component : order.getComponents()){
+                System.out.println(component.getName());
+            }
+            System.out.println("Statut: " + order.getStatus());
+            System.out.println("Fournisseur: " + order.getSupplier().getUserName());
+        }
     }
 
 

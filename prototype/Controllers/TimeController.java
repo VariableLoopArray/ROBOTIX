@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Models.User;
 import Views.Menu;
 import Models.Activity;
+import Models.Order;
 
 
 public class TimeController {
@@ -33,6 +34,11 @@ public class TimeController {
                             activity.setStatus("En cours");
                         } else {
                             activity.setStatus("Non débutée");
+                        }
+                    }
+                    for (Order order : u.getOrders()){
+                        if (order.getArrivalDate().isBefore(Database.getTime())){
+                            order.setStatus("Livrée");
                         }
                     }
                 }
