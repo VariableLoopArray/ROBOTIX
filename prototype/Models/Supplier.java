@@ -1,5 +1,6 @@
 package Models;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
@@ -20,6 +21,7 @@ public class Supplier extends User{
         super( firstName, lastName,  username,  password, userID, email, companyName, phoneNumber,wallet, RobotFleet, 
         activities, Followers, Following, orders);
         this.productionCapacity = productionCapacity;
+        storage.add(new Component("CPU", new ArrayList<String>(Arrays.asList("haute performance","léger")), 350.0f, 1.0f, 1.0f, 1.0f, this ,UUID.randomUUID()));
         this.storage = storage;
     }
 
