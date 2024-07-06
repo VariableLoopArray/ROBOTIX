@@ -133,7 +133,7 @@ public class UserController {
                                 Order order = new Order(UUID.randomUUID(),Database.getTime(),Database.getTime().plusDays(5),new ArrayList<>(Arrays.asList(component)),"En cours", (Client) user,supplier);
                                 user.getOrders().add(order);
                                 //supplier.getOrders().add(order);
-                                //supplier.getStorage().remove(component);
+                                supplier.getStorage().remove(component);
                                 System.out.println("La commande a été passée avec succès");
                                 UserMenu.displayManageOrders(user);
                                 break;
