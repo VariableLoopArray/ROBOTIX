@@ -6,15 +6,17 @@ import java.util.UUID;
 public class Order {
     private UUID orderNumber;
     private LocalDate orderDate;
+    private LocalDate arrivalDate;
     private ArrayList<Component> components;
     private Client client;
     private Supplier supplier;
     private String status;
 
 
-    public Order(UUID orderNumber, LocalDate orderDate, ArrayList<Component> components, String status, Client client, Supplier supplier){
+    public Order(UUID orderNumber, LocalDate orderDate,LocalDate arrivalDate,ArrayList<Component> components, String status, Client client, Supplier supplier){
         this.orderNumber = orderNumber;
         this.orderDate = orderDate;
+        this.arrivalDate = arrivalDate;
         this.components = components;
         this.client = client;
         this.supplier = supplier;
@@ -35,6 +37,12 @@ public class Order {
 
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
+    }
+    public LocalDate getArrivalDate() {
+        return arrivalDate;
+    }
+    public void setArrivalDate(LocalDate arrivalDate) {
+        this.arrivalDate = arrivalDate;
     }
 
     public ArrayList<Component> getComponents() {

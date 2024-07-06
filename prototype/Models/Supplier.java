@@ -1,5 +1,6 @@
 package Models;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
@@ -20,6 +21,7 @@ public class Supplier extends User{
         super( firstName, lastName,  username,  password, userID, email, companyName, phoneNumber,wallet, RobotFleet, 
         activities, Followers, Following, orders);
         this.productionCapacity = productionCapacity;
+        storage.add(new Component("CPU", new ArrayList<String>(Arrays.asList("haute performance","léger")), 350.0f, 1.0f, 1.0f, 1.0f, this ,UUID.randomUUID()));
         this.storage = storage;
     }
 
@@ -102,35 +104,39 @@ public class Supplier extends User{
     }
 
     public void addComponents(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Ajout de composantes\n\n");
-        for (int i = 0; i < Database.getAllComponents().size(); i++){
-            System.out.println("[" + i + "]" + Database.getAllComponents().get(i).getName());
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Ajout de composantes\n\n");
+            for (int i = 0; i < Database.getAllComponents().size(); i++){
+                System.out.println("[" + i + "]" + Database.getAllComponents().get(i).getName());
+            }
+            System.out.println("Entrez le numéro de la composante que vous voulez ajouter");
+            int componentNumber = Integer.parseInt(scanner.nextLine());
+            String componentName = Database.getAllComponents().get(componentNumber).getName();
+            System.out.println("Entrez les tags de la composante separés par des virgules(ex: tag1,tag2,tag3)");
+            String [] tags = scanner.nextLine().split(",");
+            System.out.println("Entrez le prix de la composante (en $)");
+            float price = Float.parseFloat(scanner.nextLine());
+            System.out.println("Entrez la largeur de la composante (en cm)");
+            float width = Float.parseFloat(scanner.nextLine());
+            System.out.println("Entrez la longueur de la composante (en cm)");
+            float length = Float.parseFloat(scanner.nextLine());
+            System.out.println("Entrez le poids de la composante (en kg)");
+            float weight = Float.parseFloat(scanner.nextLine());
+            UUID serialNumber = UUID.randomUUID();
+            Component component = new Component(componentName, new ArrayList<String>(List.of(tags)), price, width, length, weight,this, serialNumber);
+            this.getStorage().add(component);
+            System.out.println("La composante a été ajoutée avec succès");
+        } catch (Exception e) {
+            System.out.println("Entrée Invalide, veuillez réessayer");
+            UserMenu.displayManageInventory(this);
         }
-        System.out.println("Entrez le numéro de la composante que vous voulez ajouter");
-        int componentNumber = Integer.parseInt(scanner.nextLine());
-        String componentName = Database.getAllComponents().get(componentNumber).getName();
-        System.out.println("Entrez les tags de la composante separés par des virgules(ex: tag1,tag2,tag3)");
-        String [] tags = scanner.nextLine().split(",");
-        System.out.println("Entrez le prix de la composante (en $)");
-        float price = Float.parseFloat(scanner.nextLine());
-        System.out.println("Entrez la largeur de la composante (en cm)");
-        float width = Float.parseFloat(scanner.nextLine());
-        System.out.println("Entrez la longueur de la composante (en cm)");
-        float length = Float.parseFloat(scanner.nextLine());
-        System.out.println("Entrez le poids de la composante (en kg)");
-        float weight = Float.parseFloat(scanner.nextLine());
-        UUID serialNumber = UUID.randomUUID();
-        Component component = new Component(componentName, new ArrayList<String>(List.of(tags)), price, width, length, weight,this, serialNumber);
-        this.getStorage().add(component);
-        System.out.println("La composante a été ajoutée avec succès");
-        
     }
 
     @Override
     public void deleteInventory(){
         Scanner scanner = new Scanner(System.in);
-        int CPUCount = 0;
+                int CPUCount = 0;
                 int roueCount = 0;
                 int brasCount = 0;
                 int heliceCount = 0;
@@ -139,8 +145,10 @@ public class Supplier extends User{
                 int microCount = 0;
                 int ecranCount = 0;
 
-                for (Component component : this.getInventory()){
+                for (Component component : this.getStorage()){
+                    System.out.println(component.getName());
                     if (component.getName().contains("CPU")){
+                        System.out.println("did it enter");
                         CPUCount++;
                     }
                     if (component.getName().contains("Roue")){
@@ -166,7 +174,7 @@ public class Supplier extends User{
                     }
                 }
                     try {
-                        System.out.println("Entrez le nom de la composante que vous voulez enlever");
+                        System.out.println("Entrez le numéro de la composante que vous voulez enlever");
                         System.out.println("[0] CPU");
                         System.out.println("[1] Roue");
                         System.out.println("[2] Bras");
@@ -179,7 +187,9 @@ public class Supplier extends User{
                         
                         switch(scanner.nextLine()){
                             case "0":
+                            System.out.println(CPUCount);
                                 if (CPUCount < 1){
+
                                     System.out.println("Vous n'avez pas de CPU à enlever.");
                                 }
                                 else{
@@ -190,11 +200,12 @@ public class Supplier extends User{
                                         }
                                     }
                                 }
+
                                 UserMenu.displayManageInventory(this);
                                 break;
                             case "1":
                                 if (roueCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Roue à enlever.");
                                 }
                                 else{
                                     for (Component component : this.storage){
@@ -208,7 +219,7 @@ public class Supplier extends User{
                                 break;
                             case "2":
                                 if (brasCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Bras à enlever.");
                                 }
                                 else{
                                     for (Component component : this.storage){
@@ -222,7 +233,7 @@ public class Supplier extends User{
                                 break;
                             case "3":
                                 if (heliceCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas d'Hélice à enlever.");
                                 }
                                 else{
                                     for (Component component : this.storage){
@@ -236,7 +247,7 @@ public class Supplier extends User{
                                 break;
                             case "4":
                                 if (cameraCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Caméra à enlever.");
                                 }
                                 else{
                                     for (Component component : this.storage){
@@ -250,7 +261,7 @@ public class Supplier extends User{
                                 break;
                             case "5":
                                 if (hautParleurCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas d'Haut-Parleur à enlever.");
                                 }
                                 else{
                                     for (Component component : this.storage){

@@ -179,7 +179,7 @@ public class Client extends User{
                                 break;
                             case "1":
                                 if (roueCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Roue à enlever.");
                                 }
                                 else{
                                     for (Component component : this.inventory){
@@ -193,7 +193,7 @@ public class Client extends User{
                                 break;
                             case "2":
                                 if (brasCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Bras à enlever.");
                                 }
                                 else{
                                     for (Component component : this.inventory){
@@ -207,7 +207,7 @@ public class Client extends User{
                                 break;
                             case "3":
                                 if (heliceCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Hélice à enlever.");
                                 }
                                 else{
                                     for (Component component : this.inventory){
@@ -221,7 +221,7 @@ public class Client extends User{
                                 break;
                             case "4":
                                 if (cameraCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Caméra à enlever.");
                                 }
                                 else{
                                     for (Component component : this.inventory){
@@ -235,7 +235,7 @@ public class Client extends User{
                                 break;
                             case "5":
                                 if (hautParleurCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
+                                    System.out.println("Vous n'avez pas de Haut-Parleur à enlever.");
                                 }
                                 else{
                                     for (Component component : this.inventory){
@@ -284,6 +284,7 @@ public class Client extends User{
                                 UserMenu.displayManageInventory(this);
                                 break;
                             }
+                            
                 } catch (Exception e) {
                     System.out.println("Entrée Invalide, veuillez réessayer");
                     UserMenu.displayManageInventory(this);
@@ -292,6 +293,20 @@ public class Client extends User{
                 UserMenu.displayManageInventory(this);
                 
         
+    }
+    
+    public void showOrders(){
+        for (Order order : this.getOrders()){
+            System.out.println("ID de la commande: " + order.getOrderNumber());
+            System.out.println("Date de la commande: " + order.getOrderDate());
+            System.out.println("Date de livraison: " + order.getArrivalDate());
+            System.out.println("Composantes: ");
+            for (Component component : order.getComponents()){
+                System.out.println(component.getName());
+            }
+            System.out.println("Statut: " + order.getStatus());
+            System.out.println("Fournisseur: " + order.getSupplier().getUserName());
+        }
     }
 
 
