@@ -49,7 +49,7 @@ public class ActivityController {
                 toDelete = user.getActivities().get(Integer.parseInt(activityToDelete));
                 isInt = false;
             } catch (Exception e) {
-                System.out.println("Erreur: Entrez un numéro valide");
+                System.out.println("Erreur: Entrez un numéro valide, veuillez réessayer");
             }
         }
         user.removeActivity(toDelete);
