@@ -190,7 +190,7 @@ public class Client extends User{
                 System.out.println(component.getName());
             }
             System.out.println("Statut: " + order.getStatus());
-            System.out.println("Fournisseur: " + order.getSupplier().getUserName());
+            System.out.println("Fournisseur: " + order.getSupplier().getUserName()+"\n\n\n");
         }
     }
 
