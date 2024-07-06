@@ -38,7 +38,10 @@ public class TimeController {
                     }
                     for (Order order : u.getOrders()){
                         if (order.getArrivalDate().isBefore(Database.getTime())){
-                            order.setStatus("Livrée");
+                            if(order.getStatus().equals("En cours")){
+                                u.getInventory().addAll(order.getComponents());
+                                order.setStatus("Livrée");
+                            }
                         }
                     }
                 }

@@ -2,6 +2,8 @@ package Models;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -112,188 +114,71 @@ public class Client extends User{
         System.out.println(ecranCount + " Écran");
 
     }
-    @Override
-    public void deleteInventory(){
-        Scanner scanner = new Scanner(System.in);
-        int CPUCount = 0;
-                int roueCount = 0;
-                int brasCount = 0;
-                int heliceCount = 0;
-                int cameraCount = 0;
-                int hautParleurCount = 0;
-                int microCount = 0;
-                int ecranCount = 0;
 
-                for (Component component : this.getInventory()){
-                    if (component.getName().contains("CPU")){
-                        CPUCount++;
-                    }
-                    if (component.getName().contains("Roue")){
-                        roueCount++;
-                    }
-                    if (component.getName().contains("Bras")){
-                        brasCount++;
-                    }
-                    if (component.getName().contains("Hélice")){
-                        heliceCount++;
-                    }
-                    if (component.getName().contains("Caméra")){
-                        cameraCount++;
-                    }
-                    if (component.getName().contains("Haut-Parleur")){
-                        hautParleurCount++;
-                    }
-                    if (component.getName().contains("Microphone")){
-                        microCount++;
-                    }
-                    if (component.getName().contains("Écran")){
-                        ecranCount++;
-                    }
-                }
-                    try {
-                        System.out.println("Entrez le nom de la composante que vous voulez enlever");
-                        System.out.println("[0] CPU");
-                        System.out.println("[1] Roue");
-                        System.out.println("[2] Bras");
-                        System.out.println("[3] Hélice");
-                        System.out.println("[4] Caméra");
-                        System.out.println("[5] Haut-Parleur");
-                        System.out.println("[6] Microphone");
-                        System.out.println("[7] Écran");
-                        System.out.println("[8] Retour");
-                        
-                        switch(scanner.nextLine()){
-                            case "0":
-                                if (CPUCount < 1){
-                                    System.out.println("Vous n'avez pas de CPU à enlever.");
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("CPU")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "1":
-                                if (roueCount < 1){
-                                    System.out.println("Vous n'avez pas de Roue à enlever.");
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("Roue")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "2":
-                                if (brasCount < 1){
-                                    System.out.println("Vous n'avez pas de Bras à enlever.");
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("Bras")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "3":
-                                if (heliceCount < 1){
-                                    System.out.println("Vous n'avez pas de Hélice à enlever.");
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("Hélice")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "4":
-                                if (cameraCount < 1){
-                                    System.out.println("Vous n'avez pas de Caméra à enlever.");
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("Caméra")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "5":
-                                if (hautParleurCount < 1){
-                                    System.out.println("Vous n'avez pas de Haut-Parleur à enlever.");
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("Haut-Parleur")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "6":
-                                if (microCount < 1){
-                                    System.out.println("Vous n'avez pas de Microphone à enlever.");
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("Microphone")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "7":
-                                if (ecranCount < 1){
-                                    System.out.println("Vous n'avez pas de Écran à enlever.");
-                                    
-                                }
-                                else{
-                                    for (Component component : this.inventory){
-                                        if (component.getName().equals("Écran")){
-                                            this.inventory.remove(component);
-                                            break;
-                                        }
-                                    }
-                                }
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            case "8":
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            default:
-                                System.out.println("Entrée non connue, veuillez réessayez");
-                                UserMenu.displayManageInventory(this);
-                                break;
-                            }
-                            
-                } catch (Exception e) {
-                    System.out.println("Entrée Invalide, veuillez réessayer");
-                    UserMenu.displayManageInventory(this);
-                }
-            
-                UserMenu.displayManageInventory(this);
-                
+    @Override
+    public void deleteInventory() {
+    if (this.getInventory().isEmpty()) {
+        System.out.println("Votre inventaire est vide");
+    } else {
+        System.out.println("Voici votre inventaire: ");
+        for (Component component : this.getInventory()) {
+            System.out.println(component.getName());
+        }
         
+        Scanner scanner = new Scanner(System.in);
+        Map<String, Integer> componentCountMap = new HashMap<>();
+        String[] componentTypes = {"CPU", "Roue", "Bras", "Hélice", "Caméra", "Haut-Parleur", "Microphone", "Écran"};
+        
+        for (String type : componentTypes) {
+            componentCountMap.put(type, 0);
+        }
+
+        for (Component component : this.getInventory()) {
+            for (String type : componentTypes) {
+                if (component.getName().contains(type)) {
+                    componentCountMap.put(type, componentCountMap.get(type) + 1);
+                    break;
+                }
+            }
+        }
+
+        try {
+            System.out.println("Entrez le numéro de la composante que vous voulez enlever une fois:");
+            for (int i = 0; i < componentTypes.length; i++) {
+                System.out.println("[" + i + "] " + componentTypes[i]);
+            }
+            System.out.println("[8] Retour");
+            
+            String input = scanner.nextLine();
+            int choice = Integer.parseInt(input);
+
+            if (choice >= 0 && choice < componentTypes.length) {
+                String selectedType = componentTypes[choice];
+                if (componentCountMap.get(selectedType) < 1) {
+                    System.out.println("Vous n'avez pas de " + selectedType + " à enlever.");
+                } else {
+                    for (Component component : this.getInventory()) {
+                        if (component.getName().equals(selectedType)) {
+                            this.getInventory().remove(component);
+                            break;
+                        }
+                    }
+                }
+            } else if (choice == 8) {
+                UserMenu.displayManageInventory(this);
+            } else {
+                System.out.println("Entrée non connue, veuillez réessayez");
+                UserMenu.displayManageInventory(this);
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Entrée Invalide, veuillez réessayer");
+            UserMenu.displayManageInventory(this);
+        }
     }
+    
+    UserMenu.displayManageInventory(this);
+}
     
     public void showOrders(){
         for (Order order : this.getOrders()){

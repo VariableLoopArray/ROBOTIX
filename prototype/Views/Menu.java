@@ -84,7 +84,6 @@ public class Menu {
                 RobotFleetMenu.displayManageRobotFleet(user);
                 break;
             case "5":
-                System.out.println("cette page est indisponible pour le moment");
                 UserMenu.displayManageInventory(user);
                 break;
             case "6":
