@@ -45,6 +45,7 @@ public class TimeController {
                         }
                     }
                 }
+                System.out.println("Date actuelle: " + Database.getTime());
                 displayTimeMenu(user);
                 break;
             case "2":

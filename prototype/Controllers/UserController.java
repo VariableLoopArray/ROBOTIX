@@ -121,7 +121,8 @@ public class UserController {
             }
             System.out.println("Entrez le nom du fournisseur et de la composante que vous voulez commander"+
             "(\"Ex: Fournisseur1, Composante1\", si vous voulez commander plusieurs composantes, séparez les par des / \"Ex: Fournisseur1, Composante1/Fournisseur2, Composante2\")");
-            String [] supplierAndComponent = scanner.nextLine().split("/");
+            String noSpace = scanner.nextLine().replaceAll("\\s+","");
+            String [] supplierAndComponent = noSpace.split("/");
             for (String supplierComponent : supplierAndComponent){
                 String[] supplierOrComponent = supplierComponent.split(",");
                 for (Supplier supplier : Database.getAllSuppliers()){
@@ -131,6 +132,8 @@ public class UserController {
                             if (component.getName().equalsIgnoreCase(supplierOrComponent[1].trim())){
                                 Order order = new Order(UUID.randomUUID(),Database.getTime(),Database.getTime().plusDays(5),new ArrayList<>(Arrays.asList(component)),"En cours", (Client) user,supplier);
                                 user.getOrders().add(order);
+                                supplier.getOrders().add(order);
+                                supplier.getStorage().remove(component);
                                 System.out.println("La commande a été passée avec succès");
                                 UserMenu.displayManageOrders(user);
                                 break;
