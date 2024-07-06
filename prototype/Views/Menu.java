@@ -58,9 +58,9 @@ public class Menu {
         System.out.println("[1] Gérer Portefeuille");
         System.out.println("[2] Gérer Commandes");
         System.out.println("[3] Gérer Activités");
-        System.out.println("[4] Ma Flotte De Robots");
-        System.out.println("[5] Mon Inventaire");
-        System.out.println("[6] Sauter une journée");
+        System.out.println("[4] Gérer Flotte de Robots");
+        System.out.println("[5] Gérer Inventaire");
+        System.out.println("[6] Gérer Temps");
         System.out.println("[7] Se Déconnecter");
 
         Scanner scanner = new Scanner(System.in);
