@@ -147,7 +147,7 @@ public class Database{
         interests.add("Musique et Arts du Spectacle");
         interests.add("Activité de Plein Air et Aventure");
         interests.add("Technologie et Jeux Vidéo");
-        interests.add("Cuisine et Gastonomie");
+        interests.add("Cuisine et Gastronomie");
         interests.add("Lecture et Écriture");
         interests.add("Voyages et culture");
         interests.add("Éducation et Apprentissage");
