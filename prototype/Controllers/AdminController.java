@@ -129,72 +129,101 @@ public class AdminController {
 }
 
 public static void searchClient(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Entrez le nom d'utilisateur du client que vous cherchez");
-    String userName = scanner.nextLine();
-    for (Client client : Database.getAllClients()){
-        if (client.getUserName().equalsIgnoreCase(userName)){
-            System.out.println(client.getFirstName()+ client.getLastName()+ " existe dans la base de données");
-            Menu.displayPublicOrders();
+    try {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez le nom d'utilisateur du client que vous cherchez");
+        String userName = scanner.nextLine();
+        for (Client client : Database.getAllClients()){
+            if (client.getUserName().equalsIgnoreCase(userName)){
+                System.out.println(client.getFirstName()+ client.getLastName()+ " existe dans la base de données");
+                Menu.displayPublicOrders();
+            }
         }
+        System.out.println("Client introuvable");
+    } catch (Exception e) {
+        System.out.println("Entrée invalide, veuillez réessayer");
+        searchClient();
     }
-    System.out.println("Client introuvable");
+
 
 }
 
 public static void searchSupplier(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Entrez le nom d'utilisateur du fournisseur que vous cherchez");
-    String userName = scanner.nextLine();
-    for (Supplier supplier : Database.getAllSuppliers()){
-        if (supplier.getUserName().equalsIgnoreCase(userName)){
-            System.out.println(supplier.getFirstName()+ supplier.getLastName()+ " existe dans la base de données");
-            Menu.displayPublicOrders();
+    try {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez le nom d'utilisateur du fournisseur que vous cherchez");
+        String userName = scanner.nextLine();
+        for (Supplier supplier : Database.getAllSuppliers()){
+            if (supplier.getUserName().equalsIgnoreCase(userName)){
+                System.out.println(supplier.getFirstName()+ supplier.getLastName()+ " existe dans la base de données");
+                Menu.displayPublicOrders();
+            }
         }
+        System.out.println("Fournisseur introuvable");
+    } catch (Exception e) {
+        System.out.println("Entrée invalide, veuillez réessayer");
+        searchSupplier();
     }
-    System.out.println("Fournisseur introuvable");
+
         
     
 }
 
 public static void displayClientProfile(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Entrez le nom d'utilisateur du client dont vous voulez voir le profil");
-    String userName = scanner.nextLine();
-    for (Client client : Database.getAllClients()){
-        if (client.getUserName().equalsIgnoreCase(userName)){
-            client.userData();
-            Menu.displayPublicOrders();
+    try{
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez le nom d'utilisateur du client dont vous voulez voir le profil");
+        String userName = scanner.nextLine();
+        for (Client client : Database.getAllClients()){
+            if (client.getUserName().equalsIgnoreCase(userName)){
+                client.userData();
+                Menu.displayPublicOrders();
+            }
         }
+        System.out.println("Client introuvable");
+    } catch (Exception e) {
+        System.out.println("Entrée invalide, veuillez réessayer");
+        displayClientProfile();
     }
-    System.out.println("Client introuvable");
+
 }
 public static void displaySupplierProfile(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Entrez le nom d'utilisateur du fournisseur dont vous voulez voir le profil");
-    String userName = scanner.nextLine();
-    for (Supplier supplier : Database.getAllSuppliers()){
-        if (supplier.getUserName().equalsIgnoreCase(userName)){
-            supplier.userData();
-            Menu.displayPublicOrders();
+    try{
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez le nom d'utilisateur du fournisseur dont vous voulez voir le profil");
+        String userName = scanner.nextLine();
+        for (Supplier supplier : Database.getAllSuppliers()){
+            if (supplier.getUserName().equalsIgnoreCase(userName)){
+                supplier.userData();
+                Menu.displayPublicOrders();
+            }
         }
+        System.out.println("Fournisseur introuvable");
+    } catch (Exception e) {
+        System.out.println("Entrée invalide, veuillez réessayer");
+        displaySupplierProfile();
     }
-    System.out.println("Fournisseur introuvable");
+
 
 }
 
 public static void searchComponent(){
-    Scanner scanner = new Scanner(System.in);
-    System.out.println("Entrez le nom de la composante que vous cherchez");
-    String componentName = scanner.nextLine();
-    for (Component component : Database.getAllComponents()){
-        if (component.getName().equalsIgnoreCase(componentName)){
-            System.out.println("cette composante existe dans la base de données");
-            Menu.displayPublicOrders();
-        }
+    try {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Entrez le nom de la composante que vous cherchez");
+        String componentName = scanner.nextLine();
+            for (Component component : Database.getAllComponents()){
+                if (component.getName().equalsIgnoreCase(componentName)){
+                    System.out.println("cette composante existe dans la base de données");
+                    Menu.displayPublicOrders();
+                }
+            }
+        System.out.println("Composante introuvable");
+    } catch (Exception e) {
+        System.out.println("Entrée invalide, veuillez réessayer");
+        searchComponent();
+
+
     }
-    System.out.println("Composante introuvable");
 }
-
-
 }

@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Models.User;
 import Views.Menu;
 import Models.Activity;
+import Models.Client;
 import Models.Order;
 
 
@@ -38,7 +39,7 @@ public class TimeController {
                     }
                     for (Order order : u.getOrders()){
                         if (order.getArrivalDate().isBefore(Database.getTime())){
-                            if(order.getStatus().equals("En cours")){
+                            if(order.getStatus().equals("En cours") && (u instanceof Client)){
                                 u.getInventory().addAll(order.getComponents());
                                 order.setStatus("Livrée");
                             }

@@ -106,6 +106,7 @@ public class Menu {
     }
 
     public static void displayPublicOrders(){
+        try{
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\n\n\t\t*** Commandes Publiques ***\n");
         System.out.println("Voici les commandes publiques disponibles");
@@ -170,8 +171,13 @@ public class Menu {
                 displayLoginPage();
                 break;
             default:
+                System.out.println("Entrée invalide");
                 displayPublicOrders();
                 break;
+        }
+        } catch(Exception e){
+            System.out.println("Erreur: Entrez un numéro valide");
+            displayPublicOrders();
         }
 
     }
