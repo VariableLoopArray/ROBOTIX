@@ -39,63 +39,63 @@ public class Database{
         //hard code users
         Client user1 = new Client("John","Doe","johndoe123","password1",UUID.randomUUID(),
         "johndoe@gmail.com","No Company","514-111-1111",0f , new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user2 = new Client("Zane","Underwood","ZaneUnderwood231","password2",UUID.randomUUID(),
         "ZaneUnderwood@gmail.com","Nvidia","514-222-2222", 0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user3 = new Client("Annabelle","Valdez","AnnabelleValdez562","password3", UUID.randomUUID(),
         "AnnabelleValdez@gmail.com","No Company","514-333-3333",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user4 = new Client("Gianluca","Gray","GianlucaGray135","password4", UUID.randomUUID(),
         "GianlucaGray@gmail.com","PepsiCo","514-444-4444",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user5 = new Client("Jaydon","Sanchez","JaydonSanchez213","password5",UUID.randomUUID(),
         "JaydonSanchez@gmail.com","No Company","514-555-5555",0f,new RobotFleet( new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user6 = new Client("Ray","Charles","JazzyBoy","password11",UUID.randomUUID(),
         "RayCharles@gmail.com","No Company","514-101-0101",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user7 = new Client("Frank","Sinatra","DeepBlueEyes","password12",UUID.randomUUID(),
         "FrankSinatra@gmail.com","No Company","514-111-1111",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(),new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user8 = new Client("George","Washington","MakeAmerica","password13",UUID.randomUUID(),
         "GeorgeWashington@gmail.com","No Company","514-121-2121",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user9 = new Client("Teddy","Roosevelt","BullMoose","password14",UUID.randomUUID(),
         "TeddyRoosevelt@gmail.com","No Company","514-131-3131",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Client user10 = new Client("Manfred","Albert","TheRedBaron","password15",UUID.randomUUID(),
         "ManfredAlbert@gmail.com","No Company","514-141-4141",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
-        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>());
+        new ArrayList<String>(), new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
 
         Supplier user11 = new Supplier("Michael","Oliver","MichaelOliver521","password6",UUID.randomUUID(),
         "MichaelOliver@gmail.com","Amazon","514-666-6666",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 10, new ArrayList<Component>(), new ArrayList<Order>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 10, new ArrayList<Component>(), new ArrayList<Order>(),new ArrayList<String>());
 
         Supplier user12 = new Supplier("Frankie","Charles","FrankieCharles178","password7",UUID.randomUUID(),
         "FrankieCharles@gmail.com","WheelCar.inc","514-777-7777",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 7, new ArrayList<Component>(), new ArrayList<Order>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 7, new ArrayList<Component>(), new ArrayList<Order>(),new ArrayList<String>());
 
         Supplier user13 = new Supplier("Josh","Burton","JoshBurton412","password8",UUID.randomUUID(),
         "JoshBurton@gmail.com","Apple","514-888-8888",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 4, new ArrayList<Component>(), new ArrayList<Order>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 4, new ArrayList<Component>(), new ArrayList<Order>(),new ArrayList<String>());
 
         Supplier user14 = new Supplier("Sophie","Moreno","SophieMoreno723","password9",UUID.randomUUID(),
         "SophieMoreno@gmail.com","Google","514-999-9999",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 5, new ArrayList<Component>(), new ArrayList<Order>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 5, new ArrayList<Component>(), new ArrayList<Order>(), new ArrayList<String>());
 
         Supplier user15 = new Supplier("Edward","Blair","EdwardBlair413","password10",UUID.randomUUID(),
         "EdwardBlair@gmail.com","AeroX","514-123-4567",0f,new RobotFleet(new ArrayList<Robot>()),
-        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 8, new ArrayList<Component>(), new ArrayList<Order>());
+        new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 8, new ArrayList<Component>(), new ArrayList<Order>(), new ArrayList<String>());
 
         allUsers.add(user1);
         allClients.add(user1);

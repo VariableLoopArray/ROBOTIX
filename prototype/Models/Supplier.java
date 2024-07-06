@@ -18,10 +18,11 @@ public class Supplier extends User{
     
     public Supplier(String firstName, String lastName, String username, String password,
     UUID userID, String email, String companyName, String phoneNumber, float wallet, RobotFleet RobotFleet,ArrayList<Activity> activities, 
-    ArrayList<User> Followers, ArrayList<User> Following, int productionCapacity, ArrayList<Component> storage, ArrayList<Order> orders){
+    ArrayList<User> Followers, ArrayList<User> Following, int productionCapacity, ArrayList<Component> storage, ArrayList<Order> orders, ArrayList<String> notifs
+    ){
 
         super( firstName, lastName,  username,  password, userID, email, companyName, phoneNumber,wallet, RobotFleet, 
-        activities, Followers, Following, orders);
+        activities, Followers, Following, orders, notifs);
         this.productionCapacity = productionCapacity;
         storage.add(new Component("CPU", new ArrayList<String>(Arrays.asList("haute performance","léger")), 350.0f, 1.0f, 1.0f, 1.0f, this ,UUID.randomUUID()));
         this.storage = storage;
