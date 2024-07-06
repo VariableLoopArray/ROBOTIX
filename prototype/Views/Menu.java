@@ -58,7 +58,14 @@ public class Menu {
 
     public static void displayHomePage(User user){
         System.out.println("\n\n\nBienvenue chez ROBOTIX " + user.getFirstName() +" "+  user.getLastName());
-
+        if (user.getNotifs().isEmpty()){
+            System.out.println("Vous n'avez pas de notifications");
+        }
+        else{
+            for (String notif : user.getNotifs()){
+                user.displayNotifs();
+            }
+        }
         System.out.println("[0] Gérer Profile");
         System.out.println("[1] Gérer Portefeuille");
         System.out.println("[2] Gérer Commandes");

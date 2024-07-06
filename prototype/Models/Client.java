@@ -15,10 +15,10 @@ public class Client extends User{
     public Client(String firstName, String lastName, String username, String password,
     UUID userID, String email, String companyName, String phoneNumber,float wallet ,RobotFleet RobotFleet, ArrayList<Component> inventory,
     ArrayList<String>interests, ArrayList<Activity> activities, ArrayList<User> Followers, 
-    ArrayList<User> Following, ArrayList<Order> orders){
+    ArrayList<User> Following, ArrayList<Order> orders,ArrayList<String> notifs){
 
         super( firstName, lastName,  username,  password, userID, email, companyName, phoneNumber, wallet, RobotFleet,
-        activities, Followers, Following, orders);
+        activities, Followers, Following, orders, notifs);
         this.inventory = inventory;
         this.interests = interests;
     }

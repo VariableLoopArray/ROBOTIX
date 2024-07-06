@@ -94,6 +94,7 @@ public class UserMenu {
                         for (User user2 : Database.getAllUsers()){
                             if (user2.getUserName().equalsIgnoreCase(name)){
                                 user.getFollowers().add(user2);
+                                user2.getNotifs().add("NewFollower " + user.getUserName());
                                 System.out.println("La personne a été follow avec succès");
                                 displayManageProfile(user);
                                 break;

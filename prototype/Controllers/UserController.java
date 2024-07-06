@@ -134,6 +134,7 @@ public class UserController {
                                 user.getOrders().add(order);
                                 supplier.getOrders().add(order);
                                 supplier.getStorage().remove(component);
+                                supplier.getNotifs().add("bought " + component.getName() + " " + user.getUserName());
                                 System.out.println("La commande a été passée avec succès");
                                 UserMenu.displayManageOrders(user);
                                 break;

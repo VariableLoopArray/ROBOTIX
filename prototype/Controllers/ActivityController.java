@@ -20,16 +20,19 @@ public class ActivityController {
         System.out.println("Entrez le numéro de l'activité que vous voulez ajouter (Colonne de droite)");
         Activity toAdd = new Activity();
         boolean isInt = true;
+        int activityNumber = 0;
         while(isInt)
         try {
             String activityToAdd = scanner.nextLine();
             toAdd = availableActivities.get(Integer.parseInt(activityToAdd));
+            activityNumber = Integer.parseInt(activityToAdd);
             isInt = false;
         } catch (Exception e) {
             System.out.println("Erreur: Entrez un numéro valide");
         }
         
         user.addActivity(toAdd);
+        (availableActivities.get(activityNumber)).getCreator().getNotifs().add("ActivityFollower " + user.getUserName());
 
     }
 
@@ -285,6 +288,11 @@ public class ActivityController {
 
         System.out.println("Activité créée");
         Database.getAllActivities().add(newActivity);
+        for (User u : Database.getAllUsers()){
+            if (u.getInterests().contains(newActivity.getInterests())){
+                u.getNotifs().add("ActivityInterest" + " " + newActivity.getName());
+            }
+        }
         ActivityMenu.displayManageActivities(user);
         } catch (Exception e) {
             System.out.println("Erreur: Entrée invalide");

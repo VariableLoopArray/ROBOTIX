@@ -1,10 +1,12 @@
 package Models;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Scanner;
 import java.util.UUID;
 
+import Database.Database;
 import Models.typeOfRobots.AerialRobot;
 import Models.typeOfRobots.AquaticRobot;
 import Models.typeOfRobots.TerrestrialRobot;
@@ -29,10 +31,12 @@ public class User {
     private ArrayList<User> Followers;
     private ArrayList<User> Following; 
     private ArrayList<Order> orders;
+    private ArrayList<String> notifs;
 
     public User( String firstName, String lastName, String username, String password,
     UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet,
-    ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following, ArrayList<Order> orders){
+    ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following, ArrayList<Order> orders, ArrayList<String> notifs
+    ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = username;
@@ -49,6 +53,7 @@ public class User {
         this.Followers = Followers;
         this.Following = Following; 
         this.orders = orders;
+        this.notifs = notifs;
 
 
     }
@@ -109,6 +114,54 @@ public class User {
 
     }
 
+    public void displayNotifs(){
+        for (Robot robot : this.RobotFleet.getRobots()){
+            if (robot.getBattery() < 1){
+                System.out.println(robot.getName() + " n'a Plus de batterie.");
+            }
+        }
+
+        for (Activity activity : this.activities){
+            if (activity.getEndDate().minusDays(5).isBefore(Database.getTime())
+            && activity.getEndDate().isAfter(Database.getTime())){
+                if (ChronoUnit.DAYS.between(activity.getEndDate(), Database.getTime()) == 0){
+                System.out.println(activity.getName() + " Cette activité s'achève aujourd'hui ");}
+                else{
+                    System.out.println(activity.getName() + " Cette activité s'achève dans " + ChronoUnit.DAYS.between(activity.getEndDate(), Database.getTime()));
+                }
+            }
+        }
+
+        for (String notif : this.getNotifs()){
+            if (notif.contains("ActivityInterest")){
+                String activityName = notif.split(" ")[1];
+                System.out.println("Une activité qui correspond à vos intérêts est crée" + activityName);
+            }
+
+            else if(notif.contains("NewFollower")){
+                String folowerName = notif.split(" ")[1];
+                System.out.println("Vous avez une nouvelle follower " + folowerName);
+            }
+
+            else if (notif.contains("ActivityFollower")){
+                String activityFollowerName = notif.split(" ")[1];
+                System.out.println("Vous avez une nouvelle activité follower " + activityFollowerName);
+            }
+            if (this instanceof Supplier){
+                if (notif.contains("bought")){
+                    String componentName = notif.split(" ")[1];
+                    String clientName = notif.split(" ")[2];
+                    System.out.println("Un client a acheté une de vos composantes " + componentName + clientName);
+                }
+            }
+        }
+
+        
+
+        
+
+
+    }
 
     public String getFirstName() {
         return firstName;
@@ -271,6 +324,13 @@ public class User {
         this.orders = orders;
     }
     
+    public ArrayList<String> getNotifs() {
+        return notifs;
+    }
+
+    public void setNotifs(ArrayList<String> notifs) {
+        this.notifs = notifs;
+    }
     public User(){
 
     }
