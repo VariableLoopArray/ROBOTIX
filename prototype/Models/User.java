@@ -29,10 +29,11 @@ public class User {
     private ArrayList<User> Followers;
     private ArrayList<User> Following; 
     private ArrayList<Order> orders;
+    private ArrayList<String> notifs;
 
     public User( String firstName, String lastName, String username, String password,
     UUID userID, String email, String companyName, String phoneNumber,float wallet, RobotFleet RobotFleet,
-    ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following, ArrayList<Order> orders){
+    ArrayList<Activity> activities, ArrayList<User> Followers, ArrayList<User> Following, ArrayList<Order> orders,ArrayList<String> notifs){
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = username;
@@ -49,6 +50,7 @@ public class User {
         this.Followers = Followers;
         this.Following = Following; 
         this.orders = orders;
+        this.notifs = notifs;
 
 
     }
@@ -109,6 +111,11 @@ public class User {
 
     }
 
+    public void displayNotifs(){
+        for (String notif : this.getNotifs()){
+            
+        }
+    }
 
     public String getFirstName() {
         return firstName;
@@ -270,7 +277,15 @@ public class User {
     public void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
     }
-    
+
+    public ArrayList<String> getNotifs() {
+        return notifs;
+    }
+
+    public void setNotifs(ArrayList<String> notifs) {
+        this.notifs = notifs;
+    }
+
     public User(){
 
     }

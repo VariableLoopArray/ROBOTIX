@@ -101,11 +101,12 @@ public class AdminController {
                 ArrayList<User> Following = new ArrayList<User>();
 
                 ArrayList<Order> orders = new ArrayList<Order>();
+                ArrayList<String> notifs = new ArrayList<String>();
 
                 if (userType.equals("fournisseur")){
                     Supplier newUser = new Supplier(firstName, lastName, userName, passWord, userID,
                     email, companyName, phoneNumber,wallet, robotFleet, activities,
-                    Followers, Following,productionCapacity, storage, orders);
+                    Followers, Following,productionCapacity, storage, orders, notifs);
                     Database.getAllUsers().add(newUser);
                     Database.getAllSuppliers().add(newUser);
                     System.out.println("user successfully created");
@@ -115,7 +116,7 @@ public class AdminController {
                 else if (userType.equals("client")){
                     Client newUser = new Client(firstName, lastName, userName, passWord, userID,
                     email, companyName, phoneNumber,wallet, robotFleet,inventory, interests, activities,
-                    Followers, Following, orders);
+                    Followers, Following, orders, notifs);
                     Database.getAllUsers().add(newUser);
                     Database.getAllClients().add(newUser);
                     System.out.println("user successfully created");

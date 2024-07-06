@@ -11,6 +11,7 @@ import Models.User;
 import Views.ActivityMenu;
 
 public class ActivityController {
+
     public static void addActivity(User user, ArrayList<Activity> availableActivities){
         Scanner scanner = new Scanner(System.in);
         if(availableActivities.size() == 0){
@@ -20,16 +21,21 @@ public class ActivityController {
         System.out.println("Entrez le numéro de l'activité que vous voulez ajouter (Colonne de droite)");
         Activity toAdd = new Activity();
         boolean isInt = true;
+        int activityNumber = 0;
         while(isInt)
         try {
             String activityToAdd = scanner.nextLine();
+            
             toAdd = availableActivities.get(Integer.parseInt(activityToAdd));
+            activityNumber = Integer.parseInt(activityToAdd);
             isInt = false;
         } catch (Exception e) {
             System.out.println("Erreur: Entrez un numéro valide");
         }
         
         user.addActivity(toAdd);
+        user.getNotifs().add("ActivityDate");
+        (availableActivities.get(activityNumber)).getCreator().getNotifs().add("ActivityFollower");
 
     }
 
@@ -284,6 +290,11 @@ public class ActivityController {
         newActivity.getTasks().add(newTask3);
 
         System.out.println("Activité créée");
+        for (User u : Database.getAllUsers()){
+            if (u.getInterests().contains(newActivity.getName())){
+                u.getNotifs().add("ActivityInterest");
+            }
+        }
         Database.getAllActivities().add(newActivity);
         ActivityMenu.displayManageActivities(user);
         } catch (Exception e) {
