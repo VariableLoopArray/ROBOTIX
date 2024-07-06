@@ -147,7 +147,7 @@ public class User {
                 String activityFollowerName = notif.split(" ")[1];
                 System.out.println("Vous avez une nouvelle activité follower " + activityFollowerName);
             }
-            if (this instanceof Supplier){
+            else if (this instanceof Supplier){
                 if (notif.contains("bought")){
                     String componentName = notif.split(" ")[1];
                     String clientName = notif.split(" ")[2];
