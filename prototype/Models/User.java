@@ -118,7 +118,7 @@ public class User {
 
         for (Robot robot : this.RobotFleet.getRobots()){
             if (robot.getBattery() < 1){
-                System.out.println(robot.getName() + " n'a Plus de batterie.");
+                System.out.println(robot.getName() + " n'a plus de batterie.");
             }
         }
 
@@ -135,23 +135,23 @@ public class User {
         for (String notif : this.getNotifs()){
             if (notif.contains("ActivityInterest")){
                 String activityName = notif.split(" ")[1];
-                System.out.println("Une activité qui correspond à vos intérêts est créé" + " " + activityName);
+                System.out.println("Une activité qui correspond à vos intérêts a été créé | " + activityName );
             }
 
             else if(notif.contains("NewFollower")){
                 String folowerName = notif.split(" ")[1];
-                System.out.println("Vous avez une nouvelle follower " + " " + folowerName);
+                System.out.println("Vous avez un nouveau follower | " + folowerName );
             }
 
             else if (notif.contains("ActivityFollower")){
                 String activityFollowerName = notif.split(" ")[1];
-                System.out.println("Vous avez une nouvelle activité follower " + " " + activityFollowerName);
+                System.out.println("Quelqu'un a ajouté l'une de vos activités | "+ activityFollowerName );
             }
             else if (this instanceof Supplier){
                 if (notif.contains("bought")){
                     String componentName = notif.split(" ")[1];
                     String clientName = notif.split(" ")[2];
-                    System.out.println("Un client a acheté une de vos composantes " + componentName + " " + clientName);
+                    System.out.println("Un client a acheté une de vos composantes | Composante achetée: " + componentName +" | Nom du Client: " + clientName);
                 }
             }
         }
