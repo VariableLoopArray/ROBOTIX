@@ -1,13 +1,7 @@
 package Models;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.UUID;
 
-import Models.typeOfRobots.AerialRobot;
-import Models.typeOfRobots.AquaticRobot;
-import Models.typeOfRobots.TerrestrialRobot;
-import Views.RobotFleetMenu;
 
 public abstract class Robot {
 

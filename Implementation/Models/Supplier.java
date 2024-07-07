@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.UUID;
 
-import javax.xml.crypto.Data;
-
 import Database.Database;
 import Views.UserMenu;
 public class Supplier extends User{

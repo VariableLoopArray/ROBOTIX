@@ -1,15 +1,10 @@
 package Views;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.UUID;
 
-import javax.xml.crypto.Data;
 
-import Controllers.ActivityController;
 import Controllers.AdminController;
 import Controllers.LoginController;
 import Controllers.TimeController;
-import Controllers.UserController;
 import Database.Database;
 import Models.Activity;
 import Models.User;
