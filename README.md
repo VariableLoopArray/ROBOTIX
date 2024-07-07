@@ -72,7 +72,7 @@ Quelques commentaires que nous aimerions ajouter pour une meilleure compréhensi
 - Lorsque nous demandons un nom, veuillez écrire le nom demandé. Si nous demandons un numéro, veuillez écrire le numéro correspondant (Lisez bien!).
     
 ## Organisation des fichiers
-
+```bash
 ├── Analyse/
 │ ├── fichiersVPP/
 │ │ ├── activityAction.vpp
@@ -148,7 +148,7 @@ Quelques commentaires que nous aimerions ajouter pour une meilleure compréhensi
 │ │ └── UserMenu.java
 │ └── Main.java
 └── README.md
-
+```
 
 
 (En ce qui concerne les types de robots, nous avons réalisé un peu tard qu'il aurait été nécessaire d'intégrer des types abstraits dans notre diagramme de classe. Modifier notre code pour rendre la classe Utilisateur abstraite pour inclure Client et Fournisseur a été très difficile, donc nous avons implémenté ces types de robots. Plus tard, nous avons appris que le prototype ne nécessitait pas forcément de correspondre exactement à nos diagramme  :C )
