@@ -154,3 +154,9 @@ Quelques commentaires que nous aimerions ajouter pour une meilleure compréhensi
 
 
 (En ce qui concerne les types de robots, nous avons réalisé un peu tard qu'il aurait été nécessaire d'intégrer des types abstraits dans notre diagramme de classe. Modifier notre code pour rendre la classe Utilisateur abstraite pour inclure Client et Fournisseur a été très difficile, donc nous avons implémenté ces types de robots. Plus tard, nous avons appris que le prototype ne nécessitait pas forcément de correspondre exactement à nos diagramme  :C )
+
+
+Pour exécuter le code source, vous pouvez soit utiliser un IDE qui permet de le lancer directement à partir de la classe Main, soit le compiler et l'exécuter depuis le répertoire Implementation.
+
+Pour exécuter un fichier JAR, installez la dernière version de Java, allez dans le répertoire où se trouve le fichier JAR, et écrivez la commande "java -jar Implementation.jar".
+
