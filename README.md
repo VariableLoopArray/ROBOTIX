@@ -61,6 +61,8 @@ Quelques commentaires que nous aimerions ajouter pour une meilleure compréhensi
 
 - Il est possible que nous ayons omis d'ajouter des blocs try-catch à certains endroits, étant donné le grand nombre de fonctionnalités. Nous avons fait de notre mieux pour essayer de tout tester. De plus, plusieurs méthodes peuvent être désorganisées car il s'agit encore d'un prototype. Nous sommes toujours en train de discuter de la structure MVC, ce qui peut parfois être déroutant, et certaines méthodes peuvent ne pas être cohérentes avec d'autres du même type dans notre code.
 
+- Notre code contient plusieurs instances de scanners non fermées. Cela est dû au fait que nous avons initialement commencé à coder de cette manière. Cependant, nous avons découvert plus tard dans notre processus de développement qu'il n'est pas possible de fermer un scanner même s'il est initialisé dans une méthode différente (en Java, une fois qu'un objet Scanner est fermé, il ne peut pas être réouvert pour lire de nouvelles entrées). Ainsi, nous avons plusieurs scanners initialisés qui restent ouverts sans être fermés correctement.
+
 - Pour créer une activité, il est nécessaire d'avoir un robot.
 
 - Lors de la commande d'une composante, la livraison est fixée à 5 jours. Cela signifie que vous devez accéder à "Gérer le temps" et avancer de 6 jours pour que le statut de la commande passe à "livré". De même, les commandes ne disparaissent pas de la section "Voir mes commandes" mais changent simplement de statut pour permettre le suivi des commandes passées.

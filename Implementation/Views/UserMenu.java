@@ -1,16 +1,11 @@
 package Views;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.UUID;
 
 import Controllers.UserController;
 import Models.Supplier;
 import Database.Database;
 import Models.Client;
-import Models.Component;
-import Models.Order;
 import Models.User;
 
 public class UserMenu {

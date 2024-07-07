@@ -1,17 +1,10 @@
 package Models;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.Scanner;
 import java.util.UUID;
 
 import Database.Database;
-import Models.typeOfRobots.AerialRobot;
-import Models.typeOfRobots.AquaticRobot;
-import Models.typeOfRobots.TerrestrialRobot;
 import Views.ActivityMenu;
-import Views.RobotFleetMenu;
 
 public class User {
 

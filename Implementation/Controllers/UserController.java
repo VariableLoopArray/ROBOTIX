@@ -1,9 +1,7 @@
 package Controllers;
 import Models.User;
 import Views.ActivityMenu;
-import Views.Menu;
 import Views.UserMenu;
-import Models.Activity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;

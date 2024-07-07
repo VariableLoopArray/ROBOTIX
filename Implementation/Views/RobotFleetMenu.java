@@ -1,15 +1,10 @@
 package Views;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.UUID;
-import java.util.ResourceBundle.Control;
+
 
 import Controllers.RobotController;
-import java.util.Iterator;
-import Models.Component;
-import Models.Robot;
-import Models.RobotFleet;
+
 import Models.User;
 
 public class RobotFleetMenu {
