@@ -73,81 +73,80 @@ Quelques commentaires que nous aimerions ajouter pour une meilleure compréhensi
     
 ## Organisation des fichiers
 
-/ 
 ├── Analyse/
-|   ├──fichiersVPP/
-|   |   ├── activityAction,vpp
-|   |   ├── activityBookActivity.vpp
-|   |   ├── activityBuyComponent.vpp
-|   |   ├── activityPrincipal.vpp
-|   |   ├── activityRegisterRobot.vpp
-|   |   ├── activityTask.vpp
-|   |   ├── classDiagram.vpp
-|   |   ├── sequenceAction.vpp
-|   |   ├── sequenceBookActivity.vpp
-|   |   ├── sequenceBuyComponent.vpp
-|   |   ├── sequenceRegisterRobot.vpp
-|   |   └── sequenceTask.vpp
-│   ├── action.svg
-│   ├── activity.svg
-│   ├── activityDiagram.html
-│   ├── analyse.html
-│   ├── classDiagram.html
-│   ├── component.svg
-│   ├── principal.svg
-│   ├── rapport2.html
-│   ├── robot.svg
-│   ├── sequenceDiagram.html
-│   ├── stats1.png
-│   ├── stats2.png
-│   ├── stats3.png
-│   └── task.svg
+│ ├── fichiersVPP/
+│ │ ├── activityAction.vpp
+│ │ ├── activityBookActivity.vpp
+│ │ ├── activityBuyComponent.vpp
+│ │ ├── activityPrincipal.vpp
+│ │ ├── activityRegisterRobot.vpp
+│ │ ├── activityTask.vpp
+│ │ ├── classDiagram.vpp
+│ │ ├── sequenceAction.vpp
+│ │ ├── sequenceBookActivity.vpp
+│ │ ├── sequenceBuyComponent.vpp
+│ │ ├── sequenceRegisterRobot.vpp
+│ │ └── sequenceTask.vpp
+│ ├── action.svg
+│ ├── activity.svg
+│ ├── activityDiagram.html
+│ ├── analyse.html
+│ ├── classDiagram.html
+│ ├── component.svg
+│ ├── principal.svg
+│ ├── rapport2.html
+│ ├── robot.svg
+│ ├── sequenceDiagram.html
+│ ├── stats1.png
+│ ├── stats2.png
+│ ├── stats3.png
+│ └── task.svg
 ├── Conception/
-│   ├── actionSequence.svg
-│   ├── bookActivity.svg
-│   ├── buyComponent.svg
-│   ├── classDiagram.svg
-│   ├── robotRegistration.svg
-│   └── taskSequence.svg
+│ ├── actionSequence.svg
+│ ├── bookActivity.svg
+│ ├── buyComponent.svg
+│ ├── classDiagram.svg
+│ ├── robotRegistration.svg
+│ └── taskSequence.svg
 ├── Exigences/
-│   ├── besoinNF.html
-│   ├── cu.html
-│   ├── glossaire.html
-│   ├── rapport1.html
-│   ├── risque.html
-│   ├── tache1.png
-│   └── tache2.svg
+│ ├── besoinNF.html
+│ ├── cu.html
+│ ├── glossaire.html
+│ ├── rapport1.html
+│ ├── risque.html
+│ ├── tache1.png
+│ └── tache2.svg
 ├── Implémentation/
-│   ├── Controllers/
-|   |   ├── ActivityController.java
-|   |   ├── AdminController.java
-|   |   ├── LoginController.java
-|   |   ├── RobotController.java
-|   |   ├── TimeController.java
-|   |   └── UserController.java
-│   ├── Database/
-|   |   └── Database.java
-│   ├── Models/
-|   |   ├── typeOfRobots/
-|   |   |   ├── AerialRobot.java
-|   |   |   ├── AquaticRobot.java
-|   |   |   ├── TerrestrialRobot.java
-|   |   ├── Action.java
-|   |   ├── Activity.java
-|   |   ├── Client.java
-|   |   ├── Component.java
-|   |   ├── Order.java
-|   |   ├── Robot.java
-|   |   ├── RobotFleet.java
-|   |   ├── Supplier.java
-|   |   ├── Task.java
-|   |   └── User.java
-│   ├── Views/
-|   |   ├── ActivityMenu.java
-|   |   ├── Menu.java
-|   |   ├── RobotFleet.java
-|   |   └── UserMenu.java
-│   └── Main.java
+│ ├── Controllers/
+│ │ ├── ActivityController.java
+│ │ ├── AdminController.java
+│ │ ├── LoginController.java
+│ │ ├── RobotController.java
+│ │ ├── TimeController.java
+│ │ └── UserController.java
+│ ├── Database/
+│ │ └── Database.java
+│ ├── Models/
+│ │ ├── typeOfRobots/
+│ │ │ ├── AerialRobot.java
+│ │ │ ├── AquaticRobot.java
+│ │ │ └── TerrestrialRobot.java
+│ │ ├── Action.java
+│ │ ├── Activity.java
+│ │ ├── Client.java
+│ │ ├── Component.java
+│ │ ├── Order.java
+│ │ ├── Robot.java
+│ │ ├── RobotFleet.java
+│ │ ├── Supplier.java
+│ │ ├── Task.java
+│ │ └── User.java
+│ ├── Views/
+│ │ ├── ActivityMenu.java
+│ │ ├── Menu.java
+│ │ ├── RobotFleet.java
+│ │ └── UserMenu.java
+│ └── Main.java
 └── README.md
 
 
