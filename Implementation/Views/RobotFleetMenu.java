@@ -19,7 +19,7 @@ public class RobotFleetMenu {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\n\n\t\t*** Menu robots ***\n");
         System.out.println("Indiquez ce que vous voulez faire avec votre flotte");
-        System.out.println("[0] Montrer mes robots");
+        System.out.println("[0] Voir mes robots");
         System.out.println("[1] Créer un robot");
         System.out.println("[2] Supprimer un robot");
         System.out.println("[3] Examiner un robot");
