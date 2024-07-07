@@ -25,57 +25,66 @@ public class RobotController {
         }
         RobotFleetMenu.displayManageRobotFleet(user);
     }
+
+
     public static void addRobot(User user){
         String name;
         Scanner scanner = new Scanner(System.in);
-            while (true){
+            for (Component component : user.getInventory()){
+                if (component.getName().contains("CPU")){
+                    while (true){
 
-                System.out.println("\n\n\n***Création de robot***\n");
-                System.out.println("Entrer le nom de votre robot\n");
-                name = scanner.nextLine();
-                boolean nameTaken = false;
-
-                for (Robot robot : user.getRobotFleet().getRobots()){
-                    if (robot.getName().equals(name)){
-                        System.out.println("nom déjà pris, svp réessayez\n");
-                        nameTaken = true;
-                        break;
+                        System.out.println("\n\n\n***Création de robot***\n");
+                        System.out.println("Entrer le nom de votre robot\n");
+                        name = scanner.nextLine();
+                        boolean nameTaken = false;
+        
+                        for (Robot robot : user.getRobotFleet().getRobots()){
+                            if (robot.getName().equals(name)){
+                                System.out.println("nom déjà pris, svp réessayez\n");
+                                nameTaken = true;
+                                break;
+                            }
+                        }
+                        if (!nameTaken){
+                            break;
+                        }
+                        
                     }
-                }
-                if (!nameTaken){
-                    break;
-                }
-                
-            }
-
-            System.out.println("\nEntrer le type de votre robot"); 
-            String type = scanner.nextLine();
-
-            System.out.println("\nIndiquez la categorie de votre robot");
-            System.out.println("[0] Robot Aérien");
-            System.out.println("[1] Robot Terrestre");
-            System.out.println("[2] Robot Aquatique");
-
-            String value = scanner.nextLine();
-            switch (value) {
-                case "0":
-                    user.getRobotFleet().add(new AerialRobot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
-                    0,new double[] {0.0,0.0,0.0}, 0, 0, 0,0 ));
-                    break;
-                case "1":
-                    user.getRobotFleet().add(new TerrestrialRobot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
-                    0,new double[] {0.0,0.0,0.0}, 0, 0, 0,0));
-                    break;
-                case "2":
-                    user.getRobotFleet().add(new AquaticRobot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
-                    0,new double[] {0.0,0.0,0.0}, 0, 0, 0,0));
-                    break;
-                default:
-                    System.out.println("\ncommande non connue");
+        
+                    System.out.println("\nEntrer le type de votre robot"); 
+                    String type = scanner.nextLine();
+        
+                    System.out.println("\nIndiquez la categorie de votre robot");
+                    System.out.println("[0] Robot Aérien");
+                    System.out.println("[1] Robot Terrestre");
+                    System.out.println("[2] Robot Aquatique");
+        
+                    String value = scanner.nextLine();
+                    switch (value) {
+                        case "0":
+                            user.getRobotFleet().add(new AerialRobot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
+                            0,new double[] {0.0,0.0,0.0}, 0, 0, 0,0 ));
+                            break;
+                        case "1":
+                            user.getRobotFleet().add(new TerrestrialRobot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
+                            0,new double[] {0.0,0.0,0.0}, 0, 0, 0,0));
+                            break;
+                        case "2":
+                            user.getRobotFleet().add(new AquaticRobot(name, type, new ArrayList<Component>(), UUID.randomUUID(),
+                            0,new double[] {0.0,0.0,0.0}, 0, 0, 0,0));
+                            break;
+                        default:
+                            System.out.println("\ncommande non connue");
+                            RobotFleetMenu.displayManageRobotFleet(user);
+                            break;
+                    }
+                    System.out.println("\nLe robot a été créé avec succès\n");
+                    user.getInventory().remove(component);
                     RobotFleetMenu.displayManageRobotFleet(user);
-                    break;
+                }
             }
-            System.out.println("\nLe robot a été créé avec succès\n");
+            System.out.println("Désolé, vous n'avez un CPU pour créer le robot");
             RobotFleetMenu.displayManageRobotFleet(user);
     }
 

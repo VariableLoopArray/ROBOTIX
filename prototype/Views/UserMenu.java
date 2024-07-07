@@ -94,6 +94,7 @@ public class UserMenu {
                         for (User user2 : Database.getAllUsers()){
                             if (user2.getUserName().equalsIgnoreCase(name)){
                                 user.getFollowers().add(user2);
+                                user2.getFollowing().add(user);
                                 user2.getNotifs().add("NewFollower " + user.getUserName());
                                 System.out.println("La personne a été follow avec succès");
                                 displayManageProfile(user);
@@ -118,6 +119,7 @@ public class UserMenu {
                         for (User user2 : user.getFollowers()){
                             if (user2.getUserName().equalsIgnoreCase(nameToUnffolow)){
                                 user.getFollowers().remove(user2);
+                                user2.getFollowing().remove(user);
                                 System.out.println("La personne a été unfollow avec succès");
                                 scanner.close();
                                 displayManageProfile(user);
