@@ -62,9 +62,8 @@ public class Menu {
             System.out.println("Vous n'avez pas de notifications");
         }
         else{
-            for (String notif : user.getNotifs()){
-                user.displayNotifs();
-            }
+            System.out.println("Voici vos notifications:");
+            user.displayNotifs();
         }
         System.out.println("[0] Gérer Profile");
         System.out.println("[1] Gérer Portefeuille");
