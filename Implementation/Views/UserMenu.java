@@ -28,13 +28,13 @@ public class UserMenu {
                 break;
             case "1":
                 System.out.println("Choisissez l'aspect que vous voulez Changer");
-                System.out.println("[0] Changer le nom");
-                System.out.println("[1] Changer le prénom");
-                System.out.println("[2] Changer le nom d'utilisateur");
-                System.out.println("[3] Changer le mot de passe");
-                System.out.println("[4] Changer l'adresse courriel");
-                System.out.println("[5] Changer le nom de l'entreprise");
-                System.out.println("[6] Changer le numéro de téléphone");
+                System.out.println("[0] Changer de nom");
+                System.out.println("[1] Changer de prénom");
+                System.out.println("[2] Changer de nom d'utilisateur");
+                System.out.println("[3] Changer de mot de passe");
+                System.out.println("[4] Changer d'adresse courriel");
+                System.out.println("[5] Changer de nom d'entreprise");
+                System.out.println("[6] Changer de numéro de téléphone");
                 System.out.println("[7] Follow quelqu'un");
                 System.out.println("[8] Unfollow quelqu'un");
                 System.out.println("[9] Retour");    
@@ -150,7 +150,7 @@ public class UserMenu {
     public static void displayManageWallet(User user){
         Scanner scanner = new Scanner(System.in);
         System.out.println("\n\n\n*** Menu Portefeuille ***");
-        System.out.println("[0] Regarder la quantité d'argent dans ma portefeuille");
+        System.out.println("[0] Regarder la quantité d'argent dans mon portefeuille");
         System.out.println("[1] Ajouter de l'argent dans mon compte");
         System.out.println("[2] retour");
 
@@ -250,7 +250,7 @@ public class UserMenu {
             if (user instanceof Client) {
                 System.out.println("Choisissez ce que vous voulez faire");
                 System.out.println("[0] Voir mon inventaire ");
-                System.out.println("[1] Enlever des composantes de mon inventaire");
+                System.out.println("[1] Enlever une composantes de mon inventaire");
                 System.out.println("[2] Retour");
 
                 

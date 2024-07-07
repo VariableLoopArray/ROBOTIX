@@ -51,8 +51,8 @@ public class ActivityMenu {
             System.out.println("[2] Supprimer une activité");
             System.out.println("[3] Créer une activité");
             System.out.println("[4] Visualiser mes activités");
-            System.out.println("[5] Ajouter un interet");
-            System.out.println("[6] Supprimer un interet");
+            System.out.println("[5] Ajouter un intérêt");
+            System.out.println("[6] Supprimer un intérêt");
             System.out.println("[7] Affichier mes intérêts");
             System.out.println("[8] Retour");
             String value = scanner.nextLine();

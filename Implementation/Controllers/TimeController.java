@@ -17,7 +17,7 @@ public class TimeController {
         System.out.println("\n\n\n\t\t*** Menu Temps ***\n");
         System.out.println("[0] Afficher le temps actuel");
         System.out.println("[1] Sauter d'une journée");
-        System.out.println("[2] Quitter");
+        System.out.println("[2] Retour");
         String value = scanner.nextLine();
         switch (value) {
             case "0":

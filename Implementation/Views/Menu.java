@@ -20,7 +20,7 @@ public class Menu {
         System.out.println("\n\n\n\t\t*** Menu de Connexion ***\n");
         System.out.println("[0] Se connecter");
         System.out.println("[1] Créer un compte");
-        System.out.println("[2] Commander publiques");
+        System.out.println("[2] Commandes publiques");
         System.out.println("[3] Quitter");
         String value = scanner.nextLine();
         switch (value) {
