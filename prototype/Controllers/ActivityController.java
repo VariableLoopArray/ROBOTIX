@@ -1,6 +1,7 @@
 package Controllers;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import Database.Database;
@@ -30,9 +31,11 @@ public class ActivityController {
         } catch (Exception e) {
             System.out.println("Erreur: Entrez un numéro valide");
         }
-        
+
+        System.out.println(toAdd.getCreator().getUserName());
+        toAdd.getCreator().getNotifs().add("ActivityFollower " + user.getUserName());
         user.addActivity(toAdd);
-        (availableActivities.get(activityNumber)).getCreator().getNotifs().add("ActivityFollower " + user.getUserName());
+        
 
     }
 
@@ -287,12 +290,14 @@ public class ActivityController {
         newActivity.getTasks().add(newTask3);
 
         System.out.println("Activité créée");
-        Database.getAllActivities().add(newActivity);
+        System.out.println(newActivity.getInterests());
         for (User u : Database.getAllUsers()){
             if (u.getInterests().contains(newActivity.getInterests())){
                 u.getNotifs().add("ActivityInterest" + " " + newActivity.getName());
             }
         }
+        Database.getAllActivities().add(newActivity);
+        
         ActivityMenu.displayManageActivities(user);
         } catch (Exception e) {
             System.out.println("Erreur: Entrée invalide");

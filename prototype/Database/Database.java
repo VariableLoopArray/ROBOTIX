@@ -97,6 +97,8 @@ public class Database{
         "EdwardBlair@gmail.com","AeroX","514-123-4567",0f,new RobotFleet(new ArrayList<Robot>()),
         new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(), 8, new ArrayList<Component>(), new ArrayList<Order>(), new ArrayList<String>());
 
+        
+
         allUsers.add(user1);
         allClients.add(user1);
         allUsers.add(user2);
@@ -127,6 +129,7 @@ public class Database{
         allSuppliers.add(user14);
         allUsers.add(user15);
         allSuppliers.add(user15);
+        
 
         //hard code componentTags
         componentTags.add("lourd");
@@ -187,6 +190,21 @@ public class Database{
         allRobots.add(Robot4);
         allRobots.add(Robot5);
 
+        RobotFleet robotFleet1 = new RobotFleet(allRobots);
+        ArrayList<String> interest1 = new ArrayList<String>();
+        interest1.add("Arts et Artisanat");
+
+        Client user16 = new Client("1","1","1","1",UUID.randomUUID(),
+        "ManfredAlbert@gmail.com","No Company","514-141-4141",0f,robotFleet1,new ArrayList<Component>(),
+        interest1, new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
+        Client user17 = new Client("2","2","2","2",UUID.randomUUID(),
+        "ManfredAlbert@gmail.com","No Company","514-141-4141",0f,new RobotFleet(new ArrayList<Robot>()),new ArrayList<Component>(),
+        interest1, new ArrayList<Activity>(), new ArrayList<User>(), new ArrayList<User>(),new ArrayList<Order>(),new ArrayList<String>());
+        allUsers.add(user16);
+        allClients.add(user16);
+        allUsers.add(user17);
+        allClients.add(user17);
+        
         //hard code Tasks and Actions
         ArrayList<Action> Arriver = new ArrayList<Action>();
         Arriver.add(new Action("Planifiez votre itinéraire vers le lieu"));
