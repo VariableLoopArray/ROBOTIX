@@ -202,6 +202,7 @@ public class ActivityController {
         }
         System.out.println("Nom: "+ toView.getName());
         System.out.println("Robot: "+ toView.getRobot().getName());
+        System.out.println("Statut: "+ toView.getStatus());
         System.out.println("Date de début: "+ toView.getStartDate());
         System.out.println("Date de fin: "+ toView.getEndDate());
         System.out.println("Catégorie d'intérêt: "+ toView.getInterests());
