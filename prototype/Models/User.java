@@ -90,7 +90,7 @@ public class User {
     }
 
     public ArrayList<String> getInterests(){
-        return null;
+        return new ArrayList<String>();
     }
     public void setInterests(ArrayList<String> interests){
     }
@@ -115,6 +115,7 @@ public class User {
     }
 
     public void displayNotifs(){
+
         for (Robot robot : this.RobotFleet.getRobots()){
             if (robot.getBattery() < 1){
                 System.out.println(robot.getName() + " n'a Plus de batterie.");
@@ -122,12 +123,11 @@ public class User {
         }
 
         for (Activity activity : this.activities){
-            if (activity.getEndDate().minusDays(5).isBefore(Database.getTime())
-            && activity.getEndDate().isAfter(Database.getTime())){
+            if ((activity.getEndDate().minusDays(5).isBefore(Database.getTime()) || activity.getEndDate().isEqual(Database.getTime())) && activity.getEndDate().isAfter(Database.getTime())){
                 if (ChronoUnit.DAYS.between(activity.getEndDate(), Database.getTime()) == 0){
                 System.out.println(activity.getName() + " Cette activité s'achève aujourd'hui ");}
                 else{
-                    System.out.println(activity.getName() + " Cette activité s'achève dans " + ChronoUnit.DAYS.between(activity.getEndDate(), Database.getTime()));
+                    System.out.println(activity.getName() + " Cette activité s'achève dans " + ChronoUnit.DAYS.between(Database.getTime(),activity.getEndDate()) + " jour");
                 }
             }
         }
@@ -135,23 +135,23 @@ public class User {
         for (String notif : this.getNotifs()){
             if (notif.contains("ActivityInterest")){
                 String activityName = notif.split(" ")[1];
-                System.out.println("Une activité qui correspond à vos intérêts est crée" + activityName);
+                System.out.println("Une activité qui correspond à vos intérêts est créé" + " " + activityName);
             }
 
             else if(notif.contains("NewFollower")){
                 String folowerName = notif.split(" ")[1];
-                System.out.println("Vous avez une nouvelle follower " + folowerName);
+                System.out.println("Vous avez une nouvelle follower " + " " + folowerName);
             }
 
             else if (notif.contains("ActivityFollower")){
                 String activityFollowerName = notif.split(" ")[1];
-                System.out.println("Vous avez une nouvelle activité follower " + activityFollowerName);
+                System.out.println("Vous avez une nouvelle activité follower " + " " + activityFollowerName);
             }
             else if (this instanceof Supplier){
                 if (notif.contains("bought")){
                     String componentName = notif.split(" ")[1];
                     String clientName = notif.split(" ")[2];
-                    System.out.println("Un client a acheté une de vos composantes " + componentName + clientName);
+                    System.out.println("Un client a acheté une de vos composantes " + componentName + " " + clientName);
                 }
             }
         }
@@ -331,6 +331,8 @@ public class User {
     public void setNotifs(ArrayList<String> notifs) {
         this.notifs = notifs;
     }
+
+    
     public User(){
 
     }
