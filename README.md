@@ -152,6 +152,7 @@ Quelques commentaires que nous aimerions ajouter pour une meilleure compréhensi
 └── README.md
 ```
 
+Nous n'avons pas inclus le fichier JAR et tous les fichiers connexes dans la structure des fichiers parce qu'IntelliJ crée plusieurs fichiers supplémentaires que nous n'avons pas écrits et qui ne proviennent pas de nous.
 
 (En ce qui concerne les types de robots, nous avons réalisé un peu tard qu'il aurait été nécessaire d'intégrer des types abstraits dans notre diagramme de classe. Modifier notre code pour rendre la classe Utilisateur abstraite pour inclure Client et Fournisseur a été très difficile, donc nous avons implémenté ces types de robots. Plus tard, nous avons appris que le prototype ne nécessitait pas forcément de correspondre exactement à nos diagramme  :C )
 
