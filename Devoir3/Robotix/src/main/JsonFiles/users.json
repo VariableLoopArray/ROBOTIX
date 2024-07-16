@@ -1,0 +1,22 @@
+[
+  {
+    "typeOfAccount": "Client",
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "ed0152da-3dd2-417b-a019-729f1c6ce642",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "followers": [],
+    "followings": [],
+    "interests": [
+      "Sports and Fitness",
+      "Arts and Cafts",
+      "Music and Performing Arts",
+      "Outdoors Activities and Adventure",
+      "Video Games and Technology"
+    ]
+  }
+]
