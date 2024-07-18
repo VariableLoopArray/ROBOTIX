@@ -1,32 +1,32 @@
-.vbox-container {
-    -fx-padding: 10px;
-    -fx-spacing: 10px;
-    -fx-background-color: #f0f0f0;
+.menuTitle{
+    -fx-pref-width: 200;
+    -fx-alignment: center;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+}
+.scroll-pane .scroll-bar{
+    -fx-max-width: 0;
+    -fx-max-height: 0;
 }
 
-
-#imageView5 {
-    -fx-fit-height: 20%;
-    -fx-fit-width: 100%;
-    -fx-background-size: cover;
+.menuVbox{
+    -fx-pref-width: 240;
+    -fx-pref-height: 870;
+    -fx-alignment: center;
 }
 
-
-.hbox-content {
-    -fx-spacing: 10px;
+.scrollPane{
+    -fx-pref-width: 1690;
+    -fx-pref-height: 870;
+    -fx-border-color: #f0f0f0;
 }
+.vboxContainer{
+    -fx-alignment: center;
+    -fx-pref-width: 530;
+    -fx-pref-height: 280;
+    -fx-border-color: black;
+    -fx-border-radius: 20px;
+    -fx-padding: 10;
+    -fx-hgap: 10;
 
-
-.list-view {
-    -fx-pref-width: 300px;
-}
-
-
-.button-join {
-    -fx-background-color: #4CAF50;
-    -fx-text-fill: white;
-}
-hboxActivities{
-    display: flex;
-    flex-wrap: wrap;
 }

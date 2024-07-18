@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 
@@ -29,7 +31,8 @@ public class LoginController {
     @FXML
     private Label messageLabel2;
 
-    private static final String userFile = "src/main/JsonFiles/users.json";
+    Path relativePath = Paths.get("src/main/JsonFiles/users.json");
+    Path userFile = relativePath.toAbsolutePath().normalize();
     private List<User> users;
 
     public LoginController(){
@@ -44,7 +47,8 @@ public class LoginController {
         if (isUserValid(username, password)) {
             Stage stage = (Stage) usernameField.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-            Scene homepageScene = new Scene(fxmlLoader.load());
+            Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
+            homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
             homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             HomepageController homepageController = fxmlLoader.getController();
             homepageController.displayMessage("Welcome " + username + "!", false);
@@ -75,7 +79,7 @@ public class LoginController {
     }
 
     private List<User> loadUsers() {
-        try (InputStream inputStream = new FileInputStream(userFile)) {
+        try (InputStream inputStream = new FileInputStream(String.valueOf(userFile))) {
             InputStreamReader reader = new InputStreamReader(inputStream);
             Gson gson = new Gson();
             Type userListType = new TypeToken<List<User>>() {}.getType();
