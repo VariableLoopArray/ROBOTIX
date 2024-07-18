@@ -20,7 +20,7 @@
         <HBox spacing="10">
             <VBox  styleClass="menuVbox">
                 <!-- Menu items -->
-                <Button text="Menu Item 1" />
+                <Button text="Activity Menu" onAction="#goToActivity" />
                 <Pane VBox.vgrow="ALWAYS"/>
                 <Button text="Menu Item 2" />
                 <Pane VBox.vgrow="ALWAYS"/>
