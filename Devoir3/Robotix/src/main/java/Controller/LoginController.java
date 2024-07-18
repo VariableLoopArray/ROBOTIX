@@ -31,7 +31,7 @@ public class LoginController {
     @FXML
     private Label messageLabel2;
 
-    Path relativePath = Paths.get("src/main/JsonFiles/users.json");
+    Path relativePath = Paths.get("Devoir3/Robotix/src/main/JsonFiles/users.json");
     Path userFile = relativePath.toAbsolutePath().normalize();
     private List<User> users;
 
