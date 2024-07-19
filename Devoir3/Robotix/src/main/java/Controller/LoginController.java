@@ -22,7 +22,7 @@ import java.util.List;
 
 public class LoginController {
     @FXML
-    private TextField usernameField;
+    private TextField emailField;
 
     @FXML
     private PasswordField passwordField;
@@ -31,7 +31,7 @@ public class LoginController {
     @FXML
     private Label messageLabel2;
 
-    Path relativePath = Paths.get("Devoir3/Robotix/src/main/JsonFiles/users.json");
+    Path relativePath = Paths.get("src/main/JsonFiles/users.json");
     Path userFile = relativePath.toAbsolutePath().normalize();
     private List<User> users;
 
@@ -41,17 +41,17 @@ public class LoginController {
 
     @FXML
     private void handleLogin() throws IOException {
-        String username = usernameField.getText();
+        String email = emailField.getText();
         String password = passwordField.getText();
-
-        if (isUserValid(username, password)) {
-            Stage stage = (Stage) usernameField.getScene().getWindow();
+        User user = isUserValid(email, password);
+        if (user != null) {
+            Stage stage = (Stage) emailField.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
             Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
             homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
             homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             HomepageController homepageController = fxmlLoader.getController();
-            homepageController.displayMessage("Welcome " + username + "!", false);
+            homepageController.displayMessage("Welcome " + user.getUsername() + "!", false);
             stage.setTitle("Homepage");
             stage.setScene(homepageScene);
             stage.show();
@@ -68,14 +68,16 @@ public class LoginController {
         Scene createAccountScene = new Scene(fxmlLoader.load(), 720, 540);
         createAccountScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
 
-        Stage stage = (Stage) usernameField.getScene().getWindow();
+        Stage stage = (Stage) emailField.getScene().getWindow();
         stage.setTitle("Create New Account");
         stage.setScene(createAccountScene);
         stage.show();
     }
 
-    private boolean isUserValid(String username, String password){
-        return users.stream().anyMatch(user -> user.getUsername().equals(username) && user.getPassword().equals(password));
+    private User isUserValid(String email, String password){
+         if (users.stream().anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password)))
+                return users.stream().filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password)).findFirst().get();
+         return null;
     }
 
     private List<User> loadUsers() {

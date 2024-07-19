@@ -9,7 +9,7 @@
             fx:controller="Controller.HomepageController"
             stylesheets="@../../classes/CssFiles/Homepage.css"
             >
-    <VBox>
+    <VBox styleClass="homepageWholePage">
         <HBox styleClass="menuTitle">
             <VBox>
                 <Label text="Welcome to Robotix" style="-fx-font-size: 20px;"/>
@@ -20,17 +20,17 @@
         <HBox spacing="10">
             <VBox  styleClass="menuVbox">
                 <!-- Menu items -->
-                <Button text="Activity Menu" onAction="#goToActivity" />
-                <Pane VBox.vgrow="ALWAYS"/>
-                <Button text="Menu Item 2" />
-                <Pane VBox.vgrow="ALWAYS"/>
-                <Button text="Menu Item 3" />
-                <Pane VBox.vgrow="ALWAYS"/>
-                <Button text="Menu Item 4" />
+                <Button text="Activity Menu" onAction="#goToActivity" styleClass="sideMenuButton"/>
+
+                <Button text="Menu Item 2" styleClass="sideMenuButton"/>
+
+                <Button text="Menu Item 3" styleClass="sideMenuButton"/>
+
+                <Button text="Menu Item 4" styleClass="sideMenuButton"/>
             </VBox>
                 <ScrollPane styleClass="scrollPane" fitToWidth="true" fitToHeight="true">
 
-                    <FlowPane hgap="10" vgap="10">
+                    <FlowPane hgap="10" vgap="10" styleClass="flowPane">
                         <VBox styleClass="vboxContainer">
                             <ImageView fx:id="imageView1"/>
                             <HBox>

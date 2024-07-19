@@ -34,7 +34,7 @@ public class HomepageController {
             activityScene.getStylesheets().add(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
             ActivityController activityController = fxmlLoader.getController();
             activityController.displayMessage("Welcome " + "!", false);
-            stage.setTitle("Homepage");
+            stage.setTitle("My Activities");
             stage.setScene(activityScene);
             stage.show();
             stage.setFullScreen(true);
