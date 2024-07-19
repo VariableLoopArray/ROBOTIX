@@ -50,7 +50,7 @@ public class ActivityController {
             Label newActivity = new Label(activity.getName());
             newActivity.getStyleClass().add("activities");
             HBox buttonBox = new HBox(10);
-            Button buttonRemove = new Button("hello1");
+            Button buttonRemove = new Button("Remove");
             buttonRemove.setOnAction(this::buttonRemove);
             Button button2 = new Button("hello2");
             Button button3 = new Button("hello3");
@@ -84,8 +84,13 @@ public class ActivityController {
 
         Button button = (Button) event.getSource();
         HBox hbox = (HBox) button.getParent();
+
         Label label = (Label) hbox.getParent().getChildrenUnmodifiable().get(0);
         String activityName = label.getText();
         client.getMyActivities().remove(activityName);
+
+        for (Activity activity : client.getMyActivities()) {
+            System.out.println(activity.getName());
+        }
     }
 }
