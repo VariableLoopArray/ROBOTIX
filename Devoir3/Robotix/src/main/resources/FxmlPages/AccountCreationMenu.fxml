@@ -133,7 +133,7 @@
                                 </FXCollections>
                             </items>
                         </ChoiceBox>
-                        <Pane HBox.hgrow="ALWAYS"/>q
+                        <Pane HBox.hgrow="ALWAYS"/>
                         <Label fx:id="errorMessage2" styleClass="red"/>
                         <Pane HBox.hgrow="ALWAYS"/>
                         <Button text="Create Account" onAction="#handleSupplierCreateAccount" styleClass="custom-button">
