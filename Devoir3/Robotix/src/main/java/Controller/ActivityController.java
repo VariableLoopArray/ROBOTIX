@@ -46,12 +46,13 @@ public class ActivityController {
 
     public void displayActivities(Client client){
         DisplayActivities.setSpacing(10);
-        for (Activity activity : client.getMyActivities()) {
+        for (int i = 0; i < client.getMyActivities().size(); i++) {
+            Activity activity = client.getMyActivities().get(i);
             Label newActivity = new Label(activity.getName());
             newActivity.getStyleClass().add("activities");
             HBox buttonBox = new HBox(10);
             Button buttonRemove = new Button("Remove");
-            buttonRemove.setOnAction(this::buttonRemove);
+            buttonRemove.setOnAction(this::buttonRemove, i);
             Button button2 = new Button("hello2");
             Button button3 = new Button("hello3");
             buttonBox.getChildren().addAll(buttonRemove, button2, button3);
@@ -60,6 +61,19 @@ public class ActivityController {
         }
 
     }
+
+    private void buttonRemove(ActionEvent event, int i) {
+        Button button = (Button) event.getSource();
+        HBox hbox = (HBox) button.getParent();
+        Label label = (Label) hbox.getParent().getChildrenUnmodifiable().get(0);
+        String activityName = label.getText();
+        client.getMyActivities().remove(activityName);
+
+        for (Activity activity : client.getMyActivities()) {
+        System.out.println(activity.getName());
+        }
+    }
+
     public void activityGoBack() {
         try {
             Stage stage = (Stage) activityWelcome.getScene().getWindow();
@@ -80,17 +94,5 @@ public class ActivityController {
         }
     }
 
-    public void buttonRemove (ActionEvent event){
 
-        Button button = (Button) event.getSource();
-        HBox hbox = (HBox) button.getParent();
-
-        Label label = (Label) hbox.getParent().getChildrenUnmodifiable().get(0);
-        String activityName = label.getText();
-        client.getMyActivities().remove(activityName);
-
-        for (Activity activity : client.getMyActivities()) {
-            System.out.println(activity.getName());
-        }
-    }
 }
