@@ -15,8 +15,6 @@ public class User {
     private String phoneNumber;
     private ArrayList<User> followers;
     private ArrayList<User> followings;
-    private RobotFleet robotFleet;
-    private ArrayList<Activity> myActivities;
 
     public User(){}
 
@@ -111,19 +109,4 @@ public class User {
         this.followings = followings;
     }
 
-    public RobotFleet getRobotFleet() {
-        return robotFleet;
-    }
-
-    public void setRobotFleet(RobotFleet robotFleet) {
-        this.robotFleet = robotFleet;
-    }
-
-    public ArrayList<Activity> getMyActivities() {
-        return myActivities;
-    }
-
-    public void setMyActivities(ArrayList<Activity> myActivities) {
-        this.myActivities = myActivities;
-    }
 }

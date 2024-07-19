@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.TypeOfUsers.Client;
+import Model.TypeOfUsers.Supplier;
 import Model.User;
 import javafx.fxml.FXML;
 
@@ -9,14 +10,16 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
 public class HomepageController {
-    public StackPane client;
-    public StackPane supplier;
+    @FXML
+    public StackPane clientPane;
+//    public StackPane supplierPane;
     @FXML
     private Label messageLabel1;
     @FXML
@@ -24,6 +27,8 @@ public class HomepageController {
     @FXML
     private HBox menuProfile;
     private User user;
+    private Client client;
+    private Supplier supplier;
     public HomepageController() {
     }
     @FXML
@@ -33,10 +38,21 @@ public class HomepageController {
     }
 
 
-    public void setUserHomepage(User user){
-        this.user = user;
+    public void setClientHomepage(Client client){
+        this.client = client;
         displayMessage("Welcome " + user.getUsername() + "!", false);
     }
+
+    public void setUserHomepage(User user){
+        this.user= user;
+        displayMessage("Welcome " + user.getUsername() + "!", false);
+    }
+
+    public void setSupplierHomepage(Supplier supplier){
+        this.supplier = supplier;
+        displayMessage("Welcome " + user.getUsername() + "!", false);
+    }
+
     public void displayMessage(String message, boolean isError) {
         if (!isError) {
             messageLabel1.setText(message);
@@ -64,13 +80,13 @@ public class HomepageController {
     public void initializeActivity() throws IOException {
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/ActivityMenuMenu.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/ActivityMenu.fxml"));
             Scene activityScene = new Scene(fxmlLoader.load(), 1920, 1080);
             activityScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             activityScene.getStylesheets().add(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
             ActivityController activityController = fxmlLoader.getController();
-            activityController.setClientActivity((Client) user);
-            activityController.displayActivities((Client) user);
+            activityController.setUserActivity(user);
+            activityController.displayActivities(user);
             stage.setTitle("My Activities");
             stage.setScene(activityScene);
             stage.show();
@@ -79,5 +95,6 @@ public class HomepageController {
         catch (IOException e) {
             e.printStackTrace();        }
     }
+
 
 }

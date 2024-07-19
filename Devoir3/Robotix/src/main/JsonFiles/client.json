@@ -24,8 +24,8 @@
         "memory": "16GB"
       }
     },
-    "myActivities": {
-      "activivty": {
+    "myActivities": [{
+      "activity": {
         "name": "MicroMouse",
         "robot": "User1Robot",
         "startDate": "2024-07-21",
@@ -33,16 +33,16 @@
         "points": "100",
         "Interests": "Video Games and Technology",
         "creator": "1",
-        "tasks": {
+        "tasks": [{
           "name": "Solve maze",
           "Instructions": [
             "Put robot in the maze",
             "Robot solve the maze"
           ]
-        },
+        }],
         "status": "Ongoing"
       }
-    },
+    }],
     "followings": [],
     "interests": [
       "Sports and Fitness",
