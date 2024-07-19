@@ -39,7 +39,7 @@
       <HBox>
         <Hyperlink text="Create New Account" onAction="#handleCreateAccount"/>
         <Pane HBox.hgrow="ALWAYS"/>
-        <Button text="Login" onAction="#handleLogin"/>
+        <Button text="Login" onAction="#clientLogin"/>
       </HBox>
 
       <HBox>
@@ -81,7 +81,7 @@
           <HBox>
             <Hyperlink text="Create New Account" onAction="#handleCreateAccount"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button text="Login" onAction="#handleLogin"/>
+            <Button text="Login" onAction="#supplierLogin"/>
           </HBox>
           <HBox>
             <ChoiceBox fx:id="supplierLoginChoice" onAction="#supplierSwitchForm" styleClass="choiceBox" value="Supplier">
