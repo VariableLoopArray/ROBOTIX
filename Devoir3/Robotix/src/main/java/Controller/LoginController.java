@@ -78,7 +78,7 @@ public class LoginController {
     @FXML
     private void handleCreateAccount() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/AccountCreationMenu.fxml"));
-        Scene createAccountScene = new Scene(fxmlLoader.load(),1024, 768);
+        Scene createAccountScene = new Scene(fxmlLoader.load(),720, 540);
         createAccountScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
 
         Stage stage = (Stage) emailField.getScene().getWindow();
@@ -147,7 +147,7 @@ public class LoginController {
             try {
                 Stage stage = (Stage) emailField.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-                Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
+                Scene homepageScene = new Scene(fxmlLoader.load(), 1024, 768);
                 homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
                 HomepageController homepageController = fxmlLoader.getController();
@@ -155,7 +155,7 @@ public class LoginController {
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();
-                stage.setFullScreen(true);
+
             }
             catch (IOException e){
                 e.printStackTrace();
@@ -178,7 +178,7 @@ public class LoginController {
             try {
                 Stage stage = (Stage) emailField.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-                Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
+                Scene homepageScene = new Scene(fxmlLoader.load(), 1024, 768);
                 homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
                 HomepageController homepageController = fxmlLoader.getController();

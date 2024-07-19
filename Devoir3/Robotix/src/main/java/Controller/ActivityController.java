@@ -6,6 +6,7 @@ import Model.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -44,15 +45,16 @@ public class ActivityController {
     }
 
     public void displayActivities(Client client){
-
+        DisplayActivities.setSpacing(10);
         for (Activity activity : client.getMyActivities()) {
             Label newActivity = new Label(activity.getName());
             newActivity.getStyleClass().add("activities");
-            HBox buttonBox = new HBox();
-            Button button1 = new Button("hello1");
+            HBox buttonBox = new HBox(10);
+            Button buttonRemove = new Button("hello1");
+            buttonRemove.setOnAction(this::buttonRemove);
             Button button2 = new Button("hello2");
             Button button3 = new Button("hello3");
-            buttonBox.getChildren().addAll(button1, button2, button3);
+            buttonBox.getChildren().addAll(buttonRemove, button2, button3);
             DisplayActivities.getChildren().add(newActivity);
             DisplayActivities.getChildren().add(buttonBox);
         }
@@ -70,12 +72,20 @@ public class ActivityController {
             homepageController.setClientHomepage(client);
             stage.setScene(homepageMenu);
             stage.show();
-            stage.setFullScreen(true);
 
 
         } catch (Exception e) {
             e.printStackTrace();
 
         }
+    }
+
+    public void buttonRemove (ActionEvent event){
+
+        Button button = (Button) event.getSource();
+        HBox hbox = (HBox) button.getParent();
+        Label label = (Label) hbox.getParent().getChildrenUnmodifiable().get(0);
+        String activityName = label.getText();
+        client.getMyActivities().remove(activityName);
     }
 }

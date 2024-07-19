@@ -16,7 +16,7 @@ public class Robotix extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Robotix.class.getResource("/FxmlPages/LoginMenu.fxml"));
-        Scene loginMenu = new Scene(fxmlLoader.load(), 1024, 768);
+        Scene loginMenu = new Scene(fxmlLoader.load(), 720, 540);
         loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
         stage.setTitle("Login");
         stage.setScene(loginMenu);
