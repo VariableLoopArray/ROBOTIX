@@ -61,10 +61,10 @@ public class LoginController {
     @FXML
     private Label messageLabel2;
 
-    Path clientRelativePath = Paths.get("src/main/JsonFiles/client.json");
+    Path clientRelativePath = Paths.get("Devoir3/Robotix/src/main/JsonFiles/client.json");
     Path clientFile = clientRelativePath.toAbsolutePath().normalize();
 
-    Path supplierRelativePath = Paths.get("src/main/JsonFiles/supplier.json");
+    Path supplierRelativePath = Paths.get("Devoir3/Robotix/src/main/JsonFiles/supplier.json");
     Path supplierFile = supplierRelativePath.toAbsolutePath().normalize();
     private List<Client> clients;
     private List<Supplier> suppliers;
@@ -78,7 +78,7 @@ public class LoginController {
     @FXML
     private void handleCreateAccount() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/AccountCreationMenu.fxml"));
-        Scene createAccountScene = new Scene(fxmlLoader.load(), 720, 540);
+        Scene createAccountScene = new Scene(fxmlLoader.load(),1024, 768);
         createAccountScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
 
         Stage stage = (Stage) emailField.getScene().getWindow();
@@ -98,7 +98,6 @@ public class LoginController {
     private Supplier isSupplierValid(String email, String password){
         if (suppliers.stream().anyMatch(Supplier -> Supplier.getEmail().equals(email) && Supplier.getPassword().equals(password)))
             return suppliers.stream().filter(Suppliers -> Suppliers.getEmail().equals(email) && Suppliers.getPassword().equals(password)).findFirst().get();
-
         return null;
     }
 

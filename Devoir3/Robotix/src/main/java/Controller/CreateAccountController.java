@@ -2,6 +2,7 @@ package Controller;
 
 import Model.RobotFleet;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import javafx.fxml.FXML;
@@ -61,8 +62,8 @@ public class CreateAccountController {
     @FXML
     private TextField supplierProductionCapacity;
 
-    private static final String clientFile = "src/main/JsonFiles/client.json";
-    private static final String supplierFile = "src/main/JsonFiles/supplier.json";
+    private static final String clientFile = "Devoir3/Robotix/src/main/JsonFiles/client.json";
+    private static final String supplierFile = "Devoir3/Robotix/src/main/JsonFiles/supplier.json";
     @FXML
     private void handleClientCreateAccount(){
         boolean problem = true;
@@ -146,14 +147,15 @@ public class CreateAccountController {
             usersArray.add(newUser);
 
             try (Writer writer = new FileWriter(clientFile)) {
-                new Gson().toJson(usersArray, writer);
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                gson.toJson(usersArray, writer);
             } catch (IOException e) {
                 e.printStackTrace();
             }
             try {
                 Stage stage = (Stage) clientUsernameField.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
-                Scene loginMenu = new Scene(fxmlLoader.load(), 640, 480);
+                Scene loginMenu = new Scene(fxmlLoader.load(), 1024, 768);
                 LoginController Controller = fxmlLoader.getController();
                 Controller.displayMessage("Account Created Successfully", false);
                 loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
@@ -248,7 +250,7 @@ public class CreateAccountController {
             try {
                 Stage stage = (Stage) clientUsernameField.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
-                Scene loginMenu = new Scene(fxmlLoader.load(), 640, 480);
+                Scene loginMenu = new Scene(fxmlLoader.load(), 1024, 768);
                 LoginController Controller = fxmlLoader.getController();
                 Controller.displayMessage("Account Created Successfully", false);
                 loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
@@ -268,7 +270,7 @@ public class CreateAccountController {
         try {
             Stage stage = (Stage) clientUsernameField.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
-            Scene loginMenu = new Scene(fxmlLoader.load(), 640, 480);
+            Scene loginMenu = new Scene(fxmlLoader.load(), 1024, 768);
             loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
             stage.setTitle("Login");
             stage.setScene(loginMenu);

@@ -1,5 +1,6 @@
 package Controller;
 import Model.Activity;
+import Model.Robot;
 import Model.TypeOfUsers.Client;
 import Model.User;
 import com.google.gson.Gson;
@@ -22,7 +23,7 @@ public class ActivityController {
     private Label activityWelcome;
     @FXML
     private Label Activity1;
-    User user;
+    Client client;
     @FXML
 //    public void initialize() {
 //        System.out.println("ActivityController initialized: " + (activityWelcome != null));
@@ -35,12 +36,34 @@ public class ActivityController {
             activityWelcome.setText("Error: " + message);
         }
     }
-    public void setUserActivity(User user){
-        this.user = user;
+    public void setUserActivity(Client client){
+        this.client = client;
         displayMessage("Welcome " + "!", false);
     }
 
-    public void displayActivities(User user){
-        System.out.println(user);
+    public void displayActivities(Client client){
+        for (Activity activity : client.getMyActivities()) {
+            Activity1.setText(client.getFleet().get(0).getName() + "hello");
+        }
+    }
+    public void activityGoBack() {
+        try {
+            Stage stage = (Stage) activityWelcome.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
+            Scene homepageMenu = new Scene(fxmlLoader.load(), 1024, 768);
+            homepageMenu.getStylesheets().remove(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
+            homepageMenu.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            stage.setTitle("Homepage");
+            HomepageController homepageController = fxmlLoader.getController();
+            homepageController.setClientHomepage(client);
+            stage.setScene(homepageMenu);
+            stage.show();
+            stage.setFullScreen(true);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
     }
 }
