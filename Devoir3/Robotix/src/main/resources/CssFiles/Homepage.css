@@ -1,11 +1,16 @@
-.homepageWholePage{
-    -fx-background-image: url('../Images/LoginBackground.jpg');
-    -fx-background-size: cover;
-    -fx-background-repeat: no-repeat;
-    -fx-background-position: center;
-    -fx-pref-height: 1080;
-    -fx-background-color: rgba(0,0,0, 0.8);
+
+.myProfileButton{
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-text-fill: transparent;
 }
+.myProfileButtonP:hover{
+    -fx-background-color: #f0f0f0;
+}
+
 .menuTitle{
     -fx-pref-width: 200;
     -fx-alignment: center;
@@ -20,22 +25,25 @@
 
 .menuVbox{
     -fx-pref-width: 240;
-    -fx-pref-height: 870;
-    -fx-alignment: center;
+    -fx-pref-height: 1080;
+    -fx-background-color: #f0f0f0;
 }
 
 .scrollPane{
-    -fx-pref-width: 1690;
+    -fx-pref-width: 1700;
     -fx-pref-height: 870;
     -fx-background-color: transparent;
     -fx-background: transparent;
+    -fx-alignment: center;
 
 }
 .flowPane{
     -fx-background-color: transparent;
     -fx-background: transparent;
+    -fx-alignment: center;
 }
 .vboxContainer{
+
     -fx-alignment: center;
     -fx-pref-width: 530;
     -fx-pref-height: 280;
@@ -48,9 +56,9 @@
 }
 .sideMenuButton{
 
-    -fx-text-fill: #fff;
-    -fx-font-size: 16px;
-    -fx-pref-width: 200px;
+    -fx-text-fill: #28b2fc;
+    -fx-font-size: 24px;
+    -fx-pref-width: 240px;
     -fx-pref-height: 100px;
     -fx-border-radius: 0;
     -fx-background-radius: 0;

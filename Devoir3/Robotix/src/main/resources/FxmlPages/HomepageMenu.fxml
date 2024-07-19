@@ -4,30 +4,47 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
 
+
+<?import javafx.scene.image.Image?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
+
             fx:controller="Controller.HomepageController"
             stylesheets="@../../classes/CssFiles/Homepage.css"
             >
-    <VBox styleClass="homepageWholePage">
-        <HBox styleClass="menuTitle">
-            <VBox>
-                <Label text="Welcome to Robotix" style="-fx-font-size: 20px;"/>
-                <Label fx:id="messageLabel1" styleClass="green"/>
-                <Label fx:id="messageLabel2" styleClass="red"/>
-            </VBox>
-        </HBox>
-        <HBox spacing="10">
-            <VBox  styleClass="menuVbox">
-                <!-- Menu items -->
-                <Button text="Activity Menu" onAction="#goToActivity" styleClass="sideMenuButton"/>
+    <ImageView fitWidth="1920" fitHeight="1080" opacity="0.5">
+        <Image url="@../Images/HomepageBackground.jpg"/>
+    </ImageView>
 
-                <Button text="Menu Item 2" styleClass="sideMenuButton"/>
+    <HBox>
+        <VBox styleClass="menuVbox">
+            <HBox fx:id="menuProfile">
+                <Button onAction="#goToMyProfile" styleClass="myProfileButton">
+                    <graphic>
+                        <ImageView fitHeight="100" fitWidth="100">
+                            <Image url="@../Images/defaultProfile.png"/>
+                        </ImageView>
+                    </graphic>
 
-                <Button text="Menu Item 3" styleClass="sideMenuButton"/>
+                </Button>
+            </HBox>
+            <Button text="Activity Menu" onAction="#goToActivity" styleClass="sideMenuButton"/>
 
-                <Button text="Menu Item 4" styleClass="sideMenuButton"/>
-            </VBox>
+            <Button text="Menu Item 2" styleClass="sideMenuButton"/>
+
+            <Button text="Menu Item 3" styleClass="sideMenuButton"/>
+
+            <Button text="Menu Item 4" styleClass="sideMenuButton"/>
+        </VBox>
+        <VBox>
+
+            <HBox styleClass="menuTitle">
+                <VBox>
+                    <Label text="Welcome to Robotix" style="-fx-font-size: 20px;"/>
+                    <Label fx:id="messageLabel1" styleClass="green"/>
+                    <Label fx:id="messageLabel2" styleClass="red"/>
+                </VBox>
+            </HBox>
                 <ScrollPane styleClass="scrollPane" fitToWidth="true" fitToHeight="true">
 
                     <FlowPane hgap="10" vgap="10" styleClass="flowPane">
@@ -167,7 +184,8 @@
                     </FlowPane>
                 </ScrollPane>
 
-        </HBox>
-    </VBox>
+
+        </VBox>
+    </HBox>
 
 </AnchorPane>
