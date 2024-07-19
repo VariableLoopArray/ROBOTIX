@@ -1,5 +1,7 @@
 package Controller;
 
+import Model.TypeOfUsers.Client;
+import Model.TypeOfUsers.Supplier;
 import Model.User;
 
 import com.google.gson.Gson;
@@ -30,10 +32,12 @@ public class LoginController {
     private Label messageLabel1;
     @FXML
     private Label messageLabel2;
-
     Path relativePath = Paths.get("src/main/JsonFiles/users.json");
     Path userFile = relativePath.toAbsolutePath().normalize();
+
     private List<User> users;
+    private List<User> clients;
+    private List<User> suppliers;
 
     public LoginController(){
         users = loadUsers();
@@ -44,18 +48,29 @@ public class LoginController {
         String email = emailField.getText();
         String password = passwordField.getText();
         User user = isUserValid(email, password);
+
         if (user != null) {
-            Stage stage = (Stage) emailField.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-            Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
-            homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
-            homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
-            HomepageController homepageController = fxmlLoader.getController();
-            homepageController.displayMessage("Welcome " + user.getUsername() + "!", false);
-            stage.setTitle("Homepage");
-            stage.setScene(homepageScene);
-            stage.show();
-            stage.setFullScreen(true);
+
+
+                Stage stage = (Stage) emailField.getScene().getWindow();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
+                Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
+                homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
+                homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+                HomepageController homepageController = fxmlLoader.getController();
+                if (user instanceof Client) {
+                    homepageController.setUserHomepage((Client) user);
+                }
+                else if (user instanceof Supplier){
+                    homepageController.setUserHomepage((Supplier) user);
+                }
+                stage.setTitle("Homepage");
+                stage.setScene(homepageScene);
+                stage.show();
+                stage.setFullScreen(true);
+
+
+
         } else {
             displayMessage("Invalid username or password", true);
         }
@@ -76,7 +91,8 @@ public class LoginController {
 
     private User isUserValid(String email, String password){
          if (users.stream().anyMatch(user -> user.getEmail().equals(email) && user.getPassword().equals(password)))
-                return users.stream().filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password)).findFirst().get();
+             return users.stream().filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password)).findFirst().get();
+
          return null;
     }
 
@@ -91,6 +107,8 @@ public class LoginController {
             return List.of();
         }
     }
+
+
     public void displayMessage(String message, boolean isError) {
         if (!isError) {
             messageLabel1.setText(message);

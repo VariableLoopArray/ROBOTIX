@@ -16,8 +16,10 @@
 
 <StackPane xmlns:fx="http://javafx.com/fxml"
            fx:controller="Controller.ActivityController"
-            stylesheets="../CssFiles/Activity.css">
+            stylesheets="@../../classes/CssFiles/Activity.css">
     <VBox>
         <Label fx:id="activityWelcome" text="Activity"  styleClass="test" />
+        <Label fx:id="Activity1" text="hello" styleClass="test"/>
     </VBox>
+
 </StackPane>

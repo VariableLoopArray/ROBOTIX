@@ -8,7 +8,9 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="Controller.HomepageController"
             stylesheets="@../../classes/CssFiles/Homepage.css"
+
             >
+    <StackPane styleClass="createAccountVbox" fx:id="client" visible="false">
     <VBox styleClass="homepageWholePage">
         <HBox styleClass="menuTitle">
             <VBox>
@@ -20,7 +22,7 @@
         <HBox spacing="10">
             <VBox  styleClass="menuVbox">
                 <!-- Menu items -->
-                <Button text="Activity Menu" onAction="#goToActivity" styleClass="sideMenuButton"/>
+                <Button text="Activity Menu" onAction="#initializeActivity" styleClass="sideMenuButton"/>
 
                 <Button text="Menu Item 2" styleClass="sideMenuButton"/>
 
@@ -169,5 +171,8 @@
 
         </HBox>
     </VBox>
+    </StackPane>
 
+    <StackPane styleClass="createAccountVbox" fx:id="supplier" visible="false">
+    </StackPane>
 </AnchorPane>

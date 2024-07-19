@@ -1,0 +1,55 @@
+[
+  {
+    "typeOfAccount": "Client",
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "ed0152da-3dd2-417b-a019-729f1c6ce642",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "followers": [],
+    "robotFleet": {
+      "robots": {
+        "name": "User1Robot",
+        "type": "Testing1",
+        "components": "CPU",
+        "robotFleet": "don't know",
+        "serialNumber": "ab0542da-3ff2-168c-a019-512b1a6fc555",
+        "battery": "100",
+        "location": "[0,0,0]",
+        "speed": "0.0",
+        "cpuUsage": "0",
+        "memory": "16GB"
+      }
+    },
+    "myActivities": {
+      "activivty": {
+        "name": "MicroMouse",
+        "robot": "User1Robot",
+        "startDate": "2024-07-21",
+        "endDate": "2024-07-25",
+        "points": "100",
+        "Interests": "Video Games and Technology",
+        "creator": "1",
+        "tasks": {
+          "name": "Solve maze",
+          "Instructions": [
+            "Put robot in the maze",
+            "Robot solve the maze"
+          ]
+        },
+        "status": "Ongoing"
+      }
+    },
+    "followings": [],
+    "interests": [
+      "Sports and Fitness",
+      "Arts and Crafts",
+      "Music and Performing Arts",
+      "Outdoors Activities and Adventure",
+      "Video Games and Technology"
+    ]
+  }
+]
