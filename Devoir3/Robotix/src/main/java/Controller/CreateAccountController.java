@@ -61,7 +61,8 @@ public class CreateAccountController {
     @FXML
     private TextField supplierProductionCapacity;
 
-    private static final String userFile = "src/main/JsonFiles/users.json";
+    private static final String clientFile = "src/main/JsonFiles/client.json";
+    private static final String supplierFile = "src/main/JsonFiles/supplier.json";
     @FXML
     private void handleClientCreateAccount(){
         boolean problem = true;
@@ -129,7 +130,7 @@ public class CreateAccountController {
 
 
             JsonArray usersArray = new JsonArray();
-            try (InputStream inputStream = new FileInputStream(userFile);
+            try (InputStream inputStream = new FileInputStream(clientFile);
                  Scanner scanner = new Scanner(inputStream)) {
 
                 StringBuilder stringBuilder = new StringBuilder();
@@ -144,7 +145,7 @@ public class CreateAccountController {
 
             usersArray.add(newUser);
 
-            try (Writer writer = new FileWriter(userFile)) {
+            try (Writer writer = new FileWriter(clientFile)) {
                 new Gson().toJson(usersArray, writer);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -224,7 +225,7 @@ public class CreateAccountController {
 
 
             JsonArray usersArray = new JsonArray();
-            try (InputStream inputStream = new FileInputStream(userFile);
+            try (InputStream inputStream = new FileInputStream(supplierFile);
                  Scanner scanner = new Scanner(inputStream)) {
 
                 StringBuilder stringBuilder = new StringBuilder();
@@ -239,7 +240,7 @@ public class CreateAccountController {
 
             usersArray.add(newUser);
 
-            try (Writer writer = new FileWriter(userFile)) {
+            try (Writer writer = new FileWriter(supplierFile)) {
                 new Gson().toJson(usersArray, writer);
             } catch (IOException e) {
                 e.printStackTrace();

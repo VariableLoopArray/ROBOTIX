@@ -40,17 +40,12 @@ public class HomepageController {
 
     public void setClientHomepage(Client client){
         this.client = client;
-        displayMessage("Welcome " + user.getUsername() + "!", false);
-    }
-
-    public void setUserHomepage(User user){
-        this.user= user;
-        displayMessage("Welcome " + user.getUsername() + "!", false);
+        displayMessage("Welcome " + client.getUsername() + "!", false);
     }
 
     public void setSupplierHomepage(Supplier supplier){
         this.supplier = supplier;
-        displayMessage("Welcome " + user.getUsername() + "!", false);
+        displayMessage("Welcome " + supplier.getUsername() + "!", false);
     }
 
     public void displayMessage(String message, boolean isError) {
