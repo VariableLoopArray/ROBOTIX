@@ -11,4 +11,19 @@ public class Task {
         this.Instructions = new ArrayList<String>();
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<String> getInstructions() {
+        return Instructions;
+    }
+
+    public void setInstructions(ArrayList<String> instructions) {
+        Instructions = instructions;
+    }
 }
