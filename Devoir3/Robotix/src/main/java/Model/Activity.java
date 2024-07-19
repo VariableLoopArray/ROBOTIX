@@ -6,15 +6,15 @@ import java.util.ArrayList;
 public class Activity {
     private String name;
     private String robot;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private String startDate;
+    private String endDate;
     private String points;
     private ArrayList<String> Interests;
     private User creator;
     private ArrayList<Task> tasks;
     private String status;
 
-    public Activity(String name, String robot, LocalDate startDate, LocalDate endDate, String points,
+    public Activity(String name, String robot, String startDate, String endDate, String points,
                     ArrayList<String> Interests, User creator, ArrayList<Task> tasks, String status){
         this.name = name;
         this.robot = robot;
@@ -67,19 +67,19 @@ public class Activity {
         this.points = points;
     }
 
-    public LocalDate getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(String endDate) {
         this.endDate = endDate;
     }
 
-    public LocalDate getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(String startDate) {
         this.startDate = startDate;
     }
 
