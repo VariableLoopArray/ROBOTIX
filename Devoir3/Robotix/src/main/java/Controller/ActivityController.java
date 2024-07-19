@@ -98,26 +98,25 @@ public class ActivityController {
                 }
             }
 
-            public void activityGoBack () {
-                try {
-                    Stage stage = (Stage) activityWelcome.getScene().getWindow();
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-                    Scene homepageMenu = new Scene(fxmlLoader.load(), 1024, 768);
-                    homepageMenu.getStylesheets().remove(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
-                    homepageMenu.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
-                    stage.setTitle("Homepage");
-                    HomepageController homepageController = fxmlLoader.getController();
-                    homepageController.setClientHomepage(client);
-                    stage.setScene(homepageMenu);
-                    stage.show();
+    public void activityGoBack() {
+        try {
+            Stage stage = (Stage) activityWelcome.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
+            Scene homepageMenu = new Scene(fxmlLoader.load(), 1024, 768);
+            homepageMenu.getStylesheets().remove(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
+            homepageMenu.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            stage.setTitle("Homepage");
+            HomepageController homepageController = fxmlLoader.getController();
+            homepageController.setUserHomepage(client);
+            stage.setScene(homepageMenu);
+            stage.show();
 
 
-                } catch (Exception e) {
-                    e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
 
                 }
             }
 
 
-        }
-
+}

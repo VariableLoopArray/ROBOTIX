@@ -24,10 +24,6 @@ public class Robotix extends Application {
     }
 
     public static void main(String[] args) {
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(LocalDate.class, (JsonDeserializer<LocalDate>) (json, typeOfT, context) ->
-                        LocalDate.parse(json.getAsString(), DateTimeFormatter.ISO_LOCAL_DATE))
-                .create();
         launch();
     }
 }
