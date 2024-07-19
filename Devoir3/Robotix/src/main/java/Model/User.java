@@ -55,4 +55,75 @@ public class User {
         this.email = email;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public ArrayList<User> getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(ArrayList<User> followers) {
+        this.followers = followers;
+    }
+
+    public ArrayList<User> getFollowings() {
+        return followings;
+    }
+
+    public void setFollowings(ArrayList<User> followings) {
+        this.followings = followings;
+    }
+
+    public RobotFleet getRobotFleet() {
+        return robotFleet;
+    }
+
+    public void setRobotFleet(RobotFleet robotFleet) {
+        this.robotFleet = robotFleet;
+    }
+
+    public ArrayList<Activity> getMyActivities() {
+        return myActivities;
+    }
+
+    public void setMyActivities(ArrayList<Activity> myActivities) {
+        this.myActivities = myActivities;
+    }
 }
