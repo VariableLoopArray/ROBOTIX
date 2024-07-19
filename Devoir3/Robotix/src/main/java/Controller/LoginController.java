@@ -61,10 +61,10 @@ public class LoginController {
     @FXML
     private Label messageLabel2;
 
-    Path clientRelativePath = Paths.get("Devoir3/Robotix/src/main/JsonFiles/client.json");
+    Path clientRelativePath = Paths.get("ift2255/Devoir3/Robotix/src/main/JsonFiles/client.json");
     Path clientFile = clientRelativePath.toAbsolutePath().normalize();
 
-    Path supplierRelativePath = Paths.get("Devoir3/Robotix/src/main/JsonFiles/supplier.json");
+    Path supplierRelativePath = Paths.get("ift2255/Devoir3/Robotix/src/main/JsonFiles/supplier.json");
     Path supplierFile = supplierRelativePath.toAbsolutePath().normalize();
     private List<Client> clients;
     private List<Supplier> suppliers;
@@ -151,7 +151,7 @@ public class LoginController {
                 homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
                 HomepageController homepageController = fxmlLoader.getController();
-                homepageController.setClientHomepage(client);
+                homepageController.setUserHomepage(client);
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();
@@ -182,7 +182,7 @@ public class LoginController {
                 homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
                 HomepageController homepageController = fxmlLoader.getController();
-                homepageController.setSupplierHomepage(supplier);
+                homepageController.setUserHomepage(supplier);
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();
