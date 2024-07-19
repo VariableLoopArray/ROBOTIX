@@ -22,7 +22,7 @@ public class ActivityController {
     private Label activityWelcome;
     @FXML
     private Label Activity1;
-    Client client;
+    User user;
     @FXML
 //    public void initialize() {
 //        System.out.println("ActivityController initialized: " + (activityWelcome != null));
@@ -35,12 +35,12 @@ public class ActivityController {
             activityWelcome.setText("Error: " + message);
         }
     }
-    public void setClientActivity(Client client){
-        this.client = client;
+    public void setUserActivity(User user){
+        this.user = user;
         displayMessage("Welcome " + "!", false);
     }
 
-    public void displayActivities(Client client){
-        System.out.println(client.getMyActivities());
+    public void displayActivities(User user){
+        System.out.println(user);
     }
 }

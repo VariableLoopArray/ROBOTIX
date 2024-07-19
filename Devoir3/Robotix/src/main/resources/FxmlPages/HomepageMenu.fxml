@@ -13,7 +13,7 @@
             stylesheets="@../../classes/CssFiles/Homepage.css"
 
             >
-    <StackPane styleClass="createAccountVbox" fx:id="client" visible="false">
+    <StackPane styleClass="createAccountVbox" fx:id="clientPane" visible="true">
     <ImageView fitWidth="1920" fitHeight="1080" opacity="0.5">
         <Image url="@../Images/HomepageBackground.jpg"/>
     </ImageView>

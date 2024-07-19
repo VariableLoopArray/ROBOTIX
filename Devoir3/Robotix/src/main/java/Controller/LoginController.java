@@ -6,13 +6,12 @@ import Model.User;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -23,24 +22,62 @@ import java.util.List;
 
 
 public class LoginController {
+
+    @FXML
+    public Label messageLabel3;
+
+    @FXML
+    public StackPane supplierLogin;
+
+    @FXML
+    public Label messageLabel4;
+
+    @FXML
+    public TextField emailFieldSupplier;
+
+    @FXML
+    public PasswordField passwordFieldSupplier;
+
+    @FXML
+    public ChoiceBox<String> supplierLoginChoice;
+    @FXML
+    public ChoiceBox<String> clientLoginChoice;
+    @FXML
+    public StackPane clientLogin;
+    @FXML
+    public Label errorMessage;
+    @FXML
+    public Label errorMessageSupplier;
+
     @FXML
     private TextField emailField;
 
     @FXML
     private PasswordField passwordField;
+
     @FXML
     private Label messageLabel1;
+
     @FXML
     private Label messageLabel2;
+
     Path relativePath = Paths.get("src/main/JsonFiles/users.json");
     Path userFile = relativePath.toAbsolutePath().normalize();
 
+    Path ClientRelativePath = Paths.get("src/main/JsonFiles/clients.json");
+    Path clientFile = relativePath.toAbsolutePath().normalize();
+
+    Path SupplierRelativePath = Paths.get("src/main/JsonFiles/users.json");
+    Path supplierFile = relativePath.toAbsolutePath().normalize();
+
     private List<User> users;
-    private List<User> clients;
-    private List<User> suppliers;
+    private List<Client> clients;
+    private List<Supplier> suppliers;
 
     public LoginController(){
         users = loadUsers();
+        clients = loadClients();
+        suppliers = loadSuppliers();
     }
 
     @FXML
@@ -58,12 +95,7 @@ public class LoginController {
                 homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
                 HomepageController homepageController = fxmlLoader.getController();
-                if (user instanceof Client) {
-                    homepageController.setUserHomepage((Client) user);
-                }
-                else if (user instanceof Supplier){
-                    homepageController.setUserHomepage((Supplier) user);
-                }
+                homepageController.setUserHomepage(user);
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();
@@ -96,11 +128,50 @@ public class LoginController {
          return null;
     }
 
+    private Client isClientValid(String email, String password){
+        if (clients.stream().anyMatch(client -> client.getEmail().equals(email) && client.getPassword().equals(password)))
+            return clients.stream().filter(clients -> clients.getEmail().equals(email) && clients.getPassword().equals(password)).findFirst().get();
+
+        return null;
+    }
+
+    private Supplier isSupplierValid(String email, String password){
+        if (suppliers.stream().anyMatch(Supplier -> Supplier.getEmail().equals(email) && Supplier.getPassword().equals(password)))
+            return suppliers.stream().filter(Suppliers -> Suppliers.getEmail().equals(email) && Suppliers.getPassword().equals(password)).findFirst().get();
+
+        return null;
+    }
+
     private List<User> loadUsers() {
         try (InputStream inputStream = new FileInputStream(String.valueOf(userFile))) {
             InputStreamReader reader = new InputStreamReader(inputStream);
             Gson gson = new Gson();
             Type userListType = new TypeToken<List<User>>() {}.getType();
+            return gson.fromJson(reader, userListType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
+
+    private List<Client> loadClients() {
+        try (InputStream inputStream = new FileInputStream(String.valueOf(clientFile))) {
+            InputStreamReader reader = new InputStreamReader(inputStream);
+            Gson gson = new Gson();
+            Type userListType = new TypeToken<List<Client>>() {}.getType();
+            return gson.fromJson(reader, userListType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
+
+    private List<Supplier> loadSuppliers() {
+        try (InputStream inputStream = new FileInputStream(String.valueOf(supplierFile))) {
+            InputStreamReader reader = new InputStreamReader(inputStream);
+            Gson gson = new Gson();
+            Type userListType = new TypeToken<List<Supplier>>() {}.getType();
             return gson.fromJson(reader, userListType);
         } catch (IOException e) {
             e.printStackTrace();
@@ -114,6 +185,90 @@ public class LoginController {
             messageLabel1.setText(message);
         } else {
             messageLabel2.setText(message);
+        }
+    }
+
+    public void clientLogin(ActionEvent actionEvent) {
+        String email = emailField.getText();
+        String password = passwordField.getText();
+        Client client = isClientValid(email, password);
+
+        if (client != null) {
+
+            try {
+                Stage stage = (Stage) emailField.getScene().getWindow();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
+                Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
+                homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
+                homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+                HomepageController homepageController = fxmlLoader.getController();
+                homepageController.setClientHomepage(client);
+                stage.setTitle("Homepage");
+                stage.setScene(homepageScene);
+                stage.show();
+                stage.setFullScreen(true);
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+
+
+        } else {
+            displayMessage("Invalid username or password", true);
+        }
+
+    }
+
+    public void supplierLogin(ActionEvent actionEvent) {
+        String email = emailField.getText();
+        String password = passwordField.getText();
+        Supplier supplier = isSupplierValid(email, password);
+
+        if (supplier != null) {
+
+            try {
+                Stage stage = (Stage) emailField.getScene().getWindow();
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
+                Scene homepageScene = new Scene(fxmlLoader.load(), 1920, 1080);
+                homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
+                homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+                HomepageController homepageController = fxmlLoader.getController();
+                homepageController.setSupplierHomepage(supplier);
+                stage.setTitle("Homepage");
+                stage.setScene(homepageScene);
+                stage.show();
+                stage.setFullScreen(true);
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+
+
+        } else {
+            displayMessage("Invalid username or password", true);
+        }
+
+    }
+
+    public void clientSwitchForm() {
+        String clientSelectedForm = clientLoginChoice.getValue();
+        if (clientSelectedForm.equals("Supplier")) {
+            clientLogin.setVisible(false);
+            supplierLogin.setVisible(true);
+            supplierLoginChoice.setValue("Supplier");
+            clientLoginChoice.setValue("Client");
+            errorMessage.setText("");
+        }
+    }
+
+    public void supplierSwitchForm() {
+        String supplierSelectedForm = supplierLoginChoice.getValue();
+        if (supplierSelectedForm.equals("Client")) {
+            clientLogin.setVisible(true);
+            supplierLogin.setVisible(false);
+            clientLoginChoice.setValue("Client");
+            supplierLoginChoice.setValue("Supplier");
+            errorMessageSupplier.setText("");
         }
     }
 }
