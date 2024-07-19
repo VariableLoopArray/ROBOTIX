@@ -12,7 +12,7 @@
 }
 
 .menuTitle{
-    -fx-pref-width: 200;
+    -fx-pref-height: 100;
     -fx-alignment: center;
     -fx-font-size: 30;
     -fx-font-weight: bold;
@@ -25,13 +25,13 @@
 
 .menuVbox{
     -fx-pref-width: 240;
-    -fx-pref-height: 1080;
+    -fx-pref-height: 768;
     -fx-background-color: #f0f0f0;
 }
 
 .scrollPane{
-    -fx-pref-width: 1700;
-    -fx-pref-height: 870;
+    -fx-pref-width: 786;
+    -fx-pref-height: 570;
     -fx-background-color: transparent;
     -fx-background: transparent;
     -fx-alignment: center;
@@ -45,8 +45,8 @@
 .vboxContainer{
 
     -fx-alignment: center;
-    -fx-pref-width: 530;
-    -fx-pref-height: 280;
+    -fx-pref-width: 242;
+    -fx-pref-height: 180;
     -fx-border-color: black;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;

@@ -52,7 +52,6 @@ public class ActivityController {
             newActivity.getStyleClass().add("activities");
             HBox buttonBox = new HBox(10);
             Button buttonRemove = new Button("Remove");
-            buttonRemove.setOnAction(this::buttonRemove, i);
             Button button2 = new Button("hello2");
             Button button3 = new Button("hello3");
             buttonBox.getChildren().addAll(buttonRemove, button2, button3);
@@ -83,7 +82,7 @@ public class ActivityController {
             homepageMenu.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             stage.setTitle("Homepage");
             HomepageController homepageController = fxmlLoader.getController();
-            homepageController.setClientHomepage(client);
+            homepageController.setUserHomepage(client);
             stage.setScene(homepageMenu);
             stage.show();
 

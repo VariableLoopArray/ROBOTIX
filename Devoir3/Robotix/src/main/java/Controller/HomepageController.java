@@ -26,8 +26,7 @@ public class HomepageController {
     private Label messageLabel2;
     @FXML
     private HBox menuProfile;
-    private Client client;
-    private Supplier supplier;
+    private User user;
     public HomepageController() {
     }
     @FXML
@@ -37,15 +36,11 @@ public class HomepageController {
     }
 
 
-    public void setClientHomepage(Client client){
-        this.client = client;
-        displayMessage("Welcome " + client.getUsername() + "!", false);
+    public void setUserHomepage(User user){
+        this.user = user;
+        displayMessage("Welcome " + user.getUsername() + "!", false);
     }
 
-    public void setSupplierHomepage(Supplier supplier){
-        this.supplier = supplier;
-        displayMessage("Welcome " + supplier.getUsername() + "!", false);
-    }
 
     public void displayMessage(String message, boolean isError) {
         if (!isError) {
@@ -62,6 +57,7 @@ public class HomepageController {
             profileScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             profileScene.getStylesheets().add(getClass().getResource("/CssFiles/Profile.css").toExternalForm());
             ProfileController profileController = fxmlLoader.getController();
+            profileController.setUser(user);
             stage.setTitle("My Profile");
             stage.setScene(profileScene);
             stage.show();
@@ -78,8 +74,8 @@ public class HomepageController {
             activityScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             activityScene.getStylesheets().add(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
             ActivityController activityController = fxmlLoader.getController();
-            activityController.setUserActivity(client);
-            activityController.displayActivities(client);
+            activityController.setUserActivity((Client) user);
+            activityController.displayActivities((Client) user);
             stage.setTitle("My Activities");
             stage.setScene(activityScene);
             stage.show();
