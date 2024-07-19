@@ -54,29 +54,89 @@
 
     ],
     "myActivities": [
+
       {
-        "activity": {
-          "name": "MicroMouse",
-          "robot": "User1Robot",
-          "startDate": "2024-07-21",
-          "endDate": "2024-07-25",
-          "points": "100",
-          "Interests": "Video Games and Technology",
-          "creator": "1",
-          "tasks": [
-            {
-              "name": "Solve maze",
-              "Instructions": [
-                "Put robot in the maze",
-                "Robot solve the maze"
-              ]
-            }
-          ],
-          "status": "Ongoing"
-        }
+        "name": "MicroMouse",
+        "robot": "User1Robot",
+        "startDate": "2024-07-21",
+        "endDate": "2024-07-25",
+        "points": "100",
+        "interests": ["Video Games and Technology"],
+        "creator": {
+          "typeOfAccount": "Client",
+          "firstName": "2",
+          "lastName": "2",
+          "username": "2",
+          "password": "22222222",
+          "id": "ffa1ab3a-5fb8-4706-8d83-a1d2357f5ee1",
+          "email": "2@",
+          "companyName": "2",
+          "phoneNumber": "222-222-2222",
+          "followers": [],
+          "followings": [],
+          "interests": [
+            "Sports and Fitness",
+            "Arts and Cafts",
+            "Music and Performing Arts",
+            "Outdoors Activities and Adventure",
+            "Video Games and Technology"
+          ]
+        },
+        "tasks": [
+          {
+            "name": "Solve maze",
+            "Instructions": [
+              "Put robot in the maze",
+              "Robot solve the maze"
+            ]
+          }
+        ],
+        "status": "Ongoing"
+      },
+
+
+      {
+        "name": "MicroMouse2 Electric Boogaloo",
+        "robot": "User1Robot",
+        "startDate": "2024-07-21",
+        "endDate": "2024-07-25",
+        "points": "100",
+        "interests": ["Video Games and Technology"],
+        "creator": {
+          "typeOfAccount": "Client",
+          "firstName": "2",
+          "lastName": "2",
+          "username": "2",
+          "password": "22222222",
+          "id": "ffa1ab3a-5fb8-4706-8d83-a1d2357f5ee1",
+          "email": "2@",
+          "companyName": "2",
+          "phoneNumber": "222-222-2222",
+          "followers": [],
+          "followings": [],
+          "interests": [
+            "Sports and Fitness",
+            "Arts and Cafts",
+            "Music and Performing Arts",
+            "Outdoors Activities and Adventure",
+            "Video Games and Technology"
+          ]
+        },
+        "tasks": [
+          {
+            "name": "Solve maze",
+            "Instructions": [
+              "Put robot in the maze",
+              "Robot solve the maze"
+            ]
+          }
+        ],
+        "status": "Ongoing"
       }
     ]
   },
+
+
   {
     "typeOfAccount": "Client",
     "firstName": "2",

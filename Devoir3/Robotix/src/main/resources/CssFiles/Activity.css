@@ -1,3 +1,6 @@
-.test{
-    -fx-font-size: 100;
+.title{
+    -fx-font-size: 50;
+}
+.activities{
+    -fx-font-size: 30;
 }

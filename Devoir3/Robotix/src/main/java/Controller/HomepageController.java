@@ -79,7 +79,6 @@ public class HomepageController {
             activityScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             activityScene.getStylesheets().add(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
             ActivityController activityController = fxmlLoader.getController();
-            System.out.println(client.getFirstName());
             activityController.setUserActivity(client);
             activityController.displayActivities(client);
             stage.setTitle("My Activities");

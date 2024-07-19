@@ -10,7 +10,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 
@@ -19,10 +21,10 @@ import java.util.Scanner;
 import java.util.UUID;
 
 public class ActivityController {
+    public VBox DisplayActivities;
     @FXML
     private Label activityWelcome;
     @FXML
-    private Label Activity1;
     Client client;
     @FXML
 //    public void initialize() {
@@ -38,13 +40,23 @@ public class ActivityController {
     }
     public void setUserActivity(Client client){
         this.client = client;
-        displayMessage("Welcome " + "!", false);
+        displayMessage("Welcome to your activities!", false);
     }
 
     public void displayActivities(Client client){
+
         for (Activity activity : client.getMyActivities()) {
-            Activity1.setText(client.getFleet().get(0).getName() + "hello");
+            Label newActivity = new Label(activity.getName());
+            newActivity.getStyleClass().add("activities");
+            HBox buttonBox = new HBox();
+            Button button1 = new Button("hello1");
+            Button button2 = new Button("hello2");
+            Button button3 = new Button("hello3");
+            buttonBox.getChildren().addAll(button1, button2, button3);
+            DisplayActivities.getChildren().add(newActivity);
+            DisplayActivities.getChildren().add(buttonBox);
         }
+
     }
     public void activityGoBack() {
         try {
