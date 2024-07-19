@@ -26,7 +26,6 @@ public class HomepageController {
     private Label messageLabel2;
     @FXML
     private HBox menuProfile;
-    private User user;
     private Client client;
     private Supplier supplier;
     public HomepageController() {
@@ -76,12 +75,13 @@ public class HomepageController {
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/ActivityMenu.fxml"));
-            Scene activityScene = new Scene(fxmlLoader.load(), 1920, 1080);
+            Scene activityScene = new Scene(fxmlLoader.load(), 1024, 768);
             activityScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             activityScene.getStylesheets().add(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
             ActivityController activityController = fxmlLoader.getController();
-            activityController.setUserActivity(user);
-            activityController.displayActivities(user);
+            System.out.println(client.getFirstName());
+            activityController.setUserActivity(client);
+            activityController.displayActivities(client);
             stage.setTitle("My Activities");
             stage.setScene(activityScene);
             stage.show();

@@ -1,19 +1,5 @@
 [
   {
-    "typeOfAccount": "Client",
-    "firstName": "3",
-    "lastName": "3",
-    "username": "3",
-    "password": "33333333",
-    "id": "1f0ee479-193b-4a8f-abe4-f15c774ee4a1",
-    "email": "3@",
-    "companyName": "3",
-    "phoneNumber": "333-333-3333",
-    "followers": [],
-    "followings": [],
-    "interests": []
-  },
-  {
     "typeOfAccount": "Supplier",
     "firstName": "1",
     "lastName": "1",
@@ -26,4 +12,5 @@
     "followers": [],
     "followings": []
   }
+
 ]
