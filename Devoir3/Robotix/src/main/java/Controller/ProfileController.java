@@ -19,7 +19,7 @@ public class ProfileController {
         try {
             Stage stage = (Stage) profileMenu.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-            Scene homepage = new Scene(fxmlLoader.load(), 1920, 1080);
+            Scene homepage = new Scene(fxmlLoader.load(), 1024, 768);
             homepage.getStylesheets().remove(getClass().getResource("/CssFiles/Profile.css").toExternalForm());
             homepage.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             stage.setTitle("Homepage");
