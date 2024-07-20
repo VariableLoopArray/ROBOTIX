@@ -16,6 +16,12 @@
     -fx-font-weight: bold;
     -fx-font-size: 12px;
 }
+.green{
+    -fx-text-fill: #4CAF50;
+}
+.red{
+    -fx-text-fill: #f44336;
+}
 
 
 
