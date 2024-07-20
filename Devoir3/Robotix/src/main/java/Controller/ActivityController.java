@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -93,19 +94,49 @@ public class ActivityController {
     }
 
     private void buttonConfirm(Button buttonConfirm, TextArea newTask, int activityPlace) {
+
+        ArrayList<Integer> taskIndex = new ArrayList<Integer>();
+        ArrayList<Integer> instructionsIndex = new ArrayList<Integer>();
+
+        if (!buttonConfirm.isVisible()){
+            return;
+        }
         buttonConfirm.setVisible(false);
         newTask.setVisible(false);
         String[] newText = newTask.getText().split("\n");
         for (int i = 0; i < newText.length; i++){
-            newText[i] = newText[i].replaceAll("task name is ", "");
-            newText[i] = newText[i].replaceAll("instructions are ", "");
+            if (newText[i].contains("task name is")){
+                taskIndex.add(i);
+            }
+            else if (newText[i].contains("instructions are ")){
+                instructionsIndex.add(i);
+            }
+
+            newText[i] = newText[i].replaceAll("task name is ", "").replaceAll
+                    ("instructions are ", "");
+
         }
-        client.getMyActivities().get(activityPlace).getTasks().get(0).setName(newText[0]);
+        System.out.println("tasks are " + taskIndex.toString());
+        System.out.println("instructions are " + instructionsIndex.toString());
+        for (int i = 0; i < taskIndex.size(); i++){
+            client.getMyActivities().get(activityPlace).getTasks().get(i).setName(newText[taskIndex.get(i)]);
+        }
         //System.out.println(Arrays.toString(newText));
-        for (int i = 0; i < newText.length-1; i++){
-            client.getMyActivities().get(activityPlace).getTasks().get(0).getInstructions().set(i,newText[i+1]);
+        for (int j = 0; j < taskIndex.size(); j++){
+            for (int i = 0; i < client.getMyActivities().get(activityPlace).getTasks().size(); i++) {
+                if (j == 0) {
+                    client.getMyActivities().get(activityPlace).getTasks().get(j).
+                            getInstructions().set(i, newText[instructionsIndex.get(i)]);
+                }
+                else{
+                    client.getMyActivities().get(activityPlace).getTasks().get(j).
+                            getInstructions().set(i, newText[instructionsIndex.get(i + taskIndex.get(j) - 1 )]);
+                }
+            }
             //  System.out.println(client.getMyActivities().get(activityPlace).getTasks().get(0).getInstructions().toString());
         }
+
+
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
@@ -156,27 +187,6 @@ public class ActivityController {
         return activityPlace;
     }
 
-    private Client matchClient(UUID uuid, Client clientParam){
-        List<Client> clients = loadClients();
-
-        if (clients.stream().anyMatch(client -> client.getEmail().equals(client.getId())))
-            return clients.stream().filter(c -> c.getId().equals(client.getId())).findFirst().get();
-
-        return null;
-    }
-
-    private List<Client> loadClients() {
-        try (InputStream inputStream = new FileInputStream(String.valueOf("src/main/JsonFiles/client.json"))) {
-            InputStreamReader reader = new InputStreamReader(inputStream);
-            Gson gson = new Gson();
-            Type clientListType = new TypeToken<List<Client>>() {}.getType();
-            return gson.fromJson(reader, clientListType);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            return List.of();
-        }
-    }
     private void buttonRemove (ActionEvent event,int index){
 
 
@@ -190,6 +200,8 @@ public class ActivityController {
                     break;
                 }
             }
+
+
         }
 
     public void activityGoBack() {
