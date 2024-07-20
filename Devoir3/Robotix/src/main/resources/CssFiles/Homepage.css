@@ -21,6 +21,8 @@
 .scroll-pane .scroll-bar{
     -fx-max-width: 0;
     -fx-max-height: 0;
+    -fx-opacity: 0;
+    -fx-background-color: transparent;
 }
 
 .menuVbox{

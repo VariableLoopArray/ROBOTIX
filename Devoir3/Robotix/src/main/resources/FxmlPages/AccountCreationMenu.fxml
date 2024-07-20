@@ -26,7 +26,7 @@
                 <VBox styleClass="textfield">
                     <Label text="Client Form" style="-fx-font-size: 20px"/>
                     <HBox>
-                        <Button text="Go Back" onAction="#handleGoBack" styleClass="custom-button"/>
+                        <Button text="Go Back" onAction="#handleGoBack" styleClass="customButton"/>
 
                     </HBox>
                     <HBox styleClass="createAccountHbox">
@@ -76,7 +76,7 @@
                         <Pane HBox.hgrow="ALWAYS"/>
                         <Label fx:id="errorMessage1" styleClass="red"/>
                         <Pane HBox.hgrow="ALWAYS"/>
-                        <Button text="Create Account" onAction="#handleClientCreateAccount" styleClass="custom-button">
+                        <Button text="Create Account" onAction="#handleClientCreateAccount" styleClass="customButton">
                             <VBox.margin>
                                 <Insets top="10"/>
                             </VBox.margin>
@@ -95,7 +95,7 @@
                 <VBox styleClass="textfield">
                     <Label text="Supplier Form" style="-fx-font-size: 20px"/>
                     <HBox>
-                        <Button text="Go Back" onAction="#handleGoBack" styleClass="custom-button"/>
+                        <Button text="Go Back" onAction="#handleGoBack" styleClass="customButton"/>
                     </HBox>
                     <HBox styleClass="createAccountHbox">
                         <GridPane hgap="10" vgap="10">
@@ -136,7 +136,7 @@
                         <Pane HBox.hgrow="ALWAYS"/>
                         <Label fx:id="errorMessage2" styleClass="red"/>
                         <Pane HBox.hgrow="ALWAYS"/>
-                        <Button text="Create Account" onAction="#handleSupplierCreateAccount" styleClass="custom-button">
+                        <Button text="Create Account" onAction="#handleSupplierCreateAccount" styleClass="customButton">
                             <VBox.margin>
                                 <Insets top="10"/>
                             </VBox.margin>

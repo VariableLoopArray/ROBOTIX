@@ -1,0 +1,20 @@
+.menuVbox{
+    -fx-pref-width: 240;
+    -fx-pref-height: 768;
+    -fx-background-color: #f0f0f0;
+}
+.sideMenuButton{
+
+    -fx-text-fill: #28b2fc;
+    -fx-font-size: 24px;
+    -fx-pref-width: 240px;
+    -fx-pref-height: 100px;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+
+
+
+
+
+
