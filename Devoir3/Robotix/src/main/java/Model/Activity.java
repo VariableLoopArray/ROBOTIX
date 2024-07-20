@@ -98,4 +98,5 @@ public class Activity {
     public void setName(String name) {
         this.name = name;
     }
+
 }

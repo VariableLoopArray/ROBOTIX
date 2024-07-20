@@ -22,4 +22,7 @@ public class Component {
         this.supplier = supplier;
         this.serialNumber = UUID.randomUUID();
     }
+    public String getName() {
+        return name;
+    }
 }
