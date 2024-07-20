@@ -27,7 +27,7 @@
             <VBox>
                 <Label text="Profile" style="-fx-font-size: 20px" lineSpacing="40"/>
                 <Pane prefHeight="20"/>
-                <GridPane fx:id="clientInfo" hgap="10" vgap="10">
+                <GridPane fx:id="profileInfo" hgap="10" vgap="10">
                     <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="boldText"/>
                     <Label fx:id="fullNameLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
                     <Label text="Username:" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="90" styleClass="boldText"/>
@@ -57,7 +57,7 @@
                 <GridPane hgap="10" vgap="10">
                     <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="90"/>
                     <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                    <Label fx:id="PreviousPassword" text="Previous Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label text="Previous Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
                     <PasswordField fx:id="previousPasswordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
                     <Label text="Password:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
                     <PasswordField fx:id="passwordField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
@@ -67,7 +67,9 @@
                     <TextField fx:id="phoneNumberField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
                     <Label text="Company Name:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
                     <TextField fx:id="companyNameField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-                    <Button text="Save Changes"  GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    <Button text="Save Changes" onAction="#handleSaveChanges" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    <Label fx:id="errorMessage" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="red"/>
+                    <Label fx:id="successMessage" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="green"/>
                 </GridPane>
             </VBox>
         </HBox>
