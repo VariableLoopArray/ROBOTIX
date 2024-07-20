@@ -62,8 +62,8 @@ public class CreateAccountController {
     @FXML
     private TextField supplierProductionCapacity;
 
-    private static final String clientFile = "Devoir3/Robotix/src/main/JsonFiles/client.json";
-    private static final String supplierFile = "Devoir3/Robotix/src/main/JsonFiles/supplier.json";
+    private static final String clientFile = "src/main/JsonFiles/client.json";
+    private static final String supplierFile = "src/main/JsonFiles/supplier.json";
     @FXML
     private void handleClientCreateAccount(){
         boolean problem = true;
