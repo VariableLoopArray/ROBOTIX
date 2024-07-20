@@ -62,8 +62,15 @@
           {
             "name": "Solve maze",
             "Instructions": [
-              "test1",
-              "test2"
+              "put robot",
+              "robot solve"
+            ]
+          },
+          {
+            "name": "Build Robot",
+            "Instructions": [
+              "buy components",
+              "destroy robots"
             ]
           }
         ],
