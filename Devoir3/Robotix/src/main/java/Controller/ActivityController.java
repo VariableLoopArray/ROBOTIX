@@ -2,6 +2,9 @@ package Controller;
 import Model.Activity;
 import Model.Task;
 import Model.TypeOfUsers.Client;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +14,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.*;
+import java.lang.reflect.Type;
 import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ActivityController {
     public VBox DisplayActivities;
@@ -40,6 +48,7 @@ public class ActivityController {
         DisplayActivities.setSpacing(10);
         Button buttonAdd = new Button("Add");
         DisplayActivities.getChildren().add(buttonAdd);
+        AtomicInteger numberOfActivity = new AtomicInteger();
         for (int i = 0; i < client.getMyActivities().size(); i++) {
 
             VBox everything = new VBox(10);
@@ -65,10 +74,12 @@ public class ActivityController {
 
             Button buttonConfirm = new Button("Confirm");
             buttonConfirm.setVisible(false);
-            buttonConfirm.setOnAction((actionEvent -> buttonConfirm(buttonConfirm, newTask, buttonModify(index, newTask, buttonConfirm))));
+
+            buttonConfirm.setOnAction((actionEvent -> buttonConfirm(buttonConfirm, newTask, numberOfActivity.get())));
 
             Button buttonModify = new Button("Modify");
-            buttonModify.setOnAction((actionEvent -> buttonModify(index, newTask, buttonConfirm)));
+            buttonModify.setOnAction((actionEvent) -> {
+                numberOfActivity.set(buttonModify(index, newTask, buttonConfirm));});
 
 
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonConfirm);
@@ -85,12 +96,36 @@ public class ActivityController {
         buttonConfirm.setVisible(false);
         newTask.setVisible(false);
         String[] newText = newTask.getText().split("\n");
-        client.getMyActivities().get(activityPlace).getTasks().get(0).setName(newText[0]);
-        System.out.println(Arrays.toString(newText));
-        for (int i = 0; i < newText.length-2; i++){
-            client.getMyActivities().get(activityPlace).getTasks().get(0).getInstructions().set(i,newText[i+1]);
+        for (int i = 0; i < newText.length; i++){
+            newText[i] = newText[i].replaceAll("task name is ", "");
+            newText[i] = newText[i].replaceAll("instructions are ", "");
         }
+        client.getMyActivities().get(activityPlace).getTasks().get(0).setName(newText[0]);
+        //System.out.println(Arrays.toString(newText));
+        for (int i = 0; i < newText.length-1; i++){
+            client.getMyActivities().get(activityPlace).getTasks().get(0).getInstructions().set(i,newText[i+1]);
+            //  System.out.println(client.getMyActivities().get(activityPlace).getTasks().get(0).getInstructions().toString());
+        }
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
+        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+
+            Client [] Clients = gson.fromJson(reader, Client[].class);
+            for (int i = 0; i < Clients.length; i++){
+                //System.out.println("this is client id " + client.getId() + " and this is the clientlist Id " + Clients[i].getId());
+                //System.out.println(i + " this is " + (Clients[i].getId().equals()client.getId()));
+                if (Clients[i].getId().equals(client.getId())){
+                    Clients[i] = client;
+                    break;
+                }
+            }
+            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+                gson.toJson(Clients, writer);
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     private int buttonModify (int index, TextArea newTask, Button buttonConfirm) {
@@ -105,7 +140,7 @@ public class ActivityController {
 
                 String tasks = "";
                 for (Task task : modifyNode.getTasks()) {
-                    tasks += task.getName() + "\n";
+                    tasks += "task name is " + task.getName() + "\n";
                     for (String instructions : task.getInstructions()) {
                         tasks += "instructions are " + instructions + "\n";
                     }
@@ -121,24 +156,41 @@ public class ActivityController {
         return activityPlace;
     }
 
-            private void buttonRemove (ActionEvent event,int index){
+    private Client matchClient(UUID uuid, Client clientParam){
+        List<Client> clients = loadClients();
+
+        if (clients.stream().anyMatch(client -> client.getEmail().equals(client.getId())))
+            return clients.stream().filter(c -> c.getId().equals(client.getId())).findFirst().get();
+
+        return null;
+    }
+
+    private List<Client> loadClients() {
+        try (InputStream inputStream = new FileInputStream(String.valueOf("src/main/JsonFiles/client.json"))) {
+            InputStreamReader reader = new InputStreamReader(inputStream);
+            Gson gson = new Gson();
+            Type clientListType = new TypeToken<List<Client>>() {}.getType();
+            return gson.fromJson(reader, clientListType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
+    private void buttonRemove (ActionEvent event,int index){
 
 
-                VBox removeBox = (VBox) DisplayActivities.getChildren().get(3*index+1);
-                Label remove = (Label) removeBox.getChildren().get(0);
-                String removeText = remove.getText();
+            VBox removeBox = (VBox) DisplayActivities.getChildren().get(3*index+1);
+            Label remove = (Label) removeBox.getChildren().get(0);
+            String removeText = remove.getText();
 
-                for (Activity removeNode : client.getMyActivities()) {
-                    if (removeNode.getName().equals(removeText)) {
-                        client.getMyActivities().remove(removeNode);
-                        break;
-                    }
-                }
-
-                for (Activity activity : client.getMyActivities()) {
-                    System.out.println(activity.getName());
+            for (Activity removeNode : client.getMyActivities()) {
+                if (removeNode.getName().equals(removeText)) {
+                    client.getMyActivities().remove(removeNode);
+                    break;
                 }
             }
+        }
 
     public void activityGoBack() {
         try {
