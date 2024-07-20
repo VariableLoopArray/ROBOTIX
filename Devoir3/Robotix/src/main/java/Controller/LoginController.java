@@ -61,10 +61,10 @@ public class LoginController {
     @FXML
     private Label messageLabel2;
 
-    Path clientRelativePath = Paths.get("ift2255/Devoir3/Robotix/src/main/JsonFiles/client.json");
+    Path clientRelativePath = Paths.get("src/main/JsonFiles/client.json");
     Path clientFile = clientRelativePath.toAbsolutePath().normalize();
 
-    Path supplierRelativePath = Paths.get("ift2255/Devoir3/Robotix/src/main/JsonFiles/supplier.json");
+    Path supplierRelativePath = Paths.get("src/main/JsonFiles/supplier.json");
     Path supplierFile = supplierRelativePath.toAbsolutePath().normalize();
     private List<Client> clients;
     private List<Supplier> suppliers;

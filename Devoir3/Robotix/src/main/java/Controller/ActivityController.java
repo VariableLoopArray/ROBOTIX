@@ -11,6 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.Arrays;
+
 public class ActivityController {
     public VBox DisplayActivities;
     @FXML
@@ -40,50 +42,90 @@ public class ActivityController {
         DisplayActivities.getChildren().add(buttonAdd);
         for (int i = 0; i < client.getMyActivities().size(); i++) {
 
+            VBox everything = new VBox(10);
             Activity activity = client.getMyActivities().get(i);
+            //VBox activityAndModify = new VBox(1);
             Label newActivity = new Label(activity.getName());
+
+            TextArea newTask = new TextArea();
+            newTask.setVisible(false);
+            newTask.setPrefHeight(10);
+            newTask.setMaxWidth(550);
+
+            //activityAndModify.getChildren().addAll(newActivity, newTask);
+
             newActivity.getStyleClass().add("activities");
-            HBox buttonBox = new HBox(10);
+
+
+            HBox buttonBox = new HBox(5);
 
             Button buttonRemove = new Button("Remove");
             int index = i;
             buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index)));
 
-            Button buttonModify = new Button("Modify");
-            buttonModify.setOnAction((actionEvent -> buttonModify(actionEvent, index)));
+            Button buttonConfirm = new Button("Confirm");
+            buttonConfirm.setVisible(false);
+            buttonConfirm.setOnAction((actionEvent -> buttonConfirm(buttonConfirm, newTask, buttonModify(index, newTask, buttonConfirm))));
 
-            buttonBox.getChildren().addAll(buttonRemove, buttonModify);
-            DisplayActivities.getChildren().add(newActivity);
-            DisplayActivities.getChildren().add(buttonBox);
+            Button buttonModify = new Button("Modify");
+            buttonModify.setOnAction((actionEvent -> buttonModify(index, newTask, buttonConfirm)));
+
+
+            buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonConfirm);
+
+            everything.getChildren().addAll(newActivity, buttonBox, newTask);
+            DisplayActivities.getChildren().add(everything);
+
+            //DisplayActivities.getChildren().add(buttonBox);
         }
 
     }
 
-    private void buttonModify(ActionEvent actionEvent, int index) {
-        Label modify = (Label) DisplayActivities.getChildren().get(2 * index + 1);
+    private void buttonConfirm(Button buttonConfirm, TextArea newTask, int activityPlace) {
+        buttonConfirm.setVisible(false);
+        newTask.setVisible(false);
+        String[] newText = newTask.getText().split("\n");
+        client.getMyActivities().get(activityPlace).getTasks().get(0).setName(newText[0]);
+        System.out.println(Arrays.toString(newText));
+        for (int i = 0; i < newText.length-2; i++){
+            client.getMyActivities().get(activityPlace).getTasks().get(0).getInstructions().set(i,newText[i+1]);
+        }
+
+    }
+
+    private int buttonModify (int index, TextArea newTask, Button buttonConfirm) {
+        VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index+1);
+        Label modify = (Label) modifyBox.getChildren().get(0);
         String modifyText = modify.getText();
+        int activityPlace = -1;
 
         for (Activity modifyNode : client.getMyActivities()) {
+            activityPlace++;
             if (modifyNode.getName().equals(modifyText)) {
-                TextArea newTask = new TextArea();
+
                 String tasks = "";
                 for (Task task : modifyNode.getTasks()) {
                     tasks += task.getName() + "\n";
                     for (String instructions : task.getInstructions()) {
-                        tasks += instructions + "\n";
-                        newTask.setText(tasks);
-                        DisplayActivities.getChildren().add(newTask);
+                        tasks += "instructions are " + instructions + "\n";
                     }
                 }
-                break;
+
+                newTask.setText(tasks);
+                newTask.setVisible(true);
+                buttonConfirm.setVisible(true);
+                return activityPlace;
+
             }
         }
+        return activityPlace;
     }
 
             private void buttonRemove (ActionEvent event,int index){
 
 
-                Label remove = (Label) DisplayActivities.getChildren().get(2 * index);
+                VBox removeBox = (VBox) DisplayActivities.getChildren().get(3*index+1);
+                Label remove = (Label) removeBox.getChildren().get(0);
                 String removeText = remove.getText();
 
                 for (Activity removeNode : client.getMyActivities()) {
