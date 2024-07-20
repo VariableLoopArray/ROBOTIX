@@ -22,7 +22,7 @@
 
     <VBox>
         <HBox>
-            <Button text="Go Back" onAction="#activityGoBack" styleClass="custom-button"/>
+            <Button text="Go Back" onAction="#activityGoBack" styleClass="customButton"/>
         </HBox>
         <VBox alignment="BASELINE_CENTER">
             <Label fx:id="activityWelcome" styleClass="title"/>

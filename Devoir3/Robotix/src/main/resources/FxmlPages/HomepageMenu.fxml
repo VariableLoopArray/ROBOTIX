@@ -11,6 +11,7 @@
 
             fx:controller="Controller.HomepageController"
             stylesheets="@../../classes/CssFiles/Homepage.css"
+
             >
     <ImageView fitWidth="1920" fitHeight="1080" opacity="0.5">
         <Image url="@../Images/HomepageBackground.jpg"/>
@@ -24,7 +25,7 @@
                         <Button onAction="#goToMyProfile" styleClass="myProfileButton">
                             <graphic>
                                 <ImageView fitHeight="100" fitWidth="100">
-                                    <Image url="@../Images/defaultProfile.png"/>
+                                    <Image url="@../Images/DefaultProfile.png"/>
                       </ImageView>
                             </graphic>
 
@@ -40,7 +41,7 @@
                 </VBox>
                 <VBox>
 
-                    <HBox styleClass="menuTitle">
+                    <HBox styleClass="menuTitle" alignment="CENTER">
                         <VBox>
                             <Label text="Welcome to Robotix" style="-fx-font-size: 20px;"/>
                             <Label fx:id="messageLabel1" styleClass="green"/>
