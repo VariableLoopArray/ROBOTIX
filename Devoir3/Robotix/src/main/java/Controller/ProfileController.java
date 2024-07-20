@@ -4,12 +4,13 @@ import Model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class ProfileController {
     @FXML
-    private Label profileMenu;
+    private Button goBack;
     private User user;
     public ProfileController() {
     }
@@ -24,7 +25,7 @@ public class ProfileController {
 
     public void handleGoBack() {
         try {
-            Stage stage = (Stage) profileMenu.getScene().getWindow();
+            Stage stage = (Stage) goBack.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
             Scene homepage = new Scene(fxmlLoader.load(), 1024, 768);
             homepage.getStylesheets().remove(getClass().getResource("/CssFiles/Profile.css").toExternalForm());
