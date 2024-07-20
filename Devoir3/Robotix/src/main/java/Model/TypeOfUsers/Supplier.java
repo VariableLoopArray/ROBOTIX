@@ -16,5 +16,17 @@ public class Supplier extends User{
         this.productionCapacity = productionCapacity;
         this.storage = new ArrayList<Component>();
     }
+    public int getProductionCapacity() {
+        return productionCapacity;
+    }
+    public void setProductionCapacity(int productionCapacity) {
+        this.productionCapacity = productionCapacity;
+    }
+    public ArrayList<Component> getStorage() {
+        return storage;
+    }
+    public void setStorage(ArrayList<Component> storage) {
+        this.storage = storage;
+    }
 
 }

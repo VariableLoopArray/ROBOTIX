@@ -6,16 +6,16 @@ import java.util.ArrayList;
 public class Client extends User{
     private ArrayList<Robot> fleet;
     private ArrayList<Activity> myActivities;
-    private ArrayList<String> Interests;
+    private ArrayList<String> myInterests;
     private ArrayList<Order> orders;
 
     public Client(String firstName,String lastName,String username, String password, String email,
                   String companyName, String phoneNumber, ArrayList<Robot> fleet, ArrayList<Activity> myActivities,
-                  ArrayList<String> Interests){
+                  ArrayList<String> myInterests){
         super(firstName, lastName, username, password, email, companyName, phoneNumber);
         this.fleet = fleet;
         this.myActivities = new ArrayList<Activity>();
-        this.Interests = Interests;
+        this.myInterests = myInterests;
         this.orders = new ArrayList<Order>();
     }
 
@@ -35,12 +35,12 @@ public class Client extends User{
         this.myActivities = myActivities;
     }
 
-    public ArrayList<String> getInterests() {
-        return Interests;
+    public ArrayList<String> getMyInterests() {
+        return myInterests;
     }
 
-    public void setInterests(ArrayList<String> interests) {
-        Interests = interests;
+    public void setInterests(ArrayList<String> myinterests) {
+        myInterests = myinterests;
     }
 
     public ArrayList<Order> getOrders() {

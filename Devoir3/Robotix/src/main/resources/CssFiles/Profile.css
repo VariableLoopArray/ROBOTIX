@@ -12,6 +12,10 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
 }
+.boldText{
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
 
 
 

@@ -1,6 +1,5 @@
 package Model;
 
-import Model.RobotFleet;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -13,8 +12,6 @@ public class User {
     private String email;
     private String companyName;
     private String phoneNumber;
-    private ArrayList<User> followers;
-    private ArrayList<User> followings;
 
     public User(){}
 
@@ -29,8 +26,6 @@ public class User {
         this.email = email;
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
-        this.followers = new ArrayList<User>();
-        this.followings = new ArrayList<User>();
 
     }
 
@@ -93,20 +88,5 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public ArrayList<User> getFollowers() {
-        return followers;
-    }
-
-    public void setFollowers(ArrayList<User> followers) {
-        this.followers = followers;
-    }
-
-    public ArrayList<User> getFollowings() {
-        return followings;
-    }
-
-    public void setFollowings(ArrayList<User> followings) {
-        this.followings = followings;
-    }
 
 }

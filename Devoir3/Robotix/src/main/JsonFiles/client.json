@@ -169,5 +169,57 @@
     "phoneNumber": "222-222-2222",
     "followers": [],
     "followings": []
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "5",
+    "lastName": "5",
+    "username": "5",
+    "password": "55555555",
+    "id": "6a0ad435-d680-4c1d-86f4-7839b59d6d18",
+    "email": "5@",
+    "companyName": "5",
+    "phoneNumber": "555-555-5555",
+    "followers": [],
+    "followings": [],
+    "myInterests": [
+      "Video Games and Technology",
+      "Reading and Writing",
+      "Travel and Culture"
+    ]
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "6",
+    "lastName": "6",
+    "username": "6",
+    "password": "66666666",
+    "id": "07100f48-2a54-48d8-ab77-3af31cb1c494",
+    "email": "6@",
+    "companyName": "6",
+    "phoneNumber": "666-666-6666",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": []
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "7",
+    "lastName": "7",
+    "username": "7",
+    "password": "77777777",
+    "id": "9841e93e-ded3-4dbb-8cd4-d5f4153eb536",
+    "email": "7@",
+    "companyName": "7",
+    "phoneNumber": "777-777-7777",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness",
+      "Music and Performing Arts",
+      "Video Games and Technology",
+      "Reading and Writing",
+      "Education and learning"
+    ]
   }
 ]
