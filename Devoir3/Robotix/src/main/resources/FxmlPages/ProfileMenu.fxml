@@ -6,17 +6,66 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.ProfileController"
-            prefHeight="400.0" prefWidth="600.0">
 
-    <VBox>
-        <HBox>
-            <Button text="My Profile" onAction="#handleGoBack" styleClass="myProfileButton"/>
-            <Label fx:id="profileMenu" text="Profile Menu" styleClass="menuTitle"/>
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="Controller.ProfileController"
+           stylesheets="@../../classes/CssFiles/Profile.css"
+>
+
+    <HBox>
+        <VBox styleClass="menuVbox">
+            <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
+        </VBox>
+        <Pane prefWidth="20"/>
+        <VBox alignment="TOP_CENTER">
+
+        <Label text="Profile" style="-fx-font-size: 20px" alignment="CENTER"/>
+        <Pane prefHeight="100"/>
+        <HBox alignment="CENTER">
+            <VBox>
+                <Label text="Profile" style="-fx-font-size: 20px" lineSpacing="40"/>
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Full Name:" prefHeight="20" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label fx:id="FullNameLabel" prefHeight="20" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label text="Username:" prefHeight="20" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="90"/>
+                    <Label fx:id="usernameLabel" prefHeight="20" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Email:" prefHeight="20" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label fx:id="emailLabel" prefHeight="20" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Phone Number:" prefHeight="20" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label fx:id="phoneNumberLabel" prefHeight="20" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label text="Company Name:" prefHeight="20" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label fx:id="companyNameLabel" prefHeight="20" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    <Label text="Interests:" prefHeight="20" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="dropdownInterests" prefHeight="20" prefWidth="200" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                    <Label text="Robots:" prefHeight="20" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="dropdownRobots" prefHeight="20" prefWidth="200" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    <Label text="Activities:" prefHeight="20" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                    <ComboBox fx:id="dropdownActivities" prefHeight="20" prefWidth="200" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                </GridPane>
+            </VBox>
+            <Pane prefWidth="100"/>
+            <VBox spacing="20" styleClass="centering" alignment="CENTER">
+                <Label text="Edit Profile" style="-fx-font-size: 20px" lineSpacing="40"/>
+                <GridPane hgap="10" vgap="10">
+
+                    <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="90"/>
+                    <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Phone Number:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="phoneNumberField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label text="Company Name:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="companyNameField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+
+                </GridPane>
+            </VBox>
         </HBox>
+        </VBox>
+    </HBox>
 
-    </VBox>
-
-</AnchorPane>
+</StackPane>
