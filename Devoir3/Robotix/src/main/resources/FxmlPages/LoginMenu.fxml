@@ -31,10 +31,10 @@
       <Label fx:id="messageLabel2" styleClass="red"/>
 
       <Label text="Email"/>
-      <TextField fx:id="emailField" maxWidth="300" prefHeight="30"/>
+      <TextField fx:id="emailFieldClient" maxWidth="300" prefHeight="30"/>
 
       <Label text="Password"/>
-      <PasswordField fx:id="passwordField" maxWidth="300" prefHeight="30"/>
+      <PasswordField fx:id="passwordFieldClient" maxWidth="300" prefHeight="30"/>
 
       <HBox>
         <Hyperlink text="Create New Account" onAction="#handleCreateAccount"/>

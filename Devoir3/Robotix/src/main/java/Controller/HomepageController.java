@@ -23,8 +23,6 @@ public class HomepageController {
     @FXML
     private Label messageLabel1;
     @FXML
-    private Label messageLabel2;
-    @FXML
     private HBox menuProfile;
     private Client client;
     private Supplier supplier;
@@ -43,17 +41,9 @@ public class HomepageController {
         } else if (user instanceof Supplier) {
             supplier = (Supplier) user;
         }
-        displayMessage("Welcome " + user.getUsername() + "!", false);
+        messageLabel1.setText("Welcome"+ user.getUsername()+ "!");
     }
 
-
-    public void displayMessage(String message, boolean isError) {
-        if (!isError) {
-            messageLabel1.setText(message);
-        } else {
-            messageLabel2.setText(message);
-        }
-    }
     public void goToMyProfile(){
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();
@@ -95,4 +85,19 @@ public class HomepageController {
     }
 
 
+    public void Logout(){
+        try {
+            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/loginMenu.fxml"));
+            Scene loginScene = new Scene(fxmlLoader.load(), 720, 540);
+            loginScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            loginScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
+            stage.setTitle("Login");
+            stage.setScene(loginScene);
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -24,28 +24,29 @@
                     <HBox fx:id="menuProfile">
                         <Button onAction="#goToMyProfile" styleClass="myProfileButton">
                             <graphic>
-                                <ImageView fitHeight="100" fitWidth="100">
+                                <ImageView fitHeight="90" fitWidth="90">
                                     <Image url="@../Images/DefaultProfile.png"/>
-                      </ImageView>
+                                </ImageView>
                             </graphic>
 
                         </Button>
                     </HBox>
                     <Button text="Activity Menu" onAction="#initializeActivity" styleClass="sideMenuButton"/>
 
-                    <Button text="Menu Item 2" styleClass="sideMenuButton"/>
+                    <Button text="Robot Menu" styleClass="sideMenuButton"/>
 
-                    <Button text="Menu Item 3" styleClass="sideMenuButton"/>
+                    <Button text="Shop" styleClass="sideMenuButton"/>
 
-                    <Button text="Menu Item 4" styleClass="sideMenuButton"/>
+                    <Button text="Notification" styleClass="sideMenuButton"/>
+                    <Button text="Logout" onAction="#Logout" styleClass="sideMenuButton"/>
                 </VBox>
                 <VBox>
 
                     <HBox styleClass="menuTitle" alignment="CENTER">
                         <VBox>
+                            <Pane prefHeight="15"/>
                             <Label text="Welcome to Robotix" style="-fx-font-size: 20px;"/>
-                            <Label fx:id="messageLabel1" styleClass="green"/>
-                            <Label fx:id="messageLabel2" styleClass="red"/>
+                            <Label fx:id="messageLabel1"/>
                         </VBox>
                     </HBox>
                         <ScrollPane styleClass="scrollPane" fitToWidth="true" fitToHeight="true">

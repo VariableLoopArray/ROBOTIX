@@ -1,16 +1,13 @@
 [
   {
-    "typeOfAccount": "Supplier",
+    "productionCapacity": 0,
     "firstName": "1",
     "lastName": "1",
-    "username": "1",
-    "password": "11111111",
+    "username": "1111",
+    "password": "1111111111",
     "id": "ffa14ea2-9a8f-48df-b6af-e36ef4ace2dc",
     "email": "1@",
     "companyName": "1",
-    "phoneNumber": "111-111-1111",
-    "followers": [],
-    "followings": []
+    "phoneNumber": "111-111-1111"
   }
-
 ]
