@@ -47,9 +47,10 @@ public class ActivityController {
 
     public void displayActivities(Client client){
         DisplayActivities.setSpacing(10);
-        Button buttonAdd = new Button("Add");
-        DisplayActivities.getChildren().add(buttonAdd);
+//        Button buttonAdd = new Button("Add");
+//        DisplayActivities.getChildren().add(buttonAdd);
         AtomicInteger numberOfActivity = new AtomicInteger();
+        ArrayList<Integer> numbersRemoved = new ArrayList<Integer>();
         for (int i = 0; i < client.getMyActivities().size(); i++) {
 
             VBox everything = new VBox(10);
@@ -71,7 +72,7 @@ public class ActivityController {
 
             Button buttonRemove = new Button("Remove");
             int index = i;
-            buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index)));
+            buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index, numbersRemoved)));
 
             Button buttonConfirm = new Button("Confirm");
             buttonConfirm.setVisible(false);
@@ -116,8 +117,7 @@ public class ActivityController {
                     ("instructions are ", "");
 
         }
-        System.out.println("tasks are " + taskIndex.toString());
-        System.out.println("instructions are " + instructionsIndex.toString());
+
         for (int i = 0; i < taskIndex.size(); i++){
             client.getMyActivities().get(activityPlace).getTasks().get(i).setName(newText[taskIndex.get(i)]);
         }
@@ -160,7 +160,7 @@ public class ActivityController {
     }
 
     private int buttonModify (int index, TextArea newTask, Button buttonConfirm) {
-        VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index+1);
+        VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index);
         Label modify = (Label) modifyBox.getChildren().get(0);
         String modifyText = modify.getText();
         int activityPlace = -1;
@@ -187,21 +187,48 @@ public class ActivityController {
         return activityPlace;
     }
 
-    private void buttonRemove (ActionEvent event,int index){
+    private void buttonRemove (ActionEvent event,int index, ArrayList<Integer> numbersRemoved){
 
-
-            VBox removeBox = (VBox) DisplayActivities.getChildren().get(3*index+1);
-            Label remove = (Label) removeBox.getChildren().get(0);
-            String removeText = remove.getText();
-
-            for (Activity removeNode : client.getMyActivities()) {
-                if (removeNode.getName().equals(removeText)) {
-                    client.getMyActivities().remove(removeNode);
-                    break;
+        int smaller= 0;
+            for (int number : numbersRemoved){
+                if (number < index){
+                    smaller++;
                 }
             }
 
+        VBox removeBox = (VBox) DisplayActivities.getChildren().get(index-smaller);
+        DisplayActivities.getChildren().remove(removeBox);
+        Label remove = (Label) removeBox.getChildren().get(0);
+        String removeText = remove.getText();
+        numbersRemoved.add(index);
 
+        for (Activity removeNode : client.getMyActivities()) {
+            if (removeNode.getName().equals(removeText)) {
+                client.getMyActivities().remove(removeNode);
+                break;
+            }
+        }
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+
+            Client [] Clients = gson.fromJson(reader, Client[].class);
+            for (int i = 0; i < Clients.length; i++){
+                //System.out.println("this is client id " + client.getId() + " and this is the clientlist Id " + Clients[i].getId());
+                //System.out.println(i + " this is " + (Clients[i].getId().equals()client.getId()));
+                if (Clients[i].getId().equals(client.getId())){
+                    Clients[i] = client;
+                    break;
+                }
+            }
+            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+                gson.toJson(Clients, writer);
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
         }
 
     public void activityGoBack() {
