@@ -50,13 +50,13 @@ public class LoginController {
     public Label errorMessageSupplier;
 
     @FXML
-    private TextField emailField;
+    private TextField emailFieldClient;
 
     @FXML
-    private PasswordField passwordField;
+    private PasswordField passwordFieldClient;
 
     @FXML
-    private Label messageLabel1;
+    public Label messageLabel1;
 
     @FXML
     private Label messageLabel2;
@@ -81,7 +81,7 @@ public class LoginController {
         Scene createAccountScene = new Scene(fxmlLoader.load(),720, 540);
         createAccountScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
 
-        Stage stage = (Stage) emailField.getScene().getWindow();
+        Stage stage = (Stage) emailFieldClient.getScene().getWindow();
         stage.setTitle("Create New Account");
         stage.setScene(createAccountScene);
         stage.show();
@@ -91,7 +91,6 @@ public class LoginController {
     private Client isClientValid(String email, String password){
         if (clients.stream().anyMatch(client -> client.getEmail().equals(email) && client.getPassword().equals(password)))
             return clients.stream().filter(clients -> clients.getEmail().equals(email) && clients.getPassword().equals(password)).findFirst().get();
-
         return null;
     }
 
@@ -127,25 +126,16 @@ public class LoginController {
     }
 
 
-    public void displayMessage(String message, boolean isError) {
-        if (!isError) {
-            messageLabel1.setText(message);
-            messageLabel2.setText("");
-        } else {
-            messageLabel2.setText(message);
-            messageLabel1.setText("");
-        }
-    }
-
-    public void clientLogin(ActionEvent actionEvent) {
-        String email = emailField.getText();
-        String password = passwordField.getText();
+    public void clientLogin() {
+        String email = emailFieldClient.getText();
+        String password = passwordFieldClient.getText();
         Client client = isClientValid(email, password);
+        messageLabel1.setText("");
 
         if (client != null) {
 
             try {
-                Stage stage = (Stage) emailField.getScene().getWindow();
+                Stage stage = (Stage) emailFieldClient.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
                 Scene homepageScene = new Scene(fxmlLoader.load(), 1024, 768);
                 homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
@@ -163,20 +153,20 @@ public class LoginController {
 
 
         } else {
-            displayMessage("Invalid username or password", true);
+            messageLabel2.setText("Invalid username or password");
         }
 
     }
 
-    public void supplierLogin(ActionEvent actionEvent) {
-        String email = emailField.getText();
-        String password = passwordField.getText();
+    public void supplierLogin() {
+        String email = emailFieldSupplier.getText();
+        String password = passwordFieldSupplier.getText();
         Supplier supplier = isSupplierValid(email, password);
+        messageLabel3.setText("");
 
         if (supplier != null) {
-
             try {
-                Stage stage = (Stage) emailField.getScene().getWindow();
+                Stage stage = (Stage) emailFieldSupplier.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
                 Scene homepageScene = new Scene(fxmlLoader.load(), 1024, 768);
                 homepageScene.getStylesheets().remove(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
@@ -186,7 +176,6 @@ public class LoginController {
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();
-                stage.setFullScreen(true);
             }
             catch (IOException e){
                 e.printStackTrace();
@@ -194,7 +183,7 @@ public class LoginController {
 
 
         } else {
-            displayMessage("Invalid username or password", true);
+            messageLabel4.setText("Invalid username or password");
         }
 
     }

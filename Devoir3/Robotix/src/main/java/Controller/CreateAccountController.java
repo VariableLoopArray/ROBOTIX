@@ -155,7 +155,7 @@ public class CreateAccountController {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
                 Scene loginMenu = new Scene(fxmlLoader.load(), 720, 540);
                 LoginController Controller = fxmlLoader.getController();
-                Controller.displayMessage("Account Created Successfully", false);
+                Controller.messageLabel1.setText("Account Created Successfully");
                 loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 stage.setTitle("Login");
                 stage.setScene(loginMenu);
@@ -250,7 +250,7 @@ public class CreateAccountController {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
                 Scene loginMenu = new Scene(fxmlLoader.load(), 720, 540);
                 LoginController Controller = fxmlLoader.getController();
-                Controller.displayMessage("Account Created Successfully", false);
+                Controller.messageLabel3.setText("Account Created Successfully");
                 loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 stage.setTitle("Login");
                 stage.setScene(loginMenu);

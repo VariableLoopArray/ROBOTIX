@@ -151,5 +151,51 @@
     "email": "t@",
     "companyName": "t",
     "phoneNumber": "222-222-2222"
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "2",
+    "lastName": "2",
+    "username": "2",
+    "password": "22222222",
+    "id": "24f03ed2-8db8-47d1-8540-89361d2f7e3f",
+    "email": "2@",
+    "companyName": "2",
+    "phoneNumber": "222-222-2222",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness",
+      "Outdoors Activities and Adventure",
+      "Reading and Writing"
+    ]
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "12",
+    "lastName": "12",
+    "username": "12",
+    "password": "12121212",
+    "id": "715190d1-5611-44ec-8c9a-f8918e97c13e",
+    "email": "12@",
+    "companyName": "12",
+    "phoneNumber": "121-121-1212",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": []
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "23",
+    "lastName": "23",
+    "username": "23",
+    "password": "23232323",
+    "id": "fe37eefe-94c8-4e5c-ad46-49bfacc1eb18",
+    "email": "23@",
+    "companyName": "23",
+    "phoneNumber": "232-232-2323",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": []
   }
 ]
