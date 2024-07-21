@@ -66,7 +66,7 @@
         "status": "Ongoing"
       },
       {
-        "name": "MicroMouse2 Electric Boogaloo",
+        "name": "MicroMouse2",
         "robot": "User1Robot",
         "startDate": "2024-07-21",
         "endDate": "2024-07-25",
@@ -85,8 +85,15 @@
           {
             "name": "Solve maze",
             "Instructions": [
-              "Put robot in the maze",
-              "Robot solve the maze"
+              "put robot",
+              "robot solve"
+            ]
+          },
+          {
+            "name": "Build Robot",
+            "Instructions": [
+              "buy components",
+              "destroy robots"
             ]
           }
         ],
