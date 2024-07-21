@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.*?>
 
 
+<?import javafx.scene.text.TextFlow?>
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="Controller.ProfileController"
@@ -25,43 +26,50 @@
         <HBox alignment="CENTER">
             <VBox>
                 <Label text="Profile" style="-fx-font-size: 20px" lineSpacing="40"/>
-                <GridPane hgap="10" vgap="10">
-                    <Label text="Full Name:" prefHeight="20" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                    <Label fx:id="FullNameLabel" prefHeight="20" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                    <Label text="Username:" prefHeight="20" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="90"/>
-                    <Label fx:id="usernameLabel" prefHeight="20" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-                    <Label text="Email:" prefHeight="20" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                    <Label fx:id="emailLabel" prefHeight="20" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-                    <Label text="Phone Number:" prefHeight="20" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                    <Label fx:id="phoneNumberLabel" prefHeight="20" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-                    <Label text="Company Name:" prefHeight="20" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                    <Label fx:id="companyNameLabel" prefHeight="20" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-                    <Label text="Interests:" prefHeight="20" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                    <ComboBox fx:id="dropdownInterests" prefHeight="20" prefWidth="200" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-                    <Label text="Robots:" prefHeight="20" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                    <ComboBox fx:id="dropdownRobots" prefHeight="20" prefWidth="200" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
-                    <Label text="Activities:" prefHeight="20" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
-                    <ComboBox fx:id="dropdownActivities" prefHeight="20" prefWidth="200" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
-
+                <Pane prefHeight="20"/>
+                <GridPane fx:id="profileInfo" hgap="10" vgap="10">
+                    <Label text="Full Name:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <Label fx:id="fullNameLabel" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                    <Label text="Username:" GridPane.rowIndex="1" GridPane.columnIndex="0" prefWidth="90" styleClass="boldText"/>
+                    <Label fx:id="usernameLabel" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <Label fx:id="emailLabel" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Phone Number:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <Label fx:id="phoneNumberLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label text="Company Name:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <Label fx:id="companyNameLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    <Label text="My Activities:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <VBox fx:id="vboxActivities" GridPane.rowIndex="6" GridPane.columnIndex="0" spacing="5"/>
+                    <Label text="My Interests:" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <VBox fx:id="vboxInterests" GridPane.rowIndex="8" GridPane.columnIndex="0" spacing="5"/>
+                    <Label text="My Robots:" GridPane.rowIndex="9" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <VBox fx:id="vboxRobots" GridPane.rowIndex="10" GridPane.columnIndex="0" spacing="5"/>
+                    <Label text="Production Capacity:" GridPane.rowIndex="8" GridPane.columnIndex="0" visible="false" styleClass="boldText"/>
+                    <Label fx:id="productionCapacity" GridPane.rowIndex="8" GridPane.columnIndex="1" visible="false"/>
+                    <Label text="My Storage:" GridPane.rowIndex="9" GridPane.columnIndex="0" visible="false" styleClass="boldText"/>
+                    <VBox fx:id="vboxStorage" GridPane.rowIndex="10" GridPane.columnIndex="0" visible="false" spacing="5"/>
                 </GridPane>
+
             </VBox>
             <Pane prefWidth="100"/>
             <VBox spacing="20" styleClass="centering" alignment="CENTER">
                 <Label text="Edit Profile" style="-fx-font-size: 20px" lineSpacing="40"/>
                 <GridPane hgap="10" vgap="10">
-
                     <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0" prefWidth="90"/>
                     <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                    <Label text="Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                    <PasswordField fx:id="passwordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-                    <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                    <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-                    <Label text="Phone Number:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                    <TextField fx:id="phoneNumberField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-                    <Label text="Company Name:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                    <TextField fx:id="companyNameField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-
-
+                    <Label text="Previous Password:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="previousPasswordField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    <Label text="Password:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <PasswordField fx:id="passwordField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                    <Label text="Email:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="emailField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    <Label text="Phone Number:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="phoneNumberField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                    <Label text="Company Name:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="companyNameField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                    <Button text="Save Changes" onAction="#handleSaveChanges" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                    <Label fx:id="errorMessage" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="red"/>
+                    <Label fx:id="successMessage" GridPane.rowIndex="7" GridPane.columnIndex="1" styleClass="green"/>
                 </GridPane>
             </VBox>
         </HBox>
