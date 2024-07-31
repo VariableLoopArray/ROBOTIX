@@ -34,6 +34,13 @@ public class Robot {
         this.name = name;
     }
 
+    public String getRobot() {
+        return robot;
+    }
+    public void setRobot(String robot) {
+        this.robot = robot;
+    }
+
     public String getType() {
         return type;
     }
