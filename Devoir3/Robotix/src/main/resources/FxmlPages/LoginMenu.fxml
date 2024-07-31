@@ -25,7 +25,7 @@
     <HBox styleClass="loginHbox">
     <VBox styleClass="textfield">
 
-      <Label text="Welcome to Robotix Client" style="-fx-font-size: 20px;"/>
+      <Label text="Welcome to Robotix Client" style="-fx-font-size: 24px;"/>
 
       <Label fx:id="messageLabel1" styleClass="green"/>
       <Label fx:id="messageLabel2" styleClass="red"/>
@@ -67,7 +67,7 @@
       <HBox styleClass="loginHbox">
         <VBox styleClass="textfield">
 
-          <Label text="Welcome to Robotix supplier" style="-fx-font-size: 20px;"/>
+          <Label text="Welcome to Robotix supplier" style="-fx-font-size: 24px;"/>
 
           <Label fx:id="messageLabel3" styleClass="green"/>
           <Label fx:id="messageLabel4" styleClass="red"/>

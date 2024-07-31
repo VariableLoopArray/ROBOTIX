@@ -10,16 +10,52 @@
            fx:controller="Controller.ComponentController"
            stylesheets="@../../classes/CssFiles/Component.css">
 
-    <HBox>
+    <HBox HBox.hgrow="ALWAYS">
         <VBox styleClass="menuVbox">
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
         </VBox>
-        <VBox alignment="TOP_CENTER">
-            <Pane prefHeight="40"/>
-                <Label fx:id="ComponentWelcome" styleClass="title"/>
-            <Pane prefHeight="60"/>
-        </VBox>
-    </HBox>
+        <Pane prefWidth="50"/>
 
+        <VBox HBox.hgrow="ALWAYS">
+        <Pane prefHeight="40"/>
+            <HBox HBox.hgrow="ALWAYS"  alignment="CENTER">
+                <Label fx:id="componentWelcome" styleClass="title"  alignment="CENTER"/>
+            </HBox>
+        <Pane prefHeight="20"/>
+        <ScrollPane fitToWidth="true" maxHeight="600" HBox.hgrow="ALWAYS">
+            <VBox>
+                <ScrollPane styleClass="scrollPane" fitToWidth="true" prefHeight="300" >
+                    <FlowPane hgap="10" vgap="10" styleClass="flowPane" fx:id="supplierComponents">
+
+                    </FlowPane>
+                </ScrollPane>
+
+                <Pane prefHeight="30"/>
+                <HBox alignment="CENTER" maxHeight="20">
+                    <Button text="Add Component" onAction="#displayAddComponent" alignment="CENTER" styleClass="customButton"/>
+                    <Pane prefWidth="20"/>
+                    <Button text="Close" fx:id="closeButton" onAction="#closeDisplayAddComponent" alignment="CENTER" visible="false" styleClass="customButton"/>
+                </HBox>
+                <Pane prefHeight="20"/>
+                <GridPane fx:id="addComponentGrid" hgap="10" vgap="10" styleClass="addComponentGrid" visible="false" alignment="CENTER">
+                    <Label fx:id="messageLabel" style="-fx-text-fill:#f44336" alignment="CENTER" GridPane.rowIndex="0"/>
+                    <Label text="Component Name" GridPane.rowIndex="1"/>
+                    <TextField fx:id="componentName" GridPane.rowIndex="2" prefWidth="200"/>
+                    <Label text="Component Price (please enter a number)" GridPane.rowIndex="3"/>
+                    <TextField fx:id="componentPrice" GridPane.rowIndex="4" prefWidth="200"/>
+                    <Label text="Component Width (please enter a number)" GridPane.rowIndex="5"/>
+                    <TextField fx:id="componentWidth" GridPane.rowIndex="6" prefWidth="200"/>
+                    <Label text="Component Length (please enter a number)" GridPane.rowIndex="7"/>
+                    <TextField fx:id="componentLength" GridPane.rowIndex="8" prefWidth="200"/>
+                    <Label text='Component Tags (seperated by ",")' GridPane.rowIndex="9"/>
+                    <TextArea fx:id="componentTag" GridPane.rowIndex="10" prefWidth="200" prefHeight="50"/>
+                    <Button text="Confirm" onAction="#addComponent" GridPane.rowIndex="11" styleClass="customButton"/>
+                </GridPane>
+                <Pane prefHeight="10"/>
+            </VBox>
+        </ScrollPane>
+        </VBox>
+        <Pane prefWidth="50"/>
+    </HBox>
 
 </StackPane>

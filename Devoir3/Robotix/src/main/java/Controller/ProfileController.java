@@ -127,7 +127,6 @@ public class ProfileController {
             }
 
         } else if (supplier != null) {
-            System.out.println("supplier");
             vboxActivities.setVisible(false);
             activityLabel.setVisible(false);
             vboxInterests.setVisible(false);
