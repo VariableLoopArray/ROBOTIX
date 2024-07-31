@@ -11,13 +11,10 @@ import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
@@ -187,7 +184,7 @@ public class HomepageController {
             e.printStackTrace();
         }
     }
-    public void initializeActivity() throws IOException {
+    public void goToMyActivity() throws IOException {
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/ActivityMenu.fxml"));
@@ -203,6 +200,26 @@ public class HomepageController {
         }
         catch (IOException e) {
             e.printStackTrace();        }
+    }
+
+    public void goToMyComponent() {
+        try {
+            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/MyComponents.fxml"));
+            Scene componentScene = new Scene(fxmlLoader.load(), 1024, 768);
+            componentScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            componentScene.getStylesheets().add(getClass().getResource("/CssFiles/Component.css").toExternalForm());
+            ComponentController componentController = fxmlLoader.getController();
+            componentController.setUserComponent(supplier);
+            componentController.displayComponents(supplier);
+            stage.setTitle("My Components");
+            stage.setScene(componentScene);
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
