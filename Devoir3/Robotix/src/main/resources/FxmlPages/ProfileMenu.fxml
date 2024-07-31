@@ -44,10 +44,10 @@
                     <VBox fx:id="vboxInterests" GridPane.rowIndex="8" GridPane.columnIndex="0" spacing="5"/>
                     <Label text="My Robots:" fx:id="robotLabel" GridPane.rowIndex="9" GridPane.columnIndex="0" styleClass="boldText"/>
                     <VBox fx:id="vboxRobots" GridPane.rowIndex="10" GridPane.columnIndex="0" spacing="5"/>
-                    <Label text="Production Capacity:" fx:id="capacityLabel" GridPane.rowIndex="8" GridPane.columnIndex="0" visible="false" styleClass="boldText"/>
-                    <Label fx:id="productionCapacity" GridPane.rowIndex="8" GridPane.columnIndex="1" visible="false"/>
-                    <Label text="My Storage:" fx:id="storageLabel" GridPane.rowIndex="9" GridPane.columnIndex="0" visible="false" styleClass="boldText"/>
-                    <VBox fx:id="vboxStorage" GridPane.rowIndex="10" GridPane.columnIndex="0" visible="false" spacing="5"/>
+                    <Label text="Production Capacity:" fx:id="capacityLabel" GridPane.rowIndex="5" GridPane.columnIndex="0" visible="false" styleClass="boldText"/>
+                    <Label fx:id="productionCapacity" GridPane.rowIndex="5" GridPane.columnIndex="1" visible="false"/>
+                    <Label text="My Storage:" fx:id="storageLabel" GridPane.rowIndex="6" GridPane.columnIndex="0" visible="false" styleClass="boldText"/>
+                    <VBox fx:id="vboxStorage" GridPane.rowIndex="7" GridPane.columnIndex="0" visible="false" spacing="5"/>
                 </GridPane>
 
             </VBox>

@@ -1,6 +1,5 @@
 package Controller;
 import Model.Activity;
-import Model.Robot;
 import Model.Task;
 import Model.TypeOfUsers.Client;
 import com.google.gson.Gson;
@@ -19,7 +18,6 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -305,15 +303,13 @@ public class ActivityController {
             HomepageController homepageController = fxmlLoader.getController();
             homepageController.setUserHomepage(client);
             homepageController.displayRobotixActivities();
+            homepageController.displayCorrectMenu();
             stage.setScene(homepageMenu);
             stage.show();
-
 
         } catch (Exception e) {
             e.printStackTrace();
 
                 }
-            }
-
-
+    }
 }
