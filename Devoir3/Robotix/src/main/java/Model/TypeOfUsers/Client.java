@@ -2,6 +2,7 @@ package Model.TypeOfUsers;
 import Model.*;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Client extends User{
     private ArrayList<Robot> fleet;
@@ -49,5 +50,16 @@ public class Client extends User{
 
     public void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
+    }
+
+    public void addActivity(Activity activity){
+        myActivities.add(activity);
+    }
+    public ArrayList<UUID> getActivitiesId(){
+        ArrayList<UUID> activitiesId = new ArrayList<UUID>();
+        for (Activity activity: myActivities){
+            activitiesId.add(activity.getActivityID());
+        }
+        return activitiesId;
     }
 }

@@ -14,12 +14,12 @@ public class Activity {
     private UUID creatorId;
     private User creator;
     private ArrayList<Task> tasks;
-    private String imagePath;
+    private UUID activityId;
     private String description;
     private String status;
 
     public Activity(String name, String robot, String startDate, String endDate, String points,
-                    ArrayList<String> Interests, UUID creatorId, ArrayList<Task> tasks, String description ,String status){
+                    ArrayList<String> Interests, UUID creatorId,UUID activityId, ArrayList<Task> tasks, String description ,String status){
         this.name = name;
         this.robot = robot;
         this.startDate = startDate;
@@ -27,6 +27,7 @@ public class Activity {
         this.points = points;
         this.Interests = Interests;
         this.creatorId = creatorId;
+        this.activityId = activityId;
         this.tasks = tasks;
         this.description = description;
         this.status = status;
@@ -48,13 +49,18 @@ public class Activity {
         this.tasks = tasks;
     }
 
-    public User getCreator() {
-        return creator;
+    public UUID getCreatorID() {
+        return creatorId;
     }
 
     public void setCreator(User creator) {
         this.creator = creator;
     }
+
+    public UUID getActivityID(){
+        return activityId;
+    }
+
 
     public ArrayList<String> getInterests() {
         return Interests;

@@ -266,7 +266,7 @@ public class ActivityController {
         }
 
         Activity newActivity = new Activity(activityName.getText(), null, activityStartDate.getText(), activityEndDate.getText(),
-                activityPoints.getText(), interests, client.getId(), new ArrayList<Task>(), activityDescription.getText(), "Not Started");
+                activityPoints.getText(), interests, client.getId(), UUID.randomUUID(),new ArrayList<Task>(), activityDescription.getText(), "Not Started");
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Activity> activities = new ArrayList<>();
@@ -279,6 +279,9 @@ public class ActivityController {
             e.printStackTrace();
         }
 
+        if (activities == null) {
+            activities = new ArrayList<>();
+        }
         activities.add(newActivity);
 
         try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
