@@ -223,7 +223,7 @@ public class HomepageController {
     }
 
 
-    public void initializeRobot() throws IOException {
+    public void gotoRobot() throws IOException {
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/RobotMenu.fxml"));

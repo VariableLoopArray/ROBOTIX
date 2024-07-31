@@ -2,27 +2,68 @@ package Model;
 
 import Model.TypeOfUsers.Supplier;
 
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class Component {
     private String name;
-    private String tag;
-    private String price;
-    private String width;
-    private String length;
-    private Supplier supplier;
+    private ArrayList<String> tag;
+    private float price;
+    private float width;
+    private float length;
+    private UUID supplierID;
     private UUID serialNumber;
 
-    public Component(String name, String tag, String price, String width, String length, Supplier supplier, UUID serialNumber) {
+    public Component(String name, ArrayList<String> tag, float price, float width, float length, UUID supplierID, UUID serialNumber) {
         this.name = name;
         this.tag = tag;
         this.price = price;
         this.width = width;
         this.length = length;
-        this.supplier = supplier;
+        this.supplierID = supplierID;
         this.serialNumber = UUID.randomUUID();
     }
     public String getName() {
         return name;
+    }
+    public ArrayList<String> getTag() {
+        return tag;
+    }
+    public float getPrice() {
+        return price;
+    }
+    public float getWidth() {
+        return width;
+    }
+    public float getLength() {
+        return length;
+    }
+    public UUID getSupplierID() {
+        return supplierID;
+    }
+    public UUID getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setTags(ArrayList<String> tag) {
+        this.tag = tag;
+    }
+    public void setPrice(float price) {
+        this.price = price;
+    }
+    public void setWidth(float width) {
+        this.width = width;
+    }
+    public void setLength(float length) {
+        this.length = length;
+    }
+    public void setSupplierID(UUID supplierID) {
+        this.supplierID = supplierID;
+    }
+    public void setSerialNumber(UUID serialNumber) {
+        this.serialNumber = serialNumber;
     }
 }

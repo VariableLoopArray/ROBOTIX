@@ -1,24 +1,99 @@
 [
   {
-    "productionCapacity": 0,
+    "productionCapacity": 1,
+    "storage": [
+      {
+        "name": "1",
+        "tag": [
+          "1",
+          " allo. lol"
+        ],
+        "price": 1.0,
+        "width": 1.0,
+        "length": 1.0,
+        "supplierID": "dedfd912-e46e-4bdf-be87-884f46dc5df0",
+        "serialNumber": "819db5d1-4071-4df2-ac9a-e0593ff6e99b"
+      },
+      {
+        "name": "1",
+        "tag": [
+          "1",
+          " allo. lol",
+          " wtf"
+        ],
+        "price": 1.0,
+        "width": 1.0,
+        "length": 1.0,
+        "supplierID": "dedfd912-e46e-4bdf-be87-884f46dc5df0",
+        "serialNumber": "fbc1411c-48e1-4f25-8104-d72aa21840ed"
+      },
+      {
+        "name": "1",
+        "tag": [
+          "1",
+          " allo. lol",
+          " wtf "
+        ],
+        "price": 1.0,
+        "width": 1.0,
+        "length": 1.0,
+        "supplierID": "dedfd912-e46e-4bdf-be87-884f46dc5df0",
+        "serialNumber": "c13da79e-8f09-4dcb-99fe-7cfb0664d326"
+      }
+    ],
     "firstName": "1",
     "lastName": "1",
-    "username": "1111",
+    "username": "1",
     "password": "11111111",
-    "id": "ffa14ea2-9a8f-48df-b6af-e36ef4ace2dc",
+    "id": "dedfd912-e46e-4bdf-be87-884f46dc5df0",
     "email": "1@",
     "companyName": "1",
     "phoneNumber": "111-111-1111"
   },
   {
-    "productionCapacity": 0,
-    "firstName": "1",
-    "lastName": "1",
-    "username": "1",
-    "password": "1111111111",
-    "id": "24beac50-c444-4a4f-ac14-ea750314bb8d",
-    "email": "1@",
-    "companyName": "1",
-    "phoneNumber": "111-111-1111"
+    "productionCapacity": 2,
+    "storage": [
+      {
+        "name": "32131",
+        "tag": [
+          "12"
+        ],
+        "price": 3213.0,
+        "width": 21.0,
+        "length": 122.0,
+        "supplierID": "53949971-044c-4efa-847c-0e48041b61fb",
+        "serialNumber": "09d3123d-3d26-460b-9c38-9c410de59ea7"
+      },
+      {
+        "name": "de",
+        "tag": [
+          "de"
+        ],
+        "price": 2.0,
+        "width": 2.0,
+        "length": 2.0,
+        "supplierID": "53949971-044c-4efa-847c-0e48041b61fb",
+        "serialNumber": "8a45ac1e-3c81-4afc-a237-d6a235dc7fa0"
+      },
+      {
+        "name": "d",
+        "tag": [
+          "d"
+        ],
+        "price": 1.0,
+        "width": 1.0,
+        "length": 1.0,
+        "supplierID": "53949971-044c-4efa-847c-0e48041b61fb",
+        "serialNumber": "5a60fbe2-beb2-4e7d-8378-940aeccb9847"
+      }
+    ],
+    "firstName": "2",
+    "lastName": "2",
+    "username": "2",
+    "password": "22222222",
+    "id": "53949971-044c-4efa-847c-0e48041b61fb",
+    "email": "2@",
+    "companyName": "2",
+    "phoneNumber": "222-222-2222"
   }
 ]
