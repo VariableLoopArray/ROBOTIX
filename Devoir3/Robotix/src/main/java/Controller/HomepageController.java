@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -68,43 +69,80 @@ public class HomepageController {
 
     public void displayRobotixActivities(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        robotixActivities.getChildren().clear();
         Type activityListType = new TypeToken<List<Activity>>(){}.getType();
 
         try(FileReader fileReader = new FileReader("src/main/JsonFiles/activities.json")) {
             List<Activity> activities = gson.fromJson(fileReader, activityListType);
+
+            if (activities == null) {
+                activities = new ArrayList<>();
+            }
             for(Activity activity : activities){
-                VBox activityContainer = new VBox();
-                HBox activitySubContainer = new HBox();
-                Label activityName = new Label("Name: "+activity.getName());
-                activityContainer.getChildren().add(activityName);
-                activityContainer.getChildren().add(activitySubContainer);
-                activityName.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
-                VBox activityInfo= new VBox();
-                activitySubContainer.getChildren().add(activityInfo);
-                Label startDate = new Label("Start Date: "+activity.getStartDate());
-                activityInfo.getChildren().add(startDate);
-                Label endDate = new Label("End Date: "+activity.getEndDate());
-                activityInfo.getChildren().add(endDate);
-                Label points = new Label("Points: "+activity.getPoints());
-                activityInfo.getChildren().add(points);
-                Label description = new Label("Description: "+activity.getDescription());
-                activityInfo.getChildren().add(description);
 
-                Button joinButton = new Button("Join");
-                joinButton.getStyleClass().add("joinButton");
-                activityContainer.getChildren().add(joinButton);
-                activityContainer.setSpacing(20);
-                activityContainer.setPadding(new Insets(10, 10, 10, 10));
-                activityContainer.getStyleClass().add("vboxContainer");
-                activityName.getStyleClass().add("activityInfo");
-                startDate.getStyleClass().add("activityInfo");
-                endDate.getStyleClass().add("activityInfo");
-                points.getStyleClass().add("activityInfo");
-                description.getStyleClass().add("activityInfo");
+                if (!client.getActivitiesId().contains(activity.getActivityID())) {
+                    VBox activityContainer = new VBox();
+                    HBox activitySubContainer = new HBox();
+                    Label activityName = new Label("Name: " + activity.getName());
+                    activityContainer.getChildren().add(activityName);
+                    activityContainer.getChildren().add(activitySubContainer);
+                    activityName.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+                    VBox activityInfo = new VBox();
+                    activitySubContainer.getChildren().add(activityInfo);
+                    Label startDate = new Label("Start Date: " + activity.getStartDate());
+                    activityInfo.getChildren().add(startDate);
+                    Label endDate = new Label("End Date: " + activity.getEndDate());
+                    activityInfo.getChildren().add(endDate);
+                    Label points = new Label("Points: " + activity.getPoints());
+                    activityInfo.getChildren().add(points);
+                    Label description = new Label("Description: " + activity.getDescription());
+                    activityInfo.getChildren().add(description);
+
+                    Button joinButton = new Button("Join");
+                    joinButton.getStyleClass().add("joinButton");
+                    activityContainer.getChildren().add(joinButton);
+                    joinButton.setOnAction(e -> {
+                        client.addActivity(activity);
+
+                        Gson gson1 = new GsonBuilder().setPrettyPrinting().create();
+                        Type clientListType = new TypeToken<List<Client>>(){}.getType();
+                        try(FileReader fileReader1 = new FileReader("src/main/JsonFiles/client.json")) {
+                            List<Client> clients = gson1.fromJson(fileReader1, clientListType);
+                            if (clients == null) {
+                                clients = new ArrayList<>();
+                            }
+                            for (Client c : clients) {
+                                if (c.getId().equals(client.getId())) {
+                                    c.setMyActivities(client.getMyActivities());
+                                    break;
+                                }
+                            }
+                            try (FileWriter fileWriter = new FileWriter("src/main/JsonFiles/client.json")) {
+                                gson.toJson(clients, fileWriter);
+                            } catch (IOException w) {
+                                w.printStackTrace();
+                            }
+                        } catch (FileNotFoundException fileNotFoundException) {
+                            fileNotFoundException.printStackTrace();
+                        } catch (IOException ioException) {
+                            ioException.printStackTrace();
+                        }
+
+                        displayRobotixActivities();
+
+                    });
+                    activityContainer.setSpacing(20);
+                    activityContainer.setPadding(new Insets(10, 10, 10, 10));
+                    activityContainer.getStyleClass().add("vboxContainer");
+                    activityName.getStyleClass().add("activityInfo");
+                    startDate.getStyleClass().add("activityInfo");
+                    endDate.getStyleClass().add("activityInfo");
+                    points.getStyleClass().add("activityInfo");
+                    description.getStyleClass().add("activityInfo");
 
 
-
-                robotixActivities.getChildren().add(activityContainer);
+                    robotixActivities.getChildren().add(activityContainer);
+                }
             }
 
         } catch (IOException e) {
