@@ -33,10 +33,10 @@
             <Pane prefHeight="60"/>
                 <HBox>
                     <VBox>
-                        <VBox fx:id="DisplayActivities">
-                            <Label fx:id="noActivityList" styleClass="noActivity" prefHeight="50"/>
+                        <VBox fx:id="DisplayActivities" visible="false" managed="false">
+
                         </VBox>
-                        <Label text="Create Activity" styleClass="title"/>
+                        <Label fx:id="create" text="Create Activity" styleClass="title"/>
                         <GridPane fx:id="activityGrid" hgap="10" vgap="10">
                             <Label text="Activity Name" GridPane.rowIndex="0"/>
                             <TextField fx:id="activityName" GridPane.rowIndex="1" prefWidth="200"/>
@@ -60,6 +60,7 @@
                             <CheckBox fx:id="Interest10" text ="Health and Well-Being" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
                             <Button text="Create Activity" onAction="#createActivity" GridPane.rowIndex="12" styleClass="customButton"/>
                         </GridPane>
+
                     </VBox>
                 </HBox>
         </VBox>

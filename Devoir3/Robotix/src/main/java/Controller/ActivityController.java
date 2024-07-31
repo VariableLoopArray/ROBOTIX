@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,6 +26,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ActivityController {
     public VBox DisplayActivities;
+    @FXML
+    public GridPane activityGrid;
+    @FXML
+    public Label create;
     @FXML
     private Label activityWelcome;
     @FXML
@@ -108,9 +113,9 @@ public class ActivityController {
 
             //DisplayActivities.getChildren().add(buttonBox);
         }
-        if (client.getMyActivities().size() == 0){
-            noActivityList.setText("You have no activities");
-        }
+//        if (client.getMyActivities().size() == 0 && client.getMyActivities() != null){
+//            noActivityList.setText("You have no activities");
+//        }
 
     }
 
@@ -255,23 +260,39 @@ public class ActivityController {
         try {
             ArrayList<String> interests = new ArrayList<String>();
             for (int i = 1; i <= 10; i++) {
-                CheckBox interest = (CheckBox) getClass().getDeclaredField("Interest" + i).get(this);
+                CheckBox interest = (CheckBox) activityGrid.lookup("#Interest" + i);
                 if (interest.isSelected()) {
                     interests.add(interest.getText());
                 }
             }
             Activity newActivity = new Activity(activityName.getText(),null , activityStartDate.getText(), activityEndDate.getText(),
-                    activityPoints.getText(), interests, client, new ArrayList<Task>(), activityDescription.getText(), "Not Started");
+                    activityPoints.getText(), interests,client.getId(), new ArrayList<Task>(), activityDescription.getText(), "Not Started");
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             String json = gson.toJson(newActivity);
-            try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
-                writer.write(json);
+            client.getMyActivities().add(newActivity);
+
+            try (Reader reader = new FileReader("src/main/JsonFiles/client.json"))    {
+                Client[] Clients = gson.fromJson(reader, Client[].class);
+                for (int i = 0; i < Clients.length; i++) {
+                    System.out.println(Clients[i].getFirstName());
+                    if (Clients[i].getId().equals(client.getId())) {
+                        System.out.println("it has enter");
+                        Clients[i] = client;
+                        break;
+                    }
             }
-
-
-        } catch (NoSuchFieldException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException | IOException e) {
+                try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+                    gson.toJson(Clients, writer);
+                }
+                activityGrid.setVisible(false);
+                activityGrid.setManaged(false);
+                create.setVisible(false);
+                create.setManaged(false);
+                DisplayActivities.setVisible(true);
+                DisplayActivities.setManaged(true);
+                displayActivities(client);
+            }
+        }  catch ( IOException e) {
             throw new RuntimeException(e);
         }
     }

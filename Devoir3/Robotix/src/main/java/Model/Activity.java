@@ -2,6 +2,7 @@ package Model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class Activity {
     private String name;
@@ -10,20 +11,21 @@ public class Activity {
     private String endDate;
     private String points;
     private ArrayList<String> Interests;
+    private UUID creatorId;
     private User creator;
     private ArrayList<Task> tasks;
     private String description;
     private String status;
 
     public Activity(String name, String robot, String startDate, String endDate, String points,
-                    ArrayList<String> Interests, User creator, ArrayList<Task> tasks,String description ,String status){
+                    ArrayList<String> Interests, UUID creatorId, ArrayList<Task> tasks,String description ,String status){
         this.name = name;
         this.robot = robot;
         this.startDate = startDate;
         this.endDate = endDate;
         this.points = points;
         this.Interests = Interests;
-        this.creator = creator;
+        this.creatorId = creatorId;
         this.tasks = tasks;
         this.description = description;
         this.status = status;
