@@ -12,10 +12,11 @@ public class Activity {
     private ArrayList<String> Interests;
     private User creator;
     private ArrayList<Task> tasks;
+    private String description;
     private String status;
 
     public Activity(String name, String robot, String startDate, String endDate, String points,
-                    ArrayList<String> Interests, User creator, ArrayList<Task> tasks, String status){
+                    ArrayList<String> Interests, User creator, ArrayList<Task> tasks,String description ,String status){
         this.name = name;
         this.robot = robot;
         this.startDate = startDate;
@@ -24,6 +25,7 @@ public class Activity {
         this.Interests = Interests;
         this.creator = creator;
         this.tasks = tasks;
+        this.description = description;
         this.status = status;
     }
 

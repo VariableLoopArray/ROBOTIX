@@ -16,23 +16,54 @@
 
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.CheckBox?>
 <StackPane xmlns:fx="http://javafx.com/fxml"
            fx:controller="Controller.ActivityController"
            stylesheets="@../../classes/CssFiles/Activity.css">
 
-    <VBox>
-        <HBox>
-            <Button text="Go Back" onAction="#activityGoBack" styleClass="customButton"/>
-        </HBox>
-        <VBox alignment="BASELINE_CENTER">
+    <HBox>
+        <VBox styleClass="menuVbox">
+            <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
+        </VBox>
+        <Pane prefWidth="40"/>
+        <VBox alignment="TOP_CENTER">
+            <Pane prefHeight="40"/>
             <Label fx:id="activityWelcome" styleClass="title"/>
+            <Pane prefHeight="60"/>
+                <HBox>
+                    <VBox>
+                        <VBox fx:id="DisplayActivities">
+                            <Label fx:id="noActivityList" styleClass="noActivity" prefHeight="50"/>
+                        </VBox>
+                        <Label text="Create Activity" styleClass="title"/>
+                        <GridPane fx:id="activityGrid" hgap="10" vgap="10">
+                            <Label text="Activity Name" GridPane.rowIndex="0"/>
+                            <TextField fx:id="activityName" GridPane.rowIndex="1" prefWidth="200"/>
+                            <Label text="Activity Start Date" GridPane.rowIndex="2"/>
+                            <TextField fx:id="activityStartDate" GridPane.rowIndex="3"  prefWidth="200"/>
+                            <Label text="Activity End Date" GridPane.rowIndex="4"/>
+                            <TextField fx:id="activityEndDate" GridPane.rowIndex="5" prefWidth="200"/>
+                            <Label text="Number of Points" GridPane.rowIndex="6"/>
+                            <TextField fx:id="activityPoints" GridPane.rowIndex="7" prefWidth="200"/>
+                            <Label text="Activity Description" GridPane.rowIndex="10"/>
+                            <TextArea fx:id="activityDescription" GridPane.rowIndex="11" prefWidth="200" prefHeight="100"/>
+                            <CheckBox fx:id="Interest1" text="Sports and Fitness" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest2" text="Arts and Cafts" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest3" text ="Music and Performing Arts" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest4" text ="Outdoors Activities and Adventure" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest5" text ="Video Games and Technology" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest6" text ="Cooking and gastronomy" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                            <CheckBox fx:id="Interest7" text ="Reading and Writing" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                            <CheckBox fx:id="Interest8" text ="Travel and Culture" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                            <CheckBox fx:id="Interest9" text ="Education and learning" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                            <CheckBox fx:id="Interest10" text ="Health and Well-Being" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
+                            <Button text="Create Activity" onAction="#createActivity" GridPane.rowIndex="12" styleClass="customButton"/>
+                        </GridPane>
+                    </VBox>
+                </HBox>
         </VBox>
-
-        <VBox alignment="BASELINE_LEFT" fx:id="DisplayActivities" >
-
-        </VBox>
-
-    </VBox>
+    </HBox>
 
 
 </StackPane>

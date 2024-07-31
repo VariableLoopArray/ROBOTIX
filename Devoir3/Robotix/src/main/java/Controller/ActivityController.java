@@ -1,5 +1,6 @@
 package Controller;
 import Model.Activity;
+import Model.Robot;
 import Model.Task;
 import Model.TypeOfUsers.Client;
 import com.google.gson.Gson;
@@ -26,6 +27,20 @@ public class ActivityController {
     public VBox DisplayActivities;
     @FXML
     private Label activityWelcome;
+    @FXML
+    private TextField activityName;
+    @FXML
+    private TextField activityStartDate;
+    @FXML
+    private TextField activityEndDate;
+    @FXML
+    private TextField activityPoints;
+    @FXML
+    private Label noActivityList;
+
+    @FXML
+    private TextArea activityDescription;
+
     @FXML
     Client client;
     @FXML
@@ -81,15 +96,20 @@ public class ActivityController {
 
             Button buttonModify = new Button("Modify");
             buttonModify.setOnAction((actionEvent) -> {
-                numberOfActivity.set(buttonModify(index, newTask, buttonConfirm));});
+                numberOfActivity.set(buttonModify(index, newTask, buttonConfirm));
+            });
 
 
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonConfirm);
 
             everything.getChildren().addAll(newActivity, buttonBox, newTask);
+
             DisplayActivities.getChildren().add(everything);
 
             //DisplayActivities.getChildren().add(buttonBox);
+        }
+        if (client.getMyActivities().size() == 0){
+            noActivityList.setText("You have no activities");
         }
 
     }
@@ -229,9 +249,35 @@ public class ActivityController {
         catch (IOException e){
             e.printStackTrace();
         }
-        }
+    }
 
-    public void activityGoBack() {
+    public void createActivity() {
+        try {
+            ArrayList<String> interests = new ArrayList<String>();
+            for (int i = 1; i <= 10; i++) {
+                CheckBox interest = (CheckBox) getClass().getDeclaredField("Interest" + i).get(this);
+                if (interest.isSelected()) {
+                    interests.add(interest.getText());
+                }
+            }
+            Activity newActivity = new Activity(activityName.getText(),null , activityStartDate.getText(), activityEndDate.getText(),
+                    activityPoints.getText(), interests, client, new ArrayList<Task>(), activityDescription.getText(), "Not Started");
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String json = gson.toJson(newActivity);
+            try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
+                writer.write(json);
+            }
+
+
+        } catch (NoSuchFieldException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException | IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void handleGoBack() {
         try {
             Stage stage = (Stage) activityWelcome.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
