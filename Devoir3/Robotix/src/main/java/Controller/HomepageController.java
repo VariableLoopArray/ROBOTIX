@@ -39,6 +39,8 @@ public class HomepageController {
     @FXML
     private Button robotMenu;
     @FXML
+    private Button componentMenu;
+    @FXML
     private Button shopMenu;
     @FXML
     private Button notificationMenu;
@@ -50,15 +52,18 @@ public class HomepageController {
     public HomepageController() {
     }
     @FXML
-    public void initialize(){
+    public void displayCorrectMenu(){
         menuProfile.alignmentProperty().setValue(javafx.geometry.Pos.CENTER);
         menuProfile.setPadding(new Insets(10, 10, 10, 10));
         if (client != null) {
             activityMenu.setVisible(true);
             robotMenu.setVisible(true);
+            componentMenu.setVisible(false);
             shopMenu.setVisible(true);
             notificationMenu.setVisible(true);
+            componentMenu.managedProperty().bind(componentMenu.visibleProperty());
         } else if (supplier != null) {
+            componentMenu.setVisible(true);
             activityMenu.setVisible(false);
             robotMenu.setVisible(false);
             activityMenu.managedProperty().bind(activityMenu.visibleProperty());

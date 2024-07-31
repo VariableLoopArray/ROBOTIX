@@ -170,10 +170,11 @@ public class ProfileController {
             HomepageController homepageController = fxmlLoader.getController();
             if (client != null) {
                 homepageController.setUserHomepage(client);
+                homepageController.displayRobotixActivities();
             } else if (supplier != null) {
                 homepageController.setUserHomepage(supplier);
             }
-            homepageController.displayRobotixActivities();
+            homepageController.displayCorrectMenu();
             stage.setTitle("Homepage");
             stage.setScene(homepage);
             stage.show();
