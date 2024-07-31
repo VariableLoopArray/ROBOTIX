@@ -173,6 +173,7 @@ public class LoginController {
                 homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
                 HomepageController homepageController = fxmlLoader.getController();
                 homepageController.setUserHomepage(supplier);
+                homepageController.initialize();
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();

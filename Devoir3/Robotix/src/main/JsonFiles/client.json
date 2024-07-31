@@ -37,69 +37,7 @@
         "memory": 16.0
       }
     ],
-    "myActivities": [
-      {
-        "name": "MicroMouse",
-        "robot": "User1Robot",
-        "startDate": "2024-07-21",
-        "endDate": "2024-07-25",
-        "points": "100",
-        "creator": {
-          "firstName": "2",
-          "lastName": "2",
-          "username": "2",
-          "password": "22222222",
-          "id": "ffa1ab3a-5fb8-4706-8d83-a1d2357f5ee1",
-          "email": "2@",
-          "companyName": "2",
-          "phoneNumber": "222-222-2222"
-        },
-        "tasks": [
-          {
-            "name": "Solve maze",
-            "Instructions": [
-              "Put robot in the maze",
-              "Robot solve the maze"
-            ]
-          }
-        ],
-        "status": "Ongoing"
-      },
-      {
-        "name": "MicroMouse2",
-        "robot": "User1Robot",
-        "startDate": "2024-07-21",
-        "endDate": "2024-07-25",
-        "points": "100",
-        "creator": {
-          "firstName": "2",
-          "lastName": "2",
-          "username": "2",
-          "password": "22222222",
-          "id": "ffa1ab3a-5fb8-4706-8d83-a1d2357f5ee1",
-          "email": "2@",
-          "companyName": "2",
-          "phoneNumber": "222-222-2222"
-        },
-        "tasks": [
-          {
-            "name": "Solve maze",
-            "Instructions": [
-              "put robot",
-              "robot solve"
-            ]
-          },
-          {
-            "name": "Build Robot",
-            "Instructions": [
-              "buy components",
-              "destroy robots"
-            ]
-          }
-        ],
-        "status": "Ongoing"
-      }
-    ],
+    "myActivities": [],
     "firstName": "1",
     "lastName": "1",
     "username": "1",
@@ -160,7 +98,13 @@
     "phoneNumber": "222-222-2222"
   },
   {
-    "typeOfAccount": "Client",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness",
+      "Outdoors Activities and Adventure",
+      "Reading and Writing"
+    ],
     "firstName": "2",
     "lastName": "2",
     "username": "2",
@@ -168,17 +112,12 @@
     "id": "24f03ed2-8db8-47d1-8540-89361d2f7e3f",
     "email": "2@",
     "companyName": "2",
-    "phoneNumber": "222-222-2222",
-    "fleet": [],
-    "myActivities": [],
-    "myInterests": [
-      "Sports and Fitness",
-      "Outdoors Activities and Adventure",
-      "Reading and Writing"
-    ]
+    "phoneNumber": "222-222-2222"
   },
   {
-    "typeOfAccount": "Client",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [],
     "firstName": "12",
     "lastName": "12",
     "username": "12",
@@ -186,13 +125,12 @@
     "id": "715190d1-5611-44ec-8c9a-f8918e97c13e",
     "email": "12@",
     "companyName": "12",
-    "phoneNumber": "121-121-1212",
-    "fleet": [],
-    "myActivities": [],
-    "myInterests": []
+    "phoneNumber": "121-121-1212"
   },
   {
-    "typeOfAccount": "Client",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [],
     "firstName": "23",
     "lastName": "23",
     "username": "23",
@@ -200,9 +138,42 @@
     "id": "fe37eefe-94c8-4e5c-ad46-49bfacc1eb18",
     "email": "23@",
     "companyName": "23",
-    "phoneNumber": "232-232-2323",
+    "phoneNumber": "232-232-2323"
+  },
+  {
     "fleet": [],
     "myActivities": [],
-    "myInterests": []
+    "myInterests": [
+      "Music and Performing Arts",
+      "Reading and Writing"
+    ],
+    "firstName": "4",
+    "lastName": "4",
+    "username": "4",
+    "password": "44444444",
+    "id": "dedc14e6-92df-4dc2-b6c2-fa879c902f40",
+    "email": "4@",
+    "companyName": "4",
+    "phoneNumber": "444-444-4444"
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "6",
+    "lastName": "6",
+    "username": "6",
+    "password": "66666666",
+    "id": "9a461f6c-96c4-44c9-bcbf-0d65f6b6647f",
+    "email": "6@",
+    "companyName": "6",
+    "phoneNumber": "666-666-6666",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness",
+      "Music and Performing Arts",
+      "Video Games and Technology",
+      "Reading and Writing",
+      "Education and learning"
+    ]
   }
 ]

@@ -46,13 +46,23 @@ public class ProfileController {
     @FXML
     private VBox vboxInterests;
     @FXML
+    private Label interestLabel;
+    @FXML
     private VBox vboxRobots;
+    @FXML
+    private Label robotLabel;
     @FXML
     private VBox vboxActivities;
     @FXML
+    private Label activityLabel;
+    @FXML
     private Label productionCapacity;
     @FXML
+    private Label capacityLabel;
+    @FXML
     private VBox vboxStorage;
+    @FXML
+    private Label storageLabel;
     @FXML
     private GridPane profileInfo;
     @FXML
@@ -100,28 +110,34 @@ public class ProfileController {
             companyNameLabel.setText(client.getCompanyName());
             if (client.getMyActivities() != null && !client.getMyActivities().isEmpty()) {
                 for (Activity activity : client.getMyActivities()) {
-                    vboxActivities.getChildren().add(new Label(STR." - \{activity.getName()}\n"));
+                    vboxActivities.getChildren().add(new Label(" - " + activity.getName() + "\n"));
                 }
             }
 
             if (client.getMyInterests() != null && !client.getMyInterests().isEmpty()) {
                 for (String interest : client.getMyInterests()) {
-                    vboxInterests.getChildren().add(new Label(STR." - \{interest}\n"));
+                    vboxInterests.getChildren().add(new Label(" - " + interest + "\n"));
                 }
             }
 
             if (client.getFleet() != null && !client.getFleet().isEmpty()) {
                 for (Robot robot : client.getFleet()) {
-                    vboxRobots.getChildren().add(new Label(STR." - \{robot.getName()}\n"));
+                    vboxRobots.getChildren().add(new Label(" - " + robot.getName() + "\n"));
                 }
             }
 
         } else if (supplier != null) {
+            System.out.println("supplier");
             vboxActivities.setVisible(false);
+            activityLabel.setVisible(false);
             vboxInterests.setVisible(false);
+            interestLabel.setVisible(false);
             vboxRobots.setVisible(false);
+            robotLabel.setVisible(false);
             productionCapacity.setVisible(true);
-            vboxInterests.setVisible(true);
+            capacityLabel.setVisible(true);
+            vboxStorage.setVisible(true);
+            storageLabel.setVisible(true);
             fullNameLabel.setText(supplier.getFirstName() + " " + supplier.getLastName());
             usernameLabel.setText(supplier.getUsername());
             emailLabel.setText(supplier.getEmail());
@@ -243,14 +259,12 @@ public class ProfileController {
                 }
             }
 
-            // Update the specific user details
             if (user instanceof Client) {
                 for (Client client : allClients) {
                     if (client.getId().equals(id)) {
                         updateClientDetails(client, attribute, newValue);
                     }
                 }
-                // Write updated list back to JSON file
                 try (FileWriter writer = new FileWriter(clientFile)) {
                     gson.toJson(allClients, writer);
                 }
@@ -260,7 +274,6 @@ public class ProfileController {
                         updateSupplierDetails(supplier, attribute, newValue);
                     }
                 }
-                // Write updated list back to JSON file
                 try (FileWriter writer = new FileWriter(supplierFile)) {
                     gson.toJson(allSuppliers, writer);
                 }
