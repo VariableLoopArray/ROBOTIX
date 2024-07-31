@@ -33,7 +33,7 @@
             <Pane prefHeight="60"/>
                 <HBox>
                     <VBox>
-                        <VBox fx:id="DisplayActivities" visible="false" managed="false">
+                        <VBox fx:id="DisplayActivities">
 
                         </VBox>
                         <Label fx:id="create" text="Create Activity" styleClass="title"/>

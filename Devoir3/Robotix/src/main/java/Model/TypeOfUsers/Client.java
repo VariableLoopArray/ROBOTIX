@@ -2,13 +2,12 @@ package Model.TypeOfUsers;
 import Model.*;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
 public class Client extends User{
     private ArrayList<Robot> fleet;
     private ArrayList<Activity> myActivities;
     private ArrayList<String> myInterests;
-    private ArrayList<Robot> myRobots;
     private ArrayList<Order> orders;
 
     public Client(String firstName,String lastName,String username, String password, String email,
@@ -17,7 +16,6 @@ public class Client extends User{
         super(firstName, lastName, username, password, email, companyName, phoneNumber);
         this.fleet = fleet;
         this.myActivities = new ArrayList<Activity>();
-        this.myRobots = new ArrayList<Robot>();
         this.myInterests = myInterests;
         this.orders = new ArrayList<Order>();
     }
@@ -54,5 +52,14 @@ public class Client extends User{
         this.orders = orders;
     }
 
-
+    public void addActivity(Activity activity){
+        myActivities.add(activity);
+    }
+    public ArrayList<UUID> getActivitiesId(){
+        ArrayList<UUID> activitiesId = new ArrayList<UUID>();
+        for (Activity activity: myActivities){
+            activitiesId.add(activity.getActivityID());
+        }
+        return activitiesId;
+    }
 }
