@@ -8,9 +8,10 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.RobotMenu"
+            fx:controller="Controller.RobotController"
             prefHeight="400.0" prefWidth="600.0">
-            stylesheets="@../../classes/CssFiles/Robot.css">
+            >
+
 
     <HBox>
         <VBox styleClass="menuVbox">
@@ -40,7 +41,7 @@
                         <Label text="SerialNumber" GridPane.rowIndex="6"/>
                         <TextField fx:id="serialNumber" GridPane.rowIndex="7" prefWidth="200"/>
 
-                        <Label text="batteryr" GridPane.rowIndex="8"/>
+                        <Label text="battery" GridPane.rowIndex="8"/>
                         <TextField fx:id="battery" GridPane.rowIndex="9" prefWidth="200"/>
 
                         <Label text="location" GridPane.rowIndex="10"/>
@@ -65,16 +66,16 @@
                                 this.memory = memory;    -->
                         <Label text="Robot Description" GridPane.rowIndex="18"/>
                         <TextArea fx:id="robotDescription" GridPane.rowIndex="19" prefWidth="200" prefHeight="100"/>
-                        <CheckBox fx:id="Interest1" text="Sports and Fitness" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Interest2" text="Arts and Cafts" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Interest3" text ="Music and Performing Arts" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Interest4" text ="Outdoors Activities and Adventure" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Interest5" text ="Video Games and Technology" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Interest6" text ="Cooking and gastronomy" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Interest7" text ="Reading and Writing" GridPane.rowIndex="6" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Interest8" text ="Travel and Culture" GridPane.rowIndex="7" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Interest9" text ="Education and learning" GridPane.rowIndex="8" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Interest10" text ="Health and Well-Being" GridPane.rowIndex="9" GridPane.columnIndex="2"/>
+                        <CheckBox fx:id="Robot1" text="Sports and Fitness" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        <CheckBox fx:id="Robot2" text="Arts and Cafts" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        <CheckBox fx:id="Robot3" text ="Music and Performing Arts" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        <CheckBox fx:id="Robot4" text ="Outdoors Activities and Adventure" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        <CheckBox fx:id="Robot5" text ="Video Games and Technology" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                        <CheckBox fx:id="Robot6" text ="Cooking and gastronomy" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+                        <CheckBox fx:id="Robot7" text ="Reading and Writing" GridPane.rowIndex="6" GridPane.columnIndex="2"/>
+                        <CheckBox fx:id="Robot8" text ="Travel and Culture" GridPane.rowIndex="7" GridPane.columnIndex="2"/>
+                        <CheckBox fx:id="Robot9" text ="Education and learning" GridPane.rowIndex="8" GridPane.columnIndex="2"/>
+                        <CheckBox fx:id="Robot10" text ="Health and Well-Being" GridPane.rowIndex="9" GridPane.columnIndex="2"/>
                         <Button text="Create Robot" onAction="#createRobot" GridPane.rowIndex="12" styleClass="customButton"/>
                     </GridPane>
                 </VBox>

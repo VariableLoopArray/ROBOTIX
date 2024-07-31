@@ -104,6 +104,25 @@ public class HomepageController {
     }
 
 
+    public void initializeRobot() throws IOException {
+        try {
+            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/RobotMenu.fxml"));
+            Scene robotScene = new Scene(fxmlLoader.load(), 1024, 768);
+            robotScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            robotScene.getStylesheets().add(getClass().getResource("/CssFiles/Robot.css").toExternalForm());
+            RobotController robotController = fxmlLoader.getController();
+            robotController.setUserRobot(client);
+            robotController.displayRobots(client);
+            stage.setTitle("My Robots");
+            stage.setScene(robotScene);
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();        }
+    }
+
+
     public void Logout(){
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();

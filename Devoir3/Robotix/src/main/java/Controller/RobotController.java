@@ -1,6 +1,7 @@
 package Controller;
 
 import Model.Activity;
+import Model.Component;
 import Model.Robot;
 import Model.Task;
 import Model.TypeOfUsers.Client;
@@ -62,13 +63,13 @@ public class RobotController {
             robotWelcome.setText("Error: " + message);
         }
     }
-    public void setUserActivity(Client client){
+    public void setUserRobot(Client client){
         this.client = client;
         displayMessage("Welcome to your robots!", false);
     }
 
     public void displayRobots(Client client){
-        DisplayRobot.setSpacing(10);
+        DisplayRobots.setSpacing(10);
 //        Button buttonAdd = new Button("Add");
 //        DisplayActivities.getChildren().add(buttonAdd);
         AtomicInteger numberOfActivity = new AtomicInteger();
@@ -76,7 +77,7 @@ public class RobotController {
         for (int i = 0; i < client.getMyActivities().size(); i++) {
 
             VBox everything = new VBox(10);
-            Robot robot = client.getMyRobots().get(i);
+            Robot robot = client.getFleet().get(i);
             //VBox activityAndModify = new VBox(1);
             Label newRobot = new Label(robot.getName());
 
@@ -115,7 +116,7 @@ public class RobotController {
 
             //DisplayActivities.getChildren().add(buttonBox);
         }
-        if (client.getMyRobots().size() == 0){
+        if (client.getFleet().size() == 0){
             noRobotList.setText("You have no activities");
         }
 
@@ -187,7 +188,7 @@ public class RobotController {
     }
 
     private int buttonModify (int index, TextArea newTask, Button buttonConfirm) {
-        VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index);
+        VBox modifyBox = (VBox) DisplayRobots.getChildren().get(index);
         Label modify = (Label) modifyBox.getChildren().get(0);
         String modifyText = modify.getText();
         int activityPlace = -1;
@@ -208,7 +209,6 @@ public class RobotController {
                 newTask.setVisible(true);
                 buttonConfirm.setVisible(true);
                 return activityPlace;
-
             }
         }
         return activityPlace;
@@ -223,15 +223,15 @@ public class RobotController {
             }
         }
 
-        VBox removeBox = (VBox) DisplayActivities.getChildren().get(index-smaller);
-        DisplayActivities.getChildren().remove(removeBox);
+        VBox removeBox = (VBox) DisplayRobots.getChildren().get(index-smaller);
+        DisplayRobots.getChildren().remove(removeBox);
         Label remove = (Label) removeBox.getChildren().get(0);
         String removeText = remove.getText();
         numbersRemoved.add(index);
 
-        for (Activity removeNode : client.getMyActivities()) {
+        for (Robot removeNode : client.getFleet()) {
             if (removeNode.getName().equals(removeText)) {
-                client.getMyActivities().remove(removeNode);
+                client.getFleet().remove(removeNode);
                 break;
             }
         }
@@ -258,19 +258,23 @@ public class RobotController {
         }
     }
 
-    public void createActivity() {
+    public void createRobot() {
         try {
-            ArrayList<String> interests = new ArrayList<String>();
+            ArrayList<String> robots = new ArrayList<String>();
             for (int i = 1; i <= 10; i++) {
-                CheckBox interest = (CheckBox) getClass().getDeclaredField("Interest" + i).get(this);
-                if (interest.isSelected()) {
-                    interests.add(interest.getText());
+                CheckBox robot = (CheckBox) getClass().getDeclaredField("Robot" + i).get(this);
+                if (robot.isSelected()) {
+                    robots.add(robot.getText());
                 }
             }
-            Activity newActivity = new Activity(activityName.getText(),null , activityStartDate.getText(), activityEndDate.getText(),
-                    activityPoints.getText(), interests, client, new ArrayList<Task>(), activityDescription.getText(), "Not Started");
+
+//String name,String type,ArrayList< Component >components, String battery, float[] location, float speed, float cpuUsage, float memory
+
+            Robot newRobot = new Robot(robotName.getText(),type.getText(), new ArrayList<Component>(),
+                    battery.getText(), new float[]{0.0f, 0.0f, 0.0f},Float.valueOf(speed.getText()),Float.valueOf(cpuUsage.getText()),Float.valueOf(memory.getText()));
+
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String json = gson.toJson(newActivity);
+            String json = gson.toJson(newRobot);
             try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
                 writer.write(json);
             }
@@ -286,10 +290,10 @@ public class RobotController {
 
     public void handleGoBack() {
         try {
-            Stage stage = (Stage) activityWelcome.getScene().getWindow();
+            Stage stage = (Stage) robotWelcome.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
             Scene homepageMenu = new Scene(fxmlLoader.load(), 1024, 768);
-            homepageMenu.getStylesheets().remove(getClass().getResource("/CssFiles/Activity.css").toExternalForm());
+            homepageMenu.getStylesheets().remove(getClass().getResource("/CssFiles/Robot.css").toExternalForm());
             homepageMenu.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             stage.setTitle("Homepage");
             HomepageController homepageController = fxmlLoader.getController();
@@ -302,5 +306,8 @@ public class RobotController {
             e.printStackTrace();
 
         }
+    }
+
+    public void setUserActivity(Client client) {
     }
 }

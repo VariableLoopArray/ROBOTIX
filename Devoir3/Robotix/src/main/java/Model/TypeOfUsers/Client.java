@@ -2,11 +2,13 @@ package Model.TypeOfUsers;
 import Model.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Client extends User{
     private ArrayList<Robot> fleet;
     private ArrayList<Activity> myActivities;
     private ArrayList<String> myInterests;
+    private ArrayList<Robot> myRobots;
     private ArrayList<Order> orders;
 
     public Client(String firstName,String lastName,String username, String password, String email,
@@ -15,6 +17,7 @@ public class Client extends User{
         super(firstName, lastName, username, password, email, companyName, phoneNumber);
         this.fleet = fleet;
         this.myActivities = new ArrayList<Activity>();
+        this.myRobots = new ArrayList<Robot>();
         this.myInterests = myInterests;
         this.orders = new ArrayList<Order>();
     }
@@ -50,4 +53,6 @@ public class Client extends User{
     public void setOrders(ArrayList<Order> orders) {
         this.orders = orders;
     }
+
+
 }
