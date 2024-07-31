@@ -53,140 +53,20 @@
                     </HBox>
                     <ScrollPane styleClass="scrollPane" fitToWidth="true" fitToHeight="true">
 
-                        <FlowPane hgap="10" vgap="10" styleClass="flowPane">
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView1"/>
-                                <HBox>
-                                    <VBox>
-                                        <Label text="StartDate :"/>
-                                        <Label text="EndDate :"/>
-                                        <Label text="Location :"/>
-                                        <Label text="Robot needed :"/>
-                                    </VBox>
-                                    <Pane HBox.hgrow="ALWAYS"/>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView2"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView3"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView4"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView5"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView6"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView7"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView8"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView9"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView10"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
-                            <VBox styleClass="vboxContainer">
-                                <ImageView fx:id="imageView11"/>
-                                <HBox>
-                                    <ListView>
-                                        <Label text="StartDate"/>
-                                        <Label text="EndDate"/>
-                                        <Label text="Location"/>
-                                        <Label text="Robot needed"/>
-                                    </ListView>
-                                    <Button text="Join"/>
-                                </HBox>
-                            </VBox>
+                        <FlowPane hgap="10" vgap="10" styleClass="flowPane" fx:id="robotixActivities">
+<!--                            <VBox styleClass="vboxContainer">-->
+<!--                                <ImageView fx:id="imageView1"/>-->
+<!--                                <HBox>-->
+<!--                                    <VBox>-->
+<!--                                        <Label text="StartDate :"/>-->
+<!--                                        <Label text="EndDate :"/>-->
+<!--                                        <Label text="Location :"/>-->
+<!--                                        <Label text="Robot needed :"/>-->
+<!--                                    </VBox>-->
+<!--                                    <Pane HBox.hgrow="ALWAYS"/>-->
+<!--                                    <Button text="Join"/>-->
+<!--                                </HBox>-->
+<!--                            </VBox>-->
                         </FlowPane>
                     </ScrollPane>
 

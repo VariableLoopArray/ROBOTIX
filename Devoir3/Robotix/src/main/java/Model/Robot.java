@@ -14,8 +14,7 @@ public class Robot {
     private float cpuUsage;
     private float memory;
 
-    public Robot(String name, String type, ArrayList<Component> components, String battery, float[] location,
-                 float speed, float cpuUsage, float memory) {
+    public Robot(String name, String type, ArrayList<Component> components, String battery, float[] location, float speed, float cpuUsage, float memory) {
         this.name = name;
         this.type = type;
         this.components = components;
@@ -30,25 +29,10 @@ public class Robot {
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
-
-
-    public ArrayList<Component> getcomponents() {
-        return components;
-    }
-
-    public void setcomponents(ArrayList<Task> tasks) {
-        this.components = components;
-    }
-
-/*    public String getRobot() {
-        return robot;
-    }
-    public void setRobot(String robot) {
-        this.robot = robot;
-    }*/
 
     public String getType() {
         return type;
