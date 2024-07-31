@@ -143,6 +143,7 @@ public class LoginController {
                 HomepageController homepageController = fxmlLoader.getController();
                 homepageController.setUserHomepage(client);
                 homepageController.displayRobotixActivities();
+                homepageController.displayCorrectMenu();
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();
@@ -174,7 +175,7 @@ public class LoginController {
                 homepageScene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
                 HomepageController homepageController = fxmlLoader.getController();
                 homepageController.setUserHomepage(supplier);
-                homepageController.initialize();
+                homepageController.displayCorrectMenu();
                 stage.setTitle("Homepage");
                 stage.setScene(homepageScene);
                 stage.show();
