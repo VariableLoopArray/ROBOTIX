@@ -257,44 +257,37 @@ public class ActivityController {
     }
 
     public void createActivity() {
-        try {
-            ArrayList<String> interests = new ArrayList<String>();
-            for (int i = 1; i <= 10; i++) {
-                CheckBox interest = (CheckBox) activityGrid.lookup("#Interest" + i);
-                if (interest.isSelected()) {
-                    interests.add(interest.getText());
-                }
+        ArrayList<String> interests = new ArrayList<>();
+        for (int i = 1; i <= 10; i++) {
+            CheckBox interest = (CheckBox) activityGrid.lookup("#Interest" + i);
+            if (interest.isSelected()) {
+                interests.add(interest.getText());
             }
-            Activity newActivity = new Activity(activityName.getText(),null , activityStartDate.getText(), activityEndDate.getText(),
-                    activityPoints.getText(), interests,client.getId(), new ArrayList<Task>(), activityDescription.getText(), "Not Started");
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String json = gson.toJson(newActivity);
-            client.getMyActivities().add(newActivity);
-
-            try (Reader reader = new FileReader("src/main/JsonFiles/client.json"))    {
-                Client[] Clients = gson.fromJson(reader, Client[].class);
-                for (int i = 0; i < Clients.length; i++) {
-                    System.out.println(Clients[i].getFirstName());
-                    if (Clients[i].getId().equals(client.getId())) {
-                        System.out.println("it has enter");
-                        Clients[i] = client;
-                        break;
-                    }
-            }
-                try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
-                    gson.toJson(Clients, writer);
-                }
-                activityGrid.setVisible(false);
-                activityGrid.setManaged(false);
-                create.setVisible(false);
-                create.setManaged(false);
-                DisplayActivities.setVisible(true);
-                DisplayActivities.setManaged(true);
-                displayActivities(client);
-            }
-        }  catch ( IOException e) {
-            throw new RuntimeException(e);
         }
+
+        Activity newActivity = new Activity(activityName.getText(), null, activityStartDate.getText(), activityEndDate.getText(),
+                activityPoints.getText(), interests, client.getId(), new ArrayList<Task>(), activityDescription.getText(), "Not Started");
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        List<Activity> activities = new ArrayList<>();
+
+        try (Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
+            Type activityListType = new TypeToken<List<Activity>>() {}.getType();
+            activities = gson.fromJson(reader, activityListType);
+        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        activities.add(newActivity);
+
+        try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
+            gson.toJson(activities, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        displayActivities(client);
     }
 
 
@@ -308,6 +301,7 @@ public class ActivityController {
             stage.setTitle("Homepage");
             HomepageController homepageController = fxmlLoader.getController();
             homepageController.setUserHomepage(client);
+            homepageController.displayRobotixActivities();
             stage.setScene(homepageMenu);
             stage.show();
 

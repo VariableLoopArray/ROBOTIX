@@ -173,6 +173,7 @@ public class ProfileController {
             } else if (supplier != null) {
                 homepageController.setUserHomepage(supplier);
             }
+            homepageController.displayRobotixActivities();
             stage.setTitle("Homepage");
             stage.setScene(homepage);
             stage.show();
