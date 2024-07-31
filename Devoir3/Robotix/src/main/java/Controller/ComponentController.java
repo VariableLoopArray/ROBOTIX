@@ -13,9 +13,12 @@ public class ComponentController {
     @FXML
     private Label ComponentWelcome;
 
-    public void setUserActivity(Supplier supplier) {
+    public void setUserComponent(Supplier supplier) {
         this.supplier = supplier;
         ComponentWelcome.setText("Welcome " + supplier.getCompanyName());
+    }
+    public void displayComponents(Supplier supplier){
+
     }
     public void handleGoBack() {
         try {

@@ -32,7 +32,7 @@
 
                         </Button>
                     </HBox>
-                    <Button text="Activity Menu" fx:id="activityMenu" onAction="#initializeActivity" styleClass="sideMenuButton"/>
+                    <Button text="Activity Menu" fx:id="activityMenu" onAction="#goToMyActivity" styleClass="sideMenuButton"/>
                     <Button text="Robot Menu" fx:id="robotMenu" styleClass="sideMenuButton"/>
                     <Button text="My Components" fx:id="componentMenu" styleClass="sideMenuButton"/>
                     <Button text="Shop" fx:id="shopMenu" styleClass="sideMenuButton"/>
