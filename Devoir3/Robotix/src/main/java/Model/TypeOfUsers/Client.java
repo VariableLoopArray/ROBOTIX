@@ -10,7 +10,7 @@ public class Client extends User{
     private ArrayList<Order> orders;
 
     public Client(String firstName,String lastName,String username, String password, String email,
-                  String companyName, String phoneNumber, ArrayList<Robot> fleet, ArrayList<Activity> myActivities,
+                  String companyName, String phoneNumber, ArrayList<Robot> fleet,
                   ArrayList<String> myInterests){
         super(firstName, lastName, username, password, email, companyName, phoneNumber);
         this.fleet = fleet;

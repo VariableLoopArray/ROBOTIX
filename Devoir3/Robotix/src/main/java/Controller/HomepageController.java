@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -18,20 +19,38 @@ import java.io.IOException;
 
 public class HomepageController {
     @FXML
-    public StackPane clientPane;
-//    public StackPane supplierPane;
-    @FXML
     private Label messageLabel1;
     @FXML
     private HBox menuProfile;
+    @FXML
+    private Button activityMenu;
+    @FXML
+    private Button robotMenu;
+    @FXML
+    private Button shopMenu;
+    @FXML
+    private Button notificationMenu;
     private Client client;
     private Supplier supplier;
+
     public HomepageController() {
     }
     @FXML
     public void initialize(){
         menuProfile.alignmentProperty().setValue(javafx.geometry.Pos.CENTER);
         menuProfile.setPadding(new Insets(10, 10, 10, 10));
+        if (client != null) {
+            activityMenu.setVisible(true);
+            robotMenu.setVisible(true);
+            shopMenu.setVisible(true);
+            notificationMenu.setVisible(true);
+        } else if (supplier != null) {
+            activityMenu.setVisible(false);
+            robotMenu.setVisible(false);
+            activityMenu.managedProperty().bind(activityMenu.visibleProperty());
+            robotMenu.managedProperty().bind(robotMenu.visibleProperty());
+
+        }
     }
 
 
