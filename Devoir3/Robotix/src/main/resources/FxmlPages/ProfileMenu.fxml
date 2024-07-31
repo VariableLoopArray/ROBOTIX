@@ -38,7 +38,7 @@
                     <Label fx:id="phoneNumberLabel" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
                     <Label text="Company Name:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="boldText"/>
                     <Label fx:id="companyNameLabel" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-                    <Label text="My Activities:" fx:id="activityLabel" GridPane.columnIndex="0" styleClass="boldText"/>
+                    <Label text="My Activities:" fx:id="activityLabel" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="boldText"/>
                     <VBox fx:id="vboxActivities" GridPane.rowIndex="6" GridPane.columnIndex="0" spacing="5"/>
                     <Label text="My Interests:" fx:id="interestLabel" GridPane.rowIndex="7" GridPane.columnIndex="0" styleClass="boldText"/>
                     <VBox fx:id="vboxInterests" GridPane.rowIndex="8" GridPane.columnIndex="0" spacing="5"/>
