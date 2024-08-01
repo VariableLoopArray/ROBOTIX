@@ -2,6 +2,11 @@
   {
     "fleet": [
       {
+        "name": "0",
+        "type": "0",
+        "components": [],
+        "serialNumber": "507e8ccc-f7d4-46cf-87d0-3e3f718226e1",
+        "battery": "0",
         "name": "User1Robot",
         "type": "Testing1",
         "components": [
@@ -28,7 +33,22 @@
         ],
         "speed": 0.0,
         "cpuUsage": 0.0,
-        "memory": 16.0
+        "memory": 0.0
+      },
+      {
+        "name": "1",
+        "type": "1",
+        "components": [],
+        "serialNumber": "fcc923e7-8b21-4a69-bb00-81ffefdb0327",
+        "battery": "1",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.0,
+        "cpuUsage": 1.0,
+        "memory": 1.0
       }
     ],
     "myActivities": [

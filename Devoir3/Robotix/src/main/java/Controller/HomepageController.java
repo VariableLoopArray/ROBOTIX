@@ -7,6 +7,7 @@ import Model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
@@ -232,7 +233,7 @@ public class HomepageController {
             robotScene.getStylesheets().add(getClass().getResource("/CssFiles/Robot.css").toExternalForm());
             RobotController robotController = fxmlLoader.getController();
             robotController.setUserRobot(client);
-//            robotController.displayRobots(client);
+            //robotController.welcome(ActionEvent action);
             stage.setTitle("My Robots");
             stage.setScene(robotScene);
             stage.show();
