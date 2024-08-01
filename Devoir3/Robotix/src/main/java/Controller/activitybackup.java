@@ -390,5 +390,29 @@
 //            }
 //        }
 //    }
-//
+// //        String[] instructions1 = instruction1.getText().split("\n");
+////
+////        Task newTask1 = new Task(task1.getText(), new ArrayList<String>(Arrays.asList(instructions1)));
+////
+////        if (task1.getText().isEmpty()){
+////            newTask1.setName(task1.getPromptText());
+////        }
+////
+////        String[] instructions2 = instruction2.getText().split("\n");
+////
+////        Task newTask2 = new Task(task1.getText(), new ArrayList<String>(Arrays.asList(instructions2)));
+////
+////        if (task1.getText().isEmpty()){
+////            newTask2.setName(task1.getPromptText());
+////        }
+////
+////        String[] instructions3 = instruction3.getText().split("\n");
+////
+////        Task newTask3 = new Task(task3.getText(), new ArrayList<String>(Arrays.asList(instructions3)));
+////
+////        if (task3.getText().isEmpty()){
+////            newTask1.setName(task3.getPromptText());
+////        }
+
+
 //}
