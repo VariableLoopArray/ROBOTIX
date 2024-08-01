@@ -1,3 +1,58 @@
 .title{
+    -fx-font-size: 24;
+}
+.menuVbox{
+    -fx-pref-width: 240;
+    -fx-pref-height: 768;
+    -fx-background-color: #f0f0f0;
+}
+.sideMenuButton{
+
+    -fx-text-fill: #28b2fc;
+    -fx-font-size: 24px;
+    -fx-pref-width: 240px;
+    -fx-pref-height: 100px;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+}
+.componentBox{
+    -fx-padding: 10;
+    -fx-alignment: center;
+    -fx-min-width: 210;
+    -fx-min-height: 100;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: black;
+    -fx-border-color: royalblue;
+    -fx-border-width: 2;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
     -fx-font-size: 20;
+}
+.componentSpecs{
+    -fx-alignment: center;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+}
+.componentButtons{
+    -fx-alignment: center;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+
+}
+.scrollPane{
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+}
+.flowPane{
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+}
+.customButton{
+    -fx-pref-width: 300;
+    -fx-pref-height: 20;
+    -fx-font-size: 16;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
 }

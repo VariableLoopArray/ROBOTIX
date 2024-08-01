@@ -30,10 +30,10 @@
         <VBox styleClass="menuVbox">
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
         </VBox>
-        <Pane prefWidth="40"/>
+        <Pane prefWidth="50"/>
         <VBox alignment="TOP_CENTER">
             <Pane prefHeight="40"/>
-            <Label fx:id="activityWelcome" styleClass="title"/>
+                <Label fx:id="activityWelcome" styleClass="title"/>
             <Pane prefHeight="60"/>
                 <HBox>
                     <VBox>
