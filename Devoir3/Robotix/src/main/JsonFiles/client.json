@@ -2,11 +2,6 @@
   {
     "fleet": [
       {
-        "name": "0",
-        "type": "0",
-        "components": [],
-        "serialNumber": "507e8ccc-f7d4-46cf-87d0-3e3f718226e1",
-        "battery": "0",
         "name": "User1Robot",
         "type": "Testing1",
         "components": [

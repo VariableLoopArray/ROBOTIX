@@ -79,7 +79,7 @@ public class ActivityController {
             VBox everything = new VBox(10);
             Activity activity = client.getMyActivities().get(i);
             //VBox activityAndModify = new VBox(1);
-            Label newActivity = new Label(activity.getName());
+            Label newActivity = new Label("Activity " + activity.getName());
             TextArea newTask = new TextArea();
             newTask.setManaged(false);
             newTask.setVisible(false);
@@ -98,13 +98,19 @@ public class ActivityController {
             int index = i;
             buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index, numbersRemoved)));
 
+            buttonRemove.getStyleClass().add("buttons");
+
             Button buttonAddTask = new Button("Add Task");
             buttonAddTask.setVisible(false);
+
+            buttonAddTask.getStyleClass().add("buttons");
 
             Button buttonModify = new Button("Modify");
             buttonModify.setOnAction((actionEvent) -> {
                 numberOfActivity.set(buttonModify(index, newTask, everything, buttonBox, confirmPlaces, buttonAddTask));
             });
+
+            buttonModify.getStyleClass().add("buttons");
 
 
             Label description = new Label("Description : " + activity.getDescription());
@@ -208,9 +214,10 @@ public class ActivityController {
         confirmPlaces.clear();
         VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index);
         Label modify = (Label) modifyBox.getChildren().get(0);
-        String modifyText = modify.getText();
+        String modifyText = modify.getText().replace("Activity ", "");
         AtomicInteger activityPlace = new AtomicInteger(-1);
         Button buttonConfirm = new Button("Confirm");
+        buttonConfirm.getStyleClass().add("buttons");
 
         buttonAddTask.setVisible(true);
         for (Activity modifyNode : client.getMyActivities()) {
