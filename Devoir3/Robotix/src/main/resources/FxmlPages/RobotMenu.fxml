@@ -6,13 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.scene.text.Text?>
 <StackPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controller.RobotController"
-            >
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="Controller.RobotController"
+           stylesheets="@../../classes/CssFiles/Robot.css"
+           fx:id="clientPane"
+           >
 
-
-
+    <ScrollPane>
     <HBox>
         <VBox styleClass="menuVbox">
              <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
@@ -22,39 +24,50 @@
             <Pane prefHeight="40"/>
             <Label fx:id="RobotWelcome" styleClass="title"/>
             <Pane prefHeight="60"/>
+
             <HBox>
                 <VBox>
-                    <VBox fx:id="DisplayRobots">
+                    <Button fx:id="create" text="Create My Robot" onAction="#creatRobot" styleClass="sideMenuButton" />
+                    <Button fx:id="affiche" text="Show My Robot" onAction="#welcomePage" styleClass="sideMenuButton" />
+                    <AnchorPane>
+                    <VBox fx:id="DisplayRobots" AnchorPane.leftAnchor="150">
                         <Label fx:id="noRobotList" styleClass="noRobot" prefHeight="50"/>
                     </VBox>
-                    <Label text="Create Robot" styleClass="title"/>
-                    <!--<GridPane fx:id="robotGrid" hgap="10" vgap="10">
-                        <Label text="Robot Name" GridPane.rowIndex="0"/>
-                        <TextField fx:id="robotName" GridPane.rowIndex="1" prefWidth="200"/>
+                    </AnchorPane>
 
-                        <Label text="Robot Type" GridPane.rowIndex="2"/>
-                        <TextField fx:id="type" GridPane.rowIndex="3"  prefWidth="200"/>
+                    <AnchorPane>
+                    <GridPane fx:id="Informations" hgap="10" vgap="10" visible="false" AnchorPane.leftAnchor="150">
 
-                        <Label text="Components" GridPane.rowIndex="4"/>
-                        <TextField fx:id="components" GridPane.rowIndex="5" prefWidth="200"/>
+                    <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                        <Label text="SerialNumber" GridPane.rowIndex="6"/>
-                        <TextField fx:id="serialNumber" GridPane.rowIndex="7" prefWidth="200"/>
+                    <Label text="Type:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="type" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                        <Label text="battery" GridPane.rowIndex="8"/>
-                        <TextField fx:id="battery" GridPane.rowIndex="9" prefWidth="200"/>
+                    <Label text="Component:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="components" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                        <Label text="location" GridPane.rowIndex="10"/>
-                        <TextField fx:id="location" GridPane.rowIndex="11" prefWidth="200"/>
+                    <Label text="battery:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <TextField fx:id="battery" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
-                        <Label text="speed" GridPane.rowIndex="12"/>
-                        <TextField fx:id="speed" GridPane.rowIndex="13" prefWidth="200"/>
+                    <Label text="Location:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <TextField fx:id="loc" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
-                        <Label text="cpuUsage" GridPane.rowIndex="14"/>
-                        <TextField fx:id="cpuUsage" GridPane.rowIndex="15" prefWidth="200"/>
+                    <Label text="Speed:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <TextField fx:id="speed" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
-                        <Label text="memory" GridPane.rowIndex="16"/>
-                        <TextField fx:id="memory" GridPane.rowIndex="17" prefWidth="200"/>
+                    <Label text="CPUusage:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                    <TextField fx:id="cpuusage" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+                    <Label text="Memory:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                    <TextField fx:id="memory" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+                    <Label text="SerialNumber" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                    <TextField fx:id="serialNumber" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+                    </GridPane>
+                    </AnchorPane>
+<!--                    <Label text="Create Robot" styleClass="title"/>-->
+                    <!--
 
                         <Label text="Robot Description" GridPane.rowIndex="18"/>
                         <TextArea fx:id="robotDescription" GridPane.rowIndex="19" prefWidth="200" prefHeight="100"/>
@@ -74,6 +87,7 @@
             </HBox>
         </VBox>
     </HBox>
+    </ScrollPane>
 
 
 </StackPane>
