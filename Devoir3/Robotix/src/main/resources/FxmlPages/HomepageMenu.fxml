@@ -33,9 +33,9 @@
                         </Button>
                     </HBox>
                     <Button text="Activity Menu" fx:id="activityMenu" onAction="#goToMyActivity" styleClass="sideMenuButton"/>
-                    <Button text="Robot Menu" fx:id="robotMenu" onAction="#initializeRobot" styleClass="sideMenuButton"/>
-                    <Button text="My Components" fx:id="componentMenu" styleClass="sideMenuButton"/>
-                    <Button text="Shop" fx:id="shopMenu" styleClass="sideMenuButton"/>
+                    <Button text="Robot Menu" fx:id="robotMenu" onAction="#gotoRobot" styleClass="sideMenuButton"/>
+                    <Button text="My Components" fx:id="componentMenu" onAction="#goToMyComponent" styleClass="sideMenuButton"/>
+                    <Button text="Shop" fx:id="shopMenu" onAction="#goToShop" styleClass="sideMenuButton"/>
                     <Button text="Notification" fx:id="notificationMenu" styleClass="sideMenuButton"/>
                     <Button text="Logout" onAction="#Logout" styleClass="sideMenuButton"/>
 
@@ -45,7 +45,7 @@
                     <HBox styleClass="menuTitle" alignment="CENTER">
                         <VBox>
                             <Pane prefHeight="15"/>
-                            <Label text="Welcome to Robotix" style="-fx-font-size: 20px;"/>
+                            <Label text="Welcome to Robotix" style="-fx-font-size: 24px;"/>
                             <Label fx:id="messageLabel1"/>
                         </VBox>
                     </HBox>
@@ -67,8 +67,6 @@
 <!--                            </VBox>-->
                         </FlowPane>
                     </ScrollPane>
-
-
                 </VBox>
             </HBox>
         </HBox>

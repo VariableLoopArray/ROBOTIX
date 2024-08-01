@@ -129,6 +129,13 @@ public class CreateAccountController {
 
 
             JsonArray usersArray = new JsonArray();
+            if (new File(clientFile).length() == 0) {
+                try (Writer writer = new FileWriter(clientFile)) {
+                    writer.write("[]");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             try (InputStream inputStream = new FileInputStream(clientFile);
                  Scanner scanner = new Scanner(inputStream)) {
 
@@ -220,11 +227,18 @@ public class CreateAccountController {
             newUser.addProperty("email", newEmail);
             newUser.addProperty("companyName", newCompany);
             newUser.addProperty("phoneNumber", newPhoneNumber);
-            newUser.add("followers", new JsonArray());
-            newUser.add("followings", new JsonArray());
+            newUser.addProperty("productionCapacity", productionCapacity);
+            newUser.add("storage", new JsonArray());
 
 
             JsonArray usersArray = new JsonArray();
+            if (new File(supplierFile).length() == 0) {
+                try (Writer writer = new FileWriter(supplierFile)) {
+                    writer.write("[]");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
             try (InputStream inputStream = new FileInputStream(supplierFile);
                  Scanner scanner = new Scanner(inputStream)) {
 
@@ -250,7 +264,7 @@ public class CreateAccountController {
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
                 Scene loginMenu = new Scene(fxmlLoader.load(), 720, 540);
                 LoginController Controller = fxmlLoader.getController();
-                Controller.messageLabel3.setText("Account Created Successfully");
+                Controller.messageLabel1.setText("Account Created Successfully");
                 loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
                 stage.setTitle("Login");
                 stage.setScene(loginMenu);
