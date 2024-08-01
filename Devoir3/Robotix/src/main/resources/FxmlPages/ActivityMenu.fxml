@@ -40,7 +40,7 @@
                         <VBox fx:id="DisplayActivities">
 
                         </VBox>
-                        <Label fx:id="create" text="Create Activity" styleClass="title"/>
+                        <Label fx:id="create" text="Create Activity" style="-fx-font-size: 20"/>
                         <GridPane fx:id="activityGrid" hgap="10" vgap="10">
                             <Label text="Activity Name" GridPane.rowIndex="0"/>
                             <TextField fx:id="activityName" GridPane.rowIndex="1" prefWidth="200"/>

@@ -49,6 +49,12 @@ public class ComponentController {
     @FXML
     private HBox displayAddComponent;
     @FXML
+    private ScrollPane mainScrollClient;
+    @FXML
+    private ScrollPane mainScroll;
+    @FXML
+    private FlowPane clientComponents;
+    @FXML
     private Label messageLabel;
     public void setUserComponent(User user) {
         if (user instanceof Supplier) {
@@ -63,9 +69,11 @@ public class ComponentController {
 
     }
     public void displayComponents(Client client){
-        userComponents.getChildren().clear();
-        displayAddComponent.setVisible(false);
-        displayAddComponent.managedProperty().bind(displayAddComponent.visibleProperty());
+        clientComponents.getChildren().clear();
+        mainScroll.setVisible(false);
+        mainScroll.managedProperty().bind(mainScroll.visibleProperty());
+        clientComponents.setVisible(true);
+        clientComponents.managedProperty().bind(clientComponents.visibleProperty());
         if (client.getStorage() == null){
             return;
         }
@@ -81,13 +89,17 @@ public class ComponentController {
             componentBox.getChildren().add(componentSpecs);
             componentBox.getStyleClass().add("componentBox");
             componentSpecs.getStyleClass().add("componentSpecs");
-            userComponents.getChildren().add(componentBox);
+            clientComponents.getChildren().add(componentBox);
         }
     }
 
 
     public void displayComponents(Supplier supplier){
         userComponents.getChildren().clear();
+        mainScrollClient.setVisible(false);
+        mainScrollClient.managedProperty().bind(mainScrollClient.visibleProperty());
+        addComponentGrid.managedProperty().bind(addComponentGrid.visibleProperty());
+        closeButton.managedProperty().bind(closeButton.visibleProperty());
         if (supplier.getStorage() == null){
             return;
         }
