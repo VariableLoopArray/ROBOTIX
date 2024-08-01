@@ -11,15 +11,17 @@ public class Component {
     private float price;
     private float width;
     private float length;
+    private float height;
     private UUID supplierID;
     private UUID serialNumber;
 
-    public Component(String name, ArrayList<String> tag, float price, float width, float length, UUID supplierID, UUID serialNumber) {
+    public Component(String name, ArrayList<String> tag, float price, float width, float length,float height, UUID supplierID, UUID serialNumber) {
         this.name = name;
         this.tag = tag;
         this.price = price;
         this.width = width;
         this.length = length;
+        this.height = height;
         this.supplierID = supplierID;
         this.serialNumber = UUID.randomUUID();
     }
@@ -37,6 +39,9 @@ public class Component {
     }
     public float getLength() {
         return length;
+    }
+    public float getHeight() {
+        return height;
     }
     public UUID getSupplierID() {
         return supplierID;
@@ -59,6 +64,9 @@ public class Component {
     }
     public void setLength(float length) {
         this.length = length;
+    }
+    public void setHeight(float height) {
+        this.height = height;
     }
     public void setSupplierID(UUID supplierID) {
         this.supplierID = supplierID;

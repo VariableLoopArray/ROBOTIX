@@ -35,7 +35,7 @@
                     <Button text="Activity Menu" fx:id="activityMenu" onAction="#goToMyActivity" styleClass="sideMenuButton"/>
                     <Button text="Robot Menu" fx:id="robotMenu" onAction="#gotoRobot" styleClass="sideMenuButton"/>
                     <Button text="My Components" fx:id="componentMenu" onAction="#goToMyComponent" styleClass="sideMenuButton"/>
-                    <Button text="Shop" fx:id="shopMenu" styleClass="sideMenuButton"/>
+                    <Button text="Shop" fx:id="shopMenu" onAction="#goToShop" styleClass="sideMenuButton"/>
                     <Button text="Notification" fx:id="notificationMenu" styleClass="sideMenuButton"/>
                     <Button text="Logout" onAction="#Logout" styleClass="sideMenuButton"/>
 

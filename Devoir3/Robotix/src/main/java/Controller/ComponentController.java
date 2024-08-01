@@ -37,6 +37,8 @@ public class ComponentController {
     @FXML
     private TextField componentLength;
     @FXML
+    private TextField componentHeight;
+    @FXML
     private TextArea componentTag;
     @FXML
     private Button closeButton;
@@ -58,19 +60,17 @@ public class ComponentController {
             componentSpecs.getChildren().add(new Label("Price: " + component.getPrice()));
             componentSpecs.getChildren().add(new Label("Width: " + component.getWidth()));
             componentSpecs.getChildren().add(new Label("Length: " + component.getLength()));
+            componentSpecs.getChildren().add(new Label("Height: " + component.getHeight()));
             componentBox.getChildren().add(componentSpecs);
             HBox componentButtons = new HBox();
             Button editButton = new Button("Edit");
             editButton.setOnAction(e -> {
-                // Create a dialog for editing the component
                 Dialog<Component> dialog = new Dialog<>();
                 dialog.setTitle("Edit Component");
 
-                // Set the button types
                 ButtonType saveButtonType = new ButtonType("Save", ButtonBar.ButtonData.OK_DONE);
                 dialog.getDialogPane().getButtonTypes().addAll(saveButtonType, ButtonType.CANCEL);
 
-                // Create the labels and fields
                 GridPane grid = new GridPane();
                 grid.setHgap(10);
                 grid.setVgap(10);
@@ -93,6 +93,9 @@ public class ComponentController {
                 TextField priceField = new TextField(String.valueOf(component.getPrice()));
                 TextField widthField = new TextField(String.valueOf(component.getWidth()));
                 TextField lengthField = new TextField(String.valueOf(component.getLength()));
+                TextField heightField = new TextField(String.valueOf(component.getHeight()));
+
+
 
                 grid.add(new Label("Name:"), 0, 0);
                 grid.add(nameField, 1, 0);
@@ -106,6 +109,8 @@ public class ComponentController {
                 grid.add(widthField, 1, 5);
                 grid.add(new Label("Length:"), 0, 6);
                 grid.add(lengthField, 1, 6);
+                grid.add(new Label("Height:"), 0, 7);
+                grid.add(heightField, 1, 7);
 
                 dialog.getDialogPane().setContent(grid);
 
@@ -116,6 +121,7 @@ public class ComponentController {
                         component.setPrice(Float.parseFloat(priceField.getText()));
                         component.setWidth(Float.parseFloat(widthField.getText()));
                         component.setLength(Float.parseFloat(lengthField.getText()));
+                        component.setHeight(Float.parseFloat(heightField.getText()));
                         return component;
                     }
                     return null;
@@ -124,12 +130,10 @@ public class ComponentController {
                 Optional<Component> result = dialog.showAndWait();
 
                 result.ifPresent(updatedComponent -> {
-                    // Update the component in the supplier's storage
                     int index = supplier.getStorage().indexOf(component);
                     if (index >= 0) {
                         supplier.getStorage().set(index, updatedComponent);
 
-                        // Update the JSON file
                         Gson gson = new GsonBuilder().setPrettyPrinting().create();
                         try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
                             List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {
@@ -205,7 +209,8 @@ public class ComponentController {
             String[] tag = allTags.split(",");
             ArrayList<String> tags = new ArrayList<>(Arrays.asList(tag));
             Component component = new Component(componentName.getText(), tags, Float.parseFloat(componentPrice.getText()),
-                    Float.parseFloat(componentWidth.getText()), Float.parseFloat(componentLength.getText()), supplier.getId(), UUID.randomUUID());
+                    Float.parseFloat(componentWidth.getText()), Float.parseFloat(componentLength.getText()),
+                    Float.parseFloat(componentHeight.getText()), supplier.getId(), UUID.randomUUID());
             supplier.getStorage().add(component);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
