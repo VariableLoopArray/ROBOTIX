@@ -81,6 +81,7 @@ public class ActivityController {
             //VBox activityAndModify = new VBox(1);
             Label newActivity = new Label("Activity " + activity.getName());
             TextArea newTask = new TextArea();
+            newTask.getStyleClass().add("textarea");
             newTask.setManaged(false);
             newTask.setVisible(false);
             newTask.setPrefHeight(10);
@@ -141,7 +142,12 @@ public class ActivityController {
                 TextArea newInstructions = (TextArea) everything.getChildren().get(confirmPlaces.get(e));
                 TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e)-1);
 
-                buttonConfirm.setVisible(false);
+                newInstructions.getStyleClass().add("textarea");
+                newTask.getStyleClass().add("textarea");
+
+
+
+            buttonConfirm.setVisible(false);
                 newInstructions.setVisible(false);
                 newInstructions.setManaged(false);
 
@@ -166,6 +172,7 @@ public class ActivityController {
         int smaller = 0;
         for (int e = 0; e < confirmPlaces.size(); e ++){
             TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e) - 1 - smaller);
+            newTask.getStyleClass().add("textarea");
             everything.getChildren().remove(newTask);
             confirmPlaces.set(e, confirmPlaces.get(e) - smaller - 1);
             smaller++;
@@ -227,16 +234,18 @@ public class ActivityController {
             if (modifyNode.getName().equals(modifyText)) {
 
 
-                for (Task task : modifyNode.getTasks()){
-                    System.out.println("tasks before " + task.getName());
-                }
                 buttonAddTask.setOnAction((actionEvent -> {
-                    System.out.println("this is name of activity " + client.getMyActivities().get(n).getName());
-                    System.out.println("this is number of activity " + n);
 
                     TextArea newTask1 = new TextArea("new task");
-                    newTask1.setMaxHeight(45);
+                    newTask1.getStyleClass().add("textarea");
+
+                    newTask1.setMaxHeight(35);
+                    newTask1.setMaxWidth(150);
                     TextArea newInstructions1 = new TextArea();
+
+                    newInstructions1.getStyleClass().add("textarea");
+                    newInstructions1.setMaxHeight(135);
+                    newInstructions1.setMaxWidth(500);
                     everything.getChildren().addAll(newTask1, newInstructions1);
                     confirmPlaces.add(everything.getChildren().size() - 1);
                     for (Task task : client.getMyActivities().get(n).getTasks()) {
@@ -259,9 +268,16 @@ public class ActivityController {
                 for(Task task : modifyNode.getTasks()){
                     String instructions = "";
                     TextArea taskNameField = new TextArea("task is " + task.getName());
-                    taskNameField.setMaxHeight(45);
+                    taskNameField.getStyleClass().add("textarea");
+
+                    taskNameField.setMaxHeight(35);
+                    taskNameField.setMaxWidth(150);
                     everything.getChildren().add(taskNameField);
                     TextArea newInstructions = new TextArea();
+                    newInstructions.setMaxHeight(135);
+                    newInstructions.setMaxWidth(500);
+                    newInstructions.getStyleClass().add("textarea");
+
                     for (String instruction : task.getInstructions()){
                         instructions += instruction + "\n";
                     }
@@ -299,7 +315,8 @@ public class ActivityController {
         VBox removeBox = (VBox) DisplayActivities.getChildren().get(index-smaller);
         DisplayActivities.getChildren().remove(removeBox);
         Label remove = (Label) removeBox.getChildren().get(0);
-        String removeText = remove.getText();
+        String removeText = remove.getText().replace("Activity ", "");
+        System.out.println(removeText);
         numbersRemoved.add(index);
 
         for (Activity removeNode : client.getMyActivities()) {
