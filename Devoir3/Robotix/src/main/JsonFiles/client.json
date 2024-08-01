@@ -16,7 +16,6 @@
             "width": 0.0,
             "length": 0.0,
             "height": 0.0,
-            "height": 0.0,
             "serialNumber": "ab0543da-3aa2-123f-b319-512b1a6dc545"
           }
         ],
@@ -48,7 +47,7 @@
         "creatorId": "371355d3-f5bb-4435-bd2b-453baded2d00",
         "tasks": [
           {
-            "name": "solve maze",
+            "name": "solve maze 1",
             "Instructions": [
               "Put robot in the maze",
               "Robot solve the maze"
@@ -91,7 +90,12 @@
           "Health and Well-Being"
         ],
         "creatorId": "371355d3-f5bb-4435-bd2b-453baded2d00",
-        "tasks": [],
+        "tasks": [
+          {
+            "name": "new task",
+            "Instructions": []
+          }
+        ],
         "activityId": "1722d843-1e17-42ac-abf2-1199bf45506b",
         "description": "2",
         "status": "Not Started"
@@ -115,6 +119,31 @@
         "status": "Not Started"
       },
       {
+        "name": "test",
+        "startDate": "test",
+        "endDate": "test",
+        "points": "111",
+        "Interests": [],
+        "creatorId": "ed0152da-3dd2-417b-a019-729f1c6ce642",
+        "tasks": [
+          {
+            "name": "test1",
+            "Instructions": [
+              "test1"
+            ]
+          },
+          {
+            "name": "test2",
+            "Instructions": [
+              "test2"
+            ]
+          }
+        ],
+        "activityId": "ed8590b1-3c7f-4cce-b914-400a54c96823",
+        "description": "test",
+        "status": "Not Started"
+      },
+      {
         "name": "4",
         "startDate": "4",
         "endDate": "4",
@@ -126,24 +155,6 @@
         "tasks": [],
         "activityId": "910eb776-4077-4483-82da-66dbcd6457fa",
         "description": "4",
-        "status": "Not Started"
-      },
-      {
-        "name": "1",
-        "startDate": "1",
-        "endDate": "1",
-        "points": "1",
-        "Interests": [
-          "Sports and Fitness",
-          "Arts and Cafts",
-          "Music and Performing Arts",
-          "Outdoors Activities and Adventure",
-          "Video Games and Technology"
-        ],
-        "creatorId": "371355d3-f5bb-4435-bd2b-453baded2d00",
-        "tasks": [],
-        "activityId": "0b3da57e-931d-4ae9-a2e7-7f4fb00472f4",
-        "description": "1",
         "status": "Not Started"
       }
     ],
