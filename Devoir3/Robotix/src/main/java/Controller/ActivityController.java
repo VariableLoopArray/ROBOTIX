@@ -17,6 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,6 +31,20 @@ public class ActivityController {
     public GridPane activityGrid;
     @FXML
     public Label create;
+    @FXML
+    public TextArea task1;
+    @FXML
+    public TextArea task2;
+    @FXML
+    public TextArea task3;
+    @FXML
+    public TextArea instruction1;
+    @FXML
+    public TextArea instruction2;
+    @FXML
+    public TextArea instruction3;
+    @FXML
+    public VBox Tasks;
     @FXML
     private Label activityWelcome;
     @FXML
@@ -104,9 +119,10 @@ public class ActivityController {
             });
 
 
+            Label description = new Label("Description : " + activity.getDescription());
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonAddTask);
 
-            everything.getChildren().addAll(newActivity, buttonBox);
+            everything.getChildren().addAll(newActivity, buttonBox, description);
 
             for (Node child : everything.getChildren()) {
                 System.out.println(child.getClass().getSimpleName());
@@ -128,17 +144,21 @@ public class ActivityController {
         for (int e = 0; e < confirmPlaces.size(); e ++){
 
 
-                TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e));
+                TextArea newInstructions = (TextArea) everything.getChildren().get(confirmPlaces.get(e));
+                TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e)-1);
+
                 buttonConfirm.setVisible(false);
-                newTask.setVisible(false);
-                newTask.setManaged(false);
-                String[] newTextTab = newTask.getText().split("\n");
+                newInstructions.setVisible(false);
+                newInstructions.setManaged(false);
+
+                String[] newTextTab = newInstructions.getText().split("\n");
+                String newTaskTab = newTask.getText();
+
+                newTaskTab = newTaskTab.replaceAll("task is ", "");
 
 
+                client.getMyActivities().get(activityPlace).getTasks().get(e).setName(newTaskTab);
 
-                for (int i = 0; i < newTextTab.length; i++){
-                    newTextTab[i] = newTextTab[i].replaceAll("task name is ", "");
-                }
                 System.out.println(Arrays.toString(newTextTab));
                 List<String> newText = Arrays.asList(newTextTab);
                 client.getMyActivities().get(activityPlace).getTasks().get(e).getInstructions().clear();
@@ -146,15 +166,12 @@ public class ActivityController {
                 for (int i = 0; i < newText.size(); i++) {
                     client.getMyActivities().get(activityPlace).getTasks().get(e).getInstructions().add(newText.get(i));
                 }
-                    //                for (int i = 0; i < newText.size(); i++){
 
-//                    client.getMyActivities().get(activityPlace).getTasks().get(i).setName(newText.get(i));
-//                }
 
         }
         int smaller = 0;
         for (int e = 0; e < confirmPlaces.size(); e ++){
-            Label newTask = (Label) everything.getChildren().get(confirmPlaces.get(e) - 1 - smaller);
+            TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e) - 1 - smaller);
             everything.getChildren().remove(newTask);
             confirmPlaces.set(e, confirmPlaces.get(e) - smaller - 1);
             smaller++;
@@ -182,6 +199,8 @@ public class ActivityController {
         catch (IOException ec){
             ec.printStackTrace();
         }
+
+
         buttonAddTask.setVisible(false);
 //        for (Node button : buttonBox.getChildren()){
 //            System.out.println(button.getClass().getSimpleName());
@@ -193,8 +212,9 @@ public class ActivityController {
 
     private int buttonModify (int index, TextArea newTask, VBox everything, HBox buttonBox, List<Integer> confirmPlaces,
                               Button buttonAddTask) {
+
+        System.out.println("this is everything size before " + everything.getChildren().size());
         confirmPlaces.clear();
-        System.out.println(index);
         VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index);
         Label modify = (Label) modifyBox.getChildren().get(0);
         String modifyText = modify.getText();
@@ -204,6 +224,7 @@ public class ActivityController {
         buttonAddTask.setVisible(true);
 
 
+
         for (Activity modifyNode : client.getMyActivities()) {
 
             activityPlace.incrementAndGet();
@@ -211,6 +232,8 @@ public class ActivityController {
 
 
             if (modifyNode.getName().equals(modifyText)) {
+
+
                 for (Task task : modifyNode.getTasks()){
                     System.out.println("tasks before " + task.getName());
                 }
@@ -218,7 +241,7 @@ public class ActivityController {
                     System.out.println("this is name of activity " + client.getMyActivities().get(n).getName());
                     System.out.println("this is number of activity " + n);
 
-                    Label newTask1 = new Label("new task");
+                    TextArea newTask1 = new TextArea("new task");
                     TextArea newInstructions1 = new TextArea();
                     everything.getChildren().addAll(newTask1, newInstructions1);
                     confirmPlaces.add(everything.getChildren().size() - 1);
@@ -242,9 +265,13 @@ public class ActivityController {
                 newTask.setVisible(true);
                 newTask.setManaged(true);
                 buttonBox.getChildren().add(buttonConfirm);
+                int currentActivityPlace = activityPlace.get();
+
+
                 for(Task task : modifyNode.getTasks()){
                     String instructions = "";
-                    Label taskNameField = new Label("task is " + task.getName());
+                    TextArea taskNameField = new TextArea("task is " + task.getName());
+                    taskNameField.setMaxHeight(45);
                     everything.getChildren().add(taskNameField);
                     TextArea newInstructions = new TextArea();
                     for (String instruction : task.getInstructions()){
@@ -253,12 +280,11 @@ public class ActivityController {
                     newInstructions.setText(instructions);
                     everything.getChildren().add(newInstructions);
                     confirmPlaces.add(everything.getChildren().size() - 1);
-                    int currentActivityPlace = activityPlace.get();
 
-                    buttonConfirm.setOnAction((actionEvent -> buttonConfirm(buttonConfirm, everything,
-                            currentActivityPlace,confirmPlaces, buttonAddTask, buttonBox)));
 
                 }
+                buttonConfirm.setOnAction((actionEvent -> buttonConfirm(buttonConfirm, everything,
+                        currentActivityPlace,confirmPlaces, buttonAddTask, buttonBox)));
 
                 activityPlace.set(0);
                 break;
@@ -266,9 +292,12 @@ public class ActivityController {
 
         }
 
+        System.out.println("this is everything size after " + everything.getChildren().size());
 
         return activityPlace.get();
     }
+
+
 
     private void buttonRemove (ActionEvent event,int index, ArrayList<Integer> numbersRemoved){
 
@@ -323,8 +352,24 @@ public class ActivityController {
             }
         }
 
+        int taskIndex = 0;
+        ArrayList<Task> taskList = new ArrayList<Task>();
+        for (int i = 0; i < Tasks.getChildren().size()/2; i++){
+            String[] instructions = ((TextArea) Tasks.getChildren().get(2*i +1)).getText().split("\n");
+            Task newTask = new Task (((TextArea) Tasks.getChildren().get(2*i)).getText(),
+                    new ArrayList<String>(Arrays.asList(instructions)));
+            if (((TextArea) Tasks.getChildren().get(2*i)).getText().isEmpty()){
+                newTask.setName(((TextArea) Tasks.getChildren().get(2*i)).getPromptText());
+            }
+
+            if (!((TextArea) Tasks.getChildren().get(2*i + 1)).getText().isEmpty()){
+                taskList.add(newTask);
+            }
+        }
+
+
         Activity newActivity = new Activity(activityName.getText(), null, activityStartDate.getText(), activityEndDate.getText(),
-                activityPoints.getText(), interests, client.getId(), UUID.randomUUID(),new ArrayList<Task>(), activityDescription.getText(), "Not Started");
+                activityPoints.getText(), interests, client.getId(), UUID.randomUUID(),taskList, activityDescription.getText(), "Not Started");
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         List<Activity> activities = new ArrayList<>();
@@ -373,4 +418,6 @@ public class ActivityController {
 
                 }
     }
+
+
 }
