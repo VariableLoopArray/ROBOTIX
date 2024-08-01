@@ -20,7 +20,13 @@
     -fx-background-radius: 0;
 }
 .buttons{
-    -fx-border-radius: 30%;
+    -fx-background-radius: 20;
+}
+.textarea{
+    -fx-border-radius: 40px;
+    -fx-background-radius: 20px;
+
+    -fx-border-width: 2;
 }
 .noActivity {
     -fx-font-size: 20;
