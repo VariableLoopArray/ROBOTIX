@@ -47,9 +47,11 @@
                     <TextField fx:id="componentWidth" GridPane.rowIndex="6" prefWidth="200"/>
                     <Label text="Component Length (please enter a number)" GridPane.rowIndex="7"/>
                     <TextField fx:id="componentLength" GridPane.rowIndex="8" prefWidth="200"/>
-                    <Label text='Component Tags (seperated by ",")' GridPane.rowIndex="9"/>
-                    <TextArea fx:id="componentTag" GridPane.rowIndex="10" prefWidth="200" prefHeight="50"/>
-                    <Button text="Confirm" onAction="#addComponent" GridPane.rowIndex="11" styleClass="customButton"/>
+                    <Label text="Component Height (please enter a number)" GridPane.rowIndex="9"/>
+                    <TextField fx:id="componentHeight" GridPane.rowIndex="10" prefWidth="200"/>
+                    <Label text='Component Tags (seperated by ",")' GridPane.rowIndex="11"/>
+                    <TextArea fx:id="componentTag" GridPane.rowIndex="12" prefWidth="200" prefHeight="50"/>
+                    <Button text="Confirm" onAction="#addComponent" GridPane.rowIndex="13" styleClass="customButton"/>
                 </GridPane>
                 <Pane prefHeight="10"/>
             </VBox>
