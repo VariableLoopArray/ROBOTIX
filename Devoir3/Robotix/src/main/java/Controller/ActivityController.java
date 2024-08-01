@@ -47,7 +47,7 @@ public class ActivityController {
     private Label noActivityList;
 
     @FXML
-    private TextArea activityDescription;
+    private TextField activityDescription;
 
     @FXML
     Client client;
@@ -244,7 +244,7 @@ public class ActivityController {
                     TextArea newInstructions1 = new TextArea();
 
                     newInstructions1.getStyleClass().add("textarea");
-                    newInstructions1.setMaxHeight(135);
+                    newInstructions1.setMaxHeight(100);
                     newInstructions1.setMaxWidth(500);
                     everything.getChildren().addAll(newTask1, newInstructions1);
                     confirmPlaces.add(everything.getChildren().size() - 1);
@@ -274,7 +274,7 @@ public class ActivityController {
                     taskNameField.setMaxWidth(150);
                     everything.getChildren().add(taskNameField);
                     TextArea newInstructions = new TextArea();
-                    newInstructions.setMaxHeight(135);
+                    newInstructions.setMaxHeight(100);
                     newInstructions.setMaxWidth(500);
                     newInstructions.getStyleClass().add("textarea");
 

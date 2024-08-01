@@ -41,16 +41,16 @@
                             <TextField fx:id="clientUsernameField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
                             <Label text="Password:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                            <PasswordField fx:id="clientPasswordField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                            <PasswordField fx:id="clientPasswordField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Minimum 8 characters"/>
 
                             <Label text="Email:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                            <TextField fx:id="clientEmailField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <TextField fx:id="clientEmailField" GridPane.rowIndex="4" GridPane.columnIndex="1" promptText="Has to include @"/>
 
                             <Label text="Company Name:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
                             <TextField fx:id="clientCompanyNameField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
                             <Label text="Phone Number:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                            <TextField fx:id="clientPhoneNumberField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                            <TextField fx:id="clientPhoneNumberField" GridPane.rowIndex="6" GridPane.columnIndex="1" promptText="Format ex:111-111-1111"/>
 
                             <CheckBox fx:id="Interest1" text="Sports and Fitness" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
                             <CheckBox fx:id="Interest2" text="Arts and Cafts" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
@@ -109,16 +109,16 @@
                             <TextField fx:id="supplierUsernameField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
                             <Label text="Password:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                            <PasswordField fx:id="supplierPasswordField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                            <PasswordField fx:id="supplierPasswordField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Minimum 8 characters"/>
 
                             <Label text="Email:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                            <TextField fx:id="supplierEmailField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <TextField fx:id="supplierEmailField" GridPane.rowIndex="4" GridPane.columnIndex="1" promptText="Has to include @"/>
 
                             <Label text="Company Name:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
                             <TextField fx:id="supplierCompanyNameField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
                             <Label text="Phone Number:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                            <TextField fx:id="supplierPhoneNumberField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                            <TextField fx:id="supplierPhoneNumberField" GridPane.rowIndex="6" GridPane.columnIndex="1" promptText="Format ex:111-111-1111"/>
 
                             <Label text="Production Capacity:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
                             <TextField fx:id="supplierProductionCapacity" GridPane.rowIndex="7" GridPane.columnIndex="1"/>

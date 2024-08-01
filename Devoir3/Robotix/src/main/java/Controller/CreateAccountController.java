@@ -1,8 +1,11 @@
 package Controller;
+import Model.TypeOfUsers.Client;
+import Model.TypeOfUsers.Supplier;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -12,6 +15,8 @@ import javafx.stage.Stage;
 
 
 import java.io.*;
+import java.lang.reflect.Type;
+import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -66,6 +71,7 @@ public class CreateAccountController {
     private void handleClientCreateAccount(){
         boolean problem = true;
 
+        List<Client> clients = loadClients();
         String newPhoneNumber = clientPhoneNumberField.getText();
         String dateRegex = "\\d{3}-\\d{3}-\\d{4}";
         if (!newPhoneNumber.matches(dateRegex)) {
@@ -80,6 +86,10 @@ public class CreateAccountController {
             displayMessage("Email not valid", clientForm);
             problem = false;
         }
+        if (clients.stream().anyMatch(client -> client.getEmail().equals(newEmail))) {
+            displayMessage("Email already in use", clientForm);
+            problem = false;
+        }
 
         String newPassword = clientPasswordField.getText();
         if (newPassword.length() < 8){
@@ -90,6 +100,10 @@ public class CreateAccountController {
         String newUsername = clientUsernameField.getText();
         if (newUsername.isEmpty()) {
             displayMessage("Username is required", clientForm);
+            problem = false;
+        }
+        if (clients.stream().anyMatch(client -> client.getUsername().equals(newUsername))) {
+            displayMessage("Username already in use", clientForm);
             problem = false;
         }
 
@@ -161,7 +175,7 @@ public class CreateAccountController {
             try {
                 Stage stage = (Stage) clientUsernameField.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
-                Scene loginMenu = new Scene(fxmlLoader.load(), 720, 540);
+                Scene loginMenu = new Scene(fxmlLoader.load(), 1024, 768);
                 LoginController Controller = fxmlLoader.getController();
                 Controller.messageLabel1.setText("Account Created Successfully");
                 loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
@@ -177,7 +191,7 @@ public class CreateAccountController {
     @FXML
     private void handleSupplierCreateAccount(){
         boolean problem = true;
-
+        List<Supplier> suppliers = loadSuppliers();
         String productionCapacity = supplierProductionCapacity.getText();
         if (productionCapacity.isEmpty()) {
             displayMessage("Production Capacity is required for Suppliers", supplierForm);
@@ -196,6 +210,10 @@ public class CreateAccountController {
             displayMessage("Email not valid", supplierForm);
             problem = false;
         }
+        if (suppliers.stream().anyMatch(supplier -> supplier.getEmail().equals(newEmail))) {
+            displayMessage("Email already in use", supplierForm);
+            problem = false;
+        }
         String newPassword = supplierPasswordField.getText();
         if (newPassword.length() < 8){
             displayMessage("Password at least 8 characters long", supplierForm);
@@ -204,6 +222,10 @@ public class CreateAccountController {
         String newUsername = supplierUsernameField.getText();
         if (newUsername.isEmpty()) {
             displayMessage("Username is required", supplierForm);
+            problem = false;
+        }
+        if (suppliers.stream().anyMatch(supplier -> supplier.getUsername().equals(newUsername))) {
+            displayMessage("Username already in use", supplierForm);
             problem = false;
         }
         String newLastName = supplierLastNameField.getText();
@@ -263,7 +285,7 @@ public class CreateAccountController {
             try {
                 Stage stage = (Stage) clientUsernameField.getScene().getWindow();
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
-                Scene loginMenu = new Scene(fxmlLoader.load(), 720, 540);
+                Scene loginMenu = new Scene(fxmlLoader.load(), 1024, 768);
                 LoginController Controller = fxmlLoader.getController();
                 Controller.messageLabel1.setText("Account Created Successfully");
                 loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
@@ -283,7 +305,7 @@ public class CreateAccountController {
         try {
             Stage stage = (Stage) clientUsernameField.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/LoginMenu.fxml"));
-            Scene loginMenu = new Scene(fxmlLoader.load(), 720, 540);
+            Scene loginMenu = new Scene(fxmlLoader.load(), 1024, 768);
             loginMenu.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
             stage.setTitle("Login");
             stage.setScene(loginMenu);
@@ -346,5 +368,29 @@ public class CreateAccountController {
             interest.setSelected(false);
         }
         supplierProductionCapacity.clear();
+    }
+    private List<Client> loadClients() {
+        try (InputStream inputStream = new FileInputStream(String.valueOf(clientFile))) {
+            InputStreamReader reader = new InputStreamReader(inputStream);
+            Gson gson = new Gson();
+            Type clientListType = new TypeToken<List<Client>>() {}.getType();
+            return gson.fromJson(reader, clientListType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
+    }
+
+    private List<Supplier> loadSuppliers() {
+        try (InputStream inputStream = new FileInputStream(String.valueOf(supplierFile))) {
+            InputStreamReader reader = new InputStreamReader(inputStream);
+            Gson gson = new Gson();
+            Type supplierListType = new TypeToken<List<Supplier>>() {}.getType();
+            return gson.fromJson(reader, supplierListType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return List.of();
+        }
     }
 }

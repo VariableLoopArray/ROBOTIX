@@ -1,1 +1,118 @@
-[{"fleet":[],"myActivities":[],"myInterests":["Sports and Fitness","Arts and Cafts","Reading and Writing","Travel and Culture"],"firstName":"1","lastName":"1","username":"1","password":"11111111","id":"06c236ee-1251-423b-908c-22e40cdc6e27","email":"1@","companyName":"1","phoneNumber":"111-111-1111","Storage":[{"name":"1","tag":["3"],"price":25.0,"width":10.0,"length":5.0,"height":2.0,"supplierID":"1efa0e32-207f-4a44-8493-77a016ef55e9","serialNumber":"4d382ed0-b066-4013-bc0d-ba867f4b7b7d"},{"name":"CPU","tag":["hello"],"price":100.0,"width":1.0,"length":5.0,"height":2.0,"supplierID":"1efa0e32-207f-4a44-8493-77a016ef55e9","serialNumber":"97ca8643-d504-4883-a440-0b6d5076060e"}]}]
+[
+  {
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness",
+      "Arts and Cafts",
+      "Reading and Writing",
+      "Travel and Culture"
+    ],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "06c236ee-1251-423b-908c-22e40cdc6e27",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "Storage": [
+      {
+        "name": "1",
+        "tag": [
+          "3"
+        ],
+        "price": 25.0,
+        "width": 10.0,
+        "length": 5.0,
+        "height": 2.0,
+        "supplierID": "1efa0e32-207f-4a44-8493-77a016ef55e9",
+        "serialNumber": "4d382ed0-b066-4013-bc0d-ba867f4b7b7d"
+      },
+      {
+        "name": "CPU",
+        "tag": [
+          "hello"
+        ],
+        "price": 100.0,
+        "width": 1.0,
+        "length": 5.0,
+        "height": 2.0,
+        "supplierID": "1efa0e32-207f-4a44-8493-77a016ef55e9",
+        "serialNumber": "97ca8643-d504-4883-a440-0b6d5076060e"
+      },
+      {
+        "name": "MotherBoard",
+        "tag": [
+          "hello"
+        ],
+        "price": 45.0,
+        "width": 1.0,
+        "length": 13.0,
+        "height": 2.0,
+        "supplierID": "1efa0e32-207f-4a44-8493-77a016ef55e9",
+        "serialNumber": "b0bec8da-639b-4455-a335-32f32a2db0cb"
+      },
+      {
+        "name": "MotherBoard",
+        "tag": [
+          "hello"
+        ],
+        "price": 1.0,
+        "width": 1.0,
+        "length": 13.0,
+        "height": 2.0,
+        "supplierID": "1efa0e32-207f-4a44-8493-77a016ef55e9",
+        "serialNumber": "a963cde7-d9be-46bb-9631-f1c7cbf1d7ab"
+      },
+      {
+        "name": "1",
+        "tag": [
+          "1"
+        ],
+        "price": 100.0,
+        "width": 145.0,
+        "length": 5.0,
+        "height": 2.0,
+        "supplierID": "1efa0e32-207f-4a44-8493-77a016ef55e9",
+        "serialNumber": "4ad3643b-1df1-4e40-9a90-c5680dde8daf"
+      }
+    ]
+  },
+  {
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness",
+      "Music and Performing Arts",
+      "Video Games and Technology",
+      "Reading and Writing",
+      "Education and learning"
+    ],
+    "firstName": "3",
+    "lastName": "3",
+    "username": "3",
+    "password": "33333333",
+    "id": "7ead2c29-890c-400a-819b-22abd740c27f",
+    "email": "3@",
+    "companyName": "3",
+    "phoneNumber": "333-333-3333"
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "1",
+    "lastName": "1",
+    "username": "11",
+    "password": "11111111",
+    "id": "a8a72611-a9a8-423f-9992-73e5e2a53805",
+    "email": "1@1",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Video Games and Technology"
+    ],
+    "myStorage": []
+  }
+]
