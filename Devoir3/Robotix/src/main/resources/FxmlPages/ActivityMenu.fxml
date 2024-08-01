@@ -50,29 +50,28 @@
                             <TextField fx:id="activityEndDate" GridPane.rowIndex="5" prefWidth="200"/>
                             <Label text="Number of Points" GridPane.rowIndex="6"/>
                             <TextField fx:id="activityPoints" GridPane.rowIndex="7" prefWidth="200"/>
-                            <Label text="Activity Description" GridPane.rowIndex="10"/>
-                            <TextArea fx:id="activityDescription" GridPane.rowIndex="11" prefWidth="200" prefHeight="100"/>
-
-                            <Label text="Tasks" GridPane.rowIndex="12"/>
-                            <VBox fx:id="Tasks" GridPane.rowIndex="13" spacing="10">
+                            <Label text="Activity Description" GridPane.rowIndex="8"/>
+                            <TextField fx:id="activityDescription" GridPane.rowIndex="9" prefWidth="200"/>
+                            <Label text="Tasks" GridPane.rowIndex="10"/>
+                            <VBox fx:id="Tasks" GridPane.rowIndex="11" spacing="10">
                             <TextArea fx:id="task1" promptText="Task 1" prefHeight="25"/>
-                            <TextArea fx:id="instruction1" prefWidth="200" promptText="enter instructions here" prefHeight="100"/>
+                            <TextArea fx:id="instruction1" promptText="enter instructions here" prefHeight="100"/>
                             <TextArea fx:id="task2" promptText="Task 2" prefHeight="25"/>
-                            <TextArea fx:id="instruction2" prefWidth="200" promptText="enter instructions here" prefHeight="100"/>
+                            <TextArea fx:id="instruction2" promptText="enter instructions here" prefHeight="100"/>
                             <TextArea fx:id="task3" promptText="Task 3" prefHeight="25"/>
-                            <TextArea fx:id="instruction3" prefWidth="200" promptText="enter instructions here" prefHeight="100"/>
+                            <TextArea fx:id="instruction3" promptText="enter instructions here" prefHeight="100"/>
                             </VBox>
-                            <CheckBox fx:id="Interest1" text="Sports and Fitness" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                            <CheckBox fx:id="Interest2" text="Arts and Cafts" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-                            <CheckBox fx:id="Interest3" text ="Music and Performing Arts" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-                            <CheckBox fx:id="Interest4" text ="Outdoors Activities and Adventure" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-                            <CheckBox fx:id="Interest5" text ="Video Games and Technology" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-                            <CheckBox fx:id="Interest6" text ="Cooking and gastronomy" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                            <CheckBox fx:id="Interest7" text ="Reading and Writing" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-                            <CheckBox fx:id="Interest8" text ="Travel and Culture" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
-                            <CheckBox fx:id="Interest9" text ="Education and learning" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
-                            <CheckBox fx:id="Interest10" text ="Health and Well-Being" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
-                            <Button text="Create Activity" onAction="#createActivity" GridPane.rowIndex="14" styleClass="customButton"/>
+                            <CheckBox fx:id="Interest1" text="Sports and Fitness" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest2" text="Arts and Cafts" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest3" text ="Music and Performing Arts" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest4" text ="Outdoors Activities and Adventure" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest5" text ="Video Games and Technology" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest6" text ="Cooking and gastronomy" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest7" text ="Reading and Writing" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest8" text ="Travel and Culture" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest9" text ="Education and learning" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+                            <CheckBox fx:id="Interest10" text ="Health and Well-Being" GridPane.rowIndex="10" GridPane.columnIndex="1"/>
+                            <Button text="Create Activity" onAction="#createActivity" GridPane.rowIndex="12" styleClass="customButton"/>
                         </GridPane>
 
                     </VBox>

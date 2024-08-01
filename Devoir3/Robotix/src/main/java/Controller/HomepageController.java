@@ -269,7 +269,7 @@ public class HomepageController {
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/loginMenu.fxml"));
-            Scene loginScene = new Scene(fxmlLoader.load(), 720, 540);
+            Scene loginScene = new Scene(fxmlLoader.load(), 1024, 768);
             loginScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             loginScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
             stage.setTitle("Login");

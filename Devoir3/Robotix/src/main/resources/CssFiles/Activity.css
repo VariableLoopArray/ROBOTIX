@@ -23,9 +23,6 @@
     -fx-background-radius: 20;
 }
 .textarea{
-    -fx-border-radius: 40px;
-    -fx-background-radius: 20px;
-
     -fx-border-width: 2;
 }
 .noActivity {

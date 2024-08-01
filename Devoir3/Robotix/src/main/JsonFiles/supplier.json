@@ -1,1 +1,27 @@
-[{"productionCapacity":2,"firstName":"2","lastName":"2","username":"2","password":"22222222","id":"1efa0e32-207f-4a44-8493-77a016ef55e9","email":"2@","companyName":"2","phoneNumber":"222-222-2222","Storage":[{"name":"1","tag":["1"],"price":100.0,"width":145.0,"length":5.0,"height":2.0,"supplierID":"1efa0e32-207f-4a44-8493-77a016ef55e9","serialNumber":"4ad3643b-1df1-4e40-9a90-c5680dde8daf"},{"name":"MotherBoard","tag":["hello"],"price":45.0,"width":1.0,"length":13.0,"height":2.0,"supplierID":"1efa0e32-207f-4a44-8493-77a016ef55e9","serialNumber":"b0bec8da-639b-4455-a335-32f32a2db0cb"},{"name":"MotherBoard","tag":["hello"],"price":1.0,"width":1.0,"length":13.0,"height":2.0,"supplierID":"1efa0e32-207f-4a44-8493-77a016ef55e9","serialNumber":"a963cde7-d9be-46bb-9631-f1c7cbf1d7ab"}]}]
+[
+  {
+    "productionCapacity": 2,
+    "firstName": "2",
+    "lastName": "2",
+    "username": "2",
+    "password": "22222222",
+    "id": "1efa0e32-207f-4a44-8493-77a016ef55e9",
+    "email": "2@",
+    "companyName": "2",
+    "phoneNumber": "222-222-2222",
+    "Storage": []
+  },
+  {
+    "typeOfAccount": "Supplier",
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "a3400d4e-95ac-478d-bdfe-d810d9d8afc6",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "storage": [],
+    "productionCapacity": "1"
+  }
+]

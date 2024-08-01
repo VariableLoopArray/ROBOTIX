@@ -78,7 +78,7 @@ public class LoginController {
     @FXML
     private void handleCreateAccount() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/AccountCreationMenu.fxml"));
-        Scene createAccountScene = new Scene(fxmlLoader.load(),720, 540);
+        Scene createAccountScene = new Scene(fxmlLoader.load(),1024, 768);
         createAccountScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
 
         Stage stage = (Stage) emailFieldClient.getScene().getWindow();
