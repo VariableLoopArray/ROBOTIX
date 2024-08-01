@@ -56,14 +56,13 @@ public class HomepageController {
         if (client != null) {
             activityMenu.setVisible(true);
             robotMenu.setVisible(true);
-            componentMenu.setVisible(false);
             shopMenu.setVisible(true);
             notificationMenu.setVisible(true);
-            componentMenu.managedProperty().bind(componentMenu.visibleProperty());
         } else if (supplier != null) {
-            componentMenu.setVisible(true);
             activityMenu.setVisible(false);
             robotMenu.setVisible(false);
+            shopMenu.setVisible(false);
+            shopMenu.managedProperty().bind(shopMenu.visibleProperty());
             activityMenu.managedProperty().bind(activityMenu.visibleProperty());
             robotMenu.managedProperty().bind(robotMenu.visibleProperty());
 
@@ -211,8 +210,13 @@ public class HomepageController {
             componentScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             componentScene.getStylesheets().add(getClass().getResource("/CssFiles/Component.css").toExternalForm());
             ComponentController componentController = fxmlLoader.getController();
-            componentController.setUserComponent(supplier);
-            componentController.displayComponents(supplier);
+            if (client != null) {
+                componentController.setUserComponent(client);
+                componentController.displayComponents(client);
+            } else if (supplier != null) {
+                componentController.setUserComponent(supplier);
+                componentController.displayComponents(supplier);
+            }
             stage.setTitle("My Components");
             stage.setScene(componentScene);
             stage.show();

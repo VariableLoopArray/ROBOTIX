@@ -12,11 +12,12 @@ public class User {
     private String email;
     private String companyName;
     private String phoneNumber;
+    private ArrayList<Component> Storage;
 
     public User(){}
 
     public User(String firstName,String lastName,String username, String password, String email,
-                String companyName, String phoneNumber){
+                String companyName, String phoneNumber, ArrayList<Component> Storage){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -26,6 +27,7 @@ public class User {
         this.email = email;
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
+        this.Storage = Storage;
 
     }
 
@@ -86,6 +88,12 @@ public class User {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+    public ArrayList<Component> getStorage() {
+        return Storage;
+    }
+    public void setStorage(ArrayList<Component> storage) {
+        Storage = storage;
     }
 
 

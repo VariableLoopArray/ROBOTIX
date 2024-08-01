@@ -8,16 +8,15 @@ public class Client extends User{
     private ArrayList<Robot> fleet;
     private ArrayList<Activity> myActivities;
     private ArrayList<String> myInterests;
-    private ArrayList<Order> orders;
+
 
     public Client(String firstName,String lastName,String username, String password, String email,
                   String companyName, String phoneNumber, ArrayList<Robot> fleet,
                   ArrayList<String> myInterests){
-        super(firstName, lastName, username, password, email, companyName, phoneNumber);
+        super(firstName, lastName, username, password, email, companyName, phoneNumber, new ArrayList<Component>());
         this.fleet = fleet;
         this.myActivities = new ArrayList<Activity>();
         this.myInterests = myInterests;
-        this.orders = new ArrayList<Order>();
     }
 
     public ArrayList<Robot> getFleet() {
@@ -42,14 +41,6 @@ public class Client extends User{
 
     public void setInterests(ArrayList<String> myinterests) {
         myInterests = myinterests;
-    }
-
-    public ArrayList<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(ArrayList<Order> orders) {
-        this.orders = orders;
     }
 
 /*    public void addRobot(Robot robot){

@@ -8,25 +8,17 @@ import java.util.ArrayList;
 
 public class Supplier extends User{
     private int productionCapacity;
-    private ArrayList<Component> storage;
 
     public Supplier(String firstName,String lastName,String username, String password, String email,
-                    String companyName, String phoneNumber, int productionCapacity, ArrayList<Component> storage){
-        super(firstName, lastName, username, password, email, companyName, phoneNumber);
+                    String companyName, String phoneNumber, int productionCapacity){
+        super(firstName, lastName, username, password, email, companyName, phoneNumber, new ArrayList<Component>());
         this.productionCapacity = productionCapacity;
-        this.storage = new ArrayList<Component>();
     }
     public int getProductionCapacity() {
         return productionCapacity;
     }
     public void setProductionCapacity(int productionCapacity) {
         this.productionCapacity = productionCapacity;
-    }
-    public ArrayList<Component> getStorage() {
-        return storage;
-    }
-    public void setStorage(ArrayList<Component> storage) {
-        this.storage = storage;
     }
 
 }
