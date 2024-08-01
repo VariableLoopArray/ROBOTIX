@@ -123,12 +123,10 @@ public class ActivityController {
 
     private void buttonConfirm(Button buttonConfirm, VBox everything, int activityPlace, List<Integer> confirmPlaces,
                                Button buttonAddTask, HBox buttonBox) {
-
+        System.out.println(client.getMyActivities().get(activityPlace).getTasks().size());
 
         for (int e = 0; e < confirmPlaces.size(); e ++){
-            for (Task task : client.getMyActivities().get(activityPlace).getTasks()){
-                System.out.println("tasks before confirmation " + task.getName());
-            }
+
 
                 TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e));
                 buttonConfirm.setVisible(false);
@@ -136,14 +134,20 @@ public class ActivityController {
                 newTask.setManaged(false);
                 String[] newTextTab = newTask.getText().split("\n");
 
+
+
                 for (int i = 0; i < newTextTab.length; i++){
                     newTextTab[i] = newTextTab[i].replaceAll("task name is ", "");
-
                 }
-
+                System.out.println(Arrays.toString(newTextTab));
                 List<String> newText = Arrays.asList(newTextTab);
+                client.getMyActivities().get(activityPlace).getTasks().get(e).getInstructions().clear();
 
-//                for (int i = 0; i < newText.size(); i++){
+                for (int i = 0; i < newText.size(); i++) {
+                    client.getMyActivities().get(activityPlace).getTasks().get(e).getInstructions().add(newText.get(i));
+                }
+                    //                for (int i = 0; i < newText.size(); i++){
+
 //                    client.getMyActivities().get(activityPlace).getTasks().get(i).setName(newText.get(i));
 //                }
 
@@ -183,9 +187,7 @@ public class ActivityController {
 //            System.out.println(button.getClass().getSimpleName());
 //        }
         buttonBox.getChildren().remove(buttonConfirm);
-        for (Task task : client.getMyActivities().get(activityPlace).getTasks()){
-            System.out.println("tasks after confirmation " + task.getName());
-        }
+
 
     }
 
@@ -223,7 +225,9 @@ public class ActivityController {
                     for (Task task : client.getMyActivities().get(n).getTasks()) {
                         System.out.println("this is before " + task.getName() + " " + task.getInstructions() + "\n");
                     }
+                    System.out.println("this is task before " + modifyNode.getTasks().size());
                     modifyNode.getTasks().add(new Task("new task", new ArrayList<String>()));
+                    System.out.println("this is tasks after " + modifyNode.getTasks().size());
                     for (Task task : client.getMyActivities().get(n).getTasks()) {
                         System.out.println("this is after " + task.getName() + " " + task.getInstructions() + "\n");
                     }

@@ -24,6 +24,6 @@ public class Task {
     }
 
     public void setInstructions(ArrayList<String> instructions) {
-        Instructions = instructions;
+        this.Instructions = instructions;
     }
 }
