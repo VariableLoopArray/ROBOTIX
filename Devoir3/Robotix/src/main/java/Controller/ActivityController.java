@@ -8,6 +8,7 @@ import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -18,6 +19,7 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -75,12 +77,13 @@ public class ActivityController {
             Activity activity = client.getMyActivities().get(i);
             //VBox activityAndModify = new VBox(1);
             Label newActivity = new Label(activity.getName());
-
             TextArea newTask = new TextArea();
+            newTask.setManaged(false);
             newTask.setVisible(false);
             newTask.setPrefHeight(10);
             newTask.setMaxWidth(550);
 
+            List<Integer> confirmPlaces = new ArrayList<Integer>();
             //activityAndModify.getChildren().addAll(newActivity, newTask);
 
             newActivity.getStyleClass().add("activities");
@@ -92,21 +95,22 @@ public class ActivityController {
             int index = i;
             buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index, numbersRemoved)));
 
-            Button buttonConfirm = new Button("Confirm");
-            buttonConfirm.setVisible(false);
-
-            buttonConfirm.setOnAction((actionEvent -> buttonConfirm(buttonConfirm, newTask, numberOfActivity.get())));
+            Button buttonAddTask = new Button("Add Task");
+            buttonAddTask.setVisible(false);
 
             Button buttonModify = new Button("Modify");
             buttonModify.setOnAction((actionEvent) -> {
-                numberOfActivity.set(buttonModify(index, newTask, buttonConfirm));
+                numberOfActivity.set(buttonModify(index, newTask, everything, buttonBox, confirmPlaces, buttonAddTask));
             });
 
 
-            buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonConfirm);
+            buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonAddTask);
 
-            everything.getChildren().addAll(newActivity, buttonBox, newTask);
+            everything.getChildren().addAll(newActivity, buttonBox);
 
+            for (Node child : everything.getChildren()) {
+                System.out.println(child.getClass().getSimpleName());
+            }
             DisplayActivities.getChildren().add(everything);
 
             //DisplayActivities.getChildren().add(buttonBox);
@@ -117,57 +121,51 @@ public class ActivityController {
 
     }
 
-    private void buttonConfirm(Button buttonConfirm, TextArea newTask, int activityPlace) {
+    private void buttonConfirm(Button buttonConfirm, VBox everything, int activityPlace, List<Integer> confirmPlaces,
+                               Button buttonAddTask, HBox buttonBox) {
 
-        ArrayList<Integer> taskIndex = new ArrayList<Integer>();
-        ArrayList<Integer> instructionsIndex = new ArrayList<Integer>();
 
-        if (!buttonConfirm.isVisible()){
-            return;
-        }
-        buttonConfirm.setVisible(false);
-        newTask.setVisible(false);
-        String[] newText = newTask.getText().split("\n");
-        for (int i = 0; i < newText.length; i++){
-            if (newText[i].contains("task name is")){
-                taskIndex.add(i);
-            }
-            else if (newText[i].contains("instructions are ")){
-                instructionsIndex.add(i);
+        for (int e = 0; e < confirmPlaces.size(); e ++){
+            for (Task task : client.getMyActivities().get(activityPlace).getTasks()){
+                System.out.println("tasks before confirmation " + task.getName());
             }
 
-            newText[i] = newText[i].replaceAll("task name is ", "").replaceAll
-                    ("instructions are ", "");
+                TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e));
+                buttonConfirm.setVisible(false);
+                newTask.setVisible(false);
+                newTask.setManaged(false);
+                String[] newTextTab = newTask.getText().split("\n");
 
-        }
+                for (int i = 0; i < newTextTab.length; i++){
+                    newTextTab[i] = newTextTab[i].replaceAll("task name is ", "");
 
-        for (int i = 0; i < taskIndex.size(); i++){
-            client.getMyActivities().get(activityPlace).getTasks().get(i).setName(newText[taskIndex.get(i)]);
-        }
-        //System.out.println(Arrays.toString(newText));
-        for (int j = 0; j < taskIndex.size(); j++){
-            for (int i = 0; i < client.getMyActivities().get(activityPlace).getTasks().size(); i++) {
-                if (j == 0) {
-                    client.getMyActivities().get(activityPlace).getTasks().get(j).
-                            getInstructions().set(i, newText[instructionsIndex.get(i)]);
                 }
-                else{
-                    client.getMyActivities().get(activityPlace).getTasks().get(j).
-                            getInstructions().set(i, newText[instructionsIndex.get(i + taskIndex.get(j) - 1 )]);
-                }
-            }
-            //  System.out.println(client.getMyActivities().get(activityPlace).getTasks().get(0).getInstructions().toString());
+
+                List<String> newText = Arrays.asList(newTextTab);
+
+//                for (int i = 0; i < newText.size(); i++){
+//                    client.getMyActivities().get(activityPlace).getTasks().get(i).setName(newText.get(i));
+//                }
+
+        }
+        int smaller = 0;
+        for (int e = 0; e < confirmPlaces.size(); e ++){
+            Label newTask = (Label) everything.getChildren().get(confirmPlaces.get(e) - 1 - smaller);
+            everything.getChildren().remove(newTask);
+            confirmPlaces.set(e, confirmPlaces.get(e) - smaller - 1);
+            smaller++;
         }
 
+        for (int e = confirmPlaces.size() - 1; e >= 0 ; e --){
+            everything.getChildren().remove((int) confirmPlaces.get(e));
 
+        }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
 
             Client [] Clients = gson.fromJson(reader, Client[].class);
             for (int i = 0; i < Clients.length; i++){
-                //System.out.println("this is client id " + client.getId() + " and this is the clientlist Id " + Clients[i].getId());
-                //System.out.println(i + " this is " + (Clients[i].getId().equals()client.getId()));
                 if (Clients[i].getId().equals(client.getId())){
                     Clients[i] = client;
                     break;
@@ -177,37 +175,95 @@ public class ActivityController {
                 gson.toJson(Clients, writer);
             }
         }
-        catch (IOException e){
-            e.printStackTrace();
+        catch (IOException ec){
+            ec.printStackTrace();
         }
+        buttonAddTask.setVisible(false);
+//        for (Node button : buttonBox.getChildren()){
+//            System.out.println(button.getClass().getSimpleName());
+//        }
+        buttonBox.getChildren().remove(buttonConfirm);
+        for (Task task : client.getMyActivities().get(activityPlace).getTasks()){
+            System.out.println("tasks after confirmation " + task.getName());
+        }
+
     }
 
-    private int buttonModify (int index, TextArea newTask, Button buttonConfirm) {
+    private int buttonModify (int index, TextArea newTask, VBox everything, HBox buttonBox, List<Integer> confirmPlaces,
+                              Button buttonAddTask) {
+        confirmPlaces.clear();
+        System.out.println(index);
         VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index);
         Label modify = (Label) modifyBox.getChildren().get(0);
         String modifyText = modify.getText();
-        int activityPlace = -1;
+        AtomicInteger activityPlace = new AtomicInteger(-1);
+        Button buttonConfirm = new Button("Confirm");
+
+        buttonAddTask.setVisible(true);
+
 
         for (Activity modifyNode : client.getMyActivities()) {
-            activityPlace++;
-            if (modifyNode.getName().equals(modifyText)) {
 
-                String tasks = "";
-                for (Task task : modifyNode.getTasks()) {
-                    tasks += "task name is " + task.getName() + "\n";
-                    for (String instructions : task.getInstructions()) {
-                        tasks += "instructions are " + instructions + "\n";
+            activityPlace.incrementAndGet();
+            int n = activityPlace.get();
+
+
+            if (modifyNode.getName().equals(modifyText)) {
+                for (Task task : modifyNode.getTasks()){
+                    System.out.println("tasks before " + task.getName());
+                }
+                buttonAddTask.setOnAction((actionEvent -> {
+                    System.out.println("this is name of activity " + client.getMyActivities().get(n).getName());
+                    System.out.println("this is number of activity " + n);
+
+                    Label newTask1 = new Label("new task");
+                    TextArea newInstructions1 = new TextArea();
+                    everything.getChildren().addAll(newTask1, newInstructions1);
+                    confirmPlaces.add(everything.getChildren().size() - 1);
+                    for (Task task : client.getMyActivities().get(n).getTasks()) {
+                        System.out.println("this is before " + task.getName() + " " + task.getInstructions() + "\n");
                     }
+                    modifyNode.getTasks().add(new Task("new task", new ArrayList<String>()));
+                    for (Task task : client.getMyActivities().get(n).getTasks()) {
+                        System.out.println("this is after " + task.getName() + " " + task.getInstructions() + "\n");
+                    }
+                }));
+                String tasks = "";
+
+//                for (Task task : modifyNode.getTasks()) {
+//                    tasks += "task name is " + task.getName() + "\n";
+//                }
+//
+//                newTask.setText(tasks);
+                newTask.setVisible(true);
+                newTask.setManaged(true);
+                buttonBox.getChildren().add(buttonConfirm);
+                for(Task task : modifyNode.getTasks()){
+                    String instructions = "";
+                    Label taskNameField = new Label("task is " + task.getName());
+                    everything.getChildren().add(taskNameField);
+                    TextArea newInstructions = new TextArea();
+                    for (String instruction : task.getInstructions()){
+                        instructions += instruction + "\n";
+                    }
+                    newInstructions.setText(instructions);
+                    everything.getChildren().add(newInstructions);
+                    confirmPlaces.add(everything.getChildren().size() - 1);
+                    int currentActivityPlace = activityPlace.get();
+
+                    buttonConfirm.setOnAction((actionEvent -> buttonConfirm(buttonConfirm, everything,
+                            currentActivityPlace,confirmPlaces, buttonAddTask, buttonBox)));
+
                 }
 
-                newTask.setText(tasks);
-                newTask.setVisible(true);
-                buttonConfirm.setVisible(true);
-                return activityPlace;
-
+                activityPlace.set(0);
+                break;
             }
+
         }
-        return activityPlace;
+
+
+        return activityPlace.get();
     }
 
     private void buttonRemove (ActionEvent event,int index, ArrayList<Integer> numbersRemoved){
@@ -273,6 +329,7 @@ public class ActivityController {
             Type activityListType = new TypeToken<List<Activity>>() {}.getType();
             activities = gson.fromJson(reader, activityListType);
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
