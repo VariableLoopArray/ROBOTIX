@@ -3,6 +3,7 @@
 }
 .activities{
     -fx-font-size: 30;
+
 }
 .menuVbox{
     -fx-pref-width: 240;
@@ -18,7 +19,9 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
 }
-
+.buttons{
+    -fx-border-radius: 30%;
+}
 .noActivity {
     -fx-font-size: 20;
     -fx-text-fill: #f44336;

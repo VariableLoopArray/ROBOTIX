@@ -32,18 +32,6 @@ public class ActivityController {
     @FXML
     public Label create;
     @FXML
-    public TextArea task1;
-    @FXML
-    public TextArea task2;
-    @FXML
-    public TextArea task3;
-    @FXML
-    public TextArea instruction1;
-    @FXML
-    public TextArea instruction2;
-    @FXML
-    public TextArea instruction3;
-    @FXML
     public VBox Tasks;
     @FXML
     private Label activityWelcome;
@@ -91,7 +79,7 @@ public class ActivityController {
             VBox everything = new VBox(10);
             Activity activity = client.getMyActivities().get(i);
             //VBox activityAndModify = new VBox(1);
-            Label newActivity = new Label(activity.getName());
+            Label newActivity = new Label("Activity " + activity.getName());
             TextArea newTask = new TextArea();
             newTask.setManaged(false);
             newTask.setVisible(false);
@@ -110,13 +98,19 @@ public class ActivityController {
             int index = i;
             buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index, numbersRemoved)));
 
+            buttonRemove.getStyleClass().add("buttons");
+
             Button buttonAddTask = new Button("Add Task");
             buttonAddTask.setVisible(false);
+
+            buttonAddTask.getStyleClass().add("buttons");
 
             Button buttonModify = new Button("Modify");
             buttonModify.setOnAction((actionEvent) -> {
                 numberOfActivity.set(buttonModify(index, newTask, everything, buttonBox, confirmPlaces, buttonAddTask));
             });
+
+            buttonModify.getStyleClass().add("buttons");
 
 
             Label description = new Label("Description : " + activity.getDescription());
@@ -213,24 +207,23 @@ public class ActivityController {
     private int buttonModify (int index, TextArea newTask, VBox everything, HBox buttonBox, List<Integer> confirmPlaces,
                               Button buttonAddTask) {
 
+        if (buttonAddTask.isVisible()){
+            return -1;
+        }
         System.out.println("this is everything size before " + everything.getChildren().size());
         confirmPlaces.clear();
         VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index);
         Label modify = (Label) modifyBox.getChildren().get(0);
-        String modifyText = modify.getText();
+        String modifyText = modify.getText().replace("Activity ", "");
         AtomicInteger activityPlace = new AtomicInteger(-1);
         Button buttonConfirm = new Button("Confirm");
+        buttonConfirm.getStyleClass().add("buttons");
 
         buttonAddTask.setVisible(true);
-
-
-
         for (Activity modifyNode : client.getMyActivities()) {
 
             activityPlace.incrementAndGet();
             int n = activityPlace.get();
-
-
             if (modifyNode.getName().equals(modifyText)) {
 
 
@@ -242,6 +235,7 @@ public class ActivityController {
                     System.out.println("this is number of activity " + n);
 
                     TextArea newTask1 = new TextArea("new task");
+                    newTask1.setMaxHeight(45);
                     TextArea newInstructions1 = new TextArea();
                     everything.getChildren().addAll(newTask1, newInstructions1);
                     confirmPlaces.add(everything.getChildren().size() - 1);
@@ -256,12 +250,6 @@ public class ActivityController {
                     }
                 }));
                 String tasks = "";
-
-//                for (Task task : modifyNode.getTasks()) {
-//                    tasks += "task name is " + task.getName() + "\n";
-//                }
-//
-//                newTask.setText(tasks);
                 newTask.setVisible(true);
                 newTask.setManaged(true);
                 buttonBox.getChildren().add(buttonConfirm);
