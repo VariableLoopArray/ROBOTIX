@@ -16,11 +16,12 @@
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
         </VBox>
 
-        <Pane prefWidth="50"/>
-        <VBox>
+        <VBox alignment="TOP_CENTER">
             <Label fx:id="shopWelcome" text="Welcome to Robotix Shop" styleClass="title"/>
-            <HBox>
-                <VBox styleClass="filtersVbox">
+            <HBox VBox.vgrow="ALWAYS">
+                <Pane prefWidth="50"/>
+                <VBox styleClass="filtersVbox" spacing="20" VBox.vgrow="ALWAYS">
+                    <Pane prefHeight="50"/>
                     <Label text="Filters" styleClass="filtersLabel"/>
                     <CheckBox text="Cheap (less than 10$)" fx:id="filter1" />
                     <CheckBox text="Affordable (less than 50$)" fx:id="filter2"/>
@@ -39,9 +40,9 @@
 
                 <Pane prefWidth="50"/>
 
-                <VBox HBox.hgrow="ALWAYS">
-                    <ScrollPane fitToWidth="true">
-                        <FlowPane fx:id="productsFlowPane" hgap="10" vgap="10">
+                <VBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" alignment="CENTER">
+                    <ScrollPane fitToWidth="true" fitToHeight="true" minHeight="600" minWidth="400">
+                        <FlowPane fx:id="productsFlowPane" hgap="20" vgap="20">
                         </FlowPane>
                     </ScrollPane>
                 </VBox>

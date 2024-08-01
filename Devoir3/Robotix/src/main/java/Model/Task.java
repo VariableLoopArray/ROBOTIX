@@ -6,9 +6,9 @@ public class Task {
     private String name;
     private ArrayList<String> Instructions;
 
-    public Task(String name, String Instructions){
+    public Task(String name, ArrayList<String> Instructions){
         this.name = name;
-        this.Instructions = new ArrayList<String>();
+        this.Instructions = Instructions;
     }
 
     public String getName() {
@@ -24,6 +24,6 @@ public class Task {
     }
 
     public void setInstructions(ArrayList<String> instructions) {
-        Instructions = instructions;
+        this.Instructions = instructions;
     }
 }

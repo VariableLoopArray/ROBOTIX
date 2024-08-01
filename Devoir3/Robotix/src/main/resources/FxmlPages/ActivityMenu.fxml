@@ -11,6 +11,7 @@
 
 <?import javafx.scene.layout.StackPane?>
 
+
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 
@@ -18,10 +19,13 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ScrollPane?>
+
 <StackPane xmlns:fx="http://javafx.com/fxml"
            fx:controller="Controller.ActivityController"
            stylesheets="@../../classes/CssFiles/Activity.css">
 
+    <ScrollPane>
     <HBox>
         <VBox styleClass="menuVbox">
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
@@ -65,6 +69,6 @@
                 </HBox>
         </VBox>
     </HBox>
-
+    </ScrollPane>
 
 </StackPane>

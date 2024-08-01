@@ -250,6 +250,7 @@ public class HomepageController {
             shopScene.getStylesheets().add(getClass().getResource("/CssFiles/Shop.css").toExternalForm());
             ShopController shopController = fxmlLoader.getController();
             shopController.setUserShop(client);
+            shopController.displayALlComponents();
             stage.setTitle("Robotix Shop");
             stage.setScene(shopScene);
             stage.show();
