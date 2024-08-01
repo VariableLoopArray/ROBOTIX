@@ -97,4 +97,6 @@ public class Robot {
     public void setMemory(float memory) {
         this.memory = memory;
     }
+
+
 }

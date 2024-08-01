@@ -52,6 +52,10 @@ public class Client extends User{
         this.orders = orders;
     }
 
+/*    public void addRobot(Robot robot){
+        myRoborts.add(robot);
+    }*/
+
     public void addActivity(Activity activity){
         myActivities.add(activity);
     }

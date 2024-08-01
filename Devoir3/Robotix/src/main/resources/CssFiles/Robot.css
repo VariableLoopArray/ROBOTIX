@@ -1,8 +1,9 @@
 .title{
     -fx-font-size: 24;
 }
-.activities{
+.Message{
     -fx-font-size: 30;
+    -fx-text-fill: #470045;
 }
 .menuVbox{
     -fx-pref-width: 240;
