@@ -41,6 +41,7 @@
                 <Pane prefWidth="50"/>
 
                 <VBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" alignment="CENTER">
+                    <Label fx:id="thankYouMessage" style="-fx-text-fill:#4CAF50" alignment="CENTER"/>
                     <ScrollPane fitToWidth="true" fitToHeight="true" minHeight="600" minWidth="400">
                         <FlowPane fx:id="productsFlowPane" hgap="20" vgap="20">
                         </FlowPane>

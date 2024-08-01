@@ -1,10 +1,12 @@
 package Controller;
 
+import Model.Activity;
 import Model.Component;
 import Model.TypeOfUsers.Client;
 import Model.TypeOfUsers.Supplier;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +20,10 @@ import javafx.stage.Stage;
 import javafx.scene.control.Label;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.Reader;
+import java.io.Writer;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,17 +53,22 @@ public class ShopController {
     @FXML
     private FlowPane productsFlowPane;
     @FXML
+    private Label thankYouMessage;
+    @FXML
     private Client client;
     public void setUserShop(Client client) {
         this.client = client;
-        shopWelcome.setText("Welcome to the shop " + client.getUsername());
+        shopWelcome.setText("Welcome to the Robotix shop ");
     }
     public void displayALlComponents() {
-
+        productsFlowPane.getChildren().clear();
         try(Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
              Gson gson = new GsonBuilder().create();
              Supplier[] suppliers = gson.fromJson(reader, Supplier[].class);
              for (Supplier supplier : suppliers) {
+                 if (supplier.getStorage() == null) {
+                     continue;
+                 }
                  for (Component component : supplier.getStorage()) {;
                      VBox componentVBox = new VBox();
                      Label componentName = new Label(component.getName());
@@ -69,8 +79,57 @@ public class ShopController {
                         Label componentHeight = new Label("Height: " + component.getHeight());
                         Label componentSupplier = new Label("Supplier: " + supplier.getCompanyName());
                         componentInfo.getChildren().addAll(componentPrice, componentWidth, componentLength, componentHeight, componentSupplier);
-                     Button addToCart = new Button("Add to cart");
-                     componentVBox.getChildren().addAll(componentName, componentInfo, addToCart);
+                     Button buyNow = new Button("Buy now");
+                     buyNow.setOnAction(e -> {
+                         if (client.getStorage() == null) {
+                             client.setStorage(new ArrayList<>());
+                         }
+                         List<Client> clients = new ArrayList<>();
+                         client.getStorage().add(component);
+                         try(Reader reader1 = new FileReader("src/main/JsonFiles/client.json")) {
+                             Gson gson1 = new GsonBuilder().create();
+                             Type type = new TypeToken<List<Client>>() {}.getType();
+                             clients = gson1.fromJson(reader1, type);
+                             for (Client client1 : clients) {
+                                 if (client1.getId().equals(client.getId())) {
+                                     client1.setStorage(client.getStorage());
+                                 }
+                             }
+                         } catch (Exception e1) {
+                             e1.printStackTrace();
+                         }
+                         List<Supplier> suppliers1 = new ArrayList<>();
+                         for (Supplier supplier1 : suppliers) {
+                             if (supplier1.getId().equals(component.getSupplierID())) {
+                                 supplier1.getStorage().remove(component);
+                             }
+                         }
+                         try(Reader reader1 = new FileReader("src/main/JsonFiles/supplier.json")) {
+                             Gson gson1 = new GsonBuilder().create();
+                             Type type = new TypeToken<List<Supplier>>() {}.getType();
+                             suppliers1 = gson1.fromJson(reader1, type);
+                             for (Supplier supplier1 : suppliers1) {
+                                 if (supplier1.getId().equals(component.getSupplierID())) {
+                                     supplier1.setStorage(supplier1.getStorage());
+                                 }
+                             }
+                         } catch (Exception e1) {
+                             e1.printStackTrace();
+                         }
+                         try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                             gson.toJson(clients, writer);
+                         } catch (Exception e1) {
+                             e1.printStackTrace();
+                         }
+                         try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                             gson.toJson(suppliers, writer);
+                         } catch (Exception e1) {
+                             e1.printStackTrace();
+                         }
+                         thankYouMessage.setText("Thank you for your purchase");
+                         displayALlComponents();
+                     });
+                     componentVBox.getChildren().addAll(componentName, componentInfo, buyNow);
                      productsFlowPane.getChildren().add(componentVBox);
                  }
              }
@@ -143,7 +202,8 @@ public class ShopController {
 
                     if (!filter9.getText().isEmpty()) {
                         try {
-                            String[] tags = filter9.getText().split(",");
+
+                            String[] tags = filter9.getText().replace(" ", "").split(",");
                             for (String tag : tags) {
                                 if (component.getTag().contains(tag)) {
                                     addComponent = true;
@@ -184,13 +244,63 @@ public class ShopController {
                 Label componentLength = new Label("Length: " + component.getLength());
                 Label componentHeight = new Label("Height: " + component.getHeight());
                 for (Supplier supplier1 : suppliers) {
-                    if (supplier1.getId() == component.getSupplierID()) {
+                    if (supplier1.getId().equals(component.getSupplierID())) {
                         Label componentSupplier = new Label("Supplier: " + supplier1.getCompanyName());
                         componentInfo.getChildren().addAll(componentPrice, componentWidth, componentLength, componentHeight, componentSupplier);
+                        break;
                     }
                 }
-                Button addToCart = new Button("Add to cart");
-                componentVBox.getChildren().addAll(componentName, componentInfo, addToCart);
+                Button buyNow = new Button("Buy now");
+                buyNow.setOnAction(e -> {
+                    if (client.getStorage() == null) {
+                        client.setStorage(new ArrayList<>());
+                    }
+                    List<Client> clients = new ArrayList<>();
+                    client.getStorage().add(component);
+                    try(Reader reader1 = new FileReader("src/main/JsonFiles/client.json")) {
+                        Gson gson1 = new GsonBuilder().create();
+                        Type type = new TypeToken<List<Client>>() {}.getType();
+                        clients = gson1.fromJson(reader1, type);
+                        for (Client client1 : clients) {
+                            if (client1.getId().equals(client.getId())) {
+                                client1.setStorage(client.getStorage());
+                            }
+                        }
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                    List<Supplier> suppliers1 = new ArrayList<>();
+                    for (Supplier supplier : suppliers) {
+                        if (supplier.getId().equals(component.getSupplierID())) {
+                            supplier.getStorage().remove(component);
+                        }
+                    }
+                    try(Reader reader1 = new FileReader("src/main/JsonFiles/supplier.json")) {
+                        Gson gson1 = new GsonBuilder().create();
+                        Type type = new TypeToken<List<Supplier>>() {}.getType();
+                        suppliers1 = gson1.fromJson(reader1, type);
+                        for (Supplier supplier : suppliers1) {
+                            if (supplier.getId().equals(component.getSupplierID())) {
+                                supplier.setStorage(supplier.getStorage());
+                            }
+                        }
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                    try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                        gson.toJson(clients, writer);
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                    try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                        gson.toJson(suppliers, writer);
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                    thankYouMessage.setText("Thank you for your purchase");
+                    applyFilters();
+                });
+                componentVBox.getChildren().addAll(componentName, componentInfo, buyNow);
                 productsFlowPane.getChildren().add(componentVBox);
             }
         } catch (Exception e) {

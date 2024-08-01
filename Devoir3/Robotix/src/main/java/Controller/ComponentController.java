@@ -2,6 +2,8 @@ package Controller;
 
 import Model.Component;
 import Model.TypeOfUsers.Supplier;
+import Model.TypeOfUsers.Client;
+import Model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -23,9 +25,11 @@ public class ComponentController {
     @FXML
     Supplier supplier;
     @FXML
+    Client client;
+    @FXML
     private Label componentWelcome;
     @FXML
-    private FlowPane supplierComponents;
+    private FlowPane userComponents;
     @FXML
     private GridPane addComponentGrid;
     @FXML
@@ -43,15 +47,50 @@ public class ComponentController {
     @FXML
     private Button closeButton;
     @FXML
+    private HBox displayAddComponent;
+    @FXML
     private Label messageLabel;
-    public void setUserComponent(Supplier supplier) {
-        this.supplier = supplier;
-        componentWelcome.setText("Welcome " + supplier.getCompanyName());
-        addComponentGrid.managedProperty().bind(addComponentGrid.visibleProperty());
-        closeButton.managedProperty().bind(closeButton.visibleProperty());
+    public void setUserComponent(User user) {
+        if (user instanceof Supplier) {
+            this.supplier = (Supplier) user;
+            componentWelcome.setText("Welcome " + supplier.getCompanyName());
+            displayComponents(supplier);
+        } else {
+            this.client = (Client) user;
+            componentWelcome.setText("Welcome " + client.getCompanyName());
+            displayComponents(client);
+        }
+
     }
+    public void displayComponents(Client client){
+        userComponents.getChildren().clear();
+        displayAddComponent.setVisible(false);
+        displayAddComponent.managedProperty().bind(displayAddComponent.visibleProperty());
+        if (client.getStorage() == null){
+            return;
+        }
+        for (Component component: client.getStorage()) {
+            VBox componentBox = new VBox();
+            componentBox.getChildren().add(new Label(component.getName()));
+            VBox componentSpecs = new VBox();
+            componentSpecs.getChildren().add(new Label("Tag: " + component.getTag()));
+            componentSpecs.getChildren().add(new Label("Price: " + component.getPrice()));
+            componentSpecs.getChildren().add(new Label("Width: " + component.getWidth()));
+            componentSpecs.getChildren().add(new Label("Length: " + component.getLength()));
+            componentSpecs.getChildren().add(new Label("Height: " + component.getHeight()));
+            componentBox.getChildren().add(componentSpecs);
+            componentBox.getStyleClass().add("componentBox");
+            componentSpecs.getStyleClass().add("componentSpecs");
+            userComponents.getChildren().add(componentBox);
+        }
+    }
+
+
     public void displayComponents(Supplier supplier){
-        supplierComponents.getChildren().clear();
+        userComponents.getChildren().clear();
+        if (supplier.getStorage() == null){
+            return;
+        }
         for (Component component: supplier.getStorage()){
             VBox componentBox = new VBox();
             componentBox.getChildren().add(new Label(component.getName()));
@@ -190,7 +229,7 @@ public class ComponentController {
             componentSpecs.getStyleClass().add("componentSpecs");
             componentButtons.getStyleClass().add("componentButtons");
 
-            supplierComponents.getChildren().add(componentBox);
+            userComponents.getChildren().add(componentBox);
 
         }
 
@@ -211,9 +250,11 @@ public class ComponentController {
             Component component = new Component(componentName.getText(), tags, Float.parseFloat(componentPrice.getText()),
                     Float.parseFloat(componentWidth.getText()), Float.parseFloat(componentLength.getText()),
                     Float.parseFloat(componentHeight.getText()), supplier.getId(), UUID.randomUUID());
+            if (supplier.getStorage() == null){
+                supplier.setStorage(new ArrayList<>());
+            }
             supplier.getStorage().add(component);
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
             try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
                 List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>(){}.getType());
                 if (suppliers == null){
@@ -230,12 +271,11 @@ public class ComponentController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
             displayComponents(supplier);
             closeDisplayAddComponent();
         }
         catch (Exception e) {
+            e.printStackTrace();
             messageLabel.setText("error input or missing input");
         }
     }
@@ -248,7 +288,13 @@ public class ComponentController {
             homepageMenu.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             stage.setTitle("Homepage");
             HomepageController homepageController = fxmlLoader.getController();
-            homepageController.setUserHomepage(supplier);
+            if (supplier != null) {
+                homepageController.setUserHomepage(supplier);
+                homepageController.displayCorrectMenu();
+            } else {
+                homepageController.setUserHomepage(client);
+                homepageController.displayRobotixActivities();
+            }
             homepageController.displayCorrectMenu();
             stage.setScene(homepageMenu);
             stage.show();

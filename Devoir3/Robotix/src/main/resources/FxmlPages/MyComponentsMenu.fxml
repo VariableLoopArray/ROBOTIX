@@ -25,13 +25,13 @@
         <ScrollPane fitToWidth="true" maxHeight="600" HBox.hgrow="ALWAYS">
             <VBox>
                 <ScrollPane styleClass="scrollPane" fitToWidth="true" prefHeight="300" >
-                    <FlowPane hgap="10" vgap="10" styleClass="flowPane" fx:id="supplierComponents">
+                    <FlowPane hgap="10" vgap="10" styleClass="flowPane" fx:id="userComponents">
 
                     </FlowPane>
                 </ScrollPane>
 
                 <Pane prefHeight="30"/>
-                <HBox alignment="CENTER" maxHeight="20">
+                <HBox fx:id="displayAddComponent" alignment="CENTER" maxHeight="20">
                     <Button text="Add Component" onAction="#displayAddComponent" alignment="CENTER" styleClass="customButton"/>
                     <Pane prefWidth="20"/>
                     <Button text="Close" fx:id="closeButton" onAction="#closeDisplayAddComponent" alignment="CENTER" visible="false" styleClass="customButton"/>
