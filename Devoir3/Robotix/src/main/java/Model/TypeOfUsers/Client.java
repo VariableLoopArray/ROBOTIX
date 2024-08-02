@@ -13,7 +13,7 @@ public class Client extends User{
     public Client(String firstName,String lastName,String username, String password, String email,
                   String companyName, String phoneNumber, ArrayList<Robot> fleet,
                   ArrayList<String> myInterests){
-        super(firstName, lastName, username, password, email, companyName, phoneNumber, new ArrayList<Component>());
+        super(firstName, lastName, username, password, email, companyName, phoneNumber, new ArrayList<Component>(), new ArrayList<String>());
         this.fleet = fleet;
         this.myActivities = new ArrayList<Activity>();
         this.myInterests = myInterests;
@@ -42,11 +42,6 @@ public class Client extends User{
     public void setInterests(ArrayList<String> myinterests) {
         myInterests = myinterests;
     }
-
-/*    public void addRobot(Robot robot){
-        myRoborts.add(robot);
-    }*/
-
     public void addActivity(Activity activity){
         myActivities.add(activity);
     }

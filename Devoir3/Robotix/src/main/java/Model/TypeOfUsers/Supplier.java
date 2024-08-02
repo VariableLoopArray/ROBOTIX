@@ -11,7 +11,7 @@ public class Supplier extends User{
 
     public Supplier(String firstName,String lastName,String username, String password, String email,
                     String companyName, String phoneNumber, int productionCapacity){
-        super(firstName, lastName, username, password, email, companyName, phoneNumber, new ArrayList<Component>());
+        super(firstName, lastName, username, password, email, companyName, phoneNumber, new ArrayList<Component>(), new ArrayList<String>());
         this.productionCapacity = productionCapacity;
     }
     public int getProductionCapacity() {

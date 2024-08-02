@@ -15,3 +15,10 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
 }
+.notif{
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font: 20px "System";
+    -fx-padding: 20;
+
+}
