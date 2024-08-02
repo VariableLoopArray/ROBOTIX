@@ -30,7 +30,7 @@ public class ActivityController {
     @FXML
     public GridPane activityGrid;
     @FXML
-    public Label create;
+    public Button create;
     @FXML
     public VBox Tasks;
     @FXML
@@ -44,8 +44,7 @@ public class ActivityController {
     @FXML
     private TextField activityPoints;
     @FXML
-    private Label noActivityList;
-
+    private Label successLabel;
     @FXML
     private TextField activityDescription;
 
@@ -90,8 +89,6 @@ public class ActivityController {
             List<Integer> confirmPlaces = new ArrayList<Integer>();
             //activityAndModify.getChildren().addAll(newActivity, newTask);
 
-            newActivity.getStyleClass().add("activities");
-
 
             HBox buttonBox = new HBox(5);
 
@@ -123,6 +120,7 @@ public class ActivityController {
                 System.out.println(child.getClass().getSimpleName());
             }
             DisplayActivities.getChildren().add(everything);
+            activityGrid.setVisible(false);
 
             //DisplayActivities.getChildren().add(buttonBox);
         }
@@ -348,6 +346,14 @@ public class ActivityController {
         }
     }
 
+    public void openAddActivity(){
+        if (activityGrid.isVisible()){
+            activityGrid.setVisible(false);
+        } else {
+            activityGrid.setVisible(true);
+        }
+        successLabel.setText("");
+    }
     public void createActivity() {
         ArrayList<String> interests = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
@@ -398,7 +404,7 @@ public class ActivityController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        successLabel.setText("Activity successfully created for Robotix! (Go back to homepage to join activities)");
         displayActivities(client);
     }
 

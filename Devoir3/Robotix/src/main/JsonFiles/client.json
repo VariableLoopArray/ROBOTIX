@@ -1,1 +1,148 @@
-[{"fleet":[{"name":"1","type":"1","components":[],"serialNumber":"e96d6b47-08c5-4858-8858-12d7fd9d1bf3","battery":"1","location":[0.0,0.0,0.0],"speed":1.0,"cpuUsage":1.0,"memory":1.0}],"myActivities":[],"myInterests":["Sports and Fitness","Music and Performing Arts","Video Games and Technology","Reading and Writing","Education and learning"],"firstName":"1","lastName":"1","username":"1","password":"11111111","id":"d23f8f9d-80dc-47ee-a89b-7015006a3a14","email":"1@","companyName":"1","phoneNumber":"111-111-1111","Storage":[{"name":"CPU","tag":["1"],"price":1.0,"width":10.0,"length":10.0,"height":10.0,"supplierID":"8f9cff25-bef0-4156-a139-38da8ebe44e8","serialNumber":"1b5d3318-cdf7-4cc7-9f0a-77ffb003929b"}]}]
+[
+  {
+    "fleet": [
+      {
+        "name": "1",
+        "type": "1",
+        "components": [],
+        "serialNumber": "e96d6b47-08c5-4858-8858-12d7fd9d1bf3",
+        "battery": "1",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.0,
+        "cpuUsage": 1.0,
+        "memory": 1.0
+      }
+    ],
+    "myActivities": [
+      {
+        "name": "3",
+        "startDate": "3",
+        "endDate": "3",
+        "points": "3",
+        "Interests": [],
+        "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+        "tasks": [
+          {
+            "name": "3",
+            "Instructions": [
+              "3"
+            ]
+          },
+          {
+            "name": "3",
+            "Instructions": [
+              "3"
+            ]
+          },
+          {
+            "name": "3",
+            "Instructions": [
+              "3"
+            ]
+          }
+        ],
+        "activityId": "a1d1182d-4e66-48be-a4ed-5df5415d98ed",
+        "description": "3",
+        "status": "Not Started"
+      },
+      {
+        "name": "1",
+        "startDate": "1",
+        "endDate": "1",
+        "points": "1",
+        "Interests": [],
+        "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+        "tasks": [
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          }
+        ],
+        "activityId": "31bfb933-d9b2-4180-9930-bb573eed8443",
+        "description": "1",
+        "status": "Not Started"
+      },
+      {
+        "name": "4",
+        "startDate": "4",
+        "endDate": "4",
+        "points": "4",
+        "Interests": [
+          "Outdoors Activities and Adventure",
+          "Cooking and gastronomy"
+        ],
+        "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+        "tasks": [
+          {
+            "name": "4",
+            "Instructions": [
+              "4"
+            ]
+          },
+          {
+            "name": "4",
+            "Instructions": [
+              "4"
+            ]
+          },
+          {
+            "name": "4",
+            "Instructions": [
+              "4"
+            ]
+          }
+        ],
+        "activityId": "da115e83-f69a-43e4-9d0b-cddeb8bde6fe",
+        "description": "4",
+        "status": "Not Started"
+      }
+    ],
+    "myInterests": [
+      "Sports and Fitness",
+      "Music and Performing Arts",
+      "Video Games and Technology",
+      "Reading and Writing",
+      "Education and learning"
+    ],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "Storage": [
+      {
+        "name": "CPU",
+        "tag": [
+          "1"
+        ],
+        "price": 1.0,
+        "width": 10.0,
+        "length": 10.0,
+        "height": 10.0,
+        "supplierID": "8f9cff25-bef0-4156-a139-38da8ebe44e8",
+        "serialNumber": "1b5d3318-cdf7-4cc7-9f0a-77ffb003929b"
+      }
+    ]
+  }
+]
