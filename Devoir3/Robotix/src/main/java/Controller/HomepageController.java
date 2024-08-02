@@ -264,6 +264,28 @@ public class HomepageController {
         }
     }
 
+    public void goToNotification(){
+        try {
+            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/NotificationMenu.fxml"));
+            Scene notificationScene = new Scene(fxmlLoader.load(), 1024, 768);
+            notificationScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            notificationScene.getStylesheets().add(getClass().getResource("/CssFiles/Notification.css").toExternalForm());
+            NotificationController notificationController = fxmlLoader.getController();
+            if (client != null) {
+                notificationController.setUserNotification(client);
+            } else if (supplier != null) {
+                notificationController.setUserNotification(supplier);
+            }
+            stage.setTitle("Notifications");
+            stage.setScene(notificationScene);
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void Logout(){
         try {
