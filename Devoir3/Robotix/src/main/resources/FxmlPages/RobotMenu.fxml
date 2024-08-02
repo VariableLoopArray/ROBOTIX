@@ -27,6 +27,7 @@
                 <VBox alignment="CENTER" spacing="10">
                     <Button fx:id="create" text="Create My Robot" onAction="#creatRobot"/>
                     <Button fx:id="affiche" text="Show My Robot" onAction="#showRobot"/>
+                    <Button fx:id="supprime" text="Remove My Robot" onAction="#removeRobot"/>
                     <AnchorPane>
                     <VBox fx:id="DisplayRobots" AnchorPane.leftAnchor="150">
                         <Label fx:id="noRobotList" styleClass="noRobot" prefHeight="50"/>
@@ -35,53 +36,37 @@
 
 
                     <AnchorPane>
-                    <GridPane fx:id="Informations" hgap="10" vgap="10" visible="false" AnchorPane.leftAnchor="150">
+                    <GridPane fx:id="tableInfo" hgap="10" vgap="10" visible="false" AnchorPane.leftAnchor="150">
 
-                    <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <Label text="Name:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
                     <TextField fx:id="name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
 
-                    <Label text="Type:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <Label text="Type:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
                     <TextField fx:id="type" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-                    <Label text="Component:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <Label text="Component:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
                     <TextField fx:id="components" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
 
-                    <Label text="battery:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                    <Label text="battery:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
                     <TextField fx:id="battery" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
-                    <Label text="Location:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                    <Label text="Location:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
                     <TextField fx:id="loc" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
-                    <Label text="Speed:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                    <Label text="Speed:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
                     <TextField fx:id="speed" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
-                    <Label text="CPUusage:" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                    <Label text="CPUusage:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
                     <TextField fx:id="cpuusage" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
 
-                    <Label text="Memory:" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                    <Label text="Memory:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
                     <TextField fx:id="memory" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
 
-                    <Label text="SerialNumber" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+                    <Label text="SerialNumber" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
                     <TextField fx:id="serialNumber" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
                     </GridPane>
                     </AnchorPane>
-<!--                    <Label text="Create Robot" styleClass="title"/>-->
-                    <!--
 
-                        <Label text="Robot Description" GridPane.rowIndex="18"/>
-                        <TextArea fx:id="robotDescription" GridPane.rowIndex="19" prefWidth="200" prefHeight="100"/>
-                        <CheckBox fx:id="Robot1" text="Sports and Fitness" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Robot2" text="Arts and Cafts" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Robot3" text ="Music and Performing Arts" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Robot4" text ="Outdoors Activities and Adventure" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Robot5" text ="Video Games and Technology" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-                        <CheckBox fx:id="Robot6" text ="Cooking and gastronomy" GridPane.rowIndex="5" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Robot7" text ="Reading and Writing" GridPane.rowIndex="6" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Robot8" text ="Travel and Culture" GridPane.rowIndex="7" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Robot9" text ="Education and learning" GridPane.rowIndex="8" GridPane.columnIndex="2"/>
-                        <CheckBox fx:id="Robot10" text ="Health and Well-Being" GridPane.rowIndex="9" GridPane.columnIndex="2"/>
-                        <Button text="Create Robot" onAction="#createRobot" GridPane.rowIndex="12" styleClass="customButton"/>
-                    </GridPane> -->
                 </VBox>
             </HBox>
         </VBox>

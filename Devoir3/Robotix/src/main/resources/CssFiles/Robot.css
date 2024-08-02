@@ -2,12 +2,18 @@
     -fx-font-family: Georgia;
 }
 
+.labelrobot{ //不应用
+    -fx-font-family: Georgia;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f1420d;
+}
 
 .default-text {
     -fx-font-family: Georgia;
     -fx-font-size: 40;
     -fx-font-weight: bold;
-    -fx-text-fill: #0f1e50; /* 正常状态的字体颜色 */
+    -fx-text-fill: #0f1e50; /* 正常状态的字体颜色 Welcome to my robot! */
 }
 
 .error-text {
@@ -36,7 +42,7 @@
     -fx-font-size: 30;
     -fx-font-weight: bold;
     -fx-font-style: italic;
-    -fx-text-fill: #514660;
+    -fx-text-fill: #2e0565;
     -fx-effect: innershadow(gaussian, #514660, 10, 0, 0, 3); /* */
 }
 
@@ -59,10 +65,10 @@
 .label-robotlist{
     -fx-font-family: Georgia;
     -fx-font-size: 15;
-    -fx-text-fill: blue;
+    -fx-text-fill: #24273d;
 }
 
-#create,#affiche{
+#create,#affiche,#supprime{
     -fx-font-family: Georgia;
     -fx-font-size: 40;
     -fx-font-weight: medium-bold;
@@ -77,7 +83,7 @@
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8E7CC3);
 }
 
-#create:hover,#affiche:hover {
+#create:hover,#affiche:hover,#supprime:hover{
     -fx-font-family: Georgia;
     -fx-font-size: 40;
     -fx-border-radius: 20px;
@@ -92,10 +98,22 @@
 }
 
 
-#Informations{
+#tableInfo{
     -fx-font-family: Georgia;
     -fx-font-size: 20px;
-    -fx-text-fill: #7c218a;
+    -fx-text-fill: #7c218a; // change
+}
+
+
+
+.text-field {
+    -fx-text-fill: #24273d;
+    -fx-font-size: 20px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-border-color: #a9acca;
+    -fx-border-radius: 5px;
+    -fx-border-width: 2px;
 }
 
 .menuVbox{

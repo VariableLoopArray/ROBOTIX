@@ -29,7 +29,7 @@ public class RobotController {
     @FXML
     public VBox DisplayRobots;
     @FXML
-    public GridPane Informations;
+    public GridPane tableInfo;
     @FXML
     public TextField name;
     @FXML
@@ -52,6 +52,8 @@ public class RobotController {
     public Button create;
     @FXML
     public Button affiche;
+    @FXML
+    public Label labeltexte;
 
 //    @FXML
 //    private Label noRobotList;
@@ -111,6 +113,9 @@ public class RobotController {
         }
 
         try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+
+            Label labelrobot = new Label();
+
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             Client [] Clients = gson.fromJson(reader, Client[].class);
             for (int i = 0; i < Clients.length; i++){
@@ -131,16 +136,16 @@ public class RobotController {
                     break;
                 }
             }
-            robotlist.setText(robot);
+            robotlist.setText(robot); //
             DisplayRobots.getChildren().add(robotlist);
 
-
+/*            labelrobot.getStyleClass().add("labelrobot");
+            DisplayRobots.getChildren().add(robotlist);   不应用*/
         }
         catch (IOException ec){
             ec.printStackTrace();
         }
     }
-
 
     public void confirmRobot(ActionEvent actionEvent,Label robotlist) {
         // 点击确认按钮后，把之前已经显示的robot列表删除，robotlist是否要对全局应用 ！！（当列表为空时不显示内容，正常时候会一直显示）
@@ -149,7 +154,7 @@ public class RobotController {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         client.getFleet().add(robot);
         System.out.println(name.getText());
-        Informations.setVisible(false);
+        tableInfo.setVisible(false);
         Label success = new Label("Robot created successfully!");
         success.getStyleClass().add("label-success");
         DisplayRobots.getChildren().add(success);
@@ -188,17 +193,16 @@ public class RobotController {
         affiche.setManaged(false); // 尝试当点击create时隐藏showlist按钮
         affiche.setVisible(false); // 并隐藏robot列表
         Label robotlist = new Label();
-        Informations.setVisible(true); // Show the informations
+        tableInfo.setVisible(true); // Show the infos table
         create.setVisible(false); // Hide the create button
         create.setManaged(false); // Hide the create button
-/*        affiche.setManaged(false); // Hide the affiche button
-        affiche.setVisible(false); // Hide the affiche button  无用 */
-        Button confirm = new Button("Confirm");
+
+        Button confirm = new Button("Confirm and save");
         confirm.getStyleClass().add("button-confirm");
         confirm.setOnAction(e -> confirmRobot(e,robotlist));
-        Informations.getChildren().add(confirm);
-        Informations.setRowIndex(confirm, 9);
-        Informations.setColumnIndex(confirm, 1);
+        tableInfo.getChildren().add(confirm);
+        tableInfo.setRowIndex(confirm, 9);
+        tableInfo.setColumnIndex(confirm, 1);
 
         //afficherRobot(actionEvent,robotlist); 不可用，每点一次create就重新显示一次列表
 
@@ -218,6 +222,17 @@ public class RobotController {
         }
     }
 
+    public void removeRobot() {
+        //afficherRobot();
+/*        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+            Client [] Clients = gson.fromJson(reader, Client[].class);
+
+            for (int i = 0; i < datas.length; i++){
+                if (datas[i].getId().equals(client.getId())){
+                    datas[i] = client;
+                    break;
+                }*/
+    }
 
     public void handleGoBack() {
         try {
