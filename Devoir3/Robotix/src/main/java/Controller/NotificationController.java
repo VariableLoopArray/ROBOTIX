@@ -50,13 +50,21 @@ public class NotificationController {
                     listItems = FXCollections.observableArrayList();
                     notificationSpace.setItems(listItems);
 
-                    for (String notification : client.getNotifications()) {
-                        listItems.add(notification);
-                    }
+                    listItems.addAll(client.getNotifications());
                     break;
                 }
             }
         } else if (supplier != null) {
+            List<Supplier> suppliers = gson.fromJson(new FileReader("src/main/JsonFiles/supplier.json"), new TypeToken<List<Supplier>>() {}.getType());
+            for (Supplier supplier : suppliers) {
+                if (supplier.getEmail().equals(this.supplier.getEmail())) {
+                    listItems = FXCollections.observableArrayList();
+                    notificationSpace.setItems(listItems);
+
+                    listItems.addAll(supplier.getNotifications());
+                    break;
+                }
+            }
         }
     }
 
