@@ -3,8 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
-
-
 <?import javafx.scene.image.Image?>
 
 <StackPane xmlns="http://javafx.com/javafx"
@@ -12,8 +10,8 @@
 
            fx:controller="Controller.HomepageController"
            stylesheets="@../../classes/CssFiles/Homepage.css"
-           fx:id="clientPane"
->
+           fx:id="clientPane">
+
     <ImageView fitWidth="1920" fitHeight="1080" opacity="0.5">
         <Image url="@../Images/HomepageBackground.jpg"/>
     </ImageView>
