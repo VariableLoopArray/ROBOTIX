@@ -25,14 +25,7 @@
         "points": "1",
         "Interests": [],
         "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
-        "tasks": [
-          {
-            "name": "1",
-            "Instructions": [
-              "1"
-            ]
-          }
-        ],
+        "tasks": [],
         "activityId": "2a3c1016-47ff-4f46-b272-0dbdf771a782",
         "description": "1",
         "status": "Not Started"
