@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
@@ -72,6 +73,9 @@ public class CreateAccountController {
         boolean problem = true;
 
         List<Client> clients = loadClients();
+        if (clients == null) {
+            clients = new ArrayList<>();
+        }
         String newPhoneNumber = clientPhoneNumberField.getText();
         String dateRegex = "\\d{3}-\\d{3}-\\d{4}";
         if (!newPhoneNumber.matches(dateRegex)) {
@@ -192,6 +196,9 @@ public class CreateAccountController {
     private void handleSupplierCreateAccount(){
         boolean problem = true;
         List<Supplier> suppliers = loadSuppliers();
+        if (suppliers == null) {
+            suppliers = new ArrayList<>();
+        }
         String productionCapacity = supplierProductionCapacity.getText();
         if (productionCapacity.isEmpty()) {
             displayMessage("Production Capacity is required for Suppliers", supplierForm);
