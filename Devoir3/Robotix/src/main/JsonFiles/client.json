@@ -25,21 +25,28 @@
         "points": "1",
         "Interests": [],
         "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
-        "tasks": [],
-        "activityId": "2a3c1016-47ff-4f46-b272-0dbdf771a782",
+        "tasks": [
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "2",
+            "Instructions": [
+              "2"
+            ]
+          },
+          {
+            "name": "3",
+            "Instructions": [
+              "3"
+            ]
+          }
+        ],
+        "activityId": "351d5357-86ad-49ab-a5f6-7b32fda830c0",
         "description": "1",
-        "status": "Not Started"
-      },
-      {
-        "name": "",
-        "startDate": "",
-        "endDate": "",
-        "points": "",
-        "Interests": [],
-        "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
-        "tasks": [],
-        "activityId": "d84a7989-a237-4439-a32d-a0a9769c5153",
-        "description": "",
         "status": "Not Started"
       }
     ],
