@@ -65,6 +65,9 @@ public class ShopController {
         try(Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
              Gson gson = new GsonBuilder().create();
              Supplier[] suppliers = gson.fromJson(reader, Supplier[].class);
+             if (suppliers == null) {
+                 return;
+             }
              for (Supplier supplier : suppliers) {
                  if (supplier.getStorage() == null) {
                      continue;
@@ -165,6 +168,9 @@ public class ShopController {
             Gson gson = new GsonBuilder().create();
             Supplier[] suppliers = gson.fromJson(reader, Supplier[].class);
             ArrayList<Component> toBePrinted = new ArrayList<>();
+            if (suppliers == null) {
+                return;
+            }
             boolean noFiltersSelected = !filter1.isSelected()
                     && !filter2.isSelected()
                     && !filter3.isSelected()
@@ -273,6 +279,7 @@ public class ShopController {
                     for (Supplier supplier : suppliers) {
                         if (supplier.getId().equals(component.getSupplierID())) {
                             supplier.getStorage().remove(component);
+                            supplier.getNotifications().add("Your component " + component.getName() + " has been bought by " + client.getUsername() +"!");
                         }
                     }
                     try(Reader reader1 = new FileReader("src/main/JsonFiles/supplier.json")) {
