@@ -3,7 +3,6 @@
 }
 .activities{
     -fx-font-size: 20;
-
 }
 .menuVbox{
     -fx-pref-width: 240;
@@ -24,8 +23,4 @@
 }
 .textarea{
     -fx-border-width: 2;
-}
-.noActivity {
-    -fx-font-size: 20;
-    -fx-text-fill: #f44336;
 }

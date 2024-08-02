@@ -88,7 +88,7 @@ public class LoginController {
     }
 
 
-    private Client isClientValid(String email, String password){
+     private Client isClientValid(String email, String password){
         if (clients.stream().anyMatch(client -> client.getEmail().equals(email) && client.getPassword().equals(password)))
             return clients.stream().filter(clients -> clients.getEmail().equals(email) && clients.getPassword().equals(password)).findFirst().get();
         return null;
