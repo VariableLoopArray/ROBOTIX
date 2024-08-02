@@ -113,12 +113,10 @@ public class ActivityController {
 
             Label description = new Label("Description : " + activity.getDescription());
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonAddTask);
-
             everything.getChildren().addAll(newActivity, buttonBox, description);
 
-
             DisplayActivities.getChildren().add(everything);
-            activityGrid.setVisible(false);
+
 
             //DisplayActivities.getChildren().add(buttonBox);
         }
@@ -504,8 +502,34 @@ public class ActivityController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        List<Client> clients = new ArrayList<>();
+        try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+            Type clientListType = new TypeToken<List<Client>>() {}.getType();
+            clients = gson.fromJson(reader, clientListType);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (clients == null) {
+            clients = new ArrayList<>();
+        }
+        for (Client client : clients){
+            for (String interest : newActivity.getInterests()){
+                if (client.getMyInterests().contains(interest)){
+                    client.getNotifications().add("A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!" + "\n" +"Name of the activity: " + newActivity.getName());
+                    break;
+                }
+            }
+        }
+
+        try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+            gson.toJson(clients, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         successLabel.setText("Activity successfully created for Robotix! (Go back to homepage to join activities)");
-        displayActivities(client);
+        activityGrid.setVisible(false);
     }
 
 

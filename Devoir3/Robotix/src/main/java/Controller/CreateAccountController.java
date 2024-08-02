@@ -139,6 +139,7 @@ public class CreateAccountController {
             newUser.add("myActivities", new JsonArray());
             newUser.add("myInterests", new JsonArray());
             newUser.add("myStorage", new JsonArray());
+            newUser.add("notifications", new JsonArray());
             for (int i = 1; i <= 10; i++) {
                 CheckBox interest = (CheckBox) clientForm.lookup("#Interest" + i);
                 if (interest.isSelected()) {
@@ -258,6 +259,7 @@ public class CreateAccountController {
             newUser.addProperty("companyName", newCompany);
             newUser.addProperty("phoneNumber", newPhoneNumber);
             newUser.add("storage", new JsonArray());
+            newUser.add("notifications", new JsonArray());
             newUser.addProperty("productionCapacity", productionCapacity);
 
 

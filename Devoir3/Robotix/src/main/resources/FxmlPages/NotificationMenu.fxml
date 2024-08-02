@@ -17,12 +17,18 @@
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
         </VBox>
         <Pane prefWidth="40"/>
-        <VBox alignment="TOP_CENTER">
+        <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
             <Pane prefHeight="40"/>
             <Label text="Notification Menu" style="-fx-font-size: 24px" alignment="CENTER"/>
             <Pane prefHeight="60"/>
 
+            <ListView fx:id="notificationSpace" styleClass="notif" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" >
+
+            </ListView>
+            <Pane prefHeight="40"/>
+
         </VBox>
+        <Pane prefWidth="40"/>
     </HBox>
 
 </StackPane>

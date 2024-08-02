@@ -274,6 +274,7 @@ public class HomepageController {
             NotificationController notificationController = fxmlLoader.getController();
             if (client != null) {
                 notificationController.setUserNotification(client);
+                notificationController.displayNotifications();
             } else if (supplier != null) {
                 notificationController.setUserNotification(supplier);
             }
