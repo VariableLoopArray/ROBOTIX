@@ -229,6 +229,8 @@ public class RobotController {
             stage.setTitle("Homepage");
             HomepageController homepageController = fxmlLoader.getController();
             homepageController.setUserHomepage(client);
+            homepageController.displayCorrectMenu();
+            homepageController.displayRobotixActivities();
             stage.setScene(homepageMenu);
             stage.show();
         } catch (Exception e) {
