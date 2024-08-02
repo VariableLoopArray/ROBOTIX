@@ -1,0 +1,132 @@
+[
+  {
+    "name": "1",
+    "startDate": "1",
+    "endDate": "1",
+    "points": "1",
+    "Interests": [],
+    "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+    "tasks": [
+      {
+        "name": "1",
+        "Instructions": [
+          "1"
+        ]
+      },
+      {
+        "name": "1",
+        "Instructions": [
+          "1"
+        ]
+      },
+      {
+        "name": "1",
+        "Instructions": [
+          "1"
+        ]
+      }
+    ],
+    "activityId": "31bfb933-d9b2-4180-9930-bb573eed8443",
+    "description": "1",
+    "status": "Not Started"
+  },
+  {
+    "name": "2",
+    "startDate": "2",
+    "endDate": "2",
+    "points": "2",
+    "Interests": [
+      "Outdoors Activities and Adventure",
+      "Reading and Writing"
+    ],
+    "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+    "tasks": [
+      {
+        "name": "2",
+        "Instructions": [
+          "2"
+        ]
+      },
+      {
+        "name": "2",
+        "Instructions": [
+          "2"
+        ]
+      },
+      {
+        "name": "2",
+        "Instructions": [
+          "2"
+        ]
+      }
+    ],
+    "activityId": "0f19c805-00f7-42d4-ac87-2eab74ed21a2",
+    "description": "2",
+    "status": "Not Started"
+  },
+  {
+    "name": "3",
+    "startDate": "3",
+    "endDate": "3",
+    "points": "3",
+    "Interests": [],
+    "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+    "tasks": [
+      {
+        "name": "3",
+        "Instructions": [
+          "3"
+        ]
+      },
+      {
+        "name": "3",
+        "Instructions": [
+          "3"
+        ]
+      },
+      {
+        "name": "3",
+        "Instructions": [
+          "3"
+        ]
+      }
+    ],
+    "activityId": "a1d1182d-4e66-48be-a4ed-5df5415d98ed",
+    "description": "3",
+    "status": "Not Started"
+  },
+  {
+    "name": "4",
+    "startDate": "4",
+    "endDate": "4",
+    "points": "4",
+    "Interests": [
+      "Outdoors Activities and Adventure",
+      "Cooking and gastronomy"
+    ],
+    "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+    "tasks": [
+      {
+        "name": "4",
+        "Instructions": [
+          "4"
+        ]
+      },
+      {
+        "name": "4",
+        "Instructions": [
+          "4"
+        ]
+      },
+      {
+        "name": "4",
+        "Instructions": [
+          "4"
+        ]
+      }
+    ],
+    "activityId": "da115e83-f69a-43e4-9d0b-cddeb8bde6fe",
+    "description": "4",
+    "status": "Not Started"
+  }
+]
