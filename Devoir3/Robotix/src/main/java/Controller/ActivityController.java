@@ -133,6 +133,7 @@ public class ActivityController {
     private void buttonConfirm(Button buttonConfirm, VBox everything, int activityPlace, List<Integer> confirmPlaces,
                                Button buttonAddTask, HBox buttonBox) {
 
+        System.out.println("this is confirmplace after removing everything " + confirmPlaces.toString());
         for (int e = 0; e < confirmPlaces.size(); e ++){
 
                 for (Node child : everything.getChildren()){
@@ -148,7 +149,7 @@ public class ActivityController {
 
 
 
-            buttonConfirm.setVisible(false);
+                buttonConfirm.setVisible(false);
                 newInstructions.setVisible(false);
                 newInstructions.setManaged(false);
 
@@ -169,21 +170,26 @@ public class ActivityController {
 
 
         }
-        int smaller = 0;
+//        int smaller = 0;
+//
+//        for (int e = 0; e < confirmPlaces.size(); e ++){
+//            System.out.println(confirmPlaces.get(e));
+//            TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e) - 1 - smaller);
+//            newTask.getStyleClass().add("textarea");
+//            everything.getChildren().remove(newTask);
+//            confirmPlaces.set(e, confirmPlaces.get(e) - smaller - 1);
+//            smaller++;
+//        }
+//
+//        for (int e = confirmPlaces.size() - 1; e >= 0 ; e --){
+//            everything.getChildren().remove((int) confirmPlaces.get(e));
+//
+//        }
 
-        for (int e = 0; e < confirmPlaces.size(); e ++){
-            System.out.println(confirmPlaces.get(e));
-            TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e) - 1 - smaller);
-            newTask.getStyleClass().add("textarea");
-            everything.getChildren().remove(newTask);
-            confirmPlaces.set(e, confirmPlaces.get(e) - smaller - 1);
-            smaller++;
+        if (everything.getChildren().size() > 2) {
+            everything.getChildren().subList(2, everything.getChildren().size()).clear();
         }
 
-        for (int e = confirmPlaces.size() - 1; e >= 0 ; e --){
-            everything.getChildren().remove((int) confirmPlaces.get(e));
-
-        }
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
@@ -235,7 +241,58 @@ public class ActivityController {
             if (modifyNode.getName().equals(modifyText)) {
 
 
+
+
                 buttonAddTask.setOnAction((actionEvent -> {
+
+
+                    modifyNode.getTasks().add(new Task("new task", new ArrayList<String>()));
+                    Button buttonRemoveTask = new Button("Remove Task");
+                    buttonRemoveTask.getStyleClass().add("button");
+                    everything.getChildren().add(buttonRemoveTask);
+                    int removeTaskPlace = everything.getChildren().size()-1;
+
+
+                    for (Node child : everything.getChildren()){
+                        System.out.println("this is before " + child.getClass().getSimpleName());
+                    }
+                    System.out.println("---\n");
+                    buttonRemoveTask.setOnAction(event -> {
+
+                        System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
+
+                        for (int e = 0; e < confirmPlaces.size(); e ++){
+                            System.out.println("this is remove task before " + confirmPlaces.get(e));
+                        }
+                        System.out.println("this is removeplace " + removeTaskPlace);
+                        modifyNode.getTasks().removeLast();
+                        for (int i = 0; i < 3; i++){
+                            everything.getChildren().remove(removeTaskPlace);
+                        }
+
+                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
+                            if (confirmPlaces.get(i) < removeTaskPlace){
+                                confirmPlaces.remove(confirmPlaces.get(i));
+                            }
+                        }
+                        for (int j = 0; j < confirmPlaces.size(); j++){
+                            System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
+                                    " task "+ removeTaskPlace + " did it enter or not " + (confirmPlaces.get(j) > removeTaskPlace + 1));
+                            if (confirmPlaces.get(j) > removeTaskPlace + 1){
+                                confirmPlaces.set(j, confirmPlaces.get(j) - 3);
+                                System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
+                            }
+                        }
+                        for (Node child : everything.getChildren()){
+                            System.out.println("this is after " + child.getClass().getSimpleName());
+                        }
+
+                        for (int e = 0; e < confirmPlaces.size(); e ++){
+                            System.out.println("this is remove task after " + confirmPlaces.get(e));
+                        }
+                        System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
+                    });
+
 
                     TextArea newTask1 = new TextArea("new task");
                     newTask1.getStyleClass().add("textarea");
@@ -250,7 +307,7 @@ public class ActivityController {
                     everything.getChildren().addAll(newTask1, newInstructions1);
                     confirmPlaces.add(everything.getChildren().size() - 1);
 
-                    modifyNode.getTasks().add(new Task("new task", new ArrayList<String>()));
+
 
                 }));
                 String tasks = "";
@@ -265,6 +322,7 @@ public class ActivityController {
 //                    for (Node child : everything.getChildren()){
 //                        System.out.println(child.getClass().getSimpleName());
 //                    }
+
                     Button buttonRemoveTask = new Button("Remove Task");
                     buttonRemoveTask.getStyleClass().add("button");
                     everything.getChildren().add(buttonRemoveTask);
@@ -294,7 +352,7 @@ public class ActivityController {
                         for (int j = 0; j < confirmPlaces.size(); j++){
                             System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
                                     " task "+ removeTaskPlace + " did it enter or not " + (confirmPlaces.get(j) > removeTaskPlace + 2));
-                            if (confirmPlaces.get(j) > removeTaskPlace + 2){
+                            if (confirmPlaces.get(j) > removeTaskPlace + 1){
                                 confirmPlaces.set(j, confirmPlaces.get(j) - 3);
                                 System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
                             }
