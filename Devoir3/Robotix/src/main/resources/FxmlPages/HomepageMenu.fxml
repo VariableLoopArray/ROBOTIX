@@ -3,8 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.image.ImageView?>
-
-
 <?import javafx.scene.image.Image?>
 
 <StackPane xmlns="http://javafx.com/javafx"
@@ -12,8 +10,8 @@
 
            fx:controller="Controller.HomepageController"
            stylesheets="@../../classes/CssFiles/Homepage.css"
-           fx:id="clientPane"
->
+           fx:id="clientPane">
+
     <ImageView fitWidth="1920" fitHeight="1080" opacity="0.5">
         <Image url="@../Images/HomepageBackground.jpg"/>
     </ImageView>
@@ -36,7 +34,7 @@
                     <Button text="Robot Menu" fx:id="robotMenu" onAction="#gotoRobot" styleClass="sideMenuButton"/>
                     <Button text="My Components" fx:id="componentMenu" onAction="#goToMyComponent" styleClass="sideMenuButton"/>
                     <Button text="Shop" fx:id="shopMenu" onAction="#goToShop" styleClass="sideMenuButton"/>
-                    <Button text="Notification" fx:id="notificationMenu" styleClass="sideMenuButton"/>
+                    <Button text="Notification" fx:id="notificationMenu" onAction="#goToNotification" styleClass="sideMenuButton"/>
                     <Button text="Logout" onAction="#Logout" styleClass="sideMenuButton"/>
 
                 </VBox>

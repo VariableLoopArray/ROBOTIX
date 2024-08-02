@@ -1,10 +1,121 @@
 .title{
-    -fx-font-size: 24;
+    -fx-font-family: Georgia;
 }
-.Message{
+
+.labelrobot{ //不应用
+    -fx-font-family: Georgia;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: #f1420d;
+}
+
+.default-text {
+    -fx-font-family: Georgia;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f1e50; /* 正常状态的字体颜色 Welcome to my robot! */
+}
+
+.error-text {
+    -fx-font-family: Georgia;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: red; /* 错误状态的字体颜色 */
+}
+
+.button-confirm {
+    -fx-font-family: Georgia;
     -fx-font-size: 30;
-    -fx-text-fill: #470045;
+    -fx-background-color: green;
+    -fx-text-fill: white;
 }
+
+.button-show {
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
+    -fx-background-color: #470045;
+    -fx-text-fill: white;
+}
+
+.label-success {
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+    -fx-text-fill: #2e0565;
+    -fx-effect: innershadow(gaussian, #514660, 10, 0, 0, 3); /* */
+}
+
+.label-no-robots {
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+    -fx-text-fill: red;
+}
+
+.label-welcome {
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-text-fill: #514660;
+    -fx-text-alignment: center;
+}
+
+.label-robotlist{
+    -fx-font-family: Georgia;
+    -fx-font-size: 15;
+    -fx-text-fill: #24273d;
+}
+
+#create,#affiche,#supprime{
+    -fx-font-family: Georgia;
+    -fx-font-size: 40;
+    -fx-font-weight: medium-bold;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 22px;
+    -fx-border-width: 3px;
+    -fx-border-color: #514660;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center; // change
+    -fx-text-fill: #351C75;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8E7CC3);
+}
+
+#create:hover,#affiche:hover,#supprime:hover{
+    -fx-font-family: Georgia;
+    -fx-font-size: 40;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 22px;
+    -fx-border-width: 3px;
+    -fx-text-fill: #470045;
+    -fx-background-color: #c5b4dc;
+    -fx-border-color: #514660;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+}
+
+
+#tableInfo{
+    -fx-font-family: Georgia;
+    -fx-font-size: 20px;
+    -fx-text-fill: #7c218a; // change
+}
+
+
+
+.text-field {
+    -fx-text-fill: #24273d;
+    -fx-font-size: 20px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-border-color: #a9acca;
+    -fx-border-radius: 5px;
+    -fx-border-width: 2px;
+}
+
 .menuVbox{
     -fx-pref-width: 240;
     -fx-pref-height: 768;
