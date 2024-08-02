@@ -1,10 +1,6 @@
 .title{
     -fx-font-size: 24;
 }
-.activities{
-    -fx-font-size: 20;
-
-}
 .menuVbox{
     -fx-pref-width: 240;
     -fx-pref-height: 768;
@@ -18,14 +14,4 @@
     -fx-pref-height: 100px;
     -fx-border-radius: 0;
     -fx-background-radius: 0;
-}
-.buttons{
-    -fx-background-radius: 20;
-}
-.textarea{
-    -fx-border-width: 2;
-}
-.noActivity {
-    -fx-font-size: 20;
-    -fx-text-fill: #f44336;
 }

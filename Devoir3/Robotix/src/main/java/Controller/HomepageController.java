@@ -56,14 +56,13 @@ public class HomepageController {
         if (client != null) {
             activityMenu.setVisible(true);
             robotMenu.setVisible(true);
-            componentMenu.setVisible(false);
             shopMenu.setVisible(true);
             notificationMenu.setVisible(true);
-            componentMenu.managedProperty().bind(componentMenu.visibleProperty());
         } else if (supplier != null) {
-            componentMenu.setVisible(true);
             activityMenu.setVisible(false);
             robotMenu.setVisible(false);
+            shopMenu.setVisible(false);
+            shopMenu.managedProperty().bind(shopMenu.visibleProperty());
             activityMenu.managedProperty().bind(activityMenu.visibleProperty());
             robotMenu.managedProperty().bind(robotMenu.visibleProperty());
 
@@ -211,8 +210,13 @@ public class HomepageController {
             componentScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             componentScene.getStylesheets().add(getClass().getResource("/CssFiles/Component.css").toExternalForm());
             ComponentController componentController = fxmlLoader.getController();
-            componentController.setUserComponent(supplier);
-            componentController.displayComponents(supplier);
+            if (client != null) {
+                componentController.setUserComponent(client);
+                componentController.displayComponents(client);
+            } else if (supplier != null) {
+                componentController.setUserComponent(supplier);
+                componentController.displayComponents(supplier);
+            }
             stage.setTitle("My Components");
             stage.setScene(componentScene);
             stage.show();
@@ -260,12 +264,34 @@ public class HomepageController {
         }
     }
 
+    public void goToNotification(){
+        try {
+            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/NotificationMenu.fxml"));
+            Scene notificationScene = new Scene(fxmlLoader.load(), 1024, 768);
+            notificationScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            notificationScene.getStylesheets().add(getClass().getResource("/CssFiles/Notification.css").toExternalForm());
+            NotificationController notificationController = fxmlLoader.getController();
+            if (client != null) {
+                notificationController.setUserNotification(client);
+            } else if (supplier != null) {
+                notificationController.setUserNotification(supplier);
+            }
+            stage.setTitle("Notifications");
+            stage.setScene(notificationScene);
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void Logout(){
         try {
             Stage stage = (Stage) messageLabel1.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/loginMenu.fxml"));
-            Scene loginScene = new Scene(fxmlLoader.load(), 720, 540);
+            Scene loginScene = new Scene(fxmlLoader.load(), 1024, 768);
             loginScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
             loginScene.getStylesheets().add(getClass().getResource("/CssFiles/LoginAndCreate.css").toExternalForm());
             stage.setTitle("Login");

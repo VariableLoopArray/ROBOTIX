@@ -32,15 +32,16 @@
                     <CheckBox text="large (more than 100cm³)" fx:id="filter7"/>
                     <CheckBox text="Any size" fx:id="filter8"/>
                     <Label text="Specific Tags"/>
-                    <TextField fx:id="filter9" promptText="Enter tags separated by ','"/>
-                    <Label text="Specific Supplier (Write Supplier Username)"/>
-                    <TextField fx:id="filter10" promptText="Enter Supplier Username"/>
+                    <TextField fx:id="filter9" prefWidth="300" promptText='Enter tags separated by ","'/>
+                    <Label text="Specific Supplier"/>
+                    <TextField fx:id="filter10" prefWidth="300" promptText='Enter suppliers usernames seperated by ","'/>
                     <Button text="Apply Filters" onAction="#applyFilters" styleClass="customButton" />
                 </VBox>
 
                 <Pane prefWidth="50"/>
 
                 <VBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" alignment="CENTER">
+                    <Label fx:id="thankYouMessage" style="-fx-text-fill:#4CAF50" alignment="CENTER"/>
                     <ScrollPane fitToWidth="true" fitToHeight="true" minHeight="600" minWidth="400">
                         <FlowPane fx:id="productsFlowPane" hgap="20" vgap="20">
                         </FlowPane>
