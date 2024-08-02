@@ -1,6 +1,52 @@
 [
   {
-    "fleet": [],
+    "fleet": [
+      {
+        "name": "1",
+        "type": "1",
+        "components": [],
+        "serialNumber": "f051bba8-f780-48a2-8026-c295520fcb42",
+        "battery": "1",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.0,
+        "cpuUsage": 1.0,
+        "memory": 1.0
+      },
+      {
+        "name": "2",
+        "type": "2",
+        "components": [],
+        "serialNumber": "f2209236-0c84-441f-9dc0-3a674074c21d",
+        "battery": "2",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.0,
+        "cpuUsage": 2.0,
+        "memory": 2.0
+      },
+      {
+        "name": "3",
+        "type": "2",
+        "components": [],
+        "serialNumber": "6b042850-7e54-45b1-9e86-0ab95d0b1448",
+        "battery": "3",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 3.0,
+        "cpuUsage": 2.0,
+        "memory": 2.0
+      }
+    ],
     "myActivities": [
       {
         "name": "1",
