@@ -31,17 +31,20 @@
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
         </VBox>
         <Pane prefWidth="50"/>
-        <VBox alignment="TOP_CENTER">
+        <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
             <Pane prefHeight="40"/>
                 <Label fx:id="activityWelcome" styleClass="title"/>
-            <Pane prefHeight="60"/>
+            <Pane prefHeight="60" HBox.hgrow="ALWAYS"/>
                 <HBox>
-                    <VBox>
-                        <VBox fx:id="DisplayActivities">
+                    <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="DisplayActivities" HBox.hgrow="ALWAYS">
 
                         </VBox>
-                        <Label fx:id="create" text="Create Activity" style="-fx-font-size: 20"/>
-                        <GridPane fx:id="activityGrid" hgap="10" vgap="10">
+                        <Pane prefHeight="30"/>
+                        <Button fx:id="create" onAction="#openAddActivity" text="Create new Activity" style="-fx-font-size: 20"/>
+                        <Pane prefHeight="30"/>
+                        <Label fx:id="successLabel" style="-fx-text-fill:#4CAF50"/>
+                        <GridPane fx:id="activityGrid" hgap="10" vgap="10" visible="false">
                             <Label text="Activity Name" GridPane.rowIndex="0"/>
                             <TextField fx:id="activityName" GridPane.rowIndex="1" prefWidth="200"/>
                             <Label text="Activity Start Date" GridPane.rowIndex="2"/>
@@ -73,7 +76,7 @@
                             <CheckBox fx:id="Interest10" text ="Health and Well-Being" GridPane.rowIndex="10" GridPane.columnIndex="1"/>
                             <Button text="Create Activity" onAction="#createActivity" GridPane.rowIndex="12" styleClass="customButton"/>
                         </GridPane>
-
+                        <Pane prefHeight="30"/>
                     </VBox>
                 </HBox>
         </VBox>
