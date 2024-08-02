@@ -66,7 +66,7 @@ public class LoginController {
 
     Path supplierRelativePath = Paths.get("src/main/JsonFiles/supplier.json");
     Path supplierFile = supplierRelativePath.toAbsolutePath().normalize();
-    List<Client> clients;
+    private List<Client> clients;
     private List<Supplier> suppliers;
 
     public LoginController(){
@@ -88,7 +88,7 @@ public class LoginController {
     }
 
 
-     Client isClientValid(String email, String password){
+     private Client isClientValid(String email, String password){
         if (clients.stream().anyMatch(client -> client.getEmail().equals(email) && client.getPassword().equals(password)))
             return clients.stream().filter(clients -> clients.getEmail().equals(email) && clients.getPassword().equals(password)).findFirst().get();
         return null;
