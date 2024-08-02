@@ -133,7 +133,8 @@ public class ActivityController {
     private void buttonConfirm(Button buttonConfirm, VBox everything, int activityPlace, List<Integer> confirmPlaces,
                                Button buttonAddTask, HBox buttonBox) {
 
-        System.out.println("this is confirmplace after removing everything " + confirmPlaces.toString());
+        System.out.println("this is confirmplace after removing everything " + confirmPlaces.toString() +
+                "this is confirmplace size " + confirmPlaces.size());
         for (int e = 0; e < confirmPlaces.size(); e ++){
 
                 for (Node child : everything.getChildren()){
@@ -241,6 +242,7 @@ public class ActivityController {
             if (modifyNode.getName().equals(modifyText)) {
 
 
+                ArrayList<Integer> removeList = new ArrayList<Integer>();
 
 
                 buttonAddTask.setOnAction((actionEvent -> {
@@ -251,6 +253,8 @@ public class ActivityController {
                     buttonRemoveTask.getStyleClass().add("button");
                     everything.getChildren().add(buttonRemoveTask);
                     int removeTaskPlace = everything.getChildren().size()-1;
+                    removeList.add(removeTaskPlace);
+                    int[] indexe = {-1};
 
 
                     for (Node child : everything.getChildren()){
@@ -258,31 +262,40 @@ public class ActivityController {
                     }
                     System.out.println("---\n");
                     buttonRemoveTask.setOnAction(event -> {
+                        System.out.println("this is removelist before " + removeList.toString());
 
+                        indexe[0]++;
                         System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
 
                         for (int e = 0; e < confirmPlaces.size(); e ++){
                             System.out.println("this is remove task before " + confirmPlaces.get(e));
                         }
-                        System.out.println("this is removeplace " + removeTaskPlace);
+                        System.out.println("this is removeplace " + removeList.get(indexe[0]));
                         modifyNode.getTasks().removeLast();
+
                         for (int i = 0; i < 3; i++){
-                            everything.getChildren().remove(removeTaskPlace);
+//                            if ((int) removeList.get(indexe[0]) < everything.getChildren().size()) {
+//                                everything.getChildren().remove((int) removeList.get(indexe[0]));
+//                            }
+                            everything.getChildren().remove((int) removeList.get(indexe[0]));
                         }
 
-                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
-                            if (confirmPlaces.get(i) < removeTaskPlace){
-                                confirmPlaces.remove(confirmPlaces.get(i));
-                            }
-                        }
+                        confirmPlaces.remove(Integer.valueOf(removeList.get(indexe[0]) + 2));
+//                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
+//                            if (confirmPlaces.get(i) < removeList.get(indexe[0])){
+//                                confirmPlaces.remove(confirmPlaces.get(i));
+//                            }
+//                        }
+
                         for (int j = 0; j < confirmPlaces.size(); j++){
                             System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
-                                    " task "+ removeTaskPlace + " did it enter or not " + (confirmPlaces.get(j) > removeTaskPlace + 1));
-                            if (confirmPlaces.get(j) > removeTaskPlace + 1){
+                                    " task "+ removeList.get(indexe[0]) + " did it enter or not " + (confirmPlaces.get(j) > removeList.get(indexe[0]) + 1));
+                            if (confirmPlaces.get(j) > removeList.get(indexe[0]) + 1){
                                 confirmPlaces.set(j, confirmPlaces.get(j) - 3);
                                 System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
                             }
                         }
+
                         for (Node child : everything.getChildren()){
                             System.out.println("this is after " + child.getClass().getSimpleName());
                         }
@@ -291,6 +304,13 @@ public class ActivityController {
                             System.out.println("this is remove task after " + confirmPlaces.get(e));
                         }
                         System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
+
+                        for (int i = 0; i < removeList.size(); i++){
+                            if (removeList.get(i) > removeList.get(indexe[0])){
+                                removeList.set(i, removeList.get(i) - 3);
+                            }
+                        }
+                        System.out.println("this is removelist after " + removeList.toString());
                     });
 
 
@@ -306,6 +326,7 @@ public class ActivityController {
                     newInstructions1.setMaxWidth(500);
                     everything.getChildren().addAll(newTask1, newInstructions1);
                     confirmPlaces.add(everything.getChildren().size() - 1);
+
 
 
 
@@ -328,35 +349,49 @@ public class ActivityController {
                     everything.getChildren().add(buttonRemoveTask);
                     int removeTaskPlace = everything.getChildren().size()-1;
 
+                    System.out.println("---\n");
+                    removeList.add(removeTaskPlace);
+                    int[] indexe = {-1};
 
                     for (Node child : everything.getChildren()){
                         System.out.println("this is before " + child.getClass().getSimpleName());
                     }
-                    System.out.println("---\n");
-                    buttonRemoveTask.setOnAction(actionEvent -> {
+
+                    buttonRemoveTask.setOnAction(event -> {
+                        System.out.println("this is removelist before " + removeList.toString());
+
+                        indexe[0]++;
+                        System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
 
                         for (int e = 0; e < confirmPlaces.size(); e ++){
                             System.out.println("this is remove task before " + confirmPlaces.get(e));
                         }
-                        System.out.println("this is removeplace " + removeTaskPlace);
-                        modifyNode.getTasks().remove(task);
+                        System.out.println("this is removeplace " + removeList.get(indexe[0]));
+                        modifyNode.getTasks().removeLast();
+
                         for (int i = 0; i < 3; i++){
-                            everything.getChildren().remove(removeTaskPlace);
+//                            if ((int) removeList.get(indexe[0]) < everything.getChildren().size()) {
+//                                everything.getChildren().remove((int) removeList.get(indexe[0]));
+//                            }
+                            everything.getChildren().remove((int) removeList.get(indexe[0]));
                         }
 
-                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
-                            if (confirmPlaces.get(i) < removeTaskPlace){
-                                confirmPlaces.remove(confirmPlaces.get(i));
-                            }
-                        }
+                        confirmPlaces.remove(Integer.valueOf(removeList.get(indexe[0]) + 2));
+//                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
+//                            if (confirmPlaces.get(i) < removeList.get(indexe[0])){
+//                                confirmPlaces.remove(confirmPlaces.get(i));
+//                            }
+//                        }
+
                         for (int j = 0; j < confirmPlaces.size(); j++){
                             System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
-                                    " task "+ removeTaskPlace + " did it enter or not " + (confirmPlaces.get(j) > removeTaskPlace + 2));
-                            if (confirmPlaces.get(j) > removeTaskPlace + 1){
+                                    " task "+ removeList.get(indexe[0]) + " did it enter or not " + (confirmPlaces.get(j) > removeList.get(indexe[0]) + 1));
+                            if (confirmPlaces.get(j) > removeList.get(indexe[0]) + 1){
                                 confirmPlaces.set(j, confirmPlaces.get(j) - 3);
                                 System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
                             }
                         }
+
                         for (Node child : everything.getChildren()){
                             System.out.println("this is after " + child.getClass().getSimpleName());
                         }
@@ -364,8 +399,15 @@ public class ActivityController {
                         for (int e = 0; e < confirmPlaces.size(); e ++){
                             System.out.println("this is remove task after " + confirmPlaces.get(e));
                         }
-                    });
+                        System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
 
+                        for (int i = 0; i < removeList.size(); i++){
+                            if (removeList.get(i) > removeList.get(indexe[0])){
+                                removeList.set(i, removeList.get(i) - 3);
+                            }
+                        }
+                        System.out.println("this is removelist after " + removeList.toString());
+                    });
 
                     String instructions = "";
                     TextArea taskNameField = new TextArea("task is " + task.getName());
