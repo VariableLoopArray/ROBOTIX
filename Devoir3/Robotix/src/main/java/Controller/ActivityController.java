@@ -1,5 +1,6 @@
 package Controller;
 import Model.Activity;
+import Model.Robot;
 import Model.Task;
 import Model.TypeOfUsers.Client;
 import com.google.gson.Gson;
@@ -568,7 +569,35 @@ public class ActivityController {
 
 
     // TESTS FUNCTIONS
+//            Activity newActivity = new Activity(activityName.getText(), null, startDate, endDate,
+//                    activityPoints.getText(), interests, client.getId(), UUID.randomUUID(), taskList, activityDescription.getText(),status);
+    public void addActivityTest(String name, String startDate, String endDate, String points,
+                                ArrayList<String> interests, ArrayList<Task> taskList,
+                                String description) {
+        activityName.setText(name);
+        activityStartDate.setText(startDate);
+        activityEndDate.setText(endDate);
+        activityPoints.setText(points);
+        for (String interest : interests) {
+            for (int i = 1; i <= 10; i++) {
+                CheckBox interestBox = (CheckBox) activityGrid.lookup("#Interest" + i);
+                if (interestBox.getText().equals(interest)) {
+                    interestBox.setSelected(true);
+                }
+            }
+        }
+        for (Task task : taskList) {
+            TextField taskName = new TextField(task.getName());
+            TextArea taskInstructions = new TextArea();
+            for (String instruction : task.getInstructions()) {
+                taskInstructions.appendText(instruction + "\n");
+            }
+            Tasks.getChildren().add(taskName);
+            Tasks.getChildren().add(taskInstructions);
+        }
+        activityDescription.setText(description);
+        createActivity();
 
-
+    }
 
 }
