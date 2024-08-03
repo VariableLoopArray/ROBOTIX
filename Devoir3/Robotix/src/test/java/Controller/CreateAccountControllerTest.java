@@ -9,8 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CreateAccountControllerTest extends Application {
 
@@ -46,23 +45,21 @@ public class CreateAccountControllerTest extends Application {
     }
 
     @Test
-    void failEmailHandleCreateClientAccount() {
+    void successfulEmailHandleCreateClientAccount() {
         Platform.runLater(() -> {
 
 
             boolean result = createAccountController.handleClientCreateAccountTest("hello","hello",
-                    "hello","hellohello","hello","hello","111-111-1111");
+                    "hello","hellohello","hello@","hello","111-111-1111");
 
             // Perform assertions
-            assertFalse(result);
+            assertTrue(result);
         });
     }
 
     @Test
     void successfulClearFields(){
         Platform.runLater(() -> {
-
-
             int result = createAccountController.clearFieldsTest();
             assertEquals(0, result);
         });

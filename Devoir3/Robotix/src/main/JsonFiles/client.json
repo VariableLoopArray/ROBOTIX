@@ -1,0 +1,20 @@
+[
+  {
+    "typeOfAccount": "Client",
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "cde7d94d-b887-4444-a6ef-976678939acc",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [
+      "Video Games and Technology"
+    ],
+    "myStorage": [],
+    "notifications": []
+  }
+]
