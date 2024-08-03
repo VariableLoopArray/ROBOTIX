@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class Component {
     private String name;
-    private ArrayList<String> tag;
+    private ArrayList<String> type;
     private float price;
     private float width;
     private float length;
@@ -15,9 +15,9 @@ public class Component {
     private UUID supplierID;
     private UUID serialNumber;
 
-    public Component(String name, ArrayList<String> tag, float price, float width, float length,float height, UUID supplierID, UUID serialNumber) {
+    public Component(String name, ArrayList<String> type, float price, float width, float length,float height, UUID supplierID, UUID serialNumber) {
         this.name = name;
-        this.tag = tag;
+        this.type = type;
         this.price = price;
         this.width = width;
         this.length = length;
@@ -28,8 +28,8 @@ public class Component {
     public String getName() {
         return name;
     }
-    public ArrayList<String> getTag() {
-        return tag;
+    public ArrayList<String> getType() {
+        return type;
     }
     public float getPrice() {
         return price;
@@ -53,8 +53,8 @@ public class Component {
     public void setName(String name) {
         this.name = name;
     }
-    public void setTags(ArrayList<String> tag) {
-        this.tag = tag;
+    public void setTypes(ArrayList<String> type) {
+        this.type = type;
     }
     public void setPrice(float price) {
         this.price = price;

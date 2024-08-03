@@ -13,8 +13,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -23,21 +25,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class HomepageController {
     @FXML
-    private Label messageLabel1;
-    @FXML
     private HBox menuProfile;
     @FXML
     private Button activityMenu;
     @FXML
     private Button robotMenu;
-    @FXML
-    private Button componentMenu;
     @FXML
     private Button shopMenu;
     @FXML
@@ -159,12 +160,11 @@ public class HomepageController {
         } else if (user instanceof Supplier) {
             supplier = (Supplier) user;
         }
-        messageLabel1.setText("Welcome "+ user.getUsername()+ "!");
     }
 
     public void goToMyProfile(){
         try {
-            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            Stage stage = (Stage) menuProfile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/ProfileMenu.fxml"));
             Scene profileScene = new Scene(fxmlLoader.load(), 1024, 768);
             profileScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
@@ -186,7 +186,7 @@ public class HomepageController {
     }
     public void goToMyActivity() throws IOException {
         try {
-            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            Stage stage = (Stage) menuProfile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/ActivityMenu.fxml"));
             Scene activityScene = new Scene(fxmlLoader.load(), 1024, 768);
             activityScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
@@ -204,7 +204,7 @@ public class HomepageController {
 
     public void goToMyComponent() {
         try {
-            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            Stage stage = (Stage) menuProfile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/MyComponentsMenu.fxml"));
             Scene componentScene = new Scene(fxmlLoader.load(), 1024, 768);
             componentScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
@@ -230,7 +230,7 @@ public class HomepageController {
 
     public void gotoRobot() throws IOException {
         try {
-            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            Stage stage = (Stage) menuProfile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/RobotMenu.fxml"));
             Scene robotScene = new Scene(fxmlLoader.load(), 1024, 768);
             robotScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
@@ -247,7 +247,7 @@ public class HomepageController {
     }
     public void goToShop(){
         try {
-            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            Stage stage = (Stage) menuProfile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/ShopMenu.fxml"));
             Scene shopScene = new Scene(fxmlLoader.load(), 1024, 768);
             shopScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
@@ -266,7 +266,7 @@ public class HomepageController {
 
     public void goToNotification(){
         try {
-            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            Stage stage = (Stage) menuProfile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/NotificationMenu.fxml"));
             Scene notificationScene = new Scene(fxmlLoader.load(), 1024, 768);
             notificationScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
@@ -291,7 +291,7 @@ public class HomepageController {
 
     public void Logout(){
         try {
-            Stage stage = (Stage) messageLabel1.getScene().getWindow();
+            Stage stage = (Stage) menuProfile.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/loginMenu.fxml"));
             Scene loginScene = new Scene(fxmlLoader.load(), 1024, 768);
             loginScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
@@ -304,4 +304,5 @@ public class HomepageController {
             e.printStackTrace();
         }
     }
+
 }
