@@ -27,7 +27,6 @@ public class CreateAccountControllerTest {
                 Scene scene = new Scene(loader.load(), 1024, 768);
                 testStage = new Stage();
                 testStage.setScene(scene);
-                // Get controller instance from FXMLLoader
                 createAccountController = loader.getController();
             } catch (Exception e) {
                 e.printStackTrace();
