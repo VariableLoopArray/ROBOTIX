@@ -38,7 +38,8 @@
 }
 
 .remove-button{
-
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
 }
 
 .label-success {
