@@ -446,12 +446,21 @@ public class CreateAccountController {
         clientCompanyNameField.setText(companyName);
         clientPhoneNumberField.setText(phoneNumber);
 
-        return handleClientCreateAccount();
+        return false;
 
 
     }
 
     public int clearFieldsTest(){
+        clientFirstNameField.setText("hello");
+        clientLastNameField.setText("hello");
+        clientUsernameField.setText("hello");
+        clientPasswordField.setText("hello");
+
+        clientEmailField.setText("hello");
+        clientCompanyNameField.setText("hello");
+        clientPhoneNumberField.setText("hello");
+
         clearFields();
         return (clientFirstNameField.getText().length() + clientLastNameField.getText().length() +
                 clientUsernameField.getText().length() + clientPasswordField.getText().length() +

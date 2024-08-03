@@ -86,5 +86,160 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 3",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 13"
     ]
+  },
+  {
+    "fleet": [],
+    "myActivities": [
+      {
+        "name": "3",
+        "startDate": {
+          "year": 2024,
+          "month": 4,
+          "day": 5
+        },
+        "endDate": {
+          "year": 2025,
+          "month": 4,
+          "day": 5
+        },
+        "points": "100",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [
+          {
+            "name": "12",
+            "Instructions": [
+              "12"
+            ]
+          }
+        ],
+        "activityId": "c6b9561b-39a2-4246-bd31-0540f2356142",
+        "description": "12",
+        "status": "In Progress"
+      },
+      {
+        "name": "3",
+        "startDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 31
+        },
+        "endDate": {
+          "year": 2025,
+          "month": 7,
+          "day": 31
+        },
+        "points": "125",
+        "Interests": [
+          "Arts and Cafts"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [
+          {
+            "name": "0",
+            "Instructions": [
+              "10"
+            ]
+          }
+        ],
+        "activityId": "db309062-b34f-4a74-8266-3436318a0b64",
+        "description": "12",
+        "status": "In Progress"
+      },
+      {
+        "name": "5",
+        "startDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 11
+        },
+        "endDate": {
+          "year": 2025,
+          "month": 7,
+          "day": 11
+        },
+        "points": "150",
+        "Interests": [
+          "Music and Performing Arts"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [
+          {
+            "name": "0",
+            "Instructions": [
+              "10"
+            ]
+          }
+        ],
+        "activityId": "2fecb25b-acfa-4351-a936-bc2594a10aae",
+        "description": "10",
+        "status": "In Progress"
+      },
+      {
+        "name": "13",
+        "startDate": {
+          "year": 2023,
+          "month": 8,
+          "day": 1
+        },
+        "endDate": {
+          "year": 2024,
+          "month": 9,
+          "day": 1
+        },
+        "points": "",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [],
+        "activityId": "12e953e7-8205-41a4-ac48-994955f42d0e",
+        "description": "",
+        "status": "In Progress"
+      },
+      {
+        "name": "1",
+        "startDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 11
+        },
+        "endDate": {
+          "year": 2024,
+          "month": 9,
+          "day": 1
+        },
+        "points": "10",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          }
+        ],
+        "activityId": "02fcd6eb-5102-4097-b3b3-cb48cc091877",
+        "description": "1",
+        "status": "In Progress"
+      }
+    ],
+    "myInterests": [
+      "Music and Performing Arts"
+    ],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "f0e2d704-e0bb-4404-a479-c52d04f8a737",
+    "email": "1@",
+    "companyName": "1111",
+    "phoneNumber": "111-111-1111",
+    "notifications": []
   }
 ]
