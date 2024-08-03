@@ -2,18 +2,20 @@
     -fx-font-family: Georgia;
 }
 
-#goBack{
+.sideMenuButton{
+
+
+    -fx-pref-width: 240px;
+    -fx-pref-height: 100px;
     -fx-font-family: Georgia;
-    -fx-font-size: 40;
-    -fx-border-radius: 10px;
-    -fx-background-radius: 12px;
+    -fx-font-size: 26;
     -fx-border-width: 3px;
-    -fx-border-color: #514660;
+    -fx-border-color: #8ea9f6;
     -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
     -fx-margin: 20px;
     -fx-alignment: center;
--fx-text-fill: #351C75;
-    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8E7CC3);
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
 }
 
 .default-text {
@@ -128,15 +130,6 @@
     -fx-pref-width: 240;
     -fx-pref-height: 768;
     -fx-background-color: #f0f0f0;
-}
-.sideMenuButton{
-
-    -fx-text-fill: #28b2fc;
-    -fx-font-size: 24px;
-    -fx-pref-width: 240px;
-    -fx-pref-height: 100px;
-    -fx-border-radius: 0;
-    -fx-background-radius: 0;
 }
 
 .noActivity {

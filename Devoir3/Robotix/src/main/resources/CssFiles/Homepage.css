@@ -63,16 +63,22 @@
 }
 .sideMenuButton{
 
-    -fx-text-fill: #28b2fc;
-    -fx-font-size: 24px;
+
     -fx-pref-width: 240px;
     -fx-pref-height: 100px;
-    -fx-border-radius: 0;
-    -fx-background-radius: 0;
+    -fx-font-family: Georgia;
+    -fx-font-size: 26;
+    -fx-border-width: 3px;
+    -fx-border-color: #8ea9f6;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
 }
 .sideMenuButton:hover{
-    -fx-background-color: #555;
-    -fx-text-fill: #28b2fc;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
 }
 .joinButton{
     -fx-pref-width: 242;
