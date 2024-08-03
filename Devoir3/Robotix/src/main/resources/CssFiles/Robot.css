@@ -2,12 +2,12 @@
     -fx-font-family: Georgia;
 }
 
-.labelrobot{ //不应用
+/*.labelrobot{ //不应用
     -fx-font-family: Georgia;
     -fx-font-size: 20;
     -fx-font-weight: bold;
     -fx-text-fill: #f1420d;
-}
+}*/
 
 .default-text {
     -fx-font-family: Georgia;
@@ -39,7 +39,7 @@
 
 .remove-button{
     -fx-font-family: Georgia;
-    -fx-font-size: 30;
+    -fx-font-size: 15;
 }
 
 .label-success {
@@ -102,14 +102,11 @@
     -fx-alignment: center;
 }
 
-
 #tableInfo{
     -fx-font-family: Georgia;
     -fx-font-size: 20px;
     -fx-text-fill: #7c218a; // change
 }
-
-
 
 .text-field {
     -fx-text-fill: #24273d;
