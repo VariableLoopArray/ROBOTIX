@@ -348,12 +348,13 @@ public class ShopController {
                 VBox child = (VBox) childNode;
                 for (int i = 0; i < child.getChildren().size(); i++) {
                     if (i % 3 == 0) {
-                        TextArea nameArea = (TextArea) child.getChildren().get(i);
+                        Label nameArea = (Label) child.getChildren().get(i);
                         String name = nameArea.getText();
                         names.add(name);
                     }
                     if (i % 3 == 1) {
-                        for (Node infoNode : child.getChildren()) {
+                        VBox nodeChild = (VBox) child.getChildren().get(i);
+                        for (Node infoNode : nodeChild.getChildren()) {
                             Label info = (Label) infoNode;
                             infos.add(info.getText());
                         }

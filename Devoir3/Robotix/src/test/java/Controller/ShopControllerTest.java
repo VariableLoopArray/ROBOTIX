@@ -18,10 +18,11 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ShopControllerTest extends Application {
+class ShopControllerTest {
     Stage testStage;
     ShopController shopController = new ShopController();
 
@@ -54,7 +55,8 @@ class ShopControllerTest extends Application {
     }
 
     @Test
-    void successfulDisplayAllComponents(){
+    void successfulDisplayAllComponents() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
             try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
                 Gson gson = new GsonBuilder().create();
@@ -66,8 +68,9 @@ class ShopControllerTest extends Application {
                 for (Supplier supplier : suppliers) {
                     for (Component component : supplier.getStorage()) {
                         componentNames.add(component.getName());
-                        componentsInfo.add("notPrice: " + component.getPrice());
+                        componentsInfo.add("Price: " + component.getPrice());
                         componentsInfo.add("Width: " + component.getWidth());
+                        componentsInfo.add("Length: " + component.getLength());
                         componentsInfo.add("Height: " + component.getHeight());
                         componentsInfo.add("Supplier: " + supplier.getCompanyName());
                     }
@@ -76,17 +79,16 @@ class ShopControllerTest extends Application {
 
                 ArrayList<List<String>> result = shopController.displayAllComponentsTest();
                 assertEquals(componentNames, result.get(0));
+
                 assertEquals(componentsInfo, result.get(1));
+                latch.countDown();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
+        latch.await();
     }
 
 
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        // This method is required but not used in this test setup
-    }
 }

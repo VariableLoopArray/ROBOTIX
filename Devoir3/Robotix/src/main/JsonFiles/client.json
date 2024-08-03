@@ -241,5 +241,21 @@
     "companyName": "1111",
     "phoneNumber": "111-111-1111",
     "notifications": []
+  },
+  {
+    "typeOfAccount": "Client",
+    "firstName": "hello",
+    "lastName": "hello",
+    "username": "lol",
+    "password": "hellohello",
+    "id": "c28fa65d-217a-4e9d-871b-c7915ca7b507",
+    "email": "hello@",
+    "companyName": "hello",
+    "phoneNumber": "111-111-1111",
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [],
+    "myStorage": [],
+    "notifications": []
   }
 ]
