@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Activity;
 import Model.TypeOfUsers.Client;
 import Model.TypeOfUsers.Supplier;
 import com.google.gson.Gson;
@@ -22,6 +23,7 @@ import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -270,9 +272,16 @@ public class LoginController {
                 try {
 
                     LocalDate newDate = LocalDate.parse(dateInput.getText(), formatter);
+                    ArrayList<Activity> activities = new ArrayList<>();
                     try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
                         Gson gson = new Gson();
                         clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    try(Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
+                        Gson gson = new Gson();
+                        activities = gson.fromJson(reader, new TypeToken<List<Activity>>() {}.getType());
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -289,7 +298,28 @@ public class LoginController {
                             }
                         }
                     }
+                    for (Activity activity : activities) {
+                        if (activity.getStartDate().isBefore(newDate) && activity.getEndDate().isAfter(newDate)) {
+                            activity.setStatus("In Progress");
+                        }
+                        else if (activity.getEndDate().isBefore(newDate)) {
+                            activity.setStatus("Finished");
+                        }
+                        else if (activity.getStartDate().isAfter(newDate)) {
+                            activity.setStatus("Upcoming");
+                        }
+                    }
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                    try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                        gson.toJson(clients, writer);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
+                    try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
+                        gson.toJson(activities, writer);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                     try (Writer writer = new FileWriter("src/main/JsonFiles/currentDate.json")) {
                         gson.toJson(newDate, writer);
                     } catch (IOException ex) {
