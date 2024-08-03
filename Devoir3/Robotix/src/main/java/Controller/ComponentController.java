@@ -47,8 +47,6 @@ public class ComponentController {
     @FXML
     private Button closeButton;
     @FXML
-    private HBox displayAddComponent;
-    @FXML
     private ScrollPane mainScrollClient;
     @FXML
     private ScrollPane mainScroll;

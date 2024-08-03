@@ -12,66 +12,49 @@
            fx:controller="Controller.RobotController"
            stylesheets="@../CssFiles/Robot.css">
 
-    <ScrollPane>
-    <HBox>
+    <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
         <VBox styleClass="menuVbox">
-             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
+            <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton"/>
         </VBox>
         <Pane prefWidth="40"/>
-        <VBox alignment="TOP_CENTER">
-            <Pane prefHeight="40"/>
-            <Label fx:id="RobotWelcome" styleClass="title"/>
-            <Pane prefHeight="60"/>
 
-            <HBox>
-                <VBox alignment="CENTER" spacing="10">
-                    <Button fx:id="create" text="Create My Robot" onAction="#creatRobot"/>
+        <ScrollPane HBox.hgrow="ALWAYS" fitToHeight="true" fitToWidth="true" styleClass="center">
+            <VBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+                <Pane prefHeight="40"/>
+                    <Label fx:id="RobotWelcome" styleClass="title"/>
+                <Pane prefHeight="60"/>
+                <VBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
+                    <Button fx:id="create" text="Create My Robot" onAction="#createRobot"/>
                     <Button fx:id="affiche" text="Show My Robot" onAction="#showRobot"/>
                     <Button fx:id="supprime" text="Remove My Robot" onAction="#removeRobot"/>
-                    <AnchorPane>
-                    <VBox fx:id="DisplayRobots" AnchorPane.leftAnchor="150">
-                        <Label fx:id="noRobotList" styleClass="noRobot" prefHeight="50"/>
-                    </VBox>
-                    </AnchorPane>
-
-
-                    <AnchorPane>
-                    <GridPane fx:id="tableInfo" hgap="10" vgap="10" visible="false" AnchorPane.leftAnchor="150">
-
-                    <Label text="Name:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                    <TextField fx:id="name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
-
-                    <Label text="Type:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                    <TextField fx:id="type" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
-
-                    <Label text="Component:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                    <TextField fx:id="components" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
-
-                    <Label text="battery:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                    <TextField fx:id="battery" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-
-                    <Label text="Location:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                    <TextField fx:id="loc" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-
-                    <Label text="Speed:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                    <TextField fx:id="speed" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-
-                    <Label text="CPUusage:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                    <TextField fx:id="cpuusage" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
-
-                    <Label text="Memory:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
-                    <TextField fx:id="memory" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
-
-                    <Label text="SerialNumber" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
-                    <TextField fx:id="serialNumber" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
-                    </GridPane>
-                    </AnchorPane>
-
+                    <Pane prefHeight="40" HBox.hgrow="ALWAYS"/>
+                    <FlowPane fx:id="DisplayRobots" alignment="CENTER">
+                        <Label fx:id="noRobotList" styleClass="noRobot" prefHeight="30"/>
+                    </FlowPane>
+                    <ScrollPane styleClass="transparent">
+                        <GridPane fx:id="tableInfo" hgap="10" vgap="10" visible="false" alignment="CENTER">
+                            <Label text="Name:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <Label text="Type:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="type" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                            <Label text="Component:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="components" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            <Label text="Battery:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="battery" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                            <Label text="Speed:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="speed" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <Label text="CPU Usage:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <TextField fx:id="cpuusage" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                            <Label text="Memory:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <TextField fx:id="memory" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                            <Label text="Serial Number:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                            <TextField fx:id="serialNumber" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </ScrollPane>
                 </VBox>
-            </HBox>
-        </VBox>
+            </VBox>
+        </ScrollPane>
     </HBox>
-    </ScrollPane>
 
 
 </StackPane>
