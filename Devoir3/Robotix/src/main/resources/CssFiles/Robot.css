@@ -84,7 +84,7 @@
 
 #create,#affiche,#supprime{
     -fx-font-family: Georgia;
-    -fx-font-size: 40;
+    -fx-font-size: 25;
     -fx-border-radius: 20px;
     -fx-background-radius: 22px;
     -fx-border-width: 3px;
@@ -98,7 +98,7 @@
 
 #create:hover,#affiche:hover,#supprime:hover{
     -fx-font-family: Georgia;
-    -fx-font-size: 40;
+    -fx-font-size: 25;
     -fx-border-radius: 20px;
     -fx-background-radius: 22px;
     -fx-border-width: 3px;
