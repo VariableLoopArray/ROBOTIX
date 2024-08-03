@@ -14,8 +14,10 @@
 .menuTitle{
     -fx-pref-height: 110;
     -fx-alignment: center;
-    -fx-font-size: 30;
+    -fx-font-size: 40;
     -fx-font-weight: bold;
+    -fx-font-family: Georgia;
+    -fx-text-fill: #0f1e50;
 
 }
 .scroll-pane .scroll-bar{
@@ -83,20 +85,14 @@
 .joinButton{
     -fx-pref-width: 242;
     -fx-pref-height: 50;
-    -fx-text-fill: #28b2fc;
+    -fx-text-fill: black;
+    -fx-border-color: #8ea9f6;
     -fx-font-size: 20;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
+    -fx-background-color: #f0f0f0;
 }
 .joinButton:hover{
-    -fx-background-color: #555;
-    -fx-text-fill: #28b2fc;
-}
-.changeTimeButton{
-    -fx-pref-width: 200;
-    -fx-pref-height: 50;
-    -fx-text-fill: #28b2fc;
-    -fx-font-size: 20;
-    -fx-border-radius: 10;
-    -fx-background-radius: 10;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
 }

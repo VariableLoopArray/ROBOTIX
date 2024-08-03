@@ -21,7 +21,7 @@
         <ScrollPane HBox.hgrow="ALWAYS" fitToHeight="true" fitToWidth="true" styleClass="center">
             <VBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
                 <Pane prefHeight="40"/>
-                <Label fx:id="RobotWelcome" styleClass="title"/>
+                    <Label fx:id="RobotWelcome" styleClass="title"/>
                 <Pane prefHeight="60"/>
                 <VBox alignment="CENTER" spacing="10" HBox.hgrow="ALWAYS">
                     <Button fx:id="create" text="Create My Robot" onAction="#createRobot"/>
@@ -41,16 +41,14 @@
                             <TextField fx:id="components" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
                             <Label text="Battery:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
                             <TextField fx:id="battery" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
-                            <Label text="Location:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-                            <TextField fx:id="loc" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-                            <Label text="Speed:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-                            <TextField fx:id="speed" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
-                            <Label text="CPU Usage:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-                            <TextField fx:id="cpuusage" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
-                            <Label text="Memory:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
-                            <TextField fx:id="memory" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
-                            <Label text="Serial Number:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
-                            <TextField fx:id="serialNumber" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+                            <Label text="Speed:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                            <TextField fx:id="speed" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+                            <Label text="CPU Usage:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+                            <TextField fx:id="cpuusage" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+                            <Label text="Memory:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+                            <TextField fx:id="memory" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+                            <Label text="Serial Number:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+                            <TextField fx:id="serialNumber" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
                         </GridPane>
                     </ScrollPane>
                 </VBox>

@@ -1,6 +1,4 @@
-.title{
-    -fx-font-size: 24;
-}
+
 .menuVbox{
     -fx-pref-width: 240;
     -fx-pref-height: 768;
@@ -9,7 +7,7 @@
 .sideMenuButton{
 
 
-    -fx-pref-width: 240px;
+    -fx-min-width: 240px;
     -fx-pref-height: 100px;
     -fx-font-family: Georgia;
     -fx-font-size: 26;
@@ -20,6 +18,10 @@
     -fx-alignment: center;
     -fx-text-fill: black;
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
+}
+.sideMenuButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
 }
 
 #shopWelcome{

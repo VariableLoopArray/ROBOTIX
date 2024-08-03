@@ -31,19 +31,15 @@ public class RobotController {
     @FXML
     private TextField type;
     @FXML
-    private TextField components;
+    private Label noRobotList;
     @FXML
     private TextField battery;
-    @FXML
-    private TextField loc;
     @FXML
     private TextField speed;
     @FXML
     private TextField cpuusage;
     @FXML
     private TextField memory;
-    @FXML
-    private TextField serialNumber;
     @FXML
     private Button create;
     @FXML
@@ -60,13 +56,9 @@ public class RobotController {
 
     public void setUserRobot(Client client) {
         this.client = client;
-        displayMessage("Welcome to your robots!", false);
+        RobotWelcome.setText("Welcome to your robots !");
     }
 
-    public void displayMessage(String message, boolean isError) {
-        RobotWelcome.setText(isError ? "Error: " + message : message);
-        RobotWelcome.getStyleClass().setAll(isError ? "error-text" : "default-text");
-    }
 
     public void showRobot() {
         DisplayRobots.getChildren().clear();
@@ -146,16 +138,20 @@ public class RobotController {
     }
 
     public void confirmRobot() {
-        Robot newRobot = new Robot(
-                name.getText(), type.getText(), new ArrayList<>(),
-                battery.getText(), new float[]{0.0f, 0.0f, 0.0f},
-                Float.parseFloat(speed.getText()), Float.parseFloat(cpuusage.getText()),
-                Float.parseFloat(memory.getText())
-        );
-        client.getFleet().add(newRobot);
-        updateClientJson();
-        tableInfo.setVisible(false);
-        displaySuccessMessage("Robot created successfully!");
+        try {
+            Robot newRobot = new Robot(
+                    name.getText(), type.getText(), new ArrayList<>(),
+                    battery.getText(), new float[]{0.0f, 0.0f, 0.0f},
+                    Float.parseFloat(speed.getText()), Float.parseFloat(cpuusage.getText()),
+                    Float.parseFloat(memory.getText())
+            );
+            client.getFleet().add(newRobot);
+            updateClientJson();
+            tableInfo.setVisible(false);
+            displaySuccessMessage("Robot created successfully!");
+        } catch (NumberFormatException e) {
+            noRobotList.setText("Please enter valid inputs!");
+        }
     }
 
     private void updateClientJson() {
@@ -206,7 +202,7 @@ public class RobotController {
         confirmButton.getStyleClass().add("button-confirm");
         confirmButton.setOnAction(e -> confirmRobot());
 
-        tableInfo.add(confirmButton, 1, 9);
+        tableInfo.add(confirmButton, 1, 8);
     }
 
     public void removeRobot() {
