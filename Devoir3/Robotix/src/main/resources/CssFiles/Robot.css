@@ -37,6 +37,10 @@
     -fx-text-fill: white;
 }
 
+.remove-button{
+
+}
+
 .label-success {
     -fx-font-family: Georgia;
     -fx-font-size: 30;
