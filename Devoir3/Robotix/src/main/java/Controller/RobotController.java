@@ -83,6 +83,8 @@ public class RobotController {
         affiche.setManaged(false);
         create.setVisible(true);
         create.setManaged(true);
+        tableInfo.setVisible(false);
+        tableInfo.setManaged(false);
 
         String robot = "";
         Label norobot = new Label("You have no robot!");
@@ -198,15 +200,17 @@ public class RobotController {
     public void creatRobot(ActionEvent actionEvent) {
         // Clear the content of the display robots pane
         DisplayRobots.getChildren().clear();
-        affiche.setManaged(false); // Hide the show list button
-        affiche.setVisible(false); // Hide the show list button
         Label robotlist = new Label();
+        affiche.setManaged(true); // Hide the show list button
+        affiche.setVisible(true); // Hide the show list button
         tableInfo.setVisible(true); // Show the infos table
         create.setVisible(false); // Hide the create button
         create.setManaged(false); // Hide the create button
+        supprime.setVisible(false);
+        supprime.setManaged(false);
 
         // Create a new button Confirm and save
-        Button confirm = new Button("Confirm and save");
+        Button confirm = new Button("Confirm & Save");
         confirm.getStyleClass().add("button-confirm");
         // on appelle la fonction confirmRobot quand on clique sur le bouton confirm
         confirm.setOnAction(e -> confirmRobot(e,robotlist));
