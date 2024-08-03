@@ -42,6 +42,11 @@ public class Client extends User{
     public void setInterests(ArrayList<String> myinterests) {
         myInterests = myinterests;
     }
+
+/*    public void addRobot(Robot robot){
+        myRoborts.add(robot);
+    }*/
+
     public void addActivity(Activity activity){
         myActivities.add(activity);
     }

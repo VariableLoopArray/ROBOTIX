@@ -86,3 +86,11 @@
     -fx-background-color: #555;
     -fx-text-fill: #28b2fc;
 }
+.changeTimeButton{
+    -fx-pref-width: 200;
+    -fx-pref-height: 50;
+    -fx-text-fill: #28b2fc;
+    -fx-font-size: 20;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}

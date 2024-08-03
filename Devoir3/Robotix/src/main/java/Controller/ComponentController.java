@@ -43,7 +43,7 @@ public class ComponentController {
     @FXML
     private TextField componentHeight;
     @FXML
-    private TextArea componentTag;
+    private TextArea componentType;
     @FXML
     private Button closeButton;
     @FXML
@@ -58,12 +58,34 @@ public class ComponentController {
     private Label messageLabel;
     public void setUserComponent(User user) {
         if (user instanceof Supplier) {
-            this.supplier = (Supplier) user;
-            componentWelcome.setText("Welcome " + supplier.getCompanyName());
+            try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {
+                }.getType());
+                for (Supplier supplier : suppliers) {
+                    if (supplier.getId().equals(user.getId())) {
+                        this.supplier = supplier;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            componentWelcome.setText("Welcome to your inventory !");
             displayComponents(supplier);
         } else {
+            try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>(){}.getType());
+                for (Client client: clients){
+                    if (client.getId().equals(user.getId())){
+                        this.client = client;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             this.client = (Client) user;
-            componentWelcome.setText("Welcome " + client.getCompanyName());
+            componentWelcome.setText("Welcome to your inventory !");
             displayComponents(client);
         }
 
@@ -81,7 +103,7 @@ public class ComponentController {
             VBox componentBox = new VBox();
             componentBox.getChildren().add(new Label(component.getName()));
             VBox componentSpecs = new VBox();
-            componentSpecs.getChildren().add(new Label("Tag: " + component.getTag()));
+            componentSpecs.getChildren().add(new Label("type: " + component.getType()));
             componentSpecs.getChildren().add(new Label("Price: " + component.getPrice()));
             componentSpecs.getChildren().add(new Label("Width: " + component.getWidth()));
             componentSpecs.getChildren().add(new Label("Length: " + component.getLength()));
@@ -107,7 +129,7 @@ public class ComponentController {
             VBox componentBox = new VBox();
             componentBox.getChildren().add(new Label(component.getName()));
             VBox componentSpecs = new VBox();
-            componentSpecs.getChildren().add(new Label("Tag: " + component.getTag()));
+            componentSpecs.getChildren().add(new Label("Type: " + component.getType()));
             componentSpecs.getChildren().add(new Label("Price: " + component.getPrice()));
             componentSpecs.getChildren().add(new Label("Width: " + component.getWidth()));
             componentSpecs.getChildren().add(new Label("Length: " + component.getLength()));
@@ -128,17 +150,17 @@ public class ComponentController {
                 grid.setPadding(new Insets(20, 150, 10, 10));
 
                 TextField nameField = new TextField(component.getName());
-                ListView<String> tagListView = new ListView<>();
-                tagListView.getItems().addAll(component.getTag());
-                tagListView.setPrefHeight(100);
+                ListView<String> typeListView = new ListView<>();
+                typeListView.getItems().addAll(component.getType());
+                typeListView.setPrefHeight(100);
 
-                TextField newTagField = new TextField();
-                Button addTagButton = new Button("Add Tag");
-                addTagButton.setOnAction(ev -> {
-                    String newTag = newTagField.getText();
-                    if (!newTag.isEmpty() && !tagListView.getItems().contains(newTag)) {
-                        tagListView.getItems().add(newTag);
-                        newTagField.clear();
+                TextField newTypeField = new TextField();
+                Button addTypeButton = new Button("Add Type");
+                addTypeButton.setOnAction(ev -> {
+                    String newType = newTypeField.getText();
+                    if (!newType.isEmpty() && !typeListView.getItems().contains(newType)) {
+                        typeListView.getItems().add(newType);
+                        newTypeField.clear();
                     }
                 });
                 TextField priceField = new TextField(String.valueOf(component.getPrice()));
@@ -151,9 +173,9 @@ public class ComponentController {
                 grid.add(new Label("Name:"), 0, 0);
                 grid.add(nameField, 1, 0);
                 grid.add(new Label("Tags:"), 0, 1);
-                grid.add(tagListView, 1, 1);
-                grid.add(newTagField, 1, 2);
-                grid.add(addTagButton, 1, 3);
+                grid.add(typeListView, 1, 1);
+                grid.add(newTypeField, 1, 2);
+                grid.add(addTypeButton, 1, 3);
                 grid.add(new Label("Price:"), 0, 4);
                 grid.add(priceField, 1, 4);
                 grid.add(new Label("Width:"), 0, 5);
@@ -168,7 +190,7 @@ public class ComponentController {
                 dialog.setResultConverter(dialogButton -> {
                     if (dialogButton == saveButtonType) {
                         component.setName(nameField.getText());
-                        component.setTags(new ArrayList<>(tagListView.getItems()));
+                        component.setTypes(new ArrayList<>(typeListView.getItems()));
                         component.setPrice(Float.parseFloat(priceField.getText()));
                         component.setWidth(Float.parseFloat(widthField.getText()));
                         component.setLength(Float.parseFloat(lengthField.getText()));
@@ -256,10 +278,10 @@ public class ComponentController {
     }
     public void addComponent(){
         try {
-            String allTags =componentTag.getText().replace(" ", "");
-            String[] tag = allTags.split(",");
-            ArrayList<String> tags = new ArrayList<>(Arrays.asList(tag));
-            Component component = new Component(componentName.getText(), tags, Float.parseFloat(componentPrice.getText()),
+            String allTypes =componentType.getText().replace(" ", "");
+            String[] type = allTypes.split(",");
+            ArrayList<String> types = new ArrayList<>(Arrays.asList(type));
+            Component component = new Component(componentName.getText(), types, Float.parseFloat(componentPrice.getText()),
                     Float.parseFloat(componentWidth.getText()), Float.parseFloat(componentLength.getText()),
                     Float.parseFloat(componentHeight.getText()), supplier.getId(), UUID.randomUUID());
             if (supplier.getStorage() == null){

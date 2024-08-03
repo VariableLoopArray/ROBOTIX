@@ -65,7 +65,7 @@ public class RobotController {
     public void setUserRobot(Client client){
         this.client = client;
         // Affiche un message de bienvenue
-        displayMessage("Welcome to your robots!", false);
+        displayMessage("Welcome to your robots !", false);
     }
 
     public void showRobot(ActionEvent actionEvent) {
