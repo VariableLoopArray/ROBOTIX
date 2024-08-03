@@ -131,6 +131,7 @@ public class ActivityController {
 
 
             Label description = new Label("Description : " + activity.getDescription());
+            description.getStyleClass().add("label-description");
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonAddTask);
             everything.getChildren().addAll(newActivity, buttonBox, description);
             System.out.println(client.getNotifications());
