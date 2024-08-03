@@ -17,6 +17,7 @@
         </VBox>
 
         <VBox alignment="TOP_CENTER">
+            <Pane prefHeight="40"/>
             <Label fx:id="shopWelcome" text="Welcome to Robotix Shop" styleClass="title"/>
             <HBox VBox.vgrow="ALWAYS">
                 <Pane prefWidth="50"/>
@@ -31,8 +32,8 @@
                     <CheckBox text="Medium (less than 100cm³)" fx:id="filter6"/>
                     <CheckBox text="large (more than 100cm³)" fx:id="filter7"/>
                     <CheckBox text="Any size" fx:id="filter8"/>
-                    <Label text="Specific Tags"/>
-                    <TextField fx:id="filter9" prefWidth="300" promptText='Enter tags separated by ","'/>
+                    <Label text="Specific Types"/>
+                    <TextField fx:id="filter9" prefWidth="300" promptText='Enter types separated by ","'/>
                     <Label text="Specific Supplier"/>
                     <TextField fx:id="filter10" prefWidth="300" promptText='Enter suppliers usernames seperated by ","'/>
                     <Button text="Apply Filters" onAction="#applyFilters" styleClass="customButton" />

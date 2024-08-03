@@ -22,11 +22,18 @@
 
   <StackPane fx:id="clientLogin" >
   <VBox alignment="CENTER" spacing="20.0" styleClass="loginVbox">
+
     <HBox styleClass="loginHbox">
     <VBox styleClass="textfield">
 
-      <Label text="Welcome to Robotix Client" style="-fx-font-size: 24px;"/>
 
+      <Label text="Welcome to Robotix Client" style="-fx-font-size: 24px;"/>
+      <Pane prefHeight="24"/>
+      <HBox HBox.hgrow="ALWAYS" alignment="TOP_RIGHT">
+        <Button text="Pre-configured Database" onAction="#showInfoPopup" styleClass="customButton" style="-fx-font-size: 14"/>
+        <Pane prefWidth="20"/>
+        <Button text="Change Date" onAction="#changeDate" styleClass="customButton" style="-fx-font-size: 14"/>
+      </HBox>
       <Label fx:id="messageLabel1" styleClass="green"/>
       <Label fx:id="messageLabel2" styleClass="red"/>
 
@@ -67,10 +74,16 @@
       <HBox styleClass="loginHbox">
         <VBox styleClass="textfield">
 
-          <Label text="Welcome to Robotix supplier" style="-fx-font-size: 24px;"/>
-
+          <Label text="Welcome to Robotix Supplier" style="-fx-font-size: 24px;"/>
+          <Pane prefHeight="24"/>
+          <HBox HBox.hgrow="ALWAYS" alignment="TOP_RIGHT">
+            <Button text="Pre-configured Database" onAction="#showInfoPopup" styleClass="customButton" style="-fx-font-size: 14"/>
+            <Pane prefWidth="20"/>
+            <Button text="Change Date" onAction="#changeDate" styleClass="customButton" style="-fx-font-size: 14"/>
+          </HBox>
           <Label fx:id="messageLabel3" styleClass="green"/>
           <Label fx:id="messageLabel4" styleClass="red"/>
+
 
           <Label text="Email"/>
           <TextField fx:id="emailFieldSupplier" maxWidth="300" prefHeight="30"/>
