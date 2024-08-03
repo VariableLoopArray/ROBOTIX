@@ -35,9 +35,31 @@ public class NotificationController {
 
     public void setUserNotification(User user) {
         if (user instanceof Client) {
-            client = (Client) user;
+            try(FileReader reader = new FileReader("src/main/JsonFiles/client.json")) {
+                Gson gson = new Gson();
+                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
+                for (Client client : clients) {
+                    if (client.getEmail().equals(user.getEmail())) {
+                        this.client = client;
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else if (user instanceof Supplier) {
-            supplier = (Supplier) user;
+            try(FileReader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
+                Gson gson = new Gson();
+                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
+                for (Supplier supplier : suppliers) {
+                    if (supplier.getEmail().equals(user.getEmail())) {
+                        this.supplier = supplier;
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
