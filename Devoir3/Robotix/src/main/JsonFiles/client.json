@@ -1,0 +1,43 @@
+[
+  {
+    "fleet": [],
+    "myActivities": [
+      {
+        "name": "1",
+        "startDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 11
+        },
+        "endDate": {
+          "year": 2024,
+          "month": 9,
+          "day": 1
+        },
+        "points": "10",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [],
+        "activityId": "02fcd6eb-5102-4097-b3b3-cb48cc091877",
+        "description": "1",
+        "status": "In Progress"
+      }
+    ],
+    "myInterests": [
+      "Sports and Fitness"
+    ],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1"
+    ]
+  }
+]

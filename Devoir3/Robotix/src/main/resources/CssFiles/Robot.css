@@ -76,7 +76,6 @@
 #create,#affiche,#supprime{
     -fx-font-family: Georgia;
     -fx-font-size: 40;
-    -fx-font-weight: medium-bold;
     -fx-border-radius: 20px;
     -fx-background-radius: 22px;
     -fx-border-width: 3px;
@@ -136,4 +135,11 @@
 .noActivity {
     -fx-font-size: 20;
     -fx-text-fill: #f44336;
+}
+.center{
+    -fx-alignment: center;
+    -fx-padding: 20px;
+}
+.transparent{
+    -fx-background-color: transparent;
 }
