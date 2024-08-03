@@ -19,7 +19,7 @@
         <Pane prefWidth="40"/>
         <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
             <Pane prefHeight="40"/>
-            <Label text="Welcome to your notifications !" style="-fx-font-size: 24px" alignment="CENTER"/>
+            <Label text="Welcome to your notifications !" fx:id="notification" style="-fx-font-size: 24px" alignment="CENTER"/>
             <Pane prefHeight="60"/>
 
             <ListView fx:id="notificationSpace" styleClass="notif" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" >

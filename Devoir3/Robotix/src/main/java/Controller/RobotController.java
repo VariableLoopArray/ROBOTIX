@@ -129,6 +129,7 @@ public class RobotController {
                             });
                         robotbox.getChildren().add(remove); // on ajoute le bouton au robotbox
                         robotbox.getStyleClass().add("remove-button"); // on ajoute la classe css au robotbox
+                        DisplayRobots.getChildren().add(robotbox);
 
                         // on affiche les informations du robot
                         robot += "Robot Name : " + unit.getName() + "\n";
