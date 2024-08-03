@@ -1,84 +1,82 @@
 package Controller;
-import Model.Component;
+
 import Model.Robot;
 import Model.TypeOfUsers.Client;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.io.*;
 import java.util.ArrayList;
-public class RobotController {
-    @FXML
-    public Label RobotWelcome;
-    @FXML
-    public VBox DisplayRobots;
-    @FXML
-    public GridPane tableInfo;
-    @FXML
-    public TextField name;
-    @FXML
-    public TextField type;
-    @FXML
-    public TextField components;
-    @FXML
-    public TextField battery;
-    @FXML
-    public TextField loc;
-    @FXML
-    public TextField speed;
-    @FXML
-    public TextField cpuusage;
-    @FXML
-    public TextField memory;
-    @FXML
-    public TextField serialNumber;
-    @FXML
-    public Button create;
-    @FXML
-    public Button affiche;
-    @FXML
-    public Button supprime;
 
-    Client client;
+public class RobotController {
+
+    @FXML
+    private Label RobotWelcome;
+    @FXML
+    private FlowPane DisplayRobots;
+    @FXML
+    private GridPane tableInfo;
+    @FXML
+    private TextField name;
+    @FXML
+    private TextField type;
+    @FXML
+    private TextField components;
+    @FXML
+    private TextField battery;
+    @FXML
+    private TextField loc;
+    @FXML
+    private TextField speed;
+    @FXML
+    private TextField cpuusage;
+    @FXML
+    private TextField memory;
+    @FXML
+    private TextField serialNumber;
+    @FXML
+    private Button create;
+    @FXML
+    private Button affiche;
+    @FXML
+    private Button supprime;
+
+    private Client client;
+    private Gson gson;
+
+    public RobotController() {
+        gson = new GsonBuilder().setPrettyPrinting().create();
+    }
+
+    public void setUserRobot(Client client) {
+        this.client = client;
+        displayMessage("Welcome to your robots!", false);
+    }
 
     public void displayMessage(String message, boolean isError) {
-        // Si le message n'est pas une erreur, on supprime la classe "error-text" et on ajoute la classe "default-text"
-        if (!isError) {
-            RobotWelcome.setText(message);
-            RobotWelcome.getStyleClass().add("default-text");
-            RobotWelcome.getStyleClass().remove("error-text");
-        } else {
-            RobotWelcome.setText("Error: " + message);
-            RobotWelcome.getStyleClass().add("error-text");
-            RobotWelcome.getStyleClass().remove("default-text");
-        }
-    }
-    public void setUserRobot(Client client){
-        this.client = client;
-        // Affiche un message de bienvenue
-        displayMessage("Welcome to your robots !", false);
+        RobotWelcome.setText(isError ? "Error: " + message : message);
+        RobotWelcome.getStyleClass().setAll(isError ? "error-text" : "default-text");
     }
 
-    public void showRobot(ActionEvent actionEvent) {
-        Label robotlist = new Label();
-        robotlist.getStyleClass().add("label-robotlist");
-        DisplayRobots.getChildren().add(robotlist);
-        afficherRobot(robotlist); // affiche la liste des robots
+    public void showRobot() {
+        DisplayRobots.getChildren().clear();
+        displayRobots();
     }
 
-    public void afficherRobot(Label robotlist) {
+    private void displayRobots() {
         supprime.setVisible(false);
         supprime.setManaged(false);
-        DisplayRobots.getChildren().clear(); // on efface le contenu de la page
+        DisplayRobots.getChildren().clear();
         affiche.setVisible(false);
         affiche.setManaged(false);
         create.setVisible(true);
@@ -86,175 +84,156 @@ public class RobotController {
         tableInfo.setVisible(false);
         tableInfo.setManaged(false);
 
-        String robot = "";
-        Label norobot = new Label("You have no robot!");
-
-        if(client.getFleet().size() == 0){
-            norobot.getStyleClass().add("label-no-robots");
-            supprime.setVisible(false);
-            supprime.setManaged(false);
-            DisplayRobots.getChildren().add(norobot);
+        if (client.getFleet().isEmpty()) {
+            Label noRobotLabel = new Label("You have no robot!");
+            noRobotLabel.getStyleClass().add("label-no-robots");
+            DisplayRobots.getChildren().add(noRobotLabel);
             return;
         }
-        else{
-            norobot.setVisible(false);
-            norobot.setManaged(false);
-        }
 
-        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
-
-            VBox robotbox2 = new VBox(10);
-            Gson gson = new GsonBuilder().setPrettyPrinting().create(); // pour avoir un affichage plus joli
-            Client [] Clients = gson.fromJson(reader, Client[].class); // on récupère les clients du fichier json
-
-            for (int i = 0; i < Clients.length; i++){
-                // comparer si c'est le client qui est connecté
-                if (Clients[i].getId().equals(client.getId())){
-                    for(Robot unit : Clients[i].getFleet()){
-                        Label labelrobot = new Label();
-                        HBox robotbox = new HBox(10);
-
-                        Button remove = new Button ("Remove"); // bouton pour supprimer le robot
-                        remove.setOnAction(event -> {
-                            client.getFleet().remove(unit); // on supprime le robot du client
-
-                            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
-                                gson.toJson(Clients, writer);
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            robotbox.getChildren().remove(remove); // on supprime le bouton du robot
-                            robotbox.getChildren().remove(robotlist); // on supprime le robot du robotbox
-                            robotbox2.getChildren().remove(robotbox); // on supprime le robotbox du robotbox2
-                            });
-                        robotbox.getChildren().add(remove); // on ajoute le bouton au robotbox
-                        robotbox.getStyleClass().add("remove-button"); // on ajoute la classe css au robotbox
-                        DisplayRobots.getChildren().add(robotbox);
-
-                        // on affiche les informations du robot
-                        robot += "Robot Name : " + unit.getName() + "\n";
-                        robot += "Robot Type : " + unit.getType() + "\n";
-                        robot += "Robot Battery : " + unit.getBattery() + "\n";
-                        robot += "Robot Speed : " + unit.getSpeed() + "\n";
-                        robot += "Robot CpuUsage : " + unit.getCpuUsage() + "\n";
-                        robot += "Robot Memory : " + unit.getMemory() + "\n";
-                        robot += "Robot SerialNumber : " + unit.getSerialNumber() + "\n";
-                        robot += "Robot Components : " + unit.getComponents() + "\n";
-                        robot += "Robot Location : " + unit.getLocation()[0]+ unit.getLocation()[1]
-                                + unit.getLocation()[2] + "\n";
-                        robot += "\n";
-                        labelrobot.setText(robot); // on affiche le robot dans un label
-                        robot = ""; // on réinitialise le robot
-                        robotbox.getChildren().add(labelrobot); // on ajoute le label au robotbox
-                        robotbox2.getChildren().add(robotbox); // on ajoute le robotbox au robotbox2
+        try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+            Client[] clients = gson.fromJson(reader, Client[].class);
+            for (Client client : clients) {
+                if (client.getId().equals(this.client.getId())) {
+                    VBox robotBoxContainer = new VBox(10);
+                    for (Robot robot : client.getFleet()) {
+                        createRobotBox(robot, robotBoxContainer);
                     }
-                    DisplayRobots.getChildren().add(robotbox2);
-                    client = Clients[i];
+                    DisplayRobots.getChildren().add(robotBoxContainer);
+                    this.client = client;
                     break;
                 }
             }
-        }
-        catch (IOException ec){
-            ec.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
-    public void confirmRobot(ActionEvent actionEvent,Label robotlist) {
+    private void createRobotBox(Robot robot, VBox robotBoxContainer) {
+        VBox robotBox = new VBox(10);
+        robotBox.setMaxWidth(200);;
+        Label robotInfoLabel = new Label(getRobotInfo(robot));
+        robotInfoLabel.setWrapText(true);
 
-        Robot robot = new Robot(name.getText(), type.getText(),new ArrayList<Component>(), battery.getText(),
-                new float[] {0.0f, 0.0f, 0.0f}, Float.valueOf(speed.getText()),Float.valueOf(cpuusage.getText()),
-                Float.valueOf(memory.getText()));
-        // crée un objet gson  pour écrire dans le fichier .json
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        Button removeButton = new Button("Remove");
 
-        client.getFleet().add(robot); // ajoute le robot au client
+        removeButton.setOnAction(event -> {
+            client.getFleet().remove(robot);
+            updateClientJson();
+            robotBoxContainer.getChildren().remove(robotBox);
+            DisplayRobots.getChildren().remove(robotBox);
+        });
+
+        robotBox.getChildren().addAll(removeButton, robotInfoLabel);
+        robotBox.setPadding(new javafx.geometry.Insets(10));
+        robotBoxContainer.getChildren().add(robotBox);
+        DisplayRobots.getChildren().add(robotBox);
+    }
+
+    private String getRobotInfo(Robot robot) {
+        return String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%nRobot Speed: %s%n" +
+                        "Robot CpuUsage: %s%nRobot Memory: %s%nRobot SerialNumber: %s%nRobot Components: %s%n" +
+                        "Robot Location: %s%n",
+                robot.getName(), robot.getType(), robot.getBattery(), robot.getSpeed(),
+                robot.getCpuUsage(), robot.getMemory(), robot.getSerialNumber(), robot.getComponents(),
+                formatLocation(robot.getLocation()));
+    }
+
+    private String formatLocation(float[] location) {
+        return IntStream.range(0, location.length)
+                .mapToObj(i -> Float.toString(location[i]))
+                .collect(Collectors.joining(", "));
+    }
+
+    public void confirmRobot() {
+        Robot newRobot = new Robot(
+                name.getText(), type.getText(), new ArrayList<>(),
+                battery.getText(), new float[]{0.0f, 0.0f, 0.0f},
+                Float.parseFloat(speed.getText()), Float.parseFloat(cpuusage.getText()),
+                Float.parseFloat(memory.getText())
+        );
+        client.getFleet().add(newRobot);
+        updateClientJson();
         tableInfo.setVisible(false);
-        Label success = new Label("Robot created successfully!");
-        success.getStyleClass().add("label-success");
-        DisplayRobots.getChildren().add(success); // display le label de success
+        displaySuccessMessage("Robot created successfully!");
+    }
 
-        for (Node node : tableInfo.getChildren()) {
-            if (node instanceof TextField) {
-                ((TextField) node).clear(); // clear les textfields
-            }
-        }
-
-        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
-            Client [] Clients = gson.fromJson(reader, Client[].class);
-            for (int i = 0; i < Clients.length; i++){
-                if (Clients[i].getId().equals(client.getId())){
-                    Clients[i] = client; // on remplace le client dans le fichier .json par le client modifié
+    private void updateClientJson() {
+        try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+            Client[] clients = gson.fromJson(reader, Client[].class);
+            for (int i = 0; i < clients.length; i++) {
+                if (clients[i].getId().equals(client.getId())) {
+                    clients[i] = client;
                     break;
                 }
             }
-            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
-                gson.toJson(Clients, writer);
+            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                gson.toJson(clients, writer);
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        catch (IOException ec){
-            ec.printStackTrace();
-        }
-        success.setManaged(true); // Show the success label
-        affiche.setManaged(true); // Show the show list button
+    }
+
+    private void displaySuccessMessage(String message) {
+        Label successLabel = new Label(message);
+        successLabel.getStyleClass().add("label-success");
+        DisplayRobots.getChildren().add(successLabel);
+        clearTextFields();
+        affiche.setManaged(true);
         affiche.setVisible(true);
     }
-    public void creatRobot(ActionEvent actionEvent) {
-        // Clear the content of the display robots pane
+
+    private void clearTextFields() {
+        for (Node node : tableInfo.getChildren()) {
+            if (node instanceof TextField) {
+                ((TextField) node).clear();
+            }
+        }
+    }
+
+    public void createRobot() {
         DisplayRobots.getChildren().clear();
-        Label robotlist = new Label();
-        affiche.setManaged(true); // Hide the show list button
-        affiche.setVisible(true); // Hide the show list button
-        tableInfo.setVisible(true); // Show the infos table
-        create.setVisible(false); // Hide the create button
-        create.setManaged(false); // Hide the create button
+        tableInfo.setVisible(true);
+        create.setVisible(false);
+        create.setManaged(false);
+        affiche.setVisible(true);
+        affiche.setManaged(true);
         supprime.setVisible(false);
         supprime.setManaged(false);
 
-        // Create a new button Confirm and save
-        Button confirm = new Button("Confirm & Save");
-        confirm.getStyleClass().add("button-confirm");
-        // on appelle la fonction confirmRobot quand on clique sur le bouton confirm
-        confirm.setOnAction(e -> confirmRobot(e,robotlist));
+        Button confirmButton = new Button("Confirm & Save");
+        confirmButton.getStyleClass().add("button-confirm");
+        confirmButton.setOnAction(e -> confirmRobot());
 
-        tableInfo.getChildren().add(confirm); // on ajoute le bouton confirm au tableau des Infos
-        tableInfo.setRowIndex(confirm, 9);
-        tableInfo.setColumnIndex(confirm, 1); // on positionne le bouton confirm dans le tableau des infos
-
-        String robot = "";
-        Label norobot = new Label("You have no robot!");
-        if(client.getFleet().size() == 0){
-            norobot.setVisible(false);
-            norobot.setManaged(false);
-        }
-        else{
-            DisplayRobots.getChildren().remove(norobot);
-        }
+        tableInfo.add(confirmButton, 1, 9);
     }
 
     public void removeRobot() {
-        Label robotlist = new Label();
+        DisplayRobots.getChildren().clear();
         supprime.setVisible(false);
         supprime.setManaged(false);
-        afficherRobot(robotlist);
+        showRobot();
     }
 
     public void handleGoBack() {
         try {
             Stage stage = (Stage) RobotWelcome.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-            Scene homepageMenu = new Scene(fxmlLoader.load(), 1024, 768);
-            homepageMenu.getStylesheets().remove(getClass().getResource("/CssFiles/Robot.css").toExternalForm());
-            homepageMenu.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
+            Scene scene = new Scene(loader.load(), 1024, 768);
+            scene.getStylesheets().remove(getClass().getResource("/CssFiles/Robot.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+
             stage.setTitle("Homepage");
-            HomepageController homepageController = fxmlLoader.getController();
+            HomepageController homepageController = loader.getController();
             homepageController.setUserHomepage(client);
             homepageController.displayCorrectMenu();
             homepageController.displayRobotixActivities();
-            stage.setScene(homepageMenu);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
 
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
