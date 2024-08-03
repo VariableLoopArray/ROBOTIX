@@ -54,6 +54,7 @@ class ShopControllerTest {
         });
     }
 
+    // Tien Test
     @Test
     void successfulDisplayAllComponents() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);

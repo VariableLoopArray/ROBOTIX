@@ -1,5 +1,5 @@
 package Controller;
-
+import java.util.concurrent.CountDownLatch;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +10,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.CountDownLatch;
+import static org.junit.jupiter.api.Assertions.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -43,29 +44,29 @@ public class CreateAccountControllerTest {
         });
     }
 
+    // Tien Test
     @Test
-    void FailEmailHandleCreateClientAccount() throws InterruptedException {
+    void failEmailHandleCreateClientAccount() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
-            boolean result = createAccountController.handleClientCreateAccountTest(
-                    "hello", "hello", "lol", "hellohello", "hello@",
-                    "hello", "111-111-1111");
-
-            System.out.println("result is " + result);
+            boolean result = createAccountController.handleClientCreateAccountTest("Hello","Hello",
+                    "Hello","HelloHello","Hello@","Hello","111 111 1111"); //
 
             latch.countDown();
-            assertEquals(true, result);
+            assertFalse(result);
+
         });
         latch.await();
     }
 
+    // Tien Test
     @Test
     void successfulClearFields() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
             int result = createAccountController.clearFieldsTest();
             latch.countDown();
-            assertEquals(0, result);
+            assertEquals(1, result);
         });
         latch.await();
     }

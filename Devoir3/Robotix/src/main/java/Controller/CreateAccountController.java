@@ -68,7 +68,7 @@ public class CreateAccountController {
     @FXML
     private boolean handleClientCreateAccount(){
         boolean problem = true;
-        System.out.println(problem);
+
         List<Client> clients = loadClients();
         if (clients == null) {
             clients = new ArrayList<>();
@@ -77,7 +77,6 @@ public class CreateAccountController {
         String dateRegex = "\\d{3}-\\d{3}-\\d{4}";
         if (!newPhoneNumber.matches(dateRegex)) {
             displayMessage("Phone number not valid", clientForm);
-
             problem = false;
         }
 
@@ -404,7 +403,6 @@ public class CreateAccountController {
 
     //TESTS FUNCTIONS
 
-
     public boolean handleClientCreateAccountTest(String firstName, String lastName, String username, String password,
                                                 String email, String companyName,String phoneNumber){
 
@@ -417,26 +415,7 @@ public class CreateAccountController {
         clientCompanyNameField.setText(companyName);
         clientPhoneNumberField.setText(phoneNumber);
 
-        boolean test = handleClientCreateAccount();
-
-        if (test) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
-
-                Client[] Clients = gson.fromJson(reader, Client[].class);
-                List<Client> clientList = new ArrayList<>(Arrays.asList(Clients));
-                clientList.removeLast();
-                try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
-                    gson.toJson(clientList, writer);
-                }
-            } catch (IOException ec) {
-                ec.printStackTrace();
-            }
-        }
-
-        return test;
-
-
+        return handleClientCreateAccount();
     }
 
     public int clearFieldsTest(){

@@ -8,7 +8,6 @@ import com.google.gson.reflect.TypeToken;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -17,7 +16,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -86,7 +84,6 @@ public class ActivityController {
 
             VBox everything = new VBox(10);
             Activity activity = client.getMyActivities().get(i);
-            //VBox activityAndModify = new VBox(1);
             Label newActivity = new Label("Activity " + activity.getName());
             newActivity.getStyleClass().add("label-activity");
             TextArea newTask = new TextArea();
@@ -95,10 +92,7 @@ public class ActivityController {
             newTask.setVisible(false);
             newTask.setPrefHeight(10);
             newTask.setMaxWidth(550);
-
             List<Integer> confirmPlaces = new ArrayList<Integer>();
-            //activityAndModify.getChildren().addAll(newActivity, newTask);
-
 
             HBox buttonBox = new HBox(5);
 
@@ -107,7 +101,6 @@ public class ActivityController {
             buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index, numbersRemoved)));
 
             buttonRemove.getStyleClass().add("buttons");
-            //DisplayActivities.getChildren().add(buttonRemove);
 
             Button buttonAddTask = new Button("Add Task");
             buttonAddTask.setVisible(false);
@@ -216,7 +209,6 @@ public class ActivityController {
 
             int newI = k;
             activityPlace.incrementAndGet();
-            int n = activityPlace.get();
 
             if (client.getMyActivities().get(k).getName().equals(modifyText)) {
 
@@ -299,7 +291,6 @@ public class ActivityController {
 
 
                 }));
-                String tasks = "";
                 newTask.setVisible(true);
                 newTask.setManaged(true);
                 buttonBox.getChildren().add(buttonConfirm);
