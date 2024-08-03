@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+
+<?import javafx.scene.layout.StackPane?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="Controller.LoginController"
+           styleClass="stackPane">
+
+  <StackPane fx:id="clientLogin" >
+  <VBox alignment="CENTER" spacing="20.0" styleClass="loginVbox">
+
+    <HBox styleClass="loginHbox">
+    <VBox styleClass="textfield">
+
+
+      <Label text="Welcome to Robotix Client" style="-fx-font-size: 24px;"/>
+      <Pane prefHeight="24"/>
+      <HBox HBox.hgrow="ALWAYS" alignment="TOP_RIGHT">
+        <Button text="Pre-configured Database" onAction="#showInfoPopup" styleClass="customButton" style="-fx-font-size: 14"/>
+        <Pane prefWidth="20"/>
+        <Button text="Change Date" onAction="#changeDate" styleClass="customButton" style="-fx-font-size: 14"/>
+      </HBox>
+      <Label fx:id="messageLabel1" styleClass="green"/>
+      <Label fx:id="messageLabel2" styleClass="red"/>
+
+      <Label text="Email"/>
+      <TextField fx:id="emailFieldClient" maxWidth="300" prefHeight="30"/>
+
+      <Label text="Password"/>
+      <PasswordField fx:id="passwordFieldClient" maxWidth="300" prefHeight="30"/>
+
+      <HBox>
+        <Hyperlink text="Create New Account" onAction="#handleCreateAccount"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Login" onAction="#clientLogin" styleClass="customButton"/>
+      </HBox>
+
+      <HBox>
+        <ChoiceBox fx:id="clientLoginChoice" onAction="#clientSwitchForm" styleClass="choiceBox" value="Client">
+          <items>
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Client" />
+              <String fx:value="Supplier" />
+            </FXCollections>
+          </items>
+        </ChoiceBox>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Label fx:id="errorMessage" styleClass="red"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+
+      </HBox>
+
+    </VBox>
+    </HBox>
+  </VBox>
+  </StackPane>
+
+  <StackPane fx:id="supplierLogin" visible="false">
+    <VBox alignment="CENTER" spacing="20.0" styleClass="loginVbox">
+      <HBox styleClass="loginHbox">
+        <VBox styleClass="textfield">
+
+          <Label text="Welcome to Robotix Supplier" style="-fx-font-size: 24px;"/>
+          <Pane prefHeight="24"/>
+          <HBox HBox.hgrow="ALWAYS" alignment="TOP_RIGHT">
+            <Button text="Pre-configured Database" onAction="#showInfoPopup" styleClass="customButton" style="-fx-font-size: 14"/>
+            <Pane prefWidth="20"/>
+            <Button text="Change Date" onAction="#changeDate" styleClass="customButton" style="-fx-font-size: 14"/>
+          </HBox>
+          <Label fx:id="messageLabel3" styleClass="green"/>
+          <Label fx:id="messageLabel4" styleClass="red"/>
+
+
+          <Label text="Email"/>
+          <TextField fx:id="emailFieldSupplier" maxWidth="300" prefHeight="30"/>
+
+          <Label text="Password"/>
+          <PasswordField fx:id="passwordFieldSupplier" maxWidth="300" prefHeight="30"/>
+
+          <HBox>
+            <Hyperlink text="Create New Account" onAction="#handleCreateAccount"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button text="Login" onAction="#supplierLogin" styleClass="customButton"/>
+          </HBox>
+          <HBox>
+            <ChoiceBox fx:id="supplierLoginChoice" onAction="#supplierSwitchForm" styleClass="choiceBox" value="Supplier">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Client" />
+                  <String fx:value="Supplier" />
+                </FXCollections>
+              </items>
+            </ChoiceBox>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Label fx:id="errorMessageSupplier" styleClass="red"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+          </HBox>
+        </VBox>
+      </HBox>
+    </VBox>
+  </StackPane>
+</StackPane>
+
+

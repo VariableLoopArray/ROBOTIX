@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+
+           fx:controller="Controller.HomepageController"
+           stylesheets="@../../classes/CssFiles/Homepage.css"
+           fx:id="clientPane">
+
+    <ImageView fitWidth="1920" fitHeight="1080" opacity="0.5">
+        <Image url="@../Images/HomepageBackground.jpg"/>
+    </ImageView>
+    <VBox alignment="CENTER">
+        <HBox alignment="CENTER">
+
+            <HBox>
+                <VBox styleClass="menuVbox">
+                    <HBox fx:id="menuProfile">
+                        <Button onAction="#goToMyProfile" styleClass="myProfileButton" minHeight="147">
+                            <graphic>
+                                <ImageView fitHeight="90" fitWidth="90">
+                                    <Image url="@../Images/DefaultProfile.png"/>
+                                </ImageView>
+                            </graphic>
+
+                        </Button>
+                    </HBox>
+                    <Button text="Activity Menu" fx:id="activityMenu" onAction="#goToMyActivity" styleClass="sideMenuButton"/>
+                    <Button text="Robot Menu" fx:id="robotMenu" onAction="#gotoRobot" styleClass="sideMenuButton"/>
+                    <Button text="My Components" fx:id="componentMenu" onAction="#goToMyComponent" styleClass="sideMenuButton"/>
+                    <Button text="Shop" fx:id="shopMenu" onAction="#goToShop" styleClass="sideMenuButton"/>
+                    <Button text="Notification" fx:id="notificationMenu" onAction="#goToNotification" styleClass="sideMenuButton"/>
+                    <Button text="Logout" onAction="#Logout" styleClass="sideMenuButton"/>
+
+                </VBox>
+                <VBox alignment="CENTER">
+                    <HBox styleClass="menuTitle" alignment="CENTER">
+                        <VBox>
+                            <Pane prefHeight="15"/>
+                            <Label text="Welcome to Robotix"/>
+                        </VBox>
+                    </HBox>
+                    <ScrollPane styleClass="scrollPane" fitToWidth="true" fitToHeight="true">
+
+                        <FlowPane hgap="10" vgap="10" styleClass="flowPane" fx:id="robotixActivities">
+<!--                            <VBox styleClass="vboxContainer">-->
+<!--                                <ImageView fx:id="imageView1"/>-->
+<!--                                <HBox>-->
+<!--                                    <VBox>-->
+<!--                                        <Label text="StartDate :"/>-->
+<!--                                        <Label text="EndDate :"/>-->
+<!--                                        <Label text="Location :"/>-->
+<!--                                        <Label text="Robot needed :"/>-->
+<!--                                    </VBox>-->
+<!--                                    <Pane HBox.hgrow="ALWAYS"/>-->
+<!--                                    <Button text="Join"/>-->
+<!--                                </HBox>-->
+<!--                            </VBox>-->
+                        </FlowPane>
+                    </ScrollPane>
+                </VBox>
+            </HBox>
+        </HBox>
+    </VBox>
+</StackPane>

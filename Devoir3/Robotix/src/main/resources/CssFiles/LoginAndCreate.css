@@ -1,0 +1,82 @@
+
+.stackPane {
+    -fx-background-image: url('../Images/LoginBackground.jpg');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+}
+
+.loginVbox {
+    -fx-alignment: center;
+    -fx-background-color: rgba(200, 230, 255, 0.8);
+}
+.loginHbox{
+    -fx-alignment: center;
+}
+.textfield{
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-padding: 50px;
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 20px;
+}
+.createAccountPage{
+    -fx-background-image: url('../Images/LoginBackground.jpg');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+
+}
+.createAccountVbox{
+    -fx-background-color: rgb(200, 230, 255, 0.8);
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-padding: 50px;
+}
+.createAccountHbox{
+    -fx-alignment: center;
+}
+.customButton {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-background-radius: 5px;
+}
+.centering{
+    -fx-alignment: center;
+    -fx-pref-width: inherit;
+}
+.green{
+    -fx-text-fill: #4CAF50;
+}
+.red{
+    -fx-text-fill: #f44336;
+}
+.choiceBox{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10px;
+    -fx-border-color: #007bff;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+}
+.choiceBox .arrow {
+    -fx-background-color: #007bff;
+    -fx-background-radius: 5px;
+}
+
+.choiceBox .choice-box-popup .list-cell {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #007bff;
+    -fx-border-width: 1px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-font-family: "Arial";
+}
+.choiceBox .choice-box-popup .list-cell:hover {
+    -fx-background-color: #007bff;
+    -fx-text-fill: #ffffff;
+}
+.choiceBox.choice-box-popup .list-cell:selected {
+    -fx-background-color: #007bff;
+    -fx-text-fill: #ffffff;
+}

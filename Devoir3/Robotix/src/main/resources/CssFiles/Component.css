@@ -1,0 +1,75 @@
+
+.menuVbox{
+    -fx-pref-width: 240;
+    -fx-pref-height: 768;
+    -fx-background-color: #f0f0f0;
+}
+
+
+
+#componentWelcome{
+    -fx-font-family: Georgia;
+    -fx-font-size: 35;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f1e50; /*  Welcome to my robot! */
+}
+
+.sideMenuButton{
+
+    -fx-pref-width: 240px;
+    -fx-pref-height: 100px;
+    -fx-font-family: Georgia;
+    -fx-font-size: 26;
+    -fx-border-width: 3px;
+    -fx-border-color: #8ea9f6;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
+}
+.sideMenuButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
+}
+.componentBox{
+    -fx-padding: 10;
+    -fx-alignment: center;
+    -fx-min-width: 210;
+    -fx-min-height: 100;
+    -fx-background-color: #f0f0f0;
+    -fx-text-fill: black;
+    -fx-border-color: royalblue;
+    -fx-border-width: 2;
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-font-size: 20;
+}
+.componentSpecs{
+    -fx-alignment: center;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+}
+.componentButtons{
+    -fx-alignment: center;
+    -fx-font-size: 16;
+    -fx-text-fill: black;
+
+}
+.scrollPane{
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+}
+.flowPane{
+    -fx-background-color: #f0f0f0;
+    -fx-border-color: transparent;
+    -fx-alignment: center;
+}
+.customButton{
+    -fx-pref-width: 300;
+    -fx-pref-height: 20;
+    -fx-font-size: 16;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+}

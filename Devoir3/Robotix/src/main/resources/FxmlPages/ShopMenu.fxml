@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="Controller.ShopController"
+           stylesheets="@../../classes/CssFiles/Shop.css">
+    <HBox HBox.hgrow="ALWAYS">
+
+        <VBox styleClass="menuVbox">
+            <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
+        </VBox>
+
+        <VBox alignment="TOP_CENTER">
+            <Pane prefHeight="40"/>
+            <Label fx:id="shopWelcome" text="Welcome to Robotix Shop" styleClass="title"/>
+            <HBox VBox.vgrow="ALWAYS">
+                <Pane prefWidth="50"/>
+                <VBox styleClass="filtersVbox" spacing="20" VBox.vgrow="ALWAYS">
+                    <Pane prefHeight="50"/>
+                    <Label text="Filters" styleClass="filtersLabel"/>
+                    <CheckBox text="Cheap (less than 10$)" fx:id="filter1" />
+                    <CheckBox text="Affordable (less than 50$)" fx:id="filter2"/>
+                    <CheckBox text="Expensive (more than 50$)" fx:id="filter3"/>
+                    <CheckBox text="Any price" fx:id="filter4"/>
+                    <CheckBox text="small (less than 50cm³)" fx:id="filter5"/>
+                    <CheckBox text="Medium (less than 100cm³)" fx:id="filter6"/>
+                    <CheckBox text="large (more than 100cm³)" fx:id="filter7"/>
+                    <CheckBox text="Any size" fx:id="filter8"/>
+                    <Label text="Specific Types"/>
+                    <TextField fx:id="filter9" prefWidth="300" promptText='Enter types separated by ","'/>
+                    <Label text="Specific Supplier"/>
+                    <TextField fx:id="filter10" prefWidth="300" promptText='Enter suppliers usernames seperated by ","'/>
+                    <Button text="Apply Filters" onAction="#applyFilters" styleClass="customButton" />
+                </VBox>
+
+                <Pane prefWidth="50"/>
+
+                <VBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" alignment="CENTER">
+                    <Label fx:id="thankYouMessage" style="-fx-text-fill:#4CAF50" alignment="CENTER"/>
+                    <ScrollPane fitToWidth="true" fitToHeight="true" minHeight="600" minWidth="400">
+                        <FlowPane fx:id="productsFlowPane" hgap="20" vgap="20">
+                        </FlowPane>
+                    </ScrollPane>
+                </VBox>
+
+                <Pane prefWidth="50"/>
+            </HBox>
+        </VBox>
+    </HBox>
+</StackPane>
