@@ -3,35 +3,6 @@
     "fleet": [],
     "myActivities": [
       {
-        "name": "3",
-        "startDate": {
-          "year": 2024,
-          "month": 4,
-          "day": 5
-        },
-        "endDate": {
-          "year": 2025,
-          "month": 4,
-          "day": 5
-        },
-        "points": "100",
-        "Interests": [
-          "Sports and Fitness"
-        ],
-        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
-        "tasks": [
-          {
-            "name": "12",
-            "Instructions": [
-              "1000"
-            ]
-          }
-        ],
-        "activityId": "c6b9561b-39a2-4246-bd31-0540f2356142",
-        "description": "12",
-        "status": "In Progress"
-      },
-      {
         "name": "1",
         "startDate": {
           "year": 2024,
@@ -52,7 +23,7 @@
           {
             "name": "1",
             "Instructions": [
-              "10"
+              "1"
             ]
           }
         ],

@@ -42,7 +42,7 @@
                     <HBox styleClass="menuTitle" alignment="CENTER">
                         <VBox>
                             <Pane prefHeight="15"/>
-                            <Label text="Welcome to Robotix" style="-fx-font-size: 30px;"/>
+                            <Label text="Welcome to Robotix"/>
                         </VBox>
                     </HBox>
                     <ScrollPane styleClass="scrollPane" fitToWidth="true" fitToHeight="true">

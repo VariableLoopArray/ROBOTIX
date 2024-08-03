@@ -1,6 +1,4 @@
-.title{
-    -fx-font-size: 24;
-}
+
 .menuVbox{
     -fx-pref-width: 240;
     -fx-pref-height: 768;
@@ -11,7 +9,7 @@
 
 #componentWelcome{
     -fx-font-family: Georgia;
-    -fx-font-size: 40;
+    -fx-font-size: 35;
     -fx-font-weight: bold;
     -fx-text-fill: #0f1e50; /*  Welcome to my robot! */
 }
@@ -29,6 +27,10 @@
     -fx-alignment: center;
     -fx-text-fill: black;
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
+}
+.sideMenuButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
 }
 .componentBox{
     -fx-padding: 10;

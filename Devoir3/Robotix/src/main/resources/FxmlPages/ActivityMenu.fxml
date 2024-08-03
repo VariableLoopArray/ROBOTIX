@@ -26,12 +26,12 @@
            stylesheets="@../../classes/CssFiles/Activity.css">
 
     <ScrollPane>
-    <HBox>
+    <HBox HBox.hgrow="ALWAYS">
         <VBox styleClass="menuVbox">
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
         </VBox>
         <Pane prefWidth="50"/>
-        <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+        <VBox alignment="CENTER">
             <Pane prefHeight="40"/>
                 <Label fx:id="activityWelcome" styleClass="title"/>
             <Pane prefHeight="60" HBox.hgrow="ALWAYS"/>

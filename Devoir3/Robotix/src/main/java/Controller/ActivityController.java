@@ -54,10 +54,6 @@ public class ActivityController {
     @FXML
     Client client;
     @FXML
-//    public void initialize() {
-//        System.out.println("ActivityController initialized: " + (activityWelcome != null));
-//    }
-
     public void displayMessage(String message, boolean isError) {
         if (!isError) {
             activityWelcome.setText(message);
@@ -79,15 +75,11 @@ public class ActivityController {
         catch (IOException e){
             e.printStackTrace();
         }
-        System.out.println(client.getNotifications());
         displayMessage("Welcome to your activities !", false);
     }
 
     public void displayActivities(Client client){
-        System.out.println(client.getNotifications());
         DisplayActivities.setSpacing(10);
-//        Button buttonAdd = new Button("Add");
-//        DisplayActivities.getChildren().add(buttonAdd);
         AtomicInteger numberOfActivity = new AtomicInteger();
         ArrayList<Integer> numbersRemoved = new ArrayList<Integer>();
         for (int i = 0; i < client.getMyActivities().size(); i++) {
@@ -134,15 +126,9 @@ public class ActivityController {
             description.getStyleClass().add("label-description");
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonAddTask);
             everything.getChildren().addAll(newActivity, buttonBox, description);
-            System.out.println(client.getNotifications());
             DisplayActivities.getChildren().add(everything);
 
-
-            //DisplayActivities.getChildren().add(buttonBox);
         }
-//        if (client.getMyActivities().size() == 0 && client.getMyActivities() != null){
-//            noActivityList.setText("You have no activities");
-//        }
 
     }
 
@@ -151,11 +137,6 @@ public class ActivityController {
 
 
         for (int e = 0; e < confirmPlaces.size(); e ++){
-
-//                for (Node child : everything.getChildren()){
-//                    System.out.println("this is confirm place " + child.getClass().getSimpleName());
-//                }
-//                System.out.println("---\n");
 
                 TextArea newInstructions = (TextArea) everything.getChildren().get(confirmPlaces.get(e));
                 TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e)-1);
@@ -211,9 +192,6 @@ public class ActivityController {
 
 
         buttonAddTask.setVisible(false);
-//        for (Node button : buttonBox.getChildren()){
-//            System.out.println(button.getClass().getSimpleName());
-//        }
         buttonBox.getChildren().remove(buttonConfirm);
 
 
@@ -268,15 +246,10 @@ public class ActivityController {
                         int captureInde = indexe[0];
                         int removed = 0;
                         for (int number : removedNumbers){
-                            System.out.println("this is number " + number);
-                            System.out.println("this is captured Inde " + captureInde);
                             if (captureInde > number){
                                 removed++;
                             }
                         }
-
-                        System.out.println("this is removed " + removed + " it should be 0");
-                        System.out.println("this is captureInde " + captureInde + " it should be 0");
 
 
 
@@ -344,8 +317,6 @@ public class ActivityController {
                     buttonRemoveTask.getStyleClass().add("button");
                     everything.getChildren().add(buttonRemoveTask);
                     int removeTaskPlace = everything.getChildren().size()-1;
-
-                    System.out.println("---\n");
                     removeList.add(removeTaskPlace);
 
 
@@ -356,15 +327,10 @@ public class ActivityController {
 
                         int removed = 0;
                         for (int number : removedNumbers){
-                            System.out.println("this is number " + number);
-                            System.out.println("this is captured Inde " + captureInde);
                             if (captureInde > number){
                                 removed++;
                             }
                         }
-
-                        System.out.println("this is removed " + removed + " it should be 0");
-                        System.out.println("this is captureInde " + captureInde + " it should be 0");
 
                         client.getMyActivities().get(newI).getTasks().removeLast();
 

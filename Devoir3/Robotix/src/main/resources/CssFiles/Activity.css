@@ -1,6 +1,4 @@
-.title{
-    -fx-font-size: 24;
-}
+
 .activities{
     -fx-font-size: 20;
 }
@@ -24,7 +22,10 @@
     -fx-text-fill: black;
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
 }
-
+.sideMenuButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
+}
 .textarea{
     -fx-border-width: 2;
 }
@@ -51,6 +52,7 @@
     -fx-font-family: Georgia;
     -fx-font-size: 20;
     -fx-text-fill: #24273d;
+    -fx-font-family: Georgia;
 }
 
 #activityWelcome {
@@ -74,12 +76,12 @@
     -fx-border-radius: 20px;
     -fx-background-radius: 22px;
     -fx-border-width: 3px;
-    -fx-border-color: #514660;
+    -fx-border-color: #8ea9f6;
     -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
     -fx-margin: 20px;
     -fx-alignment: center;
-    -fx-text-fill: #351C75;
-    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8E7CC3);
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
 }
 
 #create:hover,#Creer:hover{
@@ -88,9 +90,8 @@
     -fx-border-radius: 20px;
     -fx-background-radius: 22px;
     -fx-border-width: 3px;
-    -fx-text-fill: #470045;
-    -fx-background-color: #c5b4dc;
-    -fx-border-color: #514660;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
     -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
     -fx-margin: 20px;
     -fx-alignment: center;

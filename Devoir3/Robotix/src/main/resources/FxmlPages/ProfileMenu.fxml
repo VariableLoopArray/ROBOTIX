@@ -21,7 +21,7 @@
         <Pane prefWidth="40"/>
         <VBox alignment="TOP_CENTER">
             <Pane prefHeight="40"/>
-                <Label text="Profile Menu" style="-fx-font-size: 24px" alignment="CENTER"/>
+                <Label text="Profile Menu" styleClass="title" alignment="CENTER"/>
             <Pane prefHeight="60"/>
             <HBox alignment="CENTER">
                 <VBox>
