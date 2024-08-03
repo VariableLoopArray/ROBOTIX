@@ -57,14 +57,28 @@ public class ShopController {
     @FXML
     private Client client;
     public void setUserShop(Client client) {
-        this.client = client;
-        shopWelcome.setText("Welcome to the Robotix shop ");
+        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+            Gson gson = new GsonBuilder().create();
+            List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
+            for (Client client1 : clients) {
+                if (client1.getId().equals(client.getId())) {
+                    this.client = client1;
+                    break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        shopWelcome.setText("Welcome to the Robotix shop !");
     }
     public void displayALlComponents() {
         productsFlowPane.getChildren().clear();
         try(Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
              Gson gson = new GsonBuilder().create();
              Supplier[] suppliers = gson.fromJson(reader, Supplier[].class);
+             if (suppliers == null) {
+                 return;
+             }
              for (Supplier supplier : suppliers) {
                  if (supplier.getStorage() == null) {
                      continue;
@@ -111,6 +125,7 @@ public class ShopController {
                              for (Supplier supplier1 : suppliers1) {
                                  if (supplier1.getId().equals(component.getSupplierID())) {
                                      supplier1.setStorage(supplier1.getStorage());
+                                     supplier.getNotifications().add("Your component " + component.getName() + " has been bought by " + client.getUsername() +"!");
                                  }
                              }
                          } catch (Exception e1) {
@@ -165,6 +180,9 @@ public class ShopController {
             Gson gson = new GsonBuilder().create();
             Supplier[] suppliers = gson.fromJson(reader, Supplier[].class);
             ArrayList<Component> toBePrinted = new ArrayList<>();
+            if (suppliers == null) {
+                return;
+            }
             boolean noFiltersSelected = !filter1.isSelected()
                     && !filter2.isSelected()
                     && !filter3.isSelected()
@@ -203,9 +221,9 @@ public class ShopController {
                     if (!filter9.getText().isEmpty()) {
                         try {
 
-                            String[] tags = filter9.getText().replace(" ", "").split(",");
-                            for (String tag : tags) {
-                                if (component.getTag().contains(tag)) {
+                            String[] types = filter9.getText().replace(" ", "").split(",");
+                            for (String type : types) {
+                                if (component.getType().contains(type)) {
                                     addComponent = true;
                                     break;
                                 }
@@ -273,6 +291,7 @@ public class ShopController {
                     for (Supplier supplier : suppliers) {
                         if (supplier.getId().equals(component.getSupplierID())) {
                             supplier.getStorage().remove(component);
+                            supplier.getNotifications().add("Your component " + component.getName() + " has been bought by " + client.getUsername() +"!");
                         }
                     }
                     try(Reader reader1 = new FileReader("src/main/JsonFiles/supplier.json")) {

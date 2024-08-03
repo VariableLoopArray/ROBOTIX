@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,8 +48,9 @@ public class ActivityController {
     @FXML
     private Label successLabel;
     @FXML
+    private Label errorLabel;
+    @FXML
     private TextField activityDescription;
-
     @FXML
     Client client;
     @FXML
@@ -63,11 +66,25 @@ public class ActivityController {
         }
     }
     public void setUserActivity(Client client){
-        this.client = client;
-        displayMessage("Welcome to your activities!", false);
+        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+            Gson gson = new Gson();
+            Client [] Clients = gson.fromJson(reader, Client[].class);
+            for (int i = 0; i < Clients.length; i++){
+                if (Clients[i].getId().equals(client.getId())){
+                    this.client = Clients[i];
+                    break;
+                }
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        System.out.println(client.getNotifications());
+        displayMessage("Welcome to your activities !", false);
     }
 
     public void displayActivities(Client client){
+        System.out.println(client.getNotifications());
         DisplayActivities.setSpacing(10);
 //        Button buttonAdd = new Button("Add");
 //        DisplayActivities.getChildren().add(buttonAdd);
@@ -113,12 +130,10 @@ public class ActivityController {
 
             Label description = new Label("Description : " + activity.getDescription());
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonAddTask);
-
             everything.getChildren().addAll(newActivity, buttonBox, description);
-
-
+            System.out.println(client.getNotifications());
             DisplayActivities.getChildren().add(everything);
-            activityGrid.setVisible(false);
+
 
             //DisplayActivities.getChildren().add(buttonBox);
         }
@@ -131,13 +146,13 @@ public class ActivityController {
     private void buttonConfirm(Button buttonConfirm, VBox everything, int activityPlace, List<Integer> confirmPlaces,
                                Button buttonAddTask, HBox buttonBox) {
 
-        System.out.println("this is confirmplace after removing everything " + confirmPlaces.toString());
+
         for (int e = 0; e < confirmPlaces.size(); e ++){
 
-                for (Node child : everything.getChildren()){
-                    System.out.println("this is confirm place " + child.getClass().getSimpleName());
-                }
-                System.out.println("---\n");
+//                for (Node child : everything.getChildren()){
+//                    System.out.println("this is confirm place " + child.getClass().getSimpleName());
+//                }
+//                System.out.println("---\n");
 
                 TextArea newInstructions = (TextArea) everything.getChildren().get(confirmPlaces.get(e));
                 TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e)-1);
@@ -189,7 +204,6 @@ public class ActivityController {
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
         try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
 
             Client [] Clients = gson.fromJson(reader, Client[].class);
@@ -232,63 +246,106 @@ public class ActivityController {
         buttonConfirm.getStyleClass().add("buttons");
 
         buttonAddTask.setVisible(true);
-        for (Activity modifyNode : client.getMyActivities()) {
+        for (int k = 0; k < client.getMyActivities().size(); k++) {
 
+            int newI = k;
             activityPlace.incrementAndGet();
             int n = activityPlace.get();
-            if (modifyNode.getName().equals(modifyText)) {
+
+            if (client.getMyActivities().get(k).getName().equals(modifyText)) {
 
 
+                ArrayList<Integer> removeList = new ArrayList<Integer>();
+
+                int[] indexe = {-1};
+                ArrayList<Integer> removedNumbers = new ArrayList<Integer>(); 
+                int[] removeds = {-1};
 
 
                 buttonAddTask.setOnAction((actionEvent -> {
 
 
-                    modifyNode.getTasks().add(new Task("new task", new ArrayList<String>()));
+                    client.getMyActivities().get(newI).getTasks().add(new Task("new task", new ArrayList<String>()));
                     Button buttonRemoveTask = new Button("Remove Task");
                     buttonRemoveTask.getStyleClass().add("button");
                     everything.getChildren().add(buttonRemoveTask);
                     int removeTaskPlace = everything.getChildren().size()-1;
+                    removeList.add(removeTaskPlace);
 
 
-                    for (Node child : everything.getChildren()){
-                        System.out.println("this is before " + child.getClass().getSimpleName());
-                    }
-                    System.out.println("---\n");
+//                    for (Node child : everything.getChildren()){
+//                        System.out.println("this is before " + child.getClass().getSimpleName());
+//                    }
+//                    System.out.println("---\n");
                     buttonRemoveTask.setOnAction(event -> {
 
-                        System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
-
-                        for (int e = 0; e < confirmPlaces.size(); e ++){
-                            System.out.println("this is remove task before " + confirmPlaces.get(e));
+                        removeds[0]++;
+                        int removed = 0;
+                        int captureInde = indexe[0];
+                        for (int number : removedNumbers){
+                            System.out.println("this is number " + number);
+                            System.out.println("this is captured Inde " + captureInde);
+                            if (captureInde > number){
+                                removed++;
+                            }
                         }
-                        System.out.println("this is removeplace " + removeTaskPlace);
-                        modifyNode.getTasks().removeLast();
+
+
+//                        System.out.println("this is removelist before " + removeList.toString());
+
+                        indexe[0]++;
+                        removedNumbers.add(captureInde);
+                        
+//                        System.out.println("this is the value of inde " + (captureInde - removed));
+//                        System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
+
+//                        for (int e = 0; e < confirmPlaces.size(); e ++){
+//                            System.out.println("this is remove task before " + confirmPlaces.get(e));
+//                        }
+//                        System.out.println("this is removeplace " + removeList.get(captureInde - removed));
+                        client.getMyActivities().get(newI).getTasks().removeLast();
+
                         for (int i = 0; i < 3; i++){
-                            everything.getChildren().remove(removeTaskPlace);
+//                            if ((int) removeList.get(indexe[0]) < everything.getChildren().size()) {
+//                                everything.getChildren().remove((int) removeList.get(indexe[0]));
+//                            }
+                            everything.getChildren().remove((int) removeList.get(captureInde - removed));
+                            //System.out.println("removelist.getinde is " + removeList.get(captureInde - removed));
                         }
 
-                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
-                            if (confirmPlaces.get(i) < removeTaskPlace){
-                                confirmPlaces.remove(confirmPlaces.get(i));
-                            }
-                        }
+                        confirmPlaces.remove(Integer.valueOf(removeList.get(captureInde - removed) + 2));
+//                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
+//                            if (confirmPlaces.get(i) < removeList.get(indexe[0])){
+//                                confirmPlaces.remove(confirmPlaces.get(i));
+//                            }
+//                        }
+
                         for (int j = 0; j < confirmPlaces.size(); j++){
-                            System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
-                                    " task "+ removeTaskPlace + " did it enter or not " + (confirmPlaces.get(j) > removeTaskPlace + 1));
-                            if (confirmPlaces.get(j) > removeTaskPlace + 1){
+                            //System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
+                                    //" task "+ removeList.get(captureInde - removed) + " did it enter or not " + (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1));
+                            if (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1){
                                 confirmPlaces.set(j, confirmPlaces.get(j) - 3);
-                                System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
+                                //System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
                             }
                         }
-                        for (Node child : everything.getChildren()){
-                            System.out.println("this is after " + child.getClass().getSimpleName());
-                        }
 
-                        for (int e = 0; e < confirmPlaces.size(); e ++){
-                            System.out.println("this is remove task after " + confirmPlaces.get(e));
+//                        for (Node child : everything.getChildren()){
+//                            System.out.println("this is after " + child.getClass().getSimpleName());
+//                        }
+
+//                        for (int e = 0; e < confirmPlaces.size(); e ++){
+//                            System.out.println("this is remove task after " + confirmPlaces.get(e));
+//                        }
+//                        System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
+
+                        for (int i = 0; i < removeList.size(); i++){
+                            if (removeList.get(i) > removeList.get(captureInde - removed)){
+                                removeList.set(i, removeList.get(i) - 3);
+                            }
                         }
-                        System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
+                        removeList.remove(removeList.get(captureInde - removed));
+
+                        //System.out.println("this is removelist after " + removeList.toString());
                     });
 
 
@@ -307,6 +364,7 @@ public class ActivityController {
 
 
 
+
                 }));
                 String tasks = "";
                 newTask.setVisible(true);
@@ -316,54 +374,99 @@ public class ActivityController {
 
 
 
-                for(Task task : modifyNode.getTasks()){
+
+                for(Task task : client.getMyActivities().get(k).getTasks()){
 //                    for (Node child : everything.getChildren()){
 //                        System.out.println(child.getClass().getSimpleName());
 //                    }
+                    indexe[0]++;
 
+                    int captureInde = indexe[0];
                     Button buttonRemoveTask = new Button("Remove Task");
                     buttonRemoveTask.getStyleClass().add("button");
                     everything.getChildren().add(buttonRemoveTask);
                     int removeTaskPlace = everything.getChildren().size()-1;
 
-
-                    for (Node child : everything.getChildren()){
-                        System.out.println("this is before " + child.getClass().getSimpleName());
-                    }
                     System.out.println("---\n");
-                    buttonRemoveTask.setOnAction(actionEvent -> {
+                    removeList.add(removeTaskPlace);
 
-                        for (int e = 0; e < confirmPlaces.size(); e ++){
-                            System.out.println("this is remove task before " + confirmPlaces.get(e));
+
+
+//                    for (Node child : everything.getChildren()){
+//                        System.out.println("this is before " + child.getClass().getSimpleName());
+//                    }
+
+                    buttonRemoveTask.setOnAction(event -> {
+                        removeds[0]++;
+                        removedNumbers.add(captureInde);
+
+                        int removed = 0;
+                        for (int number : removedNumbers){
+                            System.out.println("this is number " + number);
+                            System.out.println("this is captured Inde " + captureInde);
+                            if (captureInde > number){
+                                removed++;
+                            }
                         }
-                        System.out.println("this is removeplace " + removeTaskPlace);
-                        modifyNode.getTasks().remove(task);
+
+
+//                        System.out.println("this is removelist before " + removeList.toString());
+//
+//
+//                        System.out.println("this is the value of inde " + (captureInde - removed));
+//
+//                        System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
+//
+//                        for (int e = 0; e < confirmPlaces.size(); e ++){
+//                            System.out.println("this is remove task before " + confirmPlaces.get(e));
+//                        }
+                        //System.out.println("this is removeplace " + removeList.get(captureInde - removed));
+                        client.getMyActivities().get(newI).getTasks().removeLast();
+
                         for (int i = 0; i < 3; i++){
-                            everything.getChildren().remove(removeTaskPlace);
+//                            if ((int) removeList.get(indexe[0]) < everything.getChildren().size()) {
+//                                everything.getChildren().remove((int) removeList.get(indexe[0]));
+//                            }
+                            //System.out.println("removelist.getinde is " + removeList.get(captureInde - removed));
+
+                            everything.getChildren().remove((int) removeList.get(captureInde - removed));
                         }
 
-                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
-                            if (confirmPlaces.get(i) < removeTaskPlace){
-                                confirmPlaces.remove(confirmPlaces.get(i));
-                            }
-                        }
+                        confirmPlaces.remove(Integer.valueOf(removeList.get(captureInde - removed) + 2));
+//                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
+//                            if (confirmPlaces.get(i) < removeList.get(indexe[0])){
+//                                confirmPlaces.remove(confirmPlaces.get(i));
+//                            }
+//                        }
+
                         for (int j = 0; j < confirmPlaces.size(); j++){
-                            System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
-                                    " task "+ removeTaskPlace + " did it enter or not " + (confirmPlaces.get(j) > removeTaskPlace + 2));
-                            if (confirmPlaces.get(j) > removeTaskPlace + 1){
+                            //System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
+                                    //" task "+ removeList.get(captureInde - removed) + " did it enter or not " + (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1));
+                            if (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1){
                                 confirmPlaces.set(j, confirmPlaces.get(j) - 3);
-                                System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
+                                //System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
                             }
                         }
-                        for (Node child : everything.getChildren()){
-                            System.out.println("this is after " + child.getClass().getSimpleName());
-                        }
 
-                        for (int e = 0; e < confirmPlaces.size(); e ++){
-                            System.out.println("this is remove task after " + confirmPlaces.get(e));
+//                        for (Node child : everything.getChildren()){
+//                            System.out.println("this is after " + child.getClass().getSimpleName());
+//                        }
+
+//                        for (int e = 0; e < confirmPlaces.size(); e ++){
+//                            System.out.println("this is remove task after " + confirmPlaces.get(e));
+//                        }
+//                        System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
+
+                        for (int i = 0; i < removeList.size(); i++){
+
+                            if (removeList.get(i) > removeList.get(captureInde - removed)){
+                                removeList.set(i, removeList.get(i) - 3);
+                            }
                         }
+                        removeList.remove(removeList.get(captureInde - removed));
+
+                        //System.out.println("this is removelist after " + removeList.toString());
                     });
-
 
                     String instructions = "";
                     TextArea taskNameField = new TextArea("task is " + task.getName());
@@ -453,59 +556,114 @@ public class ActivityController {
             activityGrid.setVisible(true);
         }
         successLabel.setText("");
+        errorLabel.setText("");
     }
     public void createActivity() {
-        ArrayList<String> interests = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            CheckBox interest = (CheckBox) activityGrid.lookup("#Interest" + i);
-            if (interest.isSelected()) {
-                interests.add(interest.getText());
-            }
-        }
-
-        int taskIndex = 0;
-        ArrayList<Task> taskList = new ArrayList<Task>();
-        for (int i = 0; i < Tasks.getChildren().size()/2; i++){
-            String[] instructions = ((TextArea) Tasks.getChildren().get(2*i +1)).getText().split("\n");
-            Task newTask = new Task (((TextArea) Tasks.getChildren().get(2*i)).getText(),
-                    new ArrayList<String>(Arrays.asList(instructions)));
-            if (((TextArea) Tasks.getChildren().get(2*i)).getText().isEmpty()){
-                newTask.setName(((TextArea) Tasks.getChildren().get(2*i)).getPromptText());
+        try {
+            ArrayList<String> interests = new ArrayList<>();
+            for (int i = 1; i <= 10; i++) {
+                CheckBox interest = (CheckBox) activityGrid.lookup("#Interest" + i);
+                if (interest.isSelected()) {
+                    interests.add(interest.getText());
+                }
             }
 
-            if (!((TextArea) Tasks.getChildren().get(2*i + 1)).getText().isEmpty()){
-                taskList.add(newTask);
+            int taskIndex = 0;
+            ArrayList<Task> taskList = new ArrayList<Task>();
+            for (int i = 0; i < Tasks.getChildren().size() / 2; i++) {
+                String[] instructions = ((TextArea) Tasks.getChildren().get(2 * i + 1)).getText().split("\n");
+                Task newTask = new Task(((TextArea) Tasks.getChildren().get(2 * i)).getText(),
+                        new ArrayList<String>(Arrays.asList(instructions)));
+                if (((TextArea) Tasks.getChildren().get(2 * i)).getText().isEmpty()) {
+                    newTask.setName(((TextArea) Tasks.getChildren().get(2 * i)).getPromptText());
+                }
+
+                if (!((TextArea) Tasks.getChildren().get(2 * i + 1)).getText().isEmpty()) {
+                    taskList.add(newTask);
+                }
             }
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate startDate = LocalDate.parse(activityStartDate.getText(), formatter);
+            LocalDate endDate = LocalDate.parse(activityEndDate.getText(), formatter);
+            String status = "No defined status";
+            try(Reader reader = new FileReader("src/main/JsonFiles/currentDate.json")){
+                Gson gson = new Gson();
+                LocalDate currentDate = gson.fromJson(reader, LocalDate.class);
+                if (currentDate == null){
+                    currentDate = LocalDate.now();
+                }
+                if (currentDate.isAfter(startDate) && currentDate.isBefore(endDate)){
+                    status = "In Progress";
+                }
+                else if (currentDate.isBefore(startDate)){
+                    status = "Upcoming";
+                }
+                else if(currentDate.isAfter(endDate)){
+                    status = "Finished";
+                }
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+            Activity newActivity = new Activity(activityName.getText(), null, startDate, endDate,
+                    activityPoints.getText(), interests, client.getId(), UUID.randomUUID(), taskList, activityDescription.getText(),status);
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            List<Activity> activities = new ArrayList<>();
+
+            try (Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
+                Type activityListType = new TypeToken<List<Activity>>() {
+                }.getType();
+                activities = gson.fromJson(reader, activityListType);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (activities == null) {
+                activities = new ArrayList<>();
+            }
+            activities.add(newActivity);
+
+            try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
+                gson.toJson(activities, writer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            List<Client> clients = new ArrayList<>();
+            try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+                Type clientListType = new TypeToken<List<Client>>() {
+                }.getType();
+                clients = gson.fromJson(reader, clientListType);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (clients == null) {
+                clients = new ArrayList<>();
+            }
+            for (Client client : clients) {
+                for (String interest : newActivity.getInterests()) {
+                    if (client.getMyInterests().contains(interest)) {
+                        client.getNotifications().add("A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!" + "\n" + "Name of the activity: " + newActivity.getName());
+                        break;
+                    }
+                }
+            }
+
+            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                gson.toJson(clients, writer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            successLabel.setText("Activity successfully created for Robotix! (Go back to homepage to join activities)");
+            activityGrid.setVisible(false);
+        } catch (Exception e) {
+            errorLabel.setText("Error: Activity could not be created. Please check your inputs.");
+            activityGrid.setVisible(false);
         }
-
-
-        Activity newActivity = new Activity(activityName.getText(), null, activityStartDate.getText(), activityEndDate.getText(),
-                activityPoints.getText(), interests, client.getId(), UUID.randomUUID(),taskList, activityDescription.getText(), "Not Started");
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Activity> activities = new ArrayList<>();
-
-        try (Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
-            Type activityListType = new TypeToken<List<Activity>>() {}.getType();
-            activities = gson.fromJson(reader, activityListType);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (activities == null) {
-            activities = new ArrayList<>();
-        }
-        activities.add(newActivity);
-
-        try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
-            gson.toJson(activities, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        successLabel.setText("Activity successfully created for Robotix! (Go back to homepage to join activities)");
-        displayActivities(client);
     }
 
 

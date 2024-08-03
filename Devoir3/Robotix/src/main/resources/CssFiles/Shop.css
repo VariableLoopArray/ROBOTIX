@@ -15,3 +15,10 @@
     -fx-border-radius: 0;
     -fx-background-radius: 0;
 }
+
+#shopWelcome{
+    -fx-font-family: Georgia;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f1e50; /*  Welcome to my robot! */
+}
