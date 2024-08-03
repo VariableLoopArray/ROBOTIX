@@ -1,1 +1,152 @@
-[{"fleet":[{"name":"1","type":"1","components":[],"serialNumber":"e96d6b47-08c5-4858-8858-12d7fd9d1bf3","battery":"1","location":[0.0,0.0,0.0],"speed":1.0,"cpuUsage":1.0,"memory":1.0}],"myActivities":[{"name":"1","startDate":"1","endDate":"1","points":"1","Interests":[],"creatorId":"d23f8f9d-80dc-47ee-a89b-7015006a3a14","tasks":[{"name":"new task","Instructions":[""]}],"activityId":"2a3c1016-47ff-4f46-b272-0dbdf771a782","description":"1","status":"Not Started"},{"name":"","startDate":"","endDate":"","points":"","Interests":[],"creatorId":"d23f8f9d-80dc-47ee-a89b-7015006a3a14","tasks":[{"name":"lol","Instructions":[]},{"name":"new task","Instructions":["","ok"]},{"name":"haha","Instructions":[]}],"activityId":"d84a7989-a237-4439-a32d-a0a9769c5153","description":"","status":"Not Started"}],"myInterests":["Sports and Fitness","Music and Performing Arts","Video Games and Technology","Reading and Writing","Education and learning"],"firstName":"1","lastName":"1","username":"1","password":"11111111","id":"d23f8f9d-80dc-47ee-a89b-7015006a3a14","email":"1@","companyName":"1","phoneNumber":"111-111-1111","Storage":[{"name":"CPU","tag":["1"],"price":1.0,"width":10.0,"length":10.0,"height":10.0,"supplierID":"8f9cff25-bef0-4156-a139-38da8ebe44e8","serialNumber":"1b5d3318-cdf7-4cc7-9f0a-77ffb003929b"}]},{"fleet":[],"myActivities":[],"myInterests":[],"firstName":"1","lastName":"1","username":"11","password":"11111111","id":"7660047e-e890-4dbc-b98d-9edc23ea20e2","email":"1@1","companyName":"1","phoneNumber":"111-111-1111","Storage":[{"name":"motherboard","tag":["tag","lol"],"price":100.0,"width":10.0,"length":1.0,"height":5.0,"supplierID":"ee40f13e-0c55-4bd3-a066-4303623cf293","serialNumber":"b8b8def4-a9ea-4d37-9ea2-15be8cf2252b"}],"notifications":[]}]
+[
+  {
+    "fleet": [
+      {
+        "name": "1",
+        "type": "1",
+        "components": [],
+        "serialNumber": "e96d6b47-08c5-4858-8858-12d7fd9d1bf3",
+        "battery": "1",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.0,
+        "cpuUsage": 1.0,
+        "memory": 1.0
+      }
+    ],
+    "myActivities": [
+      {
+        "name": "1",
+        "startDate": "1",
+        "endDate": "1",
+        "points": "1",
+        "Interests": [],
+        "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+        "tasks": [],
+        "activityId": "2a3c1016-47ff-4f46-b272-0dbdf771a782",
+        "description": "1",
+        "status": "Not Started"
+      },
+      {
+        "name": "",
+        "startDate": "",
+        "endDate": "",
+        "points": "",
+        "Interests": [],
+        "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+        "tasks": [
+          {
+            "name": "lol",
+            "Instructions": []
+          },
+          {
+            "name": "new task",
+            "Instructions": [
+              "",
+              "ok"
+            ]
+          },
+          {
+            "name": "haha",
+            "Instructions": []
+          }
+        ],
+        "activityId": "d84a7989-a237-4439-a32d-a0a9769c5153",
+        "description": "",
+        "status": "Not Started"
+      },
+      {
+        "name": "1",
+        "startDate": "1",
+        "endDate": "1",
+        "points": "1",
+        "Interests": [],
+        "creatorId": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+        "tasks": [
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "2",
+            "Instructions": [
+              "2"
+            ]
+          },
+          {
+            "name": "3",
+            "Instructions": [
+              "3"
+            ]
+          }
+        ],
+        "activityId": "351d5357-86ad-49ab-a5f6-7b32fda830c0",
+        "description": "1",
+        "status": "Not Started"
+      }
+    ],
+    "myInterests": [
+      "Sports and Fitness",
+      "Music and Performing Arts",
+      "Video Games and Technology",
+      "Reading and Writing",
+      "Education and learning"
+    ],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "d23f8f9d-80dc-47ee-a89b-7015006a3a14",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "Storage": [
+      {
+        "name": "CPU",
+        "tag": [
+          "1"
+        ],
+        "price": 1.0,
+        "width": 10.0,
+        "length": 10.0,
+        "height": 10.0,
+        "supplierID": "8f9cff25-bef0-4156-a139-38da8ebe44e8",
+        "serialNumber": "1b5d3318-cdf7-4cc7-9f0a-77ffb003929b"
+      }
+    ]
+  },
+  {
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "11",
+    "password": "11111111",
+    "id": "7660047e-e890-4dbc-b98d-9edc23ea20e2",
+    "email": "1@1",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "Storage": [
+      {
+        "name": "motherboard",
+        "tag": [
+          "tag",
+          "lol"
+        ],
+        "price": 100.0,
+        "width": 10.0,
+        "length": 1.0,
+        "height": 5.0,
+        "supplierID": "ee40f13e-0c55-4bd3-a066-4303623cf293",
+        "serialNumber": "b8b8def4-a9ea-4d37-9ea2-15be8cf2252b"
+      }
+    ],
+    "notifications": []
+  }
+]
