@@ -32,7 +32,89 @@
         "memory": 2.0
       }
     ],
-    "myActivities": [],
+    "myActivities": [
+      {
+        "name": "1",
+        "startDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "endDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "points": "1",
+        "Interests": [],
+        "creatorId": "4c47eb96-154f-4612-8370-8882b2480460",
+        "tasks": [
+          {
+            "name": "1",
+            "Instructions": [
+              "111"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          }
+        ],
+        "activityId": "1ef83611-4ab6-4a2c-8b1e-3f8cd11bddd3",
+        "description": "11",
+        "status": "Not Started"
+      },
+      {
+        "name": "1",
+        "startDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "endDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "points": "1",
+        "Interests": [
+          "Sports and Fitness",
+          "Video Games and Technology"
+        ],
+        "creatorId": "4c47eb96-154f-4612-8370-8882b2480460",
+        "tasks": [
+          {
+            "name": "1\t1\t1\t1\t",
+            "Instructions": [
+              "\t1"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          }
+        ],
+        "activityId": "afde1ba6-ca26-42e4-a55b-fd9e95d224d7",
+        "description": "1",
+        "status": "Not Started"
+      }
+    ],
     "myInterests": [
       "Sports and Fitness",
       "Travel and Culture"
@@ -45,6 +127,8 @@
     "email": "q@",
     "companyName": "q",
     "phoneNumber": "111-111-1111",
-    "notifications": []
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1"
+    ]
   }
 ]

@@ -96,6 +96,7 @@ public class ActivityController {
             Activity activity = client.getMyActivities().get(i);
             //VBox activityAndModify = new VBox(1);
             Label newActivity = new Label("Activity " + activity.getName());
+            newActivity.getStyleClass().add("label-activity");
             TextArea newTask = new TextArea();
             newTask.getStyleClass().add("textarea");
             newTask.setManaged(false);
@@ -114,6 +115,7 @@ public class ActivityController {
             buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index, numbersRemoved)));
 
             buttonRemove.getStyleClass().add("buttons");
+            //DisplayActivities.getChildren().add(buttonRemove);
 
             Button buttonAddTask = new Button("Add Task");
             buttonAddTask.setVisible(false);
