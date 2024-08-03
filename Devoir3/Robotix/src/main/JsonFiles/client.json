@@ -1,0 +1,68 @@
+[
+  {
+    "fleet": [],
+    "myActivities": [
+      {
+        "name": "2",
+        "startDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "endDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "points": "1",
+        "Interests": [],
+        "creatorId": "8d286f02-daad-4342-ae1a-f5c36675eafd",
+        "tasks": [
+          {
+            "name": "2",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          },
+          {
+            "name": "new task",
+            "Instructions": [
+              ""
+            ]
+          },
+          {
+            "name": "new task",
+            "Instructions": [
+              ""
+            ]
+          }
+        ],
+        "activityId": "241f2a2e-8304-4ba5-9e16-a2539066196d",
+        "description": "1",
+        "status": "Finished"
+      }
+    ],
+    "myInterests": [],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "8d286f02-daad-4342-ae1a-f5c36675eafd",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "notifications": []
+  }
+]
