@@ -587,8 +587,28 @@ public class ActivityController {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDate startDate = LocalDate.parse(activityStartDate.getText(), formatter);
             LocalDate endDate = LocalDate.parse(activityEndDate.getText(), formatter);
+            String status = "No defined status";
+            try(Reader reader = new FileReader("src/main/JsonFiles/currentDate.json")){
+                Gson gson = new Gson();
+                LocalDate currentDate = gson.fromJson(reader, LocalDate.class);
+                if (currentDate == null){
+                    currentDate = LocalDate.now();
+                }
+                if (currentDate.isAfter(startDate) && currentDate.isBefore(endDate)){
+                    status = "In Progress";
+                }
+                else if (currentDate.isBefore(startDate)){
+                    status = "Upcoming";
+                }
+                else if(currentDate.isAfter(endDate)){
+                    status = "Finished";
+                }
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
             Activity newActivity = new Activity(activityName.getText(), null, startDate, endDate,
-                    activityPoints.getText(), interests, client.getId(), UUID.randomUUID(), taskList, activityDescription.getText(), "Not Started");
+                    activityPoints.getText(), interests, client.getId(), UUID.randomUUID(), taskList, activityDescription.getText(),status);
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             List<Activity> activities = new ArrayList<>();

@@ -66,7 +66,6 @@ public class HomepageController {
             shopMenu.managedProperty().bind(shopMenu.visibleProperty());
             activityMenu.managedProperty().bind(activityMenu.visibleProperty());
             robotMenu.managedProperty().bind(robotMenu.visibleProperty());
-
         }
     }
 
@@ -98,6 +97,8 @@ public class HomepageController {
                     activityInfo.getChildren().add(endDate);
                     Label points = new Label("Points: " + activity.getPoints());
                     activityInfo.getChildren().add(points);
+                    Label status = new Label("Status: " + activity.getStatus());
+                    activityInfo.getChildren().add(status);
                     Label description = new Label("Description: " + activity.getDescription());
                     activityInfo.getChildren().add(description);
 
@@ -142,6 +143,7 @@ public class HomepageController {
                     endDate.getStyleClass().add("activityInfo");
                     points.getStyleClass().add("activityInfo");
                     description.getStyleClass().add("activityInfo");
+                    status.getStyleClass().add("activityInfo");
 
 
                     robotixActivities.getChildren().add(activityContainer);
