@@ -7,18 +7,17 @@ import java.util.UUID;
 public class Activity {
     private String name;
     private String robot;
-    private String startDate;
-    private String endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String points;
     private ArrayList<String> Interests;
     private UUID creatorId;
-    private User creator;
     private ArrayList<Task> tasks;
     private UUID activityId;
     private String description;
     private String status;
 
-    public Activity(String name, String robot, String startDate, String endDate, String points,
+    public Activity(String name, String robot, LocalDate startDate, LocalDate endDate, String points,
                     ArrayList<String> Interests, UUID creatorId,UUID activityId, ArrayList<Task> tasks, String description ,String status){
         this.name = name;
         this.robot = robot;
@@ -53,10 +52,6 @@ public class Activity {
         return creatorId;
     }
 
-    public void setCreator(User creator) {
-        this.creator = creator;
-    }
-
     public UUID getActivityID(){
         return activityId;
     }
@@ -78,19 +73,19 @@ public class Activity {
         this.points = points;
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(String endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 

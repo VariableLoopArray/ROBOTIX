@@ -19,6 +19,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -46,8 +48,9 @@ public class ActivityController {
     @FXML
     private Label successLabel;
     @FXML
+    private Label errorLabel;
+    @FXML
     private TextField activityDescription;
-
     @FXML
     Client client;
     @FXML
@@ -63,11 +66,25 @@ public class ActivityController {
         }
     }
     public void setUserActivity(Client client){
-        this.client = client;
-        displayMessage("Welcome to your activities!", false);
+        try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+            Gson gson = new Gson();
+            Client [] Clients = gson.fromJson(reader, Client[].class);
+            for (int i = 0; i < Clients.length; i++){
+                if (Clients[i].getId().equals(client.getId())){
+                    this.client = Clients[i];
+                    break;
+                }
+            }
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        System.out.println(client.getNotifications());
+        displayMessage("Welcome to your activities !", false);
     }
 
     public void displayActivities(Client client){
+        System.out.println(client.getNotifications());
         DisplayActivities.setSpacing(10);
 //        Button buttonAdd = new Button("Add");
 //        DisplayActivities.getChildren().add(buttonAdd);
@@ -114,7 +131,7 @@ public class ActivityController {
             Label description = new Label("Description : " + activity.getDescription());
             buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonAddTask);
             everything.getChildren().addAll(newActivity, buttonBox, description);
-
+            System.out.println(client.getNotifications());
             DisplayActivities.getChildren().add(everything);
 
 
@@ -187,7 +204,6 @@ public class ActivityController {
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
         try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
 
             Client [] Clients = gson.fromJson(reader, Client[].class);
@@ -540,85 +556,94 @@ public class ActivityController {
             activityGrid.setVisible(true);
         }
         successLabel.setText("");
+        errorLabel.setText("");
     }
     public void createActivity() {
-        ArrayList<String> interests = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) {
-            CheckBox interest = (CheckBox) activityGrid.lookup("#Interest" + i);
-            if (interest.isSelected()) {
-                interests.add(interest.getText());
-            }
-        }
-
-        int taskIndex = 0;
-        ArrayList<Task> taskList = new ArrayList<Task>();
-        for (int i = 0; i < Tasks.getChildren().size()/2; i++){
-            String[] instructions = ((TextArea) Tasks.getChildren().get(2*i +1)).getText().split("\n");
-            Task newTask = new Task (((TextArea) Tasks.getChildren().get(2*i)).getText(),
-                    new ArrayList<String>(Arrays.asList(instructions)));
-            if (((TextArea) Tasks.getChildren().get(2*i)).getText().isEmpty()){
-                newTask.setName(((TextArea) Tasks.getChildren().get(2*i)).getPromptText());
-            }
-
-            if (!((TextArea) Tasks.getChildren().get(2*i + 1)).getText().isEmpty()){
-                taskList.add(newTask);
-            }
-        }
-
-
-        Activity newActivity = new Activity(activityName.getText(), null, activityStartDate.getText(), activityEndDate.getText(),
-                activityPoints.getText(), interests, client.getId(), UUID.randomUUID(),taskList, activityDescription.getText(), "Not Started");
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        List<Activity> activities = new ArrayList<>();
-
-        try (Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
-            Type activityListType = new TypeToken<List<Activity>>() {}.getType();
-            activities = gson.fromJson(reader, activityListType);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (activities == null) {
-            activities = new ArrayList<>();
-        }
-        activities.add(newActivity);
-
-        try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
-            gson.toJson(activities, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        List<Client> clients = new ArrayList<>();
-        try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
-            Type clientListType = new TypeToken<List<Client>>() {}.getType();
-            clients = gson.fromJson(reader, clientListType);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (clients == null) {
-            clients = new ArrayList<>();
-        }
-        for (Client client : clients){
-            for (String interest : newActivity.getInterests()){
-                if (client.getMyInterests().contains(interest)){
-                    client.getNotifications().add("A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!" + "\n" +"Name of the activity: " + newActivity.getName());
-                    break;
+        try {
+            ArrayList<String> interests = new ArrayList<>();
+            for (int i = 1; i <= 10; i++) {
+                CheckBox interest = (CheckBox) activityGrid.lookup("#Interest" + i);
+                if (interest.isSelected()) {
+                    interests.add(interest.getText());
                 }
             }
-        }
 
-        try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
-            gson.toJson(clients, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
+            int taskIndex = 0;
+            ArrayList<Task> taskList = new ArrayList<Task>();
+            for (int i = 0; i < Tasks.getChildren().size() / 2; i++) {
+                String[] instructions = ((TextArea) Tasks.getChildren().get(2 * i + 1)).getText().split("\n");
+                Task newTask = new Task(((TextArea) Tasks.getChildren().get(2 * i)).getText(),
+                        new ArrayList<String>(Arrays.asList(instructions)));
+                if (((TextArea) Tasks.getChildren().get(2 * i)).getText().isEmpty()) {
+                    newTask.setName(((TextArea) Tasks.getChildren().get(2 * i)).getPromptText());
+                }
+
+                if (!((TextArea) Tasks.getChildren().get(2 * i + 1)).getText().isEmpty()) {
+                    taskList.add(newTask);
+                }
+            }
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDate startDate = LocalDate.parse(activityStartDate.getText(), formatter);
+            LocalDate endDate = LocalDate.parse(activityEndDate.getText(), formatter);
+            Activity newActivity = new Activity(activityName.getText(), null, startDate, endDate,
+                    activityPoints.getText(), interests, client.getId(), UUID.randomUUID(), taskList, activityDescription.getText(), "Not Started");
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            List<Activity> activities = new ArrayList<>();
+
+            try (Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
+                Type activityListType = new TypeToken<List<Activity>>() {
+                }.getType();
+                activities = gson.fromJson(reader, activityListType);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (activities == null) {
+                activities = new ArrayList<>();
+            }
+            activities.add(newActivity);
+
+            try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
+                gson.toJson(activities, writer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            List<Client> clients = new ArrayList<>();
+            try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+                Type clientListType = new TypeToken<List<Client>>() {
+                }.getType();
+                clients = gson.fromJson(reader, clientListType);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (clients == null) {
+                clients = new ArrayList<>();
+            }
+            for (Client client : clients) {
+                for (String interest : newActivity.getInterests()) {
+                    if (client.getMyInterests().contains(interest)) {
+                        client.getNotifications().add("A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!" + "\n" + "Name of the activity: " + newActivity.getName());
+                        break;
+                    }
+                }
+            }
+
+            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                gson.toJson(clients, writer);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            successLabel.setText("Activity successfully created for Robotix! (Go back to homepage to join activities)");
+            activityGrid.setVisible(false);
+        } catch (Exception e) {
+            errorLabel.setText("Error: Activity could not be created. Please check your inputs.");
+            activityGrid.setVisible(false);
         }
-        successLabel.setText("Activity successfully created for Robotix! (Go back to homepage to join activities)");
-        activityGrid.setVisible(false);
     }
 
 

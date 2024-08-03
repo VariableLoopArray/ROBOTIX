@@ -21,10 +21,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.UUID;
@@ -153,9 +150,31 @@ public class ProfileController {
     }
     public void setUser(User user) {
         if (user instanceof Client) {
-            this.client = (Client) user;
+            try(Reader reader = new FileReader(clientFile)) {
+                Gson gson = new Gson();
+                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
+                for (Client client : clients) {
+                    if (client.getId().equals(user.getId())) {
+                        this.client = client;
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else if (user instanceof Supplier) {
-            this.supplier = (Supplier) user;
+            try(Reader reader = new FileReader(supplierFile)) {
+                Gson gson = new Gson();
+                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
+                for (Supplier supplier : suppliers) {
+                    if (supplier.getId().equals(user.getId())) {
+                        this.supplier = supplier;
+                        break;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
