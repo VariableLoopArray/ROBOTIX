@@ -183,21 +183,6 @@ public class ActivityController {
 
 
         }
-//        int smaller = 0;
-//
-//        for (int e = 0; e < confirmPlaces.size(); e ++){
-//            System.out.println(confirmPlaces.get(e));
-//            TextArea newTask = (TextArea) everything.getChildren().get(confirmPlaces.get(e) - 1 - smaller);
-//            newTask.getStyleClass().add("textarea");
-//            everything.getChildren().remove(newTask);
-//            confirmPlaces.set(e, confirmPlaces.get(e) - smaller - 1);
-//            smaller++;
-//        }
-//
-//        for (int e = confirmPlaces.size() - 1; e >= 0 ; e --){
-//            everything.getChildren().remove((int) confirmPlaces.get(e));
-//
-//        }
 
         if (everything.getChildren().size() > 2) {
             everything.getChildren().subList(2, everything.getChildren().size()).clear();

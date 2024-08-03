@@ -406,49 +406,57 @@ public class CreateAccountController {
 
     //TESTS FUNCTIONS
 
-    public String getClientFirstName(){
-        return clientFirstNameField.getText();
+    public TextField getClientFirstName(){
+        return clientFirstNameField;
     }
 
-    public String getClientLastName(){
-        return clientLastNameField.getText();
+    public TextField getClientLastName(){
+        return clientLastNameField;
     }
 
-    public String getClientUsernameField(){
-        return clientUsernameField.getText();
+    public TextField getClientUsernameField(){
+        return clientUsernameField;
     }
 
-    public String getClientPasswordField(){
-        return clientPasswordField.getText();
+    public TextField getClientPasswordField(){
+        return clientPasswordField;
     }
 
-    public String getClientEmail(){
-        return clientEmailField.getText();
+    public TextField getClientEmail(){
+        return clientEmailField;
     }
 
-    public String getClientCompanyNameField(){
-        return clientCompanyNameField.getText();
+    public TextField getClientCompanyNameField(){
+        return clientCompanyNameField;
     }
 
-    public String getClientPhoneNumberField(){
-        return clientPhoneNumberField.getText();
+    public TextField getClientPhoneNumberField(){
+        return clientPhoneNumberField;
     }
 
     public boolean handleClientCreateAccountTest(String firstName, String lastName, String username, String password,
                                                 String email, String companyName,String phoneNumber){
 
         clientFirstNameField.setText(firstName);
-        clientFirstNameField.setText(lastName);
-        clientFirstNameField.setText(username);
-        clientFirstNameField.setText(password);
+        clientLastNameField.setText(lastName);
+        clientUsernameField.setText(username);
+        clientPasswordField.setText(password);
 
-        clientFirstNameField.setText(email);
-        clientFirstNameField.setText(companyName);
-        clientFirstNameField.setText(phoneNumber);
+        clientEmailField.setText(email);
+        clientCompanyNameField.setText(companyName);
+        clientPhoneNumberField.setText(phoneNumber);
 
         return handleClientCreateAccount();
 
 
+    }
+
+    public int clearFieldsTest(){
+        clearFields();
+        return (clientFirstNameField.getText().length() + clientLastNameField.getText().length() +
+                clientUsernameField.getText().length() + clientPasswordField.getText().length() +
+                clientEmailField.getText().length() + clientCompanyNameField.getText().length() +
+                clientPhoneNumberField.getText().length());
     }
 
 }
