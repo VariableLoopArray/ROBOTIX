@@ -3,6 +3,28 @@
     "fleet": [],
     "myActivities": [
       {
+        "name": "13",
+        "startDate": {
+          "year": 2023,
+          "month": 8,
+          "day": 1
+        },
+        "endDate": {
+          "year": 2024,
+          "month": 9,
+          "day": 1
+        },
+        "points": "",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [],
+        "activityId": "12e953e7-8205-41a4-ac48-994955f42d0e",
+        "description": "",
+        "status": "In Progress"
+      },
+      {
         "name": "1",
         "startDate": {
           "year": 2024,
@@ -79,6 +101,30 @@
         "height": 6.0,
         "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
         "serialNumber": "ab118561-1c49-4464-9e56-81fe8ed7e142"
+      },
+      {
+        "name": "1",
+        "type": [
+          "1"
+        ],
+        "price": 100.0,
+        "width": 23.0,
+        "length": 10.0,
+        "height": 1.0,
+        "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
+        "serialNumber": "a44cf028-be8f-44ad-8203-7781cee1a53b"
+      },
+      {
+        "name": "2",
+        "type": [
+          "5"
+        ],
+        "price": 100.0,
+        "width": 23.0,
+        "length": 15.0,
+        "height": 0.0,
+        "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
+        "serialNumber": "15c18829-36b2-41d0-b8ac-794a00235b8f"
       }
     ],
     "notifications": [
