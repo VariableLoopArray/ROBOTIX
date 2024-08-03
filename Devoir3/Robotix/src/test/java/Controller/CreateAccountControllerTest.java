@@ -1,5 +1,5 @@
 package Controller;
-
+import java.util.concurrent.CountDownLatch;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -9,25 +9,25 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import java.util.concurrent.CountDownLatch;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class CreateAccountControllerTest extends Application {
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CreateAccountControllerTest {
 
     Stage testStage;
-    CreateAccountController createAccountController = new CreateAccountController();
+    CreateAccountController createAccountController;
 
     @BeforeEach
     void setUp() throws Exception {
-        // Initialize JavaFX toolkit
         Platform.startup(() -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/AccountCreationMenu.fxml"));
                 Scene scene = new Scene(loader.load(), 1024, 768);
                 testStage = new Stage();
                 testStage.setScene(scene);
-
-                // Get controller instance
+                // Get controller instance from FXMLLoader
                 createAccountController = loader.getController();
             } catch (Exception e) {
                 e.printStackTrace();
@@ -38,37 +38,36 @@ public class CreateAccountControllerTest extends Application {
     @AfterEach
     void tearDown() {
         Platform.runLater(() -> {
-            // Close the stage
             if (testStage != null) {
                 testStage.close();
             }
         });
     }
 
+    // Tien Test
     @Test
-    void failEmailHandleCreateClientAccount() {
+    void failEmailHandleCreateClientAccount() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
+            boolean result = createAccountController.handleClientCreateAccountTest("Hello","Hello",
+                    "Hello","HelloHello","Hello@","Hello","111 111 1111"); //
 
-
-            boolean result = createAccountController.handleClientCreateAccountTest("hello","hello",
-                    "hello","hellohello","hello","hello","111-111-1111");
-
-            // Perform assertions
+            latch.countDown();
             assertFalse(result);
+
         });
+        latch.await();
     }
 
+    // Tien Test
     @Test
-    void successfulClearFields(){
+    void successfulClearFields() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
-
-
             int result = createAccountController.clearFieldsTest();
-            assertEquals(0, result);
+            latch.countDown();
+            assertEquals(1, result);
         });
-    }
-    @Override
-    public void start(Stage stage) throws Exception {
-        // This method is required but not used in this test setup
+        latch.await();
     }
 }

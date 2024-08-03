@@ -16,10 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 
 public class CreateAccountController {
@@ -406,34 +403,6 @@ public class CreateAccountController {
 
     //TESTS FUNCTIONS
 
-    public TextField getClientFirstName(){
-        return clientFirstNameField;
-    }
-
-    public TextField getClientLastName(){
-        return clientLastNameField;
-    }
-
-    public TextField getClientUsernameField(){
-        return clientUsernameField;
-    }
-
-    public TextField getClientPasswordField(){
-        return clientPasswordField;
-    }
-
-    public TextField getClientEmail(){
-        return clientEmailField;
-    }
-
-    public TextField getClientCompanyNameField(){
-        return clientCompanyNameField;
-    }
-
-    public TextField getClientPhoneNumberField(){
-        return clientPhoneNumberField;
-    }
-
     public boolean handleClientCreateAccountTest(String firstName, String lastName, String username, String password,
                                                 String email, String companyName,String phoneNumber){
 
@@ -447,11 +416,18 @@ public class CreateAccountController {
         clientPhoneNumberField.setText(phoneNumber);
 
         return handleClientCreateAccount();
-
-
     }
 
     public int clearFieldsTest(){
+        clientFirstNameField.setText("hello");
+        clientLastNameField.setText("hello");
+        clientUsernameField.setText("hello");
+        clientPasswordField.setText("hello");
+
+        clientEmailField.setText("hello");
+        clientCompanyNameField.setText("hello");
+        clientPhoneNumberField.setText("hello");
+
         clearFields();
         return (clientFirstNameField.getText().length() + clientLastNameField.getText().length() +
                 clientUsernameField.getText().length() + clientPasswordField.getText().length() +
