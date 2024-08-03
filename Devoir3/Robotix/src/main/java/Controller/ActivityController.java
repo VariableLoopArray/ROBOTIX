@@ -257,15 +257,12 @@ public class ActivityController {
                     removeList.add(removeTaskPlace);
 
 
-//                    for (Node child : everything.getChildren()){
-//                        System.out.println("this is before " + child.getClass().getSimpleName());
-//                    }
-//                    System.out.println("---\n");
                     buttonRemoveTask.setOnAction(event -> {
 
                         removeds[0]++;
-                        int removed = 0;
+                        indexe[0]++;
                         int captureInde = indexe[0];
+                        int removed = 0;
                         for (int number : removedNumbers){
                             System.out.println("this is number " + number);
                             System.out.println("this is captured Inde " + captureInde);
@@ -274,53 +271,29 @@ public class ActivityController {
                             }
                         }
 
+                        System.out.println("this is removed " + removed + " it should be 0");
+                        System.out.println("this is captureInde " + captureInde + " it should be 0");
 
-//                        System.out.println("this is removelist before " + removeList.toString());
 
-                        indexe[0]++;
+
+
                         removedNumbers.add(captureInde);
-                        
-//                        System.out.println("this is the value of inde " + (captureInde - removed));
-//                        System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
 
-//                        for (int e = 0; e < confirmPlaces.size(); e ++){
-//                            System.out.println("this is remove task before " + confirmPlaces.get(e));
-//                        }
-//                        System.out.println("this is removeplace " + removeList.get(captureInde - removed));
                         client.getMyActivities().get(newI).getTasks().removeLast();
 
                         for (int i = 0; i < 3; i++){
-//                            if ((int) removeList.get(indexe[0]) < everything.getChildren().size()) {
-//                                everything.getChildren().remove((int) removeList.get(indexe[0]));
-//                            }
                             everything.getChildren().remove((int) removeList.get(captureInde - removed));
-                            //System.out.println("removelist.getinde is " + removeList.get(captureInde - removed));
                         }
 
                         confirmPlaces.remove(Integer.valueOf(removeList.get(captureInde - removed) + 2));
-//                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
-//                            if (confirmPlaces.get(i) < removeList.get(indexe[0])){
-//                                confirmPlaces.remove(confirmPlaces.get(i));
-//                            }
-//                        }
+
 
                         for (int j = 0; j < confirmPlaces.size(); j++){
-                            //System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
-                                    //" task "+ removeList.get(captureInde - removed) + " did it enter or not " + (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1));
+
                             if (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1){
                                 confirmPlaces.set(j, confirmPlaces.get(j) - 3);
-                                //System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
                             }
                         }
-
-//                        for (Node child : everything.getChildren()){
-//                            System.out.println("this is after " + child.getClass().getSimpleName());
-//                        }
-
-//                        for (int e = 0; e < confirmPlaces.size(); e ++){
-//                            System.out.println("this is remove task after " + confirmPlaces.get(e));
-//                        }
-//                        System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
 
                         for (int i = 0; i < removeList.size(); i++){
                             if (removeList.get(i) > removeList.get(captureInde - removed)){
@@ -329,7 +302,6 @@ public class ActivityController {
                         }
                         removeList.remove(removeList.get(captureInde - removed));
 
-                        //System.out.println("this is removelist after " + removeList.toString());
                     });
 
 
@@ -360,9 +332,7 @@ public class ActivityController {
 
 
                 for(Task task : client.getMyActivities().get(k).getTasks()){
-//                    for (Node child : everything.getChildren()){
-//                        System.out.println(child.getClass().getSimpleName());
-//                    }
+
                     indexe[0]++;
 
                     int captureInde = indexe[0];
@@ -375,10 +345,6 @@ public class ActivityController {
                     removeList.add(removeTaskPlace);
 
 
-
-//                    for (Node child : everything.getChildren()){
-//                        System.out.println("this is before " + child.getClass().getSimpleName());
-//                    }
 
                     buttonRemoveTask.setOnAction(event -> {
                         removeds[0]++;
@@ -393,53 +359,23 @@ public class ActivityController {
                             }
                         }
 
+                        System.out.println("this is removed " + removed + " it should be 0");
+                        System.out.println("this is captureInde " + captureInde + " it should be 0");
 
-//                        System.out.println("this is removelist before " + removeList.toString());
-//
-//
-//                        System.out.println("this is the value of inde " + (captureInde - removed));
-//
-//                        System.out.println("this is the confirmplaces before deleting " + confirmPlaces.toString());
-//
-//                        for (int e = 0; e < confirmPlaces.size(); e ++){
-//                            System.out.println("this is remove task before " + confirmPlaces.get(e));
-//                        }
-                        //System.out.println("this is removeplace " + removeList.get(captureInde - removed));
                         client.getMyActivities().get(newI).getTasks().removeLast();
 
                         for (int i = 0; i < 3; i++){
-//                            if ((int) removeList.get(indexe[0]) < everything.getChildren().size()) {
-//                                everything.getChildren().remove((int) removeList.get(indexe[0]));
-//                            }
-                            //System.out.println("removelist.getinde is " + removeList.get(captureInde - removed));
 
                             everything.getChildren().remove((int) removeList.get(captureInde - removed));
                         }
 
                         confirmPlaces.remove(Integer.valueOf(removeList.get(captureInde - removed) + 2));
-//                        for (int i = confirmPlaces.size() - 1; i >= 0; i--){
-//                            if (confirmPlaces.get(i) < removeList.get(indexe[0])){
-//                                confirmPlaces.remove(confirmPlaces.get(i));
-//                            }
-//                        }
 
                         for (int j = 0; j < confirmPlaces.size(); j++){
-                            //System.out.println("this is confirmPlaces " + confirmPlaces.get(j) + " and this is remove" +
-                                    //" task "+ removeList.get(captureInde - removed) + " did it enter or not " + (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1));
                             if (confirmPlaces.get(j) > removeList.get(captureInde - removed) + 1){
                                 confirmPlaces.set(j, confirmPlaces.get(j) - 3);
-                                //System.out.println("if yes what is the new value of confirmplaces " + confirmPlaces.get(j));
                             }
                         }
-
-//                        for (Node child : everything.getChildren()){
-//                            System.out.println("this is after " + child.getClass().getSimpleName());
-//                        }
-
-//                        for (int e = 0; e < confirmPlaces.size(); e ++){
-//                            System.out.println("this is remove task after " + confirmPlaces.get(e));
-//                        }
-//                        System.out.println("this is the confirmplaces after deleting " + confirmPlaces.toString());
 
                         for (int i = 0; i < removeList.size(); i++){
 
@@ -449,7 +385,6 @@ public class ActivityController {
                         }
                         removeList.remove(removeList.get(captureInde - removed));
 
-                        //System.out.println("this is removelist after " + removeList.toString());
                     });
 
                     String instructions = "";
@@ -481,8 +416,6 @@ public class ActivityController {
             }
 
         }
-
-
 
         return activityPlace.get();
     }
@@ -517,8 +450,6 @@ public class ActivityController {
 
             Client [] Clients = gson.fromJson(reader, Client[].class);
             for (int i = 0; i < Clients.length; i++){
-                //System.out.println("this is client id " + client.getId() + " and this is the clientlist Id " + Clients[i].getId());
-                //System.out.println(i + " this is " + (Clients[i].getId().equals()client.getId()));
                 if (Clients[i].getId().equals(client.getId())){
                     Clients[i] = client;
                     break;
@@ -642,6 +573,12 @@ public class ActivityController {
 
                 }
     }
+
+
+
+
+    // TESTS FUNCTIONS
+
 
 
 }

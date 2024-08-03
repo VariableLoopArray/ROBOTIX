@@ -69,7 +69,7 @@ public class CreateAccountController {
     private static final String clientFile = "src/main/JsonFiles/client.json";
     private static final String supplierFile = "src/main/JsonFiles/supplier.json";
     @FXML
-    private void handleClientCreateAccount(){
+    private boolean handleClientCreateAccount(){
         boolean problem = true;
 
         List<Client> clients = loadClients();
@@ -192,6 +192,7 @@ public class CreateAccountController {
             }
         }
         clearFields();
+        return problem;
     }
     @FXML
     private void handleSupplierCreateAccount(){
@@ -402,4 +403,52 @@ public class CreateAccountController {
             return List.of();
         }
     }
+
+    //TESTS FUNCTIONS
+
+    public String getClientFirstName(){
+        return clientFirstNameField.getText();
+    }
+
+    public String getClientLastName(){
+        return clientLastNameField.getText();
+    }
+
+    public String getClientUsernameField(){
+        return clientUsernameField.getText();
+    }
+
+    public String getClientPasswordField(){
+        return clientPasswordField.getText();
+    }
+
+    public String getClientEmail(){
+        return clientEmailField.getText();
+    }
+
+    public String getClientCompanyNameField(){
+        return clientCompanyNameField.getText();
+    }
+
+    public String getClientPhoneNumberField(){
+        return clientPhoneNumberField.getText();
+    }
+
+    public boolean handleClientCreateAccountTest(String firstName, String lastName, String username, String password,
+                                                String email, String companyName,String phoneNumber){
+
+        clientFirstNameField.setText(firstName);
+        clientFirstNameField.setText(lastName);
+        clientFirstNameField.setText(username);
+        clientFirstNameField.setText(password);
+
+        clientFirstNameField.setText(email);
+        clientFirstNameField.setText(companyName);
+        clientFirstNameField.setText(phoneNumber);
+
+        return handleClientCreateAccount();
+
+
+    }
+
 }
