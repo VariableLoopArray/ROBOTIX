@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="Controller.NotificationController"
+           stylesheets="@../../classes/CssFiles/Notification.css"
+>
+
+    <HBox>
+        <VBox styleClass="menuVbox">
+            <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
+        </VBox>
+        <Pane prefWidth="40"/>
+        <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
+            <Pane prefHeight="40"/>
+            <Label text="Welcome to your notifications !" fx:id="notification" alignment="CENTER"/>
+            <Pane prefHeight="60"/>
+
+            <ListView fx:id="notificationSpace" styleClass="notif" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" >
+
+            </ListView>
+            <Pane prefHeight="40"/>
+
+        </VBox>
+        <Pane prefWidth="40"/>
+    </HBox>
+
+</StackPane>
+

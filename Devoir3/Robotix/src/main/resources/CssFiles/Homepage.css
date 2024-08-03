@@ -1,0 +1,98 @@
+
+.myProfileButton{
+    -fx-padding: 0;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-cursor: hand;
+    -fx-focus-color: transparent;
+    -fx-text-fill: transparent;
+}
+.myProfileButtonP:hover{
+    -fx-background-color: #f0f0f0;
+}
+
+.menuTitle{
+    -fx-pref-height: 110;
+    -fx-alignment: center;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-font-family: Georgia;
+    -fx-text-fill: #0f1e50;
+
+}
+.scroll-pane .scroll-bar{
+    -fx-max-width: 0;
+    -fx-max-height: 0;
+    -fx-opacity: 0;
+    -fx-background-color: transparent;
+}
+
+.menuVbox{
+    -fx-pref-width: 240;
+    -fx-pref-height: 768;
+    -fx-background-color: #f0f0f0;
+}
+
+.scrollPane{
+    -fx-pref-width: 786;
+    -fx-pref-height: 570;
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-alignment: center;
+
+}
+.flowPane{
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-alignment: center;
+}
+.vboxContainer{
+
+    -fx-alignment: center;
+    -fx-pref-width: 242;
+    -fx-pref-height: 180;
+    -fx-border-color: black;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-padding: 10;
+    -fx-hgap: 10;
+    -fx-background-color: #f0f0f0;
+}
+.activityInfo{
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+.sideMenuButton{
+
+
+    -fx-pref-width: 240px;
+    -fx-pref-height: 100px;
+    -fx-font-family: Georgia;
+    -fx-font-size: 26;
+    -fx-border-width: 3px;
+    -fx-border-color: #8ea9f6;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
+}
+.sideMenuButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
+}
+.joinButton{
+    -fx-pref-width: 242;
+    -fx-pref-height: 50;
+    -fx-text-fill: black;
+    -fx-border-color: #8ea9f6;
+    -fx-font-size: 20;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-background-color: #f0f0f0;
+}
+.joinButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
+}

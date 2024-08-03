@@ -1,0 +1,138 @@
+.title{
+    -fx-font-family: Georgia;
+    -fx-font-size: 35;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f1e50;
+}
+
+.sideMenuButton{
+
+
+    -fx-pref-width: 240px;
+    -fx-pref-height: 100px;
+    -fx-font-family: Georgia;
+    -fx-font-size: 26;
+    -fx-border-width: 3px;
+    -fx-border-color: #8ea9f6;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
+}
+.sideMenuButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
+}
+
+.default-text {
+    -fx-font-family: Georgia;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: #0f1e50;
+}
+
+.error-text {
+    -fx-font-family: Georgia;
+    -fx-font-size: 40;
+    -fx-font-weight: bold;
+    -fx-text-fill: red;
+}
+
+.button-confirm {
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
+    -fx-background-color: #4caf50;
+    -fx-text-fill: white;
+}
+
+
+.remove-button{
+    -fx-font-family: Georgia;
+    -fx-font-size: 15;
+}
+
+.label-success {
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+    -fx-text-fill: #4caf50;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+}
+
+.label-no-robots {
+    -fx-font-family: Georgia;
+    -fx-font-size: 30;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+    -fx-text-fill: red;
+}
+
+.label-robotlist{
+    -fx-font-family: Georgia;
+    -fx-font-size: 15;
+    -fx-text-fill: #24273d;
+}
+
+#create,#affiche,#supprime{
+    -fx-font-family: Georgia;
+    -fx-font-size: 25;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 22px;
+    -fx-border-width: 3px;
+    -fx-border-color: #8ea9f6;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+    -fx-text-fill: black;;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
+}
+
+#create:hover,#affiche:hover,#supprime:hover{
+    -fx-font-family: Georgia;
+    -fx-font-size: 25;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 22px;
+    -fx-border-width: 3px;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
+    -fx-border-color: #8ea9f6;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+}
+
+#tableInfo{
+    -fx-font-family: Georgia;
+    -fx-font-size: 20px;
+    -fx-text-fill: #7c218a;
+}
+
+.text-field {
+    -fx-text-fill: #24273d;
+    -fx-font-size: 20px;
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 6px;
+    -fx-border-color: #a9acca;
+    -fx-border-radius: 5px;
+    -fx-border-width: 2px;
+}
+
+.menuVbox{
+    -fx-pref-width: 240;
+    -fx-pref-height: 768;
+    -fx-background-color: #f0f0f0;
+}
+
+.noActivity {
+    -fx-font-size: 20;
+    -fx-text-fill: #f44336;
+}
+.center{
+    -fx-alignment: center;
+    -fx-padding: 20px;
+}
+.transparent{
+    -fx-background-color: transparent;
+}
