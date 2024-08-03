@@ -69,7 +69,7 @@ public class CreateAccountController {
     private static final String clientFile = "src/main/JsonFiles/client.json";
     private static final String supplierFile = "src/main/JsonFiles/supplier.json";
     @FXML
-    private void handleClientCreateAccount(){
+    private boolean handleClientCreateAccount(){
         boolean problem = true;
 
         List<Client> clients = loadClients();
@@ -192,6 +192,7 @@ public class CreateAccountController {
             }
         }
         clearFields();
+        return problem;
     }
     @FXML
     private void handleSupplierCreateAccount(){
@@ -402,4 +403,60 @@ public class CreateAccountController {
             return List.of();
         }
     }
+
+    //TESTS FUNCTIONS
+
+    public TextField getClientFirstName(){
+        return clientFirstNameField;
+    }
+
+    public TextField getClientLastName(){
+        return clientLastNameField;
+    }
+
+    public TextField getClientUsernameField(){
+        return clientUsernameField;
+    }
+
+    public TextField getClientPasswordField(){
+        return clientPasswordField;
+    }
+
+    public TextField getClientEmail(){
+        return clientEmailField;
+    }
+
+    public TextField getClientCompanyNameField(){
+        return clientCompanyNameField;
+    }
+
+    public TextField getClientPhoneNumberField(){
+        return clientPhoneNumberField;
+    }
+
+    public boolean handleClientCreateAccountTest(String firstName, String lastName, String username, String password,
+                                                String email, String companyName,String phoneNumber){
+
+        clientFirstNameField.setText(firstName);
+        clientLastNameField.setText(lastName);
+        clientUsernameField.setText(username);
+        clientPasswordField.setText(password);
+
+        clientEmailField.setText(email);
+        clientCompanyNameField.setText(companyName);
+        clientPhoneNumberField.setText(phoneNumber);
+
+        return handleClientCreateAccount();
+
+
+    }
+
+    public int clearFieldsTest(){
+        clearFields();
+        return (clientFirstNameField.getText().length() + clientLastNameField.getText().length() +
+                clientUsernameField.getText().length() + clientPasswordField.getText().length() +
+                clientEmailField.getText().length() + clientCompanyNameField.getText().length() +
+                clientPhoneNumberField.getText().length());
+    }
+
 }
