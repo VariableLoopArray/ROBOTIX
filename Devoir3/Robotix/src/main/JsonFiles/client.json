@@ -3,6 +3,35 @@
     "fleet": [],
     "myActivities": [
       {
+        "name": "3",
+        "startDate": {
+          "year": 2024,
+          "month": 4,
+          "day": 5
+        },
+        "endDate": {
+          "year": 2025,
+          "month": 4,
+          "day": 5
+        },
+        "points": "100",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
+        "tasks": [
+          {
+            "name": "12",
+            "Instructions": [
+              "1000"
+            ]
+          }
+        ],
+        "activityId": "c6b9561b-39a2-4246-bd31-0540f2356142",
+        "description": "12",
+        "status": "In Progress"
+      },
+      {
         "name": "1",
         "startDate": {
           "year": 2024,
@@ -19,7 +48,14 @@
           "Sports and Fitness"
         ],
         "creatorId": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
-        "tasks": [],
+        "tasks": [
+          {
+            "name": "1",
+            "Instructions": [
+              "10"
+            ]
+          }
+        ],
         "activityId": "02fcd6eb-5102-4097-b3b3-cb48cc091877",
         "description": "1",
         "status": "In Progress"
@@ -30,14 +66,54 @@
     ],
     "firstName": "1",
     "lastName": "1",
-    "username": "1",
-    "password": "11111111",
+    "username": "hello",
+    "password": "1111111111",
     "id": "72009c2f-d650-4a3c-8cb7-ad87048199d7",
-    "email": "1@",
+    "email": "2@",
     "companyName": "1",
-    "phoneNumber": "111-111-1111",
+    "phoneNumber": "222-222-2222",
+    "Storage": [
+      {
+        "name": "1",
+        "type": [
+          "1"
+        ],
+        "price": 50.0,
+        "width": 32.0,
+        "length": 3.0,
+        "height": 1.0,
+        "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
+        "serialNumber": "3aab4912-6d0b-4771-8f3c-2e78cbc27c82"
+      },
+      {
+        "name": "1",
+        "type": [
+          "5"
+        ],
+        "price": 100.0,
+        "width": 23.0,
+        "length": 15.0,
+        "height": 10.0,
+        "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
+        "serialNumber": "0638fba5-9579-4b5f-900c-34dae5867b06"
+      },
+      {
+        "name": "2",
+        "type": [
+          "6"
+        ],
+        "price": 100.0,
+        "width": 23.0,
+        "length": 15.0,
+        "height": 6.0,
+        "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
+        "serialNumber": "ab118561-1c49-4464-9e56-81fe8ed7e142"
+      }
+    ],
     "notifications": [
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1"
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 3",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 13"
     ]
   }
 ]

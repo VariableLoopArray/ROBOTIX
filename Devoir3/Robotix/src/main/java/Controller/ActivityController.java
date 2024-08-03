@@ -186,8 +186,8 @@ public class ActivityController {
 
         }
 
-        if (everything.getChildren().size() > 2) {
-            everything.getChildren().subList(2, everything.getChildren().size()).clear();
+        if (everything.getChildren().size() > 3) {
+            everything.getChildren().subList(3, everything.getChildren().size()).clear();
         }
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();

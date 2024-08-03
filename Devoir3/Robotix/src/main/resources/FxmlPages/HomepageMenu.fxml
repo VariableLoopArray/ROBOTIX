@@ -21,7 +21,7 @@
             <HBox>
                 <VBox styleClass="menuVbox">
                     <HBox fx:id="menuProfile">
-                        <Button onAction="#goToMyProfile" styleClass="myProfileButton">
+                        <Button onAction="#goToMyProfile" styleClass="myProfileButton" minHeight="147">
                             <graphic>
                                 <ImageView fitHeight="90" fitWidth="90">
                                     <Image url="@../Images/DefaultProfile.png"/>
