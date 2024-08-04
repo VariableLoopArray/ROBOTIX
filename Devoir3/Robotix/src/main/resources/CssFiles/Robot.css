@@ -136,3 +136,17 @@
 .transparent{
     -fx-background-color: transparent;
 }
+.robotBox{
+    -fx-pref-width: 250;
+    -fx-pref-height: 300;
+    -fx-border-color: #587ffc;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #f0f0f0, #e1e9ff);
+    -fx-border-width: 3px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}
+.gridPaneLeft{
+    -fx-padding: 0 0 0 110;
+}

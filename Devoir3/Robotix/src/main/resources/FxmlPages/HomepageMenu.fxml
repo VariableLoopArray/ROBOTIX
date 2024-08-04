@@ -23,8 +23,8 @@
                     <HBox fx:id="menuProfile">
                         <Button onAction="#goToMyProfile" styleClass="myProfileButton" minHeight="147">
                             <graphic>
-                                <ImageView fitHeight="90" fitWidth="90">
-                                    <Image url="@../Images/DefaultProfile.png"/>
+                                <ImageView fitWidth="100" fitHeight="100">
+                                    <Image url="@../Images/DefaultProfilePic.png"/>
                                 </ImageView>
                             </graphic>
 

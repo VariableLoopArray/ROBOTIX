@@ -32,8 +32,8 @@
                         <Label fx:id="noRobotList" styleClass="noRobot" prefHeight="30"/>
                     </FlowPane>
                     <Label fx:id="errorMessage" style="-fx-text-fill:#f44336; -fx-font-size: 20" visible="false" managed="false"/>
-                    <ScrollPane styleClass="transparent">
-                        <GridPane fx:id="tableInfo" hgap="10" vgap="10" visible="false" alignment="CENTER">
+                    <ScrollPane styleClass="transparent" fx:id="ScrollPaneRobots">
+                        <GridPane fx:id="tableInfo" hgap="10" vgap="10" visible="false" alignment="CENTER"  styleClass="gridPaneLeft">
                             <Label text="Name:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
                             <TextField fx:id="name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
                             <Label text="Type:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="1" GridPane.columnIndex="0"/>

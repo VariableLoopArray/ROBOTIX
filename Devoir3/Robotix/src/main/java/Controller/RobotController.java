@@ -52,6 +52,8 @@ public class RobotController {
     private Button supprime;
     @FXML
     private Label errorMessage;
+    @FXML
+    private ScrollPane ScrollPaneRobots;
 
     private Client client;
     private Gson gson;
@@ -107,6 +109,8 @@ public class RobotController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        ScrollPaneRobots.setVisible(false);
+        ScrollPaneRobots.setManaged(false);
     }
 
     private void createRobotBox(Robot robot, VBox robotBoxContainer) {
@@ -124,9 +128,10 @@ public class RobotController {
             DisplayRobots.getChildren().remove(robotBox);
         });
 
-        robotBox.getChildren().addAll(removeButton, robotInfoLabel);
+        robotBox.getChildren().addAll(robotInfoLabel, removeButton);
         robotBox.setPadding(new javafx.geometry.Insets(10));
         robotBoxContainer.getChildren().add(robotBox);
+        robotBox.getStyleClass().add("robotBox");
         DisplayRobots.getChildren().add(robotBox);
     }
 
@@ -213,6 +218,8 @@ public class RobotController {
         affiche.setManaged(true);
         supprime.setVisible(false);
         supprime.setManaged(false);
+        ScrollPaneRobots.setVisible(true);
+        ScrollPaneRobots.setManaged(true);
 
         Button confirmButton = new Button("Confirm & Save");
         confirmButton.getStyleClass().add("button-confirm");

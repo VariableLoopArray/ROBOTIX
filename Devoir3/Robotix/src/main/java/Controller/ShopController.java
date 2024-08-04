@@ -17,6 +17,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
@@ -93,6 +94,7 @@ public class ShopController {
                  for (Component component : supplier.getStorage()) {;
                      VBox componentVBox = new VBox();
                      Label componentName = new Label(component.getName());
+                     componentName.setWrapText(true);
                      VBox componentInfo = new VBox();
                         Label componentPrice = new Label("Price: " + component.getPrice());
                         Label componentWidth = new Label("Width: " + component.getWidth());
@@ -100,6 +102,7 @@ public class ShopController {
                         Label componentHeight = new Label("Height: " + component.getHeight());
                         Label componentSupplier = new Label("Supplier: " + supplier.getCompanyName());
                         componentInfo.getChildren().addAll(componentPrice, componentWidth, componentLength, componentHeight, componentSupplier);
+                        componentInfo.setPadding(new javafx.geometry.Insets(10, 10, 10, 10));
                      Button buyNow = new Button("Buy now");
                      buyNow.setOnAction(e -> {
                          if (client.getStorage() == null) {
@@ -151,7 +154,8 @@ public class ShopController {
                          thankYouMessage.setText("Thank you for your purchase");
                          displayALlComponents();
                      });
-                     componentVBox.getChildren().addAll(componentName, componentInfo, buyNow);
+                     componentVBox.getChildren().addAll(componentName,componentInfo, buyNow);
+                     componentVBox.getStyleClass().add("componentVbox");
                      productsFlowPane.getChildren().add(componentVBox);
                  }
              }
@@ -246,7 +250,7 @@ public class ShopController {
                         try {
                             String[] suppliersNames = filter10.getText().replace(" ", "").split(",");
                             for (String supplierName : suppliersNames) {
-                                if (supplier.getUsername().contains(supplierName)) {
+                                if (supplier.getUsername().equals(supplierName)) {
                                     addComponent = true;
                                     break;
                                 }
@@ -330,6 +334,7 @@ public class ShopController {
                     applyFilters();
                 });
                 componentVBox.getChildren().addAll(componentName, componentInfo, buyNow);
+                componentVBox.getStyleClass().add("componentVbox");
                 productsFlowPane.getChildren().add(componentVBox);
             }
         } catch (Exception e) {

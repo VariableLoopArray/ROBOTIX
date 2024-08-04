@@ -20,7 +20,7 @@
             <Pane prefHeight="40"/>
             <Label fx:id="shopWelcome" text="Welcome to Robotix Shop" styleClass="title"/>
             <HBox VBox.vgrow="ALWAYS">
-                <Pane prefWidth="50"/>
+                <Pane prefWidth="60"/>
                 <VBox styleClass="filtersVbox" spacing="20" VBox.vgrow="ALWAYS">
                     <Pane prefHeight="50"/>
                     <Label text="Filters" styleClass="filtersLabel"/>
@@ -43,14 +43,15 @@
 
                 <VBox HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS" alignment="CENTER">
                     <Label fx:id="thankYouMessage" style="-fx-text-fill:#4CAF50" alignment="CENTER"/>
-                    <ScrollPane fitToWidth="true" fitToHeight="true" minHeight="600" minWidth="400">
+                    <ScrollPane fitToWidth="true" fitToHeight="true" maxHeight="560" minHeight="560" minWidth="400">
                         <FlowPane fx:id="productsFlowPane" hgap="20" vgap="20">
                         </FlowPane>
                     </ScrollPane>
                 </VBox>
 
-                <Pane prefWidth="50"/>
+                <Pane minWidth="50"/>
             </HBox>
+            <Pane minHeight="40"/>
         </VBox>
     </HBox>
 </StackPane>

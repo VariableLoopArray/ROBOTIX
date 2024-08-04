@@ -30,3 +30,14 @@
     -fx-font-weight: bold;
     -fx-text-fill: #0f1e50; /*  Welcome to my robot! */
 }
+.componentVbox{
+    -fx-pref-width: 180;
+    -fx-pref-height: 160;
+    -fx-border-color: #8ea9f6;
+    -fx-border-width: 3px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #f0f0f0, #e1e9ff);
+    -fx-alignment: center;
+    -fx-padding: 10px;
+}

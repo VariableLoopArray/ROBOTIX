@@ -81,6 +81,7 @@
 .sideMenuButton:hover{
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
     -fx-text-fill: #0035b7;
+    -fx-cursor: hand;
 }
 .joinButton{
     -fx-pref-width: 242;
