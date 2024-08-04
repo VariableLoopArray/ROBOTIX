@@ -12,17 +12,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-public class NotificationController {
+public class InboxController {
     @FXML
     private Client client;
     @FXML
@@ -30,10 +27,10 @@ public class NotificationController {
     @FXML
     private Button goBack;
     @FXML
-    private ListView<String> notificationSpace;
+    private ListView<String> inboxSpace;
     private ObservableList<String> listItems;
 
-    public void setUserNotification(User user) {
+    public void setUserInbox(User user) {
         if (user instanceof Client) {
             try(FileReader reader = new FileReader("src/main/JsonFiles/client.json")) {
                 Gson gson = new Gson();
@@ -63,14 +60,14 @@ public class NotificationController {
         }
     }
 
-    public void displayNotifications() throws FileNotFoundException {
+    public void displayInbox() throws FileNotFoundException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         if (client != null) {
             List<Client> clients = gson.fromJson(new FileReader("src/main/JsonFiles/client.json"), new TypeToken<List<Client>>() {}.getType());
             for (Client client : clients) {
                 if (client.getEmail().equals(this.client.getEmail())) {
                     listItems = FXCollections.observableArrayList();
-                    notificationSpace.setItems(listItems);
+                    inboxSpace.setItems(listItems);
 
                     listItems.addAll(client.getNotifications());
                     break;
@@ -81,7 +78,7 @@ public class NotificationController {
             for (Supplier supplier : suppliers) {
                 if (supplier.getEmail().equals(this.supplier.getEmail())) {
                     listItems = FXCollections.observableArrayList();
-                    notificationSpace.setItems(listItems);
+                    inboxSpace.setItems(listItems);
 
                     listItems.addAll(supplier.getNotifications());
                     break;

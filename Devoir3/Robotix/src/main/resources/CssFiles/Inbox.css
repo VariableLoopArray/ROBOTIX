@@ -23,14 +23,14 @@
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
     -fx-text-fill: #0035b7;
 }
-.notif{
+.inbox{
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-font: 20px "System";
     -fx-padding: 20;
 
 }
-#notification{
+#Inbox{
     -fx-font-family: Georgia;
     -fx-font-size: 35;
     -fx-font-weight: bold;

@@ -8,7 +8,7 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="Controller.NotificationController"
+           fx:controller="Controller.InboxController"
            stylesheets="@../../classes/CssFiles/Notification.css"
 >
 
@@ -19,10 +19,10 @@
         <Pane prefWidth="40"/>
         <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
             <Pane prefHeight="40"/>
-            <Label text="Welcome to your notifications !" fx:id="notification" alignment="CENTER"/>
+            <Label text="Welcome to your Inbox !" fx:id="Inbox" alignment="CENTER"/>
             <Pane prefHeight="60"/>
 
-            <ListView fx:id="notificationSpace" styleClass="notif" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" >
+            <ListView fx:id="inboxSpace" styleClass="inbox" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" >
 
             </ListView>
             <Pane prefHeight="40"/>

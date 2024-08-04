@@ -7,16 +7,13 @@ import Model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -25,9 +22,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,7 +36,7 @@ public class HomepageController {
     @FXML
     private Button shopMenu;
     @FXML
-    private Button notificationMenu;
+    private Button inboxMenu;
     @FXML
     private FlowPane robotixActivities;
     private Client client;
@@ -58,7 +52,7 @@ public class HomepageController {
             activityMenu.setVisible(true);
             robotMenu.setVisible(true);
             shopMenu.setVisible(true);
-            notificationMenu.setVisible(true);
+            inboxMenu.setVisible(true);
         } else if (supplier != null) {
             activityMenu.setVisible(false);
             robotMenu.setVisible(false);
@@ -268,23 +262,23 @@ public class HomepageController {
         }
     }
 
-    public void goToNotification(){
+    public void goToInbox(){
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/NotificationMenu.fxml"));
-            Scene notificationScene = new Scene(fxmlLoader.load(), 1024, 768);
-            notificationScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
-            notificationScene.getStylesheets().add(getClass().getResource("/CssFiles/Notification.css").toExternalForm());
-            NotificationController notificationController = fxmlLoader.getController();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/InboxMenu.fxml"));
+            Scene inboxScene = new Scene(fxmlLoader.load(), 1024, 768);
+            inboxScene.getStylesheets().remove(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            inboxScene.getStylesheets().add(getClass().getResource("/CssFiles/Inbox.css").toExternalForm());
+            InboxController inboxController = fxmlLoader.getController();
             if (client != null) {
-                notificationController.setUserNotification(client);
+                inboxController.setUserInbox(client);
             } else if (supplier != null) {
-                notificationController.setUserNotification(supplier);
+                inboxController.setUserInbox(supplier);
 
             }
-            notificationController.displayNotifications();
-            stage.setTitle("Notifications");
-            stage.setScene(notificationScene);
+            inboxController.displayInbox();
+            stage.setTitle("Inbox");
+            stage.setScene(inboxScene);
             stage.show();
         }
         catch (IOException e) {

@@ -34,7 +34,7 @@
                     <Button text="Robot Menu" fx:id="robotMenu" onAction="#gotoRobot" styleClass="sideMenuButton"/>
                     <Button text="My Components" fx:id="componentMenu" onAction="#goToMyComponent" styleClass="sideMenuButton"/>
                     <Button text="Shop" fx:id="shopMenu" onAction="#goToShop" styleClass="sideMenuButton"/>
-                    <Button text="Notification" fx:id="notificationMenu" onAction="#goToNotification" styleClass="sideMenuButton"/>
+                    <Button text="Inbox" fx:id="inboxMenu" onAction="#goToInbox" styleClass="sideMenuButton"/>
                     <Button text="Logout" onAction="#Logout" styleClass="sideMenuButton"/>
 
                 </VBox>
