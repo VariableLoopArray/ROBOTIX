@@ -5,16 +5,27 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class Activity {
+    /**name of the activity*/
     private String name;
+    /*The robot associated with the activity*/
     private String robot;
+    /*Start date of the activity*/
     private LocalDate startDate;
+    /*End date of the activity*/
     private LocalDate endDate;
+    /**Points associated with the activity*/
     private String points;
+    /**List of interest of an activity*/
     private ArrayList<String> Interests;
+    /**Id of the creator associated with the activity*/
     private UUID creatorId;
+    /**List of task associated with the activity*/
     private ArrayList<Task> tasks;
+    /**Id of the activity*/
     private UUID activityId;
+    /**Description of the activity*/
     private String description;
+    /**Status of the activity*/
     private String status;
 
     /**

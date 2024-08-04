@@ -12,8 +12,11 @@ import java.util.UUID;
  * @Dawson
  */
 public class Client extends User{
+    //List of Robots
     private ArrayList<Robot> fleet;
+    //List of Activities
     private ArrayList<Activity> myActivities;
+    //List of user interest
     private ArrayList<String> myInterests;
 
 

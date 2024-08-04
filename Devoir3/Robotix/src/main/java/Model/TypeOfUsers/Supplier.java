@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @Dawson
  */
 public class Supplier extends User{
+    //production capacity of the supplier
     private int productionCapacity;
 
     /**
