@@ -31,6 +31,7 @@
                     <FlowPane fx:id="DisplayRobots" alignment="CENTER">
                         <Label fx:id="noRobotList" styleClass="noRobot" prefHeight="30"/>
                     </FlowPane>
+                    <Label fx:id="errorMessage" style="-fx-text-fill:#f44336; -fx-font-size: 20" visible="false" managed="false"/>
                     <ScrollPane styleClass="transparent">
                         <GridPane fx:id="tableInfo" hgap="10" vgap="10" visible="false" alignment="CENTER">
                             <Label text="Name:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="0" GridPane.columnIndex="0"/>

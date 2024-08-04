@@ -89,6 +89,7 @@ public class HomepageController {
                     activityContainer.getChildren().add(activityName);
                     activityContainer.getChildren().add(activitySubContainer);
                     activityName.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+                    activityName.setWrapText(true);
                     VBox activityInfo = new VBox();
                     activitySubContainer.getChildren().add(activityInfo);
                     Label startDate = new Label("Start Date: " + activity.getStartDate());
@@ -100,6 +101,7 @@ public class HomepageController {
                     Label status = new Label("Status: " + activity.getStatus());
                     activityInfo.getChildren().add(status);
                     Label description = new Label("Description: " + activity.getDescription());
+                    description.setWrapText(true);
                     activityInfo.getChildren().add(description);
 
                     Button joinButton = new Button("Join");

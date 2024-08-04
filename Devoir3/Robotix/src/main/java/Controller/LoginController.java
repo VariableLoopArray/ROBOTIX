@@ -233,10 +233,8 @@ public class LoginController {
 
 
             Label infoLabel = new Label("This is an informational message.");
-            Button closeButton = new Button("Close");
-            closeButton.setOnAction(e -> infoStage.close());
 
-            VBox vbox = new VBox(infoLabel, closeButton);
+            VBox vbox = new VBox(infoLabel);
             vbox.setSpacing(10);
 
             Gson gson = new Gson();
@@ -384,7 +382,7 @@ public class LoginController {
             clients.getItems().addAll(ClientList);
             suppliers.getItems().addAll(SupplierList);
             vbox.getChildren().addAll(clients, suppliers);
-            Scene infoScene = new Scene(vbox, 300, 150);
+            Scene infoScene = new Scene(vbox, 500, 600);
 
 
             infoStage.setScene(infoScene);

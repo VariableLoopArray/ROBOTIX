@@ -24,7 +24,7 @@
         <Pane prefHeight="20"/>
         <ScrollPane fx:id="mainScroll" fitToWidth="true" maxHeight="600" HBox.hgrow="ALWAYS">
             <VBox>
-                <ScrollPane styleClass="scrollPane" fitToWidth="true" prefHeight="300" >
+                <ScrollPane styleClass="scrollPane" fitToWidth="true" prefHeight="500" >
                     <FlowPane hgap="10" vgap="10" styleClass="flowPane" fx:id="userComponents">
 
                     </FlowPane>

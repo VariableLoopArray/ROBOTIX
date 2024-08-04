@@ -23,7 +23,9 @@
 
 <StackPane xmlns:fx="http://javafx.com/fxml"
            fx:controller="Controller.ActivityController"
-           stylesheets="@../../classes/CssFiles/Activity.css">
+           stylesheets="@../../classes/CssFiles/Activity.css"
+           maxWidth="1014"
+>
 
     <ScrollPane>
     <HBox HBox.hgrow="ALWAYS">
@@ -37,7 +39,7 @@
             <Pane prefHeight="60" HBox.hgrow="ALWAYS"/>
                 <HBox>
                     <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
-                        <VBox fx:id="DisplayActivities" HBox.hgrow="ALWAYS">
+                        <VBox fx:id="DisplayActivities" HBox.hgrow="ALWAYS" maxWidth="700">
 
                         </VBox>
                         <Pane prefHeight="30"/>

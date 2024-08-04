@@ -50,6 +50,8 @@ public class RobotController {
     private Button affiche;
     @FXML
     private Button supprime;
+    @FXML
+    private Label errorMessage;
 
     private Client client;
     private Gson gson;
@@ -70,6 +72,8 @@ public class RobotController {
     }
 
     private void displayRobots() {
+        errorMessage.setVisible(false);
+        errorMessage.setManaged(false);
         supprime.setVisible(false);
         supprime.setManaged(false);
         DisplayRobots.getChildren().clear();
@@ -128,10 +132,10 @@ public class RobotController {
 
     private String getRobotInfo(Robot robot) {
         return String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%%%nRobot Speed: %sm/s%n" +
-                        "Robot CpuUsage: %s%%n Robot Memory: %sGB%nRobot Components: %s%n" +
-                        "Robot Location: %s%n SerialNumber: %s%n",
-                robot.getName(), robot.getType(), robot.getBattery(), robot.getSpeed(),
-                robot.getCpuUsage(), robot.getMemory(), robot.getComponents(),
+                        "Robot CpuUsage: %s%%%nRobot Memory: %sGB%nRobot Components: %s%n" +
+                        "Robot Location: %s%nSerialNumber: %s%n",
+                robot.getName(), robot.getType(), Integer.parseInt(robot.getBattery()), robot.getSpeed(),
+                (int)robot.getCpuUsage(), robot.getMemory(), robot.getComponents(),
                 formatLocation(robot.getLocation()), robot.getSerialNumber());
     }
 
@@ -155,9 +159,14 @@ public class RobotController {
             client.getFleet().add(newRobot);
             updateClientJson();
             tableInfo.setVisible(false);
+            errorMessage.setVisible(false);
+            errorMessage.setManaged(false);
             displaySuccessMessage("Robot created successfully!");
+
         } catch (NumberFormatException e) {
-            noRobotList.setText("Please enter valid inputs!");
+            errorMessage.setText("Please enter valid inputs!");
+            errorMessage.setManaged(true);
+            errorMessage.setVisible(true);
         }
     }
 
@@ -209,7 +218,7 @@ public class RobotController {
         confirmButton.getStyleClass().add("button-confirm");
         confirmButton.setOnAction(e -> confirmRobot());
 
-        tableInfo.add(confirmButton, 1, 8);
+        tableInfo.add(confirmButton, 1, 7);
     }
 
     public void removeRobot() {

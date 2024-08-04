@@ -49,8 +49,8 @@
 .vboxContainer{
 
     -fx-alignment: center;
-    -fx-pref-width: 242;
-    -fx-pref-height: 180;
+    -fx-pref-width: 542;
+    -fx-pref-height: 280;
     -fx-border-color: black;
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
