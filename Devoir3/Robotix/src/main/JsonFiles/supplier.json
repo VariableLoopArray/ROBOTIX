@@ -1,44 +1,72 @@
 [
   {
-    "productionCapacity": 1,
-    "firstName": "1",
-    "lastName": "1",
-    "username": "1",
-    "password": "11111111",
-    "id": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
-    "email": "1@",
-    "companyName": "1",
-    "phoneNumber": "111-111-1111",
-    "Storage": [
-      {
-        "name": "1",
-        "type": [
-          "1"
-        ],
-        "price": 100.0,
-        "width": 23.0,
-        "length": 10.0,
-        "height": 1.0,
-        "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
-        "serialNumber": "a44cf028-be8f-44ad-8203-7781cee1a53b"
-      },
-      {
-        "name": "2",
-        "type": [
-          "5"
-        ],
-        "price": 100.0,
-        "width": 23.0,
-        "length": 15.0,
-        "height": 0.0,
-        "supplierID": "d484b0d2-05a9-4424-9be7-2066a571e4b5",
-        "serialNumber": "15c18829-36b2-41d0-b8ac-794a00235b8f"
-      }
-    ],
-    "notifications": [
-      "Your component 1 has been bought by 1!",
-      "Your component 1 has been bought by 1!",
-      "Your component 2 has been bought by 1!"
-    ]
+    "typeOfAccount": "Supplier",
+    "firstName": "Michael",
+    "lastName": "Oliver",
+    "username": "MichaelOliver521",
+    "password": "password1",
+    "id": "9348ebe1-8cff-4d62-9d12-1dbec6dd4f55",
+    "email": "MichaelOliver@gmail.com",
+    "companyName": "Amazon",
+    "phoneNumber": "514-111-1111",
+    "storage": [],
+    "notifications": [],
+    "productionCapacity": "10"
+  },
+  {
+    "typeOfAccount": "Supplier",
+    "firstName": "Frankie",
+    "lastName": "Charles",
+    "username": "FrankieCharles178",
+    "password": "password2",
+    "id": "288ba4d9-b686-4d34-adf0-b42c0dcdf3da",
+    "email": "FrankieCharles@gmail.com",
+    "companyName": "WheelCar.inc",
+    "phoneNumber": "514-222-2222",
+    "storage": [],
+    "notifications": [],
+    "productionCapacity": "7"
+  },
+  {
+    "typeOfAccount": "Supplier",
+    "firstName": "Josh",
+    "lastName": "Burton",
+    "username": "JoshBurton412",
+    "password": "password3",
+    "id": "85ffa26b-bac9-456a-a309-8727c332901c",
+    "email": "JoshBurton@gmail.com",
+    "companyName": "Apple",
+    "phoneNumber": "514-333-3333",
+    "storage": [],
+    "notifications": [],
+    "productionCapacity": "4"
+  },
+  {
+    "typeOfAccount": "Supplier",
+    "firstName": "Sophie",
+    "lastName": "Moreno",
+    "username": "SophieMoreno723",
+    "password": "password4",
+    "id": "98acf9ff-3d59-43fe-a995-27dca8774df7",
+    "email": "SophieMoreno@gmail.com",
+    "companyName": "Google",
+    "phoneNumber": "514-444-4444",
+    "storage": [],
+    "notifications": [],
+    "productionCapacity": "5"
+  },
+  {
+    "typeOfAccount": "Supplier",
+    "firstName": "Edward",
+    "lastName": "Blair",
+    "username": "EdwardBlair413",
+    "password": "password5",
+    "id": "ab49dfcd-991a-4b71-afbb-0e3d0970a059",
+    "email": "EdwardBlair@gmail.com",
+    "companyName": "AeroX",
+    "phoneNumber": "514-555-5555",
+    "storage": [],
+    "notifications": [],
+    "productionCapacity": "8"
   }
 ]

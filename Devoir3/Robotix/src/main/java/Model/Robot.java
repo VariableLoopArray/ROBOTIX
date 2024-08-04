@@ -6,7 +6,7 @@ import java.util.UUID;
 public class Robot {
     private String name;
     private String type;
-    private ArrayList<Component> components;
+    private ArrayList<String> components;
     private UUID serialNumber;
     private String battery;
     private float[] location;
@@ -14,7 +14,7 @@ public class Robot {
     private float cpuUsage;
     private float memory;
 
-    public Robot(String name, String type, ArrayList<Component> components, String battery, float[] location, float speed, float cpuUsage, float memory) {
+    public Robot(String name, String type, ArrayList<String> components, String battery, float[] location, float speed, float cpuUsage, float memory) {
         this.name = name;
         this.type = type;
         this.components = components;
@@ -42,11 +42,11 @@ public class Robot {
         this.type = type;
     }
 
-    public ArrayList<Component> getComponents() {
+    public ArrayList<String> getComponents() {
         return components;
     }
 
-    public void setComponents(ArrayList<Component> components) {
+    public void setComponents(ArrayList<String> components) {
         this.components = components;
     }
 

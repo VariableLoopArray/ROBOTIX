@@ -47,8 +47,6 @@
                             <TextField fx:id="cpuusage" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
                             <Label text="Memory:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
                             <TextField fx:id="memory" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
-                            <Label text="Serial Number:" style="-fx-text-fill: #2e0565;" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
-                            <TextField fx:id="serialNumber" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
                         </GridPane>
                     </ScrollPane>
                 </VBox>

@@ -13,6 +13,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.Collections;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.io.*;
@@ -40,6 +42,8 @@ public class RobotController {
     private TextField cpuusage;
     @FXML
     private TextField memory;
+    @FXML
+    private TextField components;
     @FXML
     private Button create;
     @FXML
@@ -124,11 +128,11 @@ public class RobotController {
 
     private String getRobotInfo(Robot robot) {
         return String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%nRobot Speed: %s%n" +
-                        "Robot CpuUsage: %s%nRobot Memory: %s%nRobot SerialNumber: %s%nRobot Components: %s%n" +
-                        "Robot Location: %s%n",
+                        "Robot CpuUsage: %s%nRobot Memory: %s%nRobot Components: %s%n" +
+                        "Robot Location: %s%nSerialNumber: %s%n",
                 robot.getName(), robot.getType(), robot.getBattery(), robot.getSpeed(),
-                robot.getCpuUsage(), robot.getMemory(), robot.getSerialNumber(), robot.getComponents(),
-                formatLocation(robot.getLocation()));
+                robot.getCpuUsage(), robot.getMemory(), robot.getComponents(),
+                formatLocation(robot.getLocation()), robot.getSerialNumber());
     }
 
     private String formatLocation(float[] location) {
@@ -139,8 +143,11 @@ public class RobotController {
 
     public void confirmRobot() {
         try {
+            ArrayList<String> allComponents = new ArrayList<>();
+            String[] components = this.components.getText().replace(" ", "").split(",");
+            Collections.addAll(allComponents, components);
             Robot newRobot = new Robot(
-                    name.getText(), type.getText(), new ArrayList<>(),
+                    name.getText(), type.getText(), allComponents,
                     battery.getText(), new float[]{0.0f, 0.0f, 0.0f},
                     Float.parseFloat(speed.getText()), Float.parseFloat(cpuusage.getText()),
                     Float.parseFloat(memory.getText())
