@@ -3,6 +3,7 @@ package Controller;
 import Model.Activity;
 import Model.TypeOfUsers.Client;
 import Model.TypeOfUsers.Supplier;
+import Model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -431,19 +432,26 @@ public class LoginController {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
-                    for(Client client : clients){
+                    List<Client> clientsToRemove = new ArrayList<>();
+                    for (Client client : clients) {
                         for (int i = 0; i < client.getMyActivities().size(); i++) {
-                            if (client.getMyActivities().get(i).getStartDate().isBefore(newDate) && client.getMyActivities().get(i).getEndDate().isAfter(newDate)) {
+                            if (client.getMyActivities().get(i).getStartDate().isBefore(newDate) &&
+                                    client.getMyActivities().get(i).getEndDate().isAfter(newDate)) {
                                 client.getMyActivities().get(i).setStatus("In Progress");
-                            }
-                            else if (client.getMyActivities().get(i).getEndDate().isBefore(newDate)) {
+                            } else if (client.getMyActivities().get(i).getEndDate().isBefore(newDate)) {
                                 client.getMyActivities().get(i).setStatus("Completed");
-                            }
-                            else if (client.getMyActivities().get(i).getStartDate().isAfter(newDate)) {
+                            } else if (client.getMyActivities().get(i).getStartDate().isAfter(newDate)) {
                                 client.getMyActivities().get(i).setStatus("Upcoming");
                             }
                         }
+                        if (client.getConfirmationLink() != null && !client.getConfirmationLink().equals("null")) {
+                            LocalDate dateOfCreation = LocalDate.parse(client.getConfirmationLink(), formatter);
+                            if (dateOfCreation.isBefore(newDate)) {
+                                clientsToRemove.add(client);
+                            }
+                        }
                     }
+                    clients.removeAll(clientsToRemove);
                     for (Activity activity : activities) {
                         if (activity.getStartDate().isBefore(newDate) && activity.getEndDate().isAfter(newDate)) {
                             activity.setStatus("In Progress");
@@ -455,6 +463,16 @@ public class LoginController {
                             activity.setStatus("Upcoming");
                         }
                     }
+                    List<Supplier> suppliersToRemove = new ArrayList<>();
+                    for (Supplier supplier : suppliers) {
+                        if (supplier.getConfirmationLink() != null && !supplier.getConfirmationLink().equals("null")) {
+                            LocalDate dateOfCreation = LocalDate.parse(supplier.getConfirmationLink(), formatter);
+                            if (dateOfCreation.isBefore(newDate)) {
+                                suppliersToRemove.add(supplier);
+                            }
+                        }
+                    }
+                    suppliers.removeAll(suppliersToRemove);
                     Gson gson = new GsonBuilder().setPrettyPrinting().create();
                     try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
                         gson.toJson(clients, writer);
@@ -471,14 +489,21 @@ public class LoginController {
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
+                    try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                        gson.toJson(suppliers, writer);
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
 
 
                     manageDate.close();
                     dateBool = false;
-                } catch (DateTimeParseException ex) {
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    dateInput.clear();
+                    dateInput.setPromptText("Invalid date format. Please enter date in yyyy-MM-dd format.");
 
-                    Alert alert = new Alert(Alert.AlertType.ERROR, "Invalid date format. Please enter a date in yyyy-MM-dd format.");
-                    alert.show();
+
                 }
             });
 

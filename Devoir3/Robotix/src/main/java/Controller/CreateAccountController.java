@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -126,7 +127,6 @@ public class CreateAccountController {
 
         if (problem) {
             JsonObject newUser = new JsonObject();
-            newUser.addProperty("typeOfAccount", "Client");
             newUser.addProperty("firstName", newFirstName);
             newUser.addProperty("lastName", newLastName);
             newUser.addProperty("username", newUsername);
@@ -140,11 +140,30 @@ public class CreateAccountController {
             newUser.add("myInterests", new JsonArray());
             newUser.add("myStorage", new JsonArray());
             newUser.add("notifications", new JsonArray());
+            JsonArray emailInbox = new JsonArray();
+            emailInbox.add("Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted");
+            newUser.add("emailInbox", emailInbox);
             for (int i = 1; i <= 10; i++) {
                 CheckBox interest = (CheckBox) clientForm.lookup("#Interest" + i);
                 if (interest.isSelected()) {
                     newUser.getAsJsonArray("myInterests").add(interest.getText());
                 }
+            }
+            newUser.addProperty("toggleEmail", false);
+            try(Reader reader = new FileReader("src/main/JsonFiles/currentDate.json")) {
+                JsonObject currentDate = new Gson().fromJson(reader, JsonObject.class);
+
+                if (currentDate == null) {
+                    newUser.addProperty("confirmationLink", LocalDate.now().toString());
+                } else{
+                    int year = currentDate.get("year").getAsInt();
+                    int month = currentDate.get("month").getAsInt();
+                    int day = currentDate.get("day").getAsInt();
+                    LocalDate timeNow = LocalDate.of(year, month, day);
+                    newUser.addProperty("confirmationLink", timeNow.toString());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
 
@@ -250,7 +269,6 @@ public class CreateAccountController {
 
         if (problem) {
             JsonObject newUser = new JsonObject();
-            newUser.addProperty("typeOfAccount", "Supplier");
             newUser.addProperty("firstName", newFirstName);
             newUser.addProperty("lastName", newLastName);
             newUser.addProperty("username", newUsername);
@@ -261,8 +279,25 @@ public class CreateAccountController {
             newUser.addProperty("phoneNumber", newPhoneNumber);
             newUser.add("storage", new JsonArray());
             newUser.add("notifications", new JsonArray());
+            JsonArray emailInbox = new JsonArray();
+            emailInbox.add("Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted");
+            newUser.add("emailInbox", emailInbox);
             newUser.addProperty("productionCapacity", productionCapacity);
-
+            newUser.addProperty("toggleEmail", false);
+            try(Reader reader = new FileReader("src/main/JsonFiles/currentDate.json")) {
+                JsonObject currentDate = new Gson().fromJson(reader, JsonObject.class);
+                if (currentDate == null) {
+                    newUser.addProperty("confirmationLink", LocalDate.now().toString());
+                } else{
+                    int year = currentDate.get("year").getAsInt();
+                    int month = currentDate.get("month").getAsInt();
+                    int day = currentDate.get("day").getAsInt();
+                    LocalDate timeNow = LocalDate.of(year, month, day);
+                    newUser.addProperty("confirmationLink", timeNow.toString());
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             JsonArray usersArray = new JsonArray();
             if (new File(supplierFile).length() == 0) {
@@ -284,9 +319,7 @@ public class CreateAccountController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             usersArray.add(newUser);
-
             try (Writer writer = new FileWriter(supplierFile)) {
                 new Gson().toJson(usersArray, writer);
             } catch (IOException e) {

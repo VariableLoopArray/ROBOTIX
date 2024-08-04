@@ -537,6 +537,9 @@ public class ActivityController {
                 for (String interest : newActivity.getInterests()) {
                     if (client.getMyInterests().contains(interest)) {
                         client.getNotifications().add("A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!" + "\n" + "Name of the activity: " + newActivity.getName());
+                        if (client.isToggleEmail()){
+                            client.getEmailInbox().add("A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!" + "\n" + "Name of the activity: " + newActivity.getName());
+                        }
                         break;
                     }
                 }
@@ -639,7 +642,7 @@ public class ActivityController {
     }
     public String buttonModifyTest (){
         client = new Client ("hello", "hello", "hello22", "hellohello22",
-                "hello@","hello22","111-111-1111", new ArrayList<Robot>(), new ArrayList<String>());
+                "hello@","hello22","111-111-1111", new ArrayList<Robot>(), new ArrayList<String>(), true, "2024-12-12");
 
 
         ArrayList<String> instruction = new ArrayList<>();

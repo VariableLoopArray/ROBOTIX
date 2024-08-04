@@ -9,7 +9,7 @@
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
            fx:controller="Controller.InboxController"
-           stylesheets="@../../classes/CssFiles/Notification.css"
+           stylesheets="@../../classes/CssFiles/Inbox.css"
 >
 
     <HBox>
@@ -21,12 +21,25 @@
             <Pane prefHeight="40"/>
             <Label text="Welcome to your Inbox !" fx:id="Inbox" alignment="CENTER"/>
             <Pane prefHeight="60"/>
+            <HBox>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="Notifications" styleClass="title"/>
+                <ListView fx:id="notificationSpace" styleClass="notification" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" >
 
-            <ListView fx:id="inboxSpace" styleClass="inbox" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS" >
+                </ListView>
+                </VBox>
+                <Pane prefWidth="10"/>
+                <VBox HBox.hgrow="ALWAYS">
+                    <Label text="Emails" styleClass="title"/>
+                <ListView fx:id="emailSpace" styleClass="email" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
 
-            </ListView>
-            <Pane prefHeight="40"/>
-
+                </ListView>
+                </VBox>
+            </HBox>
+            <Pane minHeight="10"/>
+            <Button fx:id="ToggleEmailOn" text="Toggle Email On" onAction="#handleToggleEmailOn" styleClass="sideMenuButton"/>
+            <Button fx:id="ToggleEmailOff" text="Toggle Email Off" onAction="#handleToggleEmailOff" styleClass="sideMenuButton"/>
+            <Pane minHeight="10"/>
         </VBox>
         <Pane prefWidth="40"/>
     </HBox>
