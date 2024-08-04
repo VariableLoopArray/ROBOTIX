@@ -16,10 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
 
 public class CreateAccountController {
@@ -69,7 +66,7 @@ public class CreateAccountController {
     private static final String clientFile = "src/main/JsonFiles/client.json";
     private static final String supplierFile = "src/main/JsonFiles/supplier.json";
     @FXML
-    private void handleClientCreateAccount(){
+    private boolean handleClientCreateAccount(){
         boolean problem = true;
 
         List<Client> clients = loadClients();
@@ -192,6 +189,7 @@ public class CreateAccountController {
             }
         }
         clearFields();
+        return problem;
     }
     @FXML
     private void handleSupplierCreateAccount(){
@@ -402,4 +400,39 @@ public class CreateAccountController {
             return List.of();
         }
     }
+
+    //TESTS FUNCTIONS
+
+    public boolean handleClientCreateAccountTest(String firstName, String lastName, String username, String password,
+                                                String email, String companyName,String phoneNumber){
+
+        clientFirstNameField.setText(firstName);
+        clientLastNameField.setText(lastName);
+        clientUsernameField.setText(username);
+        clientPasswordField.setText(password);
+
+        clientEmailField.setText(email);
+        clientCompanyNameField.setText(companyName);
+        clientPhoneNumberField.setText(phoneNumber);
+
+        return handleClientCreateAccount();
+    }
+
+    public int clearFieldsTest(){
+        clientFirstNameField.setText("hello");
+        clientLastNameField.setText("hello");
+        clientUsernameField.setText("hello");
+        clientPasswordField.setText("hello");
+
+        clientEmailField.setText("hello");
+        clientCompanyNameField.setText("hello");
+        clientPhoneNumberField.setText("hello");
+
+        clearFields();
+        return (clientFirstNameField.getText().length() + clientLastNameField.getText().length() +
+                clientUsernameField.getText().length() + clientPasswordField.getText().length() +
+                clientEmailField.getText().length() + clientCompanyNameField.getText().length() +
+                clientPhoneNumberField.getText().length());
+    }
+
 }

@@ -1,6 +1,4 @@
-.title{
-    -fx-font-size: 24;
-}
+
 .activities{
     -fx-font-size: 20;
 }
@@ -11,40 +9,96 @@
 }
 .sideMenuButton{
 
-    -fx-text-fill: #28b2fc;
-    -fx-font-size: 24px;
+
     -fx-pref-width: 240px;
     -fx-pref-height: 100px;
-    -fx-border-radius: 0;
-    -fx-background-radius: 0;
+    -fx-font-family: Georgia;
+    -fx-font-size: 26;
+    -fx-border-width: 3px;
+    -fx-border-color: #8ea9f6;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
 }
-.buttons{
-    -fx-background-radius: 20;
+.sideMenuButton:hover{
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
 }
 .textarea{
     -fx-border-width: 2;
 }
 
+.buttons{
+    -fx-font-family: Georgia;
+    -fx-font-size: 15;
+    -fx-text-fill: #0f1e50;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 22px;
+    -fx-border-width: 1px;
+    -fx-border-color: #60586c;
+}
+
+
+
+.label-activity{
+    -fx-font-family: Georgia;
+    -fx-font-size: 20;
+    -fx-text-fill: #24273d;
+}
+
+.label-description{
+    -fx-font-family: Georgia;
+    -fx-font-size: 20;
+    -fx-text-fill: #24273d;
+    -fx-font-family: Georgia;
+}
 
 #activityWelcome {
     -fx-font-family: Georgia;
-    -fx-font-size: 40;
+    -fx-font-size: 35;
     -fx-font-weight: bold;
     -fx-text-fill: #0f1e50; /*  Welcome to my robot! */
 }
 
+#successLabel{
+    -fx-text-fill:#4CAF50;
+}
+
+#errorLabel{
+    -fx-text-fill:#FF0000;
+}
 
 #create,#Creer{
     -fx-font-family: Georgia;
-    -fx-font-size: 40;
-    -fx-font-weight: medium-bold;
+    -fx-font-size: 25;
     -fx-border-radius: 20px;
     -fx-background-radius: 22px;
     -fx-border-width: 3px;
-    -fx-border-color: #514660;
+    -fx-border-color: #8ea9f6;
     -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
     -fx-margin: 20px;
-    -fx-alignment: center; // change
--fx-text-fill: #351C75;
-    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8E7CC3);
+    -fx-alignment: center;
+    -fx-text-fill: black;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #8ea9f6);
+}
+
+#create:hover,#Creer:hover{
+    -fx-font-family: Georgia;
+    -fx-font-size: 25;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 22px;
+    -fx-border-width: 3px;
+    -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
+    -fx-text-fill: #0035b7;
+    -fx-effect: innershadow(gaussian, #a9acca, 10, 0, 0, 3);
+    -fx-margin: 20px;
+    -fx-alignment: center;
+}
+
+#activityGrid{
+    -fx-font-family: Georgia;
+    -fx-font-size: 15;
+    -fx-text-fill: #24273d;
 }
