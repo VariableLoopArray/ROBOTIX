@@ -12,11 +12,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class InboxController {
@@ -27,8 +30,124 @@ public class InboxController {
     @FXML
     private Button goBack;
     @FXML
-    private ListView<String> inboxSpace;
+    private ListView<String> notificationSpace;
+    @FXML
+    private ListView<String> emailSpace;
+    @FXML
+    private Button ToggleEmailOn;
+    @FXML
+    private Button ToggleEmailOff;
     private ObservableList<String> listItems;
+    private ObservableList<String> notificationItems;
+    private ObservableList<String> emailItems;
+
+    public class NotificationListCell extends ListCell<String> {
+        private final Label label;
+
+        public NotificationListCell() {
+            label = new Label();
+            label.setWrapText(true);
+            label.setMaxWidth(Double.MAX_VALUE);
+
+            VBox vbox = new VBox(label);
+            vbox.prefWidthProperty().bind(this.widthProperty().subtract(30)); // Subtract some padding
+            label.prefWidthProperty().bind(vbox.prefWidthProperty());
+            setGraphic(vbox);
+        }
+
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+                setGraphic(null);
+            } else {
+                label.setText(item);
+                setGraphic(label.getParent());
+            }
+        }
+    }
+
+    // Custom ListCell for emails with buttons
+    public class EmailListCell extends ListCell<String> {
+        private final VBox vbox;
+        private final Label label;
+        private final Button confirmButton;
+
+        public EmailListCell() {
+            label = new Label();
+            label.setWrapText(true);
+            label.setMaxWidth(Double.MAX_VALUE);
+
+            confirmButton = new Button("Confirm");
+            confirmButton.setOnAction(e -> handleConfirmButtonClick(getItem())); // Handle button click
+
+            vbox = new VBox(label, confirmButton);
+            vbox.prefWidthProperty().bind(this.widthProperty().subtract(30));
+            label.prefWidthProperty().bind(vbox.prefWidthProperty());
+            setGraphic(vbox);
+        }
+
+        @Override
+        protected void updateItem(String item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+                setText(null);
+                setGraphic(null);
+            } else {
+                label.setText(item);
+                setGraphic(vbox);
+            }
+        }
+
+        private void handleConfirmButtonClick(String item) {
+            if (client != null) {
+                try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+                    Gson gson = new Gson();
+                    List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
+                    for (Client client : clients) {
+                        if (client.getEmail().equals(InboxController.this.client.getEmail())) {
+                            client.setConfirmationLink("null");
+                            client.getNotifications().add("Email confirmed !");
+                            try(Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                                gson.toJson(clients, writer);
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            displayInbox();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else if (supplier != null) {
+                try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
+                    Gson gson = new Gson();
+                    List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
+                    for (Supplier supplier : suppliers) {
+                        if (supplier.getEmail().equals(InboxController.this.supplier.getEmail())) {
+                            supplier.setConfirmationLink("null");
+                            supplier.getNotifications().add("Email confirmed !");
+                            try(Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                                gson.toJson(suppliers, writer);
+                            }catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            displayInbox();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    @FXML
+    public void initialize() {
+        notificationSpace.setCellFactory(param -> new NotificationListCell());
+        emailSpace.setCellFactory(param -> new EmailListCell());
+    }
 
     public void setUserInbox(User user) {
         if (user instanceof Client) {
@@ -67,9 +186,20 @@ public class InboxController {
             for (Client client : clients) {
                 if (client.getEmail().equals(this.client.getEmail())) {
                     listItems = FXCollections.observableArrayList();
-                    inboxSpace.setItems(listItems);
-
+                    notificationSpace.setItems(listItems);
                     listItems.addAll(client.getNotifications());
+                    emailSpace.setItems(FXCollections.observableArrayList(client.getEmailInbox()));
+                    if (client.isToggleEmail()) {
+                        ToggleEmailOff.setVisible(true);
+                        ToggleEmailOff.setManaged(true);
+                        ToggleEmailOn.setVisible(false);
+                        ToggleEmailOn.setManaged(false);
+                    } else {
+                        ToggleEmailOn.setVisible(true);
+                        ToggleEmailOn.setManaged(true);
+                        ToggleEmailOff.setVisible(false);
+                        ToggleEmailOff.setManaged(false);
+                    }
                     break;
                 }
             }
@@ -78,15 +208,25 @@ public class InboxController {
             for (Supplier supplier : suppliers) {
                 if (supplier.getEmail().equals(this.supplier.getEmail())) {
                     listItems = FXCollections.observableArrayList();
-                    inboxSpace.setItems(listItems);
-
+                    notificationSpace.setItems(listItems);
                     listItems.addAll(supplier.getNotifications());
+                    emailSpace.setItems(FXCollections.observableArrayList(supplier.getEmailInbox()));
+                    if (supplier.isToggleEmail()) {
+                        ToggleEmailOff.setVisible(true);
+                        ToggleEmailOff.setManaged(true);
+                        ToggleEmailOn.setVisible(false);
+                        ToggleEmailOn.setManaged(false);
+                    } else {
+                        ToggleEmailOn.setVisible(true);
+                        ToggleEmailOn.setManaged(true);
+                        ToggleEmailOff.setVisible(false);
+                        ToggleEmailOff.setManaged(false);
+                    }
                     break;
                 }
             }
         }
     }
-
 
     public void handleGoBack() {
         try {
@@ -109,8 +249,86 @@ public class InboxController {
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
-
         }
+    }
+    public void handleToggleEmailOn() throws FileNotFoundException {
+        if (client != null) {
+            try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+                Gson gson = new Gson();
+                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {
+                }.getType());
+                for (Client client : clients) {
+                    if (client.getEmail().equals(this.client.getEmail())) {
+                        client.setToggleEmail(true);
+                        try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                            gson.toJson(clients, writer);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        } else if (supplier != null) {
+            try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
+                Gson gson = new Gson();
+                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {
+                }.getType());
+                for (Supplier supplier : suppliers) {
+                    if (supplier.getEmail().equals(this.supplier.getEmail())) {
+                        supplier.setToggleEmail(true);
+                        try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                            gson.toJson(suppliers, writer);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        displayInbox();
+    }
+    public void handleToggleEmailOff() throws FileNotFoundException {
+        if (client != null){
+            try(Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+                Gson gson = new Gson();
+                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
+                for (Client client : clients) {
+                    if (client.getEmail().equals(this.client.getEmail())) {
+                        client.setToggleEmail(false);
+                        try(Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                            gson.toJson(clients, writer);
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (supplier != null) {
+            try(Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
+                Gson gson = new Gson();
+                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
+                for (Supplier supplier : suppliers) {
+                    if (supplier.getEmail().equals(this.supplier.getEmail())) {
+                        supplier.setToggleEmail(false);
+                        try(Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                            gson.toJson(suppliers, writer);
+                        }catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        displayInbox();
 
     }
 }

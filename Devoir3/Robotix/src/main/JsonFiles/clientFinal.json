@@ -53,8 +53,13 @@
     "companyName": "",
     "phoneNumber": "514-111-1111",
     "notifications": [
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service"
-    ]
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 3"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -109,7 +114,10 @@
     "email": "ZaneUnderwood@gmail.com",
     "companyName": "Nvidia",
     "phoneNumber": "514-222-2222",
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -164,7 +172,10 @@
     "email": "AnnabelleValdez@gmail.com",
     "companyName": "",
     "phoneNumber": "514-333-3333",
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -219,7 +230,10 @@
     "email": "GianlucaGray@gmail.com",
     "companyName": "PepsiCo",
     "phoneNumber": "514-444-4444",
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -274,7 +288,10 @@
     "email": "JaydonSanchez@gmail.com",
     "companyName": "",
     "phoneNumber": "514-555-5555",
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -332,7 +349,10 @@
     "notifications": [
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"
-    ]
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -392,7 +412,10 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Surveillance Patrol",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"
-    ]
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -456,7 +479,7 @@
         "tasks": [],
         "activityId": "f0cd5d87-b575-469c-aaf2-e46ee7e98b6f",
         "description": "The robot must assemble a complex circuit board with multiple components.",
-        "status": "Finished"
+        "status": "Completed"
       },
       {
         "name": "Robotic Arm Calibration",
@@ -478,7 +501,7 @@
         "tasks": [],
         "activityId": "ef5e45bd-0bab-4040-a036-01069b6503b5",
         "description": "The robot must calibrate its robotic arm to ensure precision in its movements.Tasks:",
-        "status": "Upcoming"
+        "status": "Completed"
       }
     ],
     "myInterests": [
@@ -496,7 +519,10 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Object Retrieval",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Inventory Management",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"
-    ]
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -551,7 +577,10 @@
     "email": "TeddyRoosevelt@gmail.com",
     "companyName": "",
     "phoneNumber": "514-999-9999",
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "fleet": [
@@ -608,6 +637,9 @@
     "phoneNumber": "514-101-0101",
     "notifications": [
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Surveillance Patrol"
-    ]
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   }
 ]

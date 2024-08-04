@@ -136,6 +136,9 @@ public class ShopController {
                                  if (supplier1.getId().equals(component.getSupplierID())) {
                                      supplier1.setStorage(supplier1.getStorage());
                                      supplier.getNotifications().add("Your component " + component.getName() + " has been bought by " + client.getUsername() +"!");
+                                     if (supplier.isToggleEmail()){
+                                         supplier.getEmailInbox().add("Your component " + component.getName() + " has been bought by " + client.getUsername() + "!");
+                                     }
                                  }
                              }
                          } catch (Exception e1) {
@@ -305,6 +308,9 @@ public class ShopController {
                         if (supplier.getId().equals(component.getSupplierID())) {
                             supplier.getStorage().remove(component);
                             supplier.getNotifications().add("Your component " + component.getName() + " has been bought by " + client.getUsername() + "!");
+                            if (supplier.isToggleEmail()){
+                                supplier.getEmailInbox().add("Your component " + component.getName() + " has been bought by " + client.getUsername() + "!");
+                            }
                         }
                     }
                     try (Reader reader1 = new FileReader("src/main/JsonFiles/supplier.json")) {

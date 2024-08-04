@@ -9,7 +9,7 @@
     "email": "MichaelOliver@gmail.com",
     "companyName": "Amazon",
     "phoneNumber": "514-111-1111",
-    "Storage": [
+    "storage": [
       {
         "name": "1",
         "type": [
@@ -35,13 +35,10 @@
         "serialNumber": "0c26225d-49a7-4616-a443-a69b48a0ce76"
       }
     ],
-    "notifications": [
-      "Your component  Intel i9-11900K has been bought by johndoe123!",
-      "Your component  AMD Ryzen 9 5900X has been bought by johndoe123!",
-      "Your component Nvidia RTX 3080 has been bought by johndoe123!",
-      "Your component Corsair Vengeance 16GB RAM has been bought by johndoe123!",
-      "Your component Samsung 970 EVO 1TB SSD has been bought by johndoe123!"
-    ]
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 7,
@@ -53,7 +50,20 @@
     "email": "FrankieCharles@gmail.com",
     "companyName": "WheelCar.inc",
     "phoneNumber": "514-222-2222",
-    "Storage": [
+    "storage": [
+      {
+        "name": "ASUS ROG Strix Z590-E",
+        "type": [
+          "HighPerformance",
+          "Overclocking"
+        ],
+        "price": 379.0,
+        "width": 30.0,
+        "length": 24.0,
+        "height": 3.0,
+        "supplierID": "288ba4d9-b686-4d34-adf0-b42c0dcdf3da",
+        "serialNumber": "4b8f98e8-256b-4de8-b60a-e1d8a88764ff"
+      },
       {
         "name": "Cooler Master Hyper 212",
         "type": [
@@ -107,9 +117,10 @@
         "serialNumber": "aaf53f89-25ec-4345-b149-661bae2a0813"
       }
     ],
-    "notifications": [
-      "Your component ASUS ROG Strix Z590-E has been bought by johndoe123!"
-    ]
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 4,
@@ -121,7 +132,7 @@
     "email": "JoshBurton@gmail.com",
     "companyName": "Apple",
     "phoneNumber": "514-333-3333",
-    "Storage": [
+    "storage": [
       {
         "name": "Name: Intel Atom x7-E3950",
         "type": [
@@ -188,7 +199,10 @@
         "serialNumber": "39df37f6-5400-45f3-b2fb-02668f1d2ada"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 5,
@@ -200,7 +214,7 @@
     "email": "SophieMoreno@gmail.com",
     "companyName": "Google",
     "phoneNumber": "514-444-4444",
-    "Storage": [
+    "storage": [
       {
         "name": "L298N Motor Driver",
         "type": [
@@ -267,7 +281,10 @@
         "serialNumber": "f0d22f64-68f4-48ac-b824-2dfd68b9c630"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 8,
@@ -279,7 +296,7 @@
     "email": "EdwardBlair@gmail.com",
     "companyName": "AeroX",
     "phoneNumber": "514-555-5555",
-    "Storage": [
+    "storage": [
       {
         "name": "GPS Module NEO-6M",
         "type": [
@@ -346,6 +363,9 @@
         "serialNumber": "34801bb1-473d-49eb-a7b9-48f79886a3c3"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   }
 ]

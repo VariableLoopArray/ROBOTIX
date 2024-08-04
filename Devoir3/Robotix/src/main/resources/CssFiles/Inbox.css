@@ -23,16 +23,23 @@
     -fx-background-color: radial-gradient(center 50% 50%, radius 100%, #e8e4f3, #5584ff);
     -fx-text-fill: #0035b7;
 }
-.inbox{
+.notification{
     -fx-text-fill: black;
     -fx-font-weight: bold;
     -fx-font: 20px "System";
     -fx-padding: 20;
-
+    -fx-min-height: 600;
 }
 #Inbox{
     -fx-font-family: Georgia;
     -fx-font-size: 35;
     -fx-font-weight: bold;
     -fx-text-fill: #0f1e50;
+}
+.email{
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font: 20px "System";
+    -fx-padding: 20;
+    -fx-min-height: 600;
 }

@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -12,13 +13,17 @@ public class User {
     private String email;
     private String companyName;
     private String phoneNumber;
-    private ArrayList<Component> Storage;
+    private ArrayList<Component> storage;
     private ArrayList<String> notifications;
+    private ArrayList<String> emailInbox;
+    private boolean toggleEmail;
+    private String confirmationLink;
 
     public User(){}
 
     public User(String firstName,String lastName,String username, String password, String email,
-                String companyName, String phoneNumber, ArrayList<Component> Storage, ArrayList<String> notifications){
+                String companyName, String phoneNumber, ArrayList<Component> storage, ArrayList<String> notifications, ArrayList<String> emailInbox,
+                boolean toggleEmail, String confirmationLink){
 
         this.firstName = firstName;
         this.lastName = lastName;
@@ -28,7 +33,7 @@ public class User {
         this.email = email;
         this.companyName = companyName;
         this.phoneNumber = phoneNumber;
-        this.Storage = Storage;
+        this.storage = storage;
         this.notifications = notifications;
 
     }
@@ -92,16 +97,34 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
     public ArrayList<Component> getStorage() {
-        return Storage;
+        return storage;
     }
     public void setStorage(ArrayList<Component> storage) {
-        Storage = storage;
+        this.storage = storage;
     }
     public ArrayList<String> getNotifications() {
         return notifications;
     }
     public void setNotifications(ArrayList<String> notifications) {
         this.notifications = notifications;
+    }
+    public ArrayList<String> getEmailInbox() {
+        return emailInbox;
+    }
+    public void setEmailInbox(ArrayList<String> emailInbox) {
+        this.emailInbox = emailInbox;
+    }
+    public boolean isToggleEmail() {
+        return toggleEmail;
+    }
+    public void setToggleEmail(boolean toggleEmail) {
+        this.toggleEmail = toggleEmail;
+    }
+    public String getConfirmationLink() {
+        return confirmationLink;
+    }
+    public void setConfirmationLink(String confirmationLink) {
+        this.confirmationLink = confirmationLink;
     }
 
 

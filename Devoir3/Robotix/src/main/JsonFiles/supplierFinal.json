@@ -9,7 +9,7 @@
     "email": "MichaelOliver@gmail.com",
     "companyName": "Amazon",
     "phoneNumber": "514-111-1111",
-    "Storage": [
+    "storage": [
       {
         "name": " Intel i9-11900K",
         "type": [
@@ -76,7 +76,10 @@
         "serialNumber": "dd30ffc5-00d4-4359-a595-b248cda6decf"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 7,
@@ -88,7 +91,7 @@
     "email": "FrankieCharles@gmail.com",
     "companyName": "WheelCar.inc",
     "phoneNumber": "514-222-2222",
-    "Storage": [
+    "storage": [
       {
         "name": "ASUS ROG Strix Z590-E",
         "type": [
@@ -155,7 +158,10 @@
         "serialNumber": "aaf53f89-25ec-4345-b149-661bae2a0813"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 4,
@@ -167,7 +173,7 @@
     "email": "JoshBurton@gmail.com",
     "companyName": "Apple",
     "phoneNumber": "514-333-3333",
-    "Storage": [
+    "storage": [
       {
         "name": "Name: Intel Atom x7-E3950",
         "type": [
@@ -234,7 +240,10 @@
         "serialNumber": "39df37f6-5400-45f3-b2fb-02668f1d2ada"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 5,
@@ -246,7 +255,7 @@
     "email": "SophieMoreno@gmail.com",
     "companyName": "Google",
     "phoneNumber": "514-444-4444",
-    "Storage": [
+    "storage": [
       {
         "name": "L298N Motor Driver",
         "type": [
@@ -313,7 +322,10 @@
         "serialNumber": "f0d22f64-68f4-48ac-b824-2dfd68b9c630"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   },
   {
     "productionCapacity": 8,
@@ -325,7 +337,7 @@
     "email": "EdwardBlair@gmail.com",
     "companyName": "AeroX",
     "phoneNumber": "514-555-5555",
-    "Storage": [
+    "storage": [
       {
         "name": "GPS Module NEO-6M",
         "type": [
@@ -392,6 +404,9 @@
         "serialNumber": "34801bb1-473d-49eb-a7b9-48f79886a3c3"
       }
     ],
-    "notifications": []
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
   }
 ]
