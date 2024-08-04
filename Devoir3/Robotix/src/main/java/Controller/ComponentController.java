@@ -10,6 +10,7 @@ import com.google.gson.reflect.TypeToken;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
@@ -276,7 +277,7 @@ public class ComponentController {
     }
     public void addComponent(){
         try {
-            String allTypes =componentType.getText().replace(" ", "");
+            String allTypes = componentType.getText().replace(" ", "");
             String[] type = allTypes.split(",");
             ArrayList<String> types = new ArrayList<>(Arrays.asList(type));
             Component component = new Component(componentName.getText(), types, Float.parseFloat(componentPrice.getText()),
@@ -337,4 +338,49 @@ public class ComponentController {
 
         }
     }
+
+    // TEST FUNCTIONS
+
+    public void addComponentTest(Supplier supplierTest, Component componentTest1){
+
+        supplier = supplierTest;
+
+        componentName.setText(componentTest1.getName());
+        componentPrice.setText(String.valueOf(componentTest1.getPrice()));
+        componentWidth.setText(String.valueOf(componentTest1.getWidth()));
+        componentLength.setText(String.valueOf(componentTest1.getLength()));
+        componentHeight.setText(String.valueOf(componentTest1.getHeight()));
+
+        String types = "";
+        for (int i = 0; i < componentTest1.getType().size() - 1; i ++){
+            types += componentTest1.getType().get(i) + ", ";
+        }
+        types += componentTest1.getType().getLast();
+
+        componentType.setText(types);
+
+        addComponent();
+
+
+    }
+
+    public ArrayList<String> displayComponentsTest(Supplier supplierTest){
+        supplier = supplierTest;
+        displayComponents(supplier);
+
+        ArrayList<String> components = new ArrayList<String>();
+
+        for (Node childNode : userComponents.getChildren()){
+            FlowPane child = (FlowPane) childNode;
+            for (int i = 0; i < child.getChildren().size(); i++ ){
+                Label info = (Label) child.getChildren().get(i);
+                components.add(info.getText());
+            }
+        }
+
+
+
+        return components;
+    }
 }
+

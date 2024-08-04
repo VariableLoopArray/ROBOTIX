@@ -216,6 +216,7 @@ public class ProfileController {
             if (!previousPasswordField.getText().equals(client.getPassword())) {
                 errorMessage.setText("password did not match");
             } else {
+
                 if (!usernameField.getText().isEmpty()) {
                     client.setUsername(usernameField.getText());
                     updateUserJson(client.getId(), "username", usernameField.getText(), client);
@@ -356,6 +357,8 @@ public class ProfileController {
     }
 
 
+    // TEST FUNCTIONS
+
     public ArrayList<Object> displayProfileTest() {
         ArrayList<Object> userInfo = new ArrayList<>();
         try (Reader reader = new FileReader("src/main/JsonFiles/Client.json")) {
@@ -396,5 +399,21 @@ public class ProfileController {
         }
         return userInfo;
 
+    }
+
+    public Client handleSaveChangesTest(Client clientTest, String username, String email, String companyName,
+    String phoneNumber, String previousPassword, String password){
+
+        client = clientTest;
+
+        usernameField.setText(username);
+        emailField.setText(email);
+        companyNameField.setText(companyName);
+        phoneNumberField.setText(phoneNumber);
+        passwordField.setText(password);
+        previousPasswordField.setText(previousPassword);
+
+        handleSaveChanges();
+        return client;
     }
 }

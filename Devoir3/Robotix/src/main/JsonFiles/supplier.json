@@ -11,72 +11,37 @@
     "phoneNumber": "514-111-1111",
     "Storage": [
       {
-        "name": " Intel i9-11900K",
+        "name": "1",
         "type": [
-          "HighPerformance",
-          "EnergyEfficient"
+          "1"
         ],
-        "price": 499.0,
-        "width": 4.0,
-        "length": 4.0,
-        "height": 0.5,
+        "price": 1.0,
+        "width": 1.0,
+        "length": 1.0,
+        "height": 1.0,
         "supplierID": "9348ebe1-8cff-4d62-9d12-1dbec6dd4f55",
-        "serialNumber": "ae33c16c-5e6b-4c9c-a9e4-a001f1fdf86b"
+        "serialNumber": "fe84f1d6-5fdd-48b4-a5a4-6bbb2b001b0a"
       },
       {
-        "name": " AMD Ryzen 9 5900X",
+        "name": "2",
         "type": [
-          "HighPerformance",
-          "EnergyEfficient"
+          "2"
         ],
-        "price": 549.0,
-        "width": 4.0,
-        "length": 4.0,
-        "height": 0.5,
-        "supplierID": "9348ebe1-8cff-4d62-9d12-1dbec6dd4f55",
-        "serialNumber": "a184b0ff-fa69-434c-80e5-fa05760d5433"
-      },
-      {
-        "name": "Nvidia RTX 3080",
-        "type": [
-          "HighPerformance",
-          "Water-Cooled"
-        ],
-        "price": 699.0,
-        "width": 28.0,
-        "length": 11.0,
-        "height": 4.0,
-        "supplierID": "9348ebe1-8cff-4d62-9d12-1dbec6dd4f55",
-        "serialNumber": "fe277e69-fc89-4590-acdd-aba6124e1dcf"
-      },
-      {
-        "name": "Corsair Vengeance 16GB RAM",
-        "type": [
-          "HighSpeed",
-          "EnergyEfficient"
-        ],
-        "price": 79.0,
-        "width": 13.0,
-        "length": 3.0,
-        "height": 0.4,
-        "supplierID": "9348ebe1-8cff-4d62-9d12-1dbec6dd4f55",
-        "serialNumber": "07c763c3-a1b7-4498-a9b8-d4584bd2099b"
-      },
-      {
-        "name": "Samsung 970 EVO 1TB SSD",
-        "type": [
-          "HighSpeed",
-          "Durable"
-        ],
-        "price": 139.0,
-        "width": 8.0,
+        "price": 2.0,
+        "width": 2.0,
         "length": 2.0,
-        "height": 0.3,
+        "height": 2.0,
         "supplierID": "9348ebe1-8cff-4d62-9d12-1dbec6dd4f55",
-        "serialNumber": "dd30ffc5-00d4-4359-a595-b248cda6decf"
+        "serialNumber": "0c26225d-49a7-4616-a443-a69b48a0ce76"
       }
     ],
-    "notifications": []
+    "notifications": [
+      "Your component  Intel i9-11900K has been bought by johndoe123!",
+      "Your component  AMD Ryzen 9 5900X has been bought by johndoe123!",
+      "Your component Nvidia RTX 3080 has been bought by johndoe123!",
+      "Your component Corsair Vengeance 16GB RAM has been bought by johndoe123!",
+      "Your component Samsung 970 EVO 1TB SSD has been bought by johndoe123!"
+    ]
   },
   {
     "productionCapacity": 7,
@@ -89,19 +54,6 @@
     "companyName": "WheelCar.inc",
     "phoneNumber": "514-222-2222",
     "Storage": [
-      {
-        "name": "ASUS ROG Strix Z590-E",
-        "type": [
-          "HighPerformance",
-          "Overclocking"
-        ],
-        "price": 379.0,
-        "width": 30.0,
-        "length": 24.0,
-        "height": 3.0,
-        "supplierID": "288ba4d9-b686-4d34-adf0-b42c0dcdf3da",
-        "serialNumber": "4b8f98e8-256b-4de8-b60a-e1d8a88764ff"
-      },
       {
         "name": "Cooler Master Hyper 212",
         "type": [
@@ -155,7 +107,9 @@
         "serialNumber": "aaf53f89-25ec-4345-b149-661bae2a0813"
       }
     ],
-    "notifications": []
+    "notifications": [
+      "Your component ASUS ROG Strix Z590-E has been bought by johndoe123!"
+    ]
   },
   {
     "productionCapacity": 4,

@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.Robot;
 import Model.TypeOfUsers.Client;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,9 +13,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -51,6 +50,58 @@ class ProfileControllerTest {
         });
     }
 
+    @Test
+    void successfulHandleSaveChanges() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+
+            ArrayList<Client> clients = new ArrayList<Client>();
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+            Client clientTest = new Client("clientTest1","clientTest1","clientTest1",
+                    "clientTest1","clientTest1","clientTest1","123-123-1234",
+                    new ArrayList<Robot>(), new ArrayList<String>());
+
+            Client newClient = profileController.handleSaveChangesTest(clientTest, "changesTest1", "changesTest1@",
+                    "changesTest1", "321-321-4321",
+                    clientTest.getPassword(), "changesTest1");
+
+            try{
+                try (Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+                    clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>() {}.getType());
+                }
+                clients.add(clientTest);
+                try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+                    gson.toJson(clients, writer);
+                }
+
+
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+
+            assertEquals("changesTest1", newClient.getUsername());
+            assertEquals("changesTest1", newClient.getPassword());
+            assertEquals("changesTest1@", newClient.getEmail());
+            assertEquals("changesTest1", newClient.getCompanyName());
+            assertEquals("321-321-4321", newClient.getPhoneNumber());
+
+            clients.removeLast();
+
+            try(Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+                gson.toJson(clients, writer);
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
+
+
+
+
+            latch.countDown();
+        });
+        latch.await();
+    }
     // Dawson Test
     @Test
     void successfulDisplayProfileTest() throws InterruptedException {

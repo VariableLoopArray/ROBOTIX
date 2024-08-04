@@ -105,7 +105,7 @@ public class ActivityController {
 
             Button buttonRemove = new Button("Remove");
             int index = i;
-            buttonRemove.setOnAction((actionEvent -> buttonRemove(actionEvent, index, numbersRemoved)));
+            buttonRemove.setOnAction((actionEvent -> buttonRemove( index, numbersRemoved)));
 
             buttonRemove.getStyleClass().add("buttons");
 
@@ -391,7 +391,7 @@ public class ActivityController {
 
 
 
-    private void buttonRemove (ActionEvent event,int index, ArrayList<Integer> numbersRemoved){
+    private void buttonRemove (int index, ArrayList<Integer> numbersRemoved){
 
         int smaller= 0;
             for (int number : numbersRemoved){
@@ -580,6 +580,13 @@ public class ActivityController {
 
 
 
+
+
+
+
+
+    // TEST FUNCTIONS
+
     public int addActivityTest(String name, String startDate, String endDate, String points,
                                 ArrayList<String> interests, ArrayList<Task> taskList,
                                 String description) {
@@ -691,4 +698,53 @@ public class ActivityController {
         return newActivity.getTasks().get(0).getName();
     }
 
+    public Client removeButtonTest(Client clientTest, Activity newActivity1, Activity newActivity2){
+
+        client = clientTest;
+
+
+        client.getMyActivities().add(newActivity1);
+        client.getMyActivities().add(newActivity2);
+
+        Activity activity1 = client.getMyActivities().getFirst();
+        Activity activity2 = clientTest.getMyActivities().get(1);
+        Label newNew = new Label("Activity " + activity1.getName());
+
+        int index = 1;
+        TextArea newTask1 = new TextArea();
+        VBox everything1 = new VBox(10);
+        HBox buttonBox1 = new HBox(10);
+        Button buttonRemove1 = new Button();
+        Button buttonModify1  = new Button();
+        Button buttonConfirm1 = new Button();
+        Label description1 = new Label("Description : " + activity1.getDescription());
+        ArrayList<Integer> numbersRemoved = new ArrayList<>();
+
+        buttonBox1.getChildren().addAll(buttonRemove1, buttonModify1, buttonConfirm1);
+
+        everything1.getChildren().addAll(newNew, buttonBox1, description1);
+        DisplayActivities.getChildren().add(everything1);
+
+
+        Label newNew2 = new Label("Activity " + activity2.getName());
+
+        TextArea newTask2 = new TextArea();
+        VBox everything2 = new VBox(10);
+        HBox buttonBox2 = new HBox(10);
+        Button buttonRemove2 = new Button();
+        Button buttonModify2  = new Button();
+        Button buttonConfirm2 = new Button();
+        Label description2 = new Label("Description : " + activity2.getDescription());
+
+        buttonBox2.getChildren().addAll(buttonRemove2, buttonModify2, buttonConfirm2);
+
+        everything2.getChildren().addAll(newNew2, buttonBox2, description2);
+        DisplayActivities.getChildren().add(everything2);
+
+        buttonRemove(index, numbersRemoved);
+
+        return client;
+    }
+
+    //private void buttonRemove (ActionEvent event,int index, ArrayList<Integer> numbersRemoved)
 }
