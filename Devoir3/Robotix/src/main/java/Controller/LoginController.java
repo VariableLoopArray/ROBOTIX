@@ -105,6 +105,8 @@ public class LoginController {
         return null;
     }
 
+
+
     private Supplier isSupplierValid(String email, String password){
         if (suppliers != null) {
             if (suppliers.stream().anyMatch(Supplier -> Supplier.getEmail().equals(email) && Supplier.getPassword().equals(password)))
