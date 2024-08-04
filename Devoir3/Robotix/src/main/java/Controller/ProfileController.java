@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -88,11 +89,13 @@ public class ProfileController {
 
     public ProfileController() {
     }
+
     @FXML
     public void initialize() {
         errorMessage.setText("");
         successMessage.setText("");
     }
+
     public void displayUserInfo() {
         for (int i = 0; i < profileInfo.getRowConstraints().size(); i++) {
             RowConstraints rowConstraints = new RowConstraints();
@@ -148,11 +151,13 @@ public class ProfileController {
             }
         }
     }
+
     public void setUser(User user) {
         if (user instanceof Client) {
-            try(Reader reader = new FileReader(clientFile)) {
+            try (Reader reader = new FileReader(clientFile)) {
                 Gson gson = new Gson();
-                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
+                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {
+                }.getType());
                 for (Client client : clients) {
                     if (client.getId().equals(user.getId())) {
                         this.client = client;
@@ -163,9 +168,10 @@ public class ProfileController {
                 e.printStackTrace();
             }
         } else if (user instanceof Supplier) {
-            try(Reader reader = new FileReader(supplierFile)) {
+            try (Reader reader = new FileReader(supplierFile)) {
                 Gson gson = new Gson();
-                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
+                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {
+                }.getType());
                 for (Supplier supplier : suppliers) {
                     if (supplier.getId().equals(user.getId())) {
                         this.supplier = supplier;
@@ -201,6 +207,7 @@ public class ProfileController {
 
         }
     }
+
     public void handleSaveChanges() {
         errorMessage.setText("");
         successMessage.setText("");
@@ -269,12 +276,14 @@ public class ProfileController {
             // Read JSON file
             if (user instanceof Client) {
                 try (FileReader reader = new FileReader(clientFile)) {
-                    Type userListType = new TypeToken<List<Client>>() {}.getType();
+                    Type userListType = new TypeToken<List<Client>>() {
+                    }.getType();
                     allClients = gson.fromJson(reader, userListType);
                 }
             } else if (user instanceof Supplier) {
                 try (FileReader reader = new FileReader(supplierFile)) {
-                    Type userListType = new TypeToken<List<Supplier>>() {}.getType();
+                    Type userListType = new TypeToken<List<Supplier>>() {
+                    }.getType();
                     allSuppliers = gson.fromJson(reader, userListType);
                 }
             }
@@ -344,5 +353,48 @@ public class ProfileController {
                 supplier.setPassword(newValue);
                 break;
         }
+    }
+
+
+    public ArrayList<Object> displayProfileTest() {
+        ArrayList<Object> userInfo = new ArrayList<>();
+        try (Reader reader = new FileReader("src/main/JsonFiles/Client.json")) {
+            Gson gson = new Gson();
+            List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {
+            }.getType());
+            Client testClient = clients.get(0);
+            setUser(testClient);
+            displayUserInfo();
+            for (int i = 1; i < profileInfo.getChildren().size() - 10; i = i + 2) {
+                Label info = (Label) profileInfo.getChildren().get(i);
+                userInfo.add(info.getText());
+            }
+            VBox activities = (VBox) profileInfo.getChildren().get(11);
+            ArrayList<String> activitiesList = new ArrayList<>();
+            for (int i = 0; i < activities.getChildren().size(); i++) {
+                Label activity = (Label) activities.getChildren().get(i);
+                activitiesList.add(activity.getText());
+            }
+            userInfo.add(activitiesList);
+            VBox interests = (VBox) profileInfo.getChildren().get(13);
+            ArrayList<String> interestsList = new ArrayList<>();
+            for (int i = 0; i < interests.getChildren().size(); i++) {
+                Label interest = (Label) interests.getChildren().get(i);
+                interestsList.add(interest.getText());
+            }
+            userInfo.add(interestsList);
+            VBox robots = (VBox) profileInfo.getChildren().get(15);
+            ArrayList<String> robotsList = new ArrayList<>();
+            for (int i = 0; i < robots.getChildren().size(); i++) {
+                Label robot = (Label) robots.getChildren().get(i);
+                robotsList.add(robot.getText());
+            }
+            userInfo.add(robotsList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return userInfo;
+
     }
 }

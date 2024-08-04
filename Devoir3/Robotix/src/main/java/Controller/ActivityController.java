@@ -219,7 +219,7 @@ public class ActivityController {
                 ArrayList<Integer> removeList = new ArrayList<Integer>();
 
                 int[] indexe = {-1};
-                ArrayList<Integer> removedNumbers = new ArrayList<Integer>(); 
+                ArrayList<Integer> removedNumbers = new ArrayList<Integer>();
                 int[] removeds = {-1};
 
 
@@ -484,8 +484,15 @@ public class ActivityController {
             catch (IOException e){
                 e.printStackTrace();
             }
+            UUID id;
+            if (client == null) {
+                id = UUID.randomUUID();
+            } else {
+                id = client.getId();
+            }
             Activity newActivity = new Activity(activityName.getText(), null, startDate, endDate,
-                    activityPoints.getText(), interests, client.getId(), UUID.randomUUID(), taskList, activityDescription.getText(),status);
+                    activityPoints.getText(), interests, id, UUID.randomUUID(), taskList, activityDescription.getText(),status);
+
 
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
             List<Activity> activities = new ArrayList<>();
@@ -499,12 +506,10 @@ public class ActivityController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             if (activities == null) {
                 activities = new ArrayList<>();
             }
             activities.add(newActivity);
-
             try (Writer writer = new FileWriter("src/main/JsonFiles/activities.json")) {
                 gson.toJson(activities, writer);
             } catch (IOException e) {
@@ -570,10 +575,7 @@ public class ActivityController {
 
 
 
-    // TESTS FUNCTIONS
-//            Activity newActivity = new Activity(activityName.getText(), null, startDate, endDate,
-//                    activityPoints.getText(), interests, client.getId(), UUID.randomUUID(), taskList, activityDescription.getText(),status);
-    public void addActivityTest(String name, String startDate, String endDate, String points,
+    public int addActivityTest(String name, String startDate, String endDate, String points,
                                 ArrayList<String> interests, ArrayList<Task> taskList,
                                 String description) {
         activityName.setText(name);
@@ -588,17 +590,100 @@ public class ActivityController {
                 }
             }
         }
-        for (Task task : taskList) {
-            TextField taskName = new TextField(task.getName());
-            TextArea taskInstructions = new TextArea();
-            for (String instruction : task.getInstructions()) {
-                taskInstructions.appendText(instruction + "\n");
+        for (int i = 1; i <= 3; i++) {
+            TextArea nameTask = (TextArea) Tasks.lookup("#task" + i);
+            TextArea instruction = (TextArea) Tasks.lookup("#instruction" + i);
+            nameTask.setText(taskList.get(i-1).getName());
+            for (int j = 0; j < taskList.get(i-1).getInstructions().size(); j++) {
+                instruction.setText(taskList.get(i-1).getInstructions().get(j));
             }
-            Tasks.getChildren().add(taskName);
-            Tasks.getChildren().add(taskInstructions);
         }
         activityDescription.setText(description);
+        ArrayList<Activity> activities;
+        try (Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
+            Gson gson = new Gson();
+            Type activityListType = new TypeToken<List<Activity>>() {}.getType();
+            activities = gson.fromJson(reader, activityListType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        int before = activities.size();
         createActivity();
-
+        try (Reader reader = new FileReader("src/main/JsonFiles/activities.json")) {
+            Gson gson = new Gson();
+            Type activityListType = new TypeToken<List<Activity>>() {}.getType();
+            activities = gson.fromJson(reader, activityListType);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        int result = activities.size() - before;
+        // Remove the last activity for testing purpose
+        if (!activities.isEmpty()) {
+            activities.remove(activities.size() - 1);
+        }
+        try(Writer writer = new FileWriter("src/main/JsonFiles/activities.json")){
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            gson.toJson(activities, writer);
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return result;
     }
+    public String buttonModifyTest (){
+        client = new Client ("hello", "hello", "hello22", "hellohello22",
+                "hello@","hello22","111-111-1111", new ArrayList<Robot>(), new ArrayList<String>());
+
+
+        ArrayList<String> instruction = new ArrayList<>();
+        instruction.add("notHello");
+        Task task = new Task("notHello", instruction);
+        ArrayList<Task> tasks = new ArrayList<Task>();
+        tasks.add(task);
+        Activity newActivity = new Activity("hello", "hello", LocalDate.parse("2024-12-12"),
+                LocalDate.parse("2024-12-12"), "100", new ArrayList<String>(), UUID.randomUUID(), UUID.randomUUID(),
+                tasks, "hello", "hello");
+        client.getMyActivities().add(newActivity);
+        Activity activity = client.getMyActivities().getFirst();
+        Label newNew = new Label("Activity " + activity.getName());
+
+        int index = 0;
+        TextArea newTask = new TextArea();
+        VBox everything = new VBox(10);
+        HBox buttonBox = new HBox(10);
+        Button buttonRemove = new Button();
+        Button buttonModify  = new Button();
+        Button buttonConfirm = new Button();
+        Label description = new Label("Description : " + activity.getDescription());
+
+        buttonBox.getChildren().addAll(buttonRemove, buttonModify, buttonConfirm);
+
+
+        List<Integer> confirmPlaces = new ArrayList<Integer>();
+        Button buttonAddTask = new Button();
+        buttonAddTask.setVisible(false);
+
+
+        everything.getChildren().addAll(newNew, buttonBox, description);
+        DisplayActivities.getChildren().add(everything);
+
+
+
+        int newI = buttonModify(index, newTask, everything, buttonBox, confirmPlaces, buttonAddTask);
+
+        for (int i = 0; i < confirmPlaces.size(); i++) {
+            TextArea newInstructions = (TextArea) everything.getChildren().get(confirmPlaces.get(i));
+            newInstructions.setText("hello");
+            TextArea Task = (TextArea) everything.getChildren().get(confirmPlaces.get(i) - 1);
+            Task.setText("hello");
+        }
+
+        buttonConfirm(buttonConfirm, everything, newI, confirmPlaces, buttonAddTask,buttonBox);
+
+
+        return newActivity.getTasks().get(0).getName();
+    }
+
 }
