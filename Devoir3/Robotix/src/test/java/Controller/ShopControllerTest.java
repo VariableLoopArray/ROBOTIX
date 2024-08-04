@@ -4,7 +4,6 @@ import Model.Component;
 import Model.TypeOfUsers.Supplier;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

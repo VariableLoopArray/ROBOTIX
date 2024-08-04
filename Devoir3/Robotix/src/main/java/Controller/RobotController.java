@@ -127,9 +127,9 @@ public class RobotController {
     }
 
     private String getRobotInfo(Robot robot) {
-        return String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%nRobot Speed: %s%n" +
-                        "Robot CpuUsage: %s%nRobot Memory: %s%nRobot Components: %s%n" +
-                        "Robot Location: %s%nSerialNumber: %s%n",
+        return String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%%%nRobot Speed: %sm/s%n" +
+                        "Robot CpuUsage: %s%%n Robot Memory: %sGB%nRobot Components: %s%n" +
+                        "Robot Location: %s%n SerialNumber: %s%n",
                 robot.getName(), robot.getType(), robot.getBattery(), robot.getSpeed(),
                 robot.getCpuUsage(), robot.getMemory(), robot.getComponents(),
                 formatLocation(robot.getLocation()), robot.getSerialNumber());
