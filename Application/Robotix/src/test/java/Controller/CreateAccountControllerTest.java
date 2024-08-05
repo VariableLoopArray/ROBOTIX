@@ -66,4 +66,17 @@ public class CreateAccountControllerTest {
         });
         latch.await();
     }
+    @Test
+    void failHandleCreateClientAccount() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            boolean result = createAccountController.handleClientCreateAccountTest("Hello","Hello",
+                    "Hello","HelloHello","Hello@","Hello","hhh-hhh-hhhh"); //
+
+            latch.countDown();
+            assertFalse(result);
+
+        });
+        latch.await();
+    }
 }
