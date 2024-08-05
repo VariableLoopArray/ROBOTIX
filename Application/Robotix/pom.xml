@@ -10,20 +10,19 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <junit.version>5.9.3</junit.version>
-    <javafx.version>22</javafx.version>
+    <junit.version>5.10.0</junit.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>${javafx.version}</version>
+      <version>22-ea+11</version>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>${javafx.version}</version>
+      <version>22-ea+11</version>
     </dependency>
     <dependency>
       <groupId>org.controlsfx</groupId>
@@ -34,11 +33,23 @@
       <groupId>com.dlsc.formsfx</groupId>
       <artifactId>formsfx-core</artifactId>
       <version>11.6.0</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.openjfx</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>net.synedra</groupId>
       <artifactId>validatorfx</artifactId>
       <version>0.4.0</version>
+      <exclusions>
+        <exclusion>
+          <groupId>org.openjfx</groupId>
+          <artifactId>*</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.kordamp.bootstrapfx</groupId>
@@ -78,12 +89,12 @@
       <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
-        <version>0.0.15</version>
+        <version>0.0.8</version> <!-- Updated version -->
         <executions>
           <execution>
             <id>default-cli</id>
             <configuration>
-              <mainClass>main.robotix.Robotix</mainClass>
+              <mainClass>main.robotix/main.Robotix</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
@@ -115,10 +126,6 @@
             --add-opens java.base/java.net=ALL-UNNAMED
             --add-opens java.base/java.nio=ALL-UNNAMED
             --add-opens java.base/java.text=ALL-UNNAMED
-            --add-exports java.base/sun.reflect=ALL-UNNAMED
-            --add-exports java.base/jdk.internal.reflect=ALL-UNNAMED
-            --add-exports java.base/jdk.internal.module=ALL-UNNAMED
-            --add-exports java.base/jdk.internal.loader=ALL-UNNAMED
           </argLine>
         </configuration>
       </plugin>
