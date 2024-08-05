@@ -19,7 +19,7 @@ jobs:
     - name: Set up JDK 22
       uses: actions/setup-java@v3
       with:
-        distribution: 'adopt-openjdk'
+        distribution: 'adopt'
         java-version: '22'
 
     - name: Cache Maven packages
@@ -27,7 +27,7 @@ jobs:
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
+        restore-keys: 
           ${{ runner.os }}-maven-
 
     - name: Change directory
@@ -36,5 +36,5 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file Application/Robotix/pom.xml
 
-    - name: Run tests
-      run: mvn -B test --file Application/Robotix/pom.xml -Dtest=**/Controller/*Test.java
+    - name: Run multiple JUnit tests
+      run: mvn -B test --file Application/Robotix/pom.xml -Dtest=Controller.ActivityControllerTest,Controller.ComponentControllerTest,Controller.CreateAccountControllerTest,Controller.ProfileControllerTest,Controller.RobotControllerTest,Controller.ShopControllerTest
