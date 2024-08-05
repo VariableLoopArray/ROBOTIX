@@ -1,61 +1,46 @@
 # ROBOTIX SYSTEM - README 
 
 ## Description
-Robotix est un système de gestion de robots où les utilisateurs peuvent enregistrer différents robots pour exécuter diverses activités. Ce logiciel permet également aux fournisseurs de vendre des composants de robots. Les utilisateurs peuvent profiter d'une longue liste de fonctionnalités, incluant, mais ne se limitant pas à, la visualisation des tâches, le contrôle des robots, le signalement d'erreurs et la participation à certaines activités. La plateforme est conçue pour offrir des activités ludiques et enseigner différentes compétences telles que l'apprentissage des langues, la programmation informatique, les mathématiques, etc. Finalement, la créativité est sans fin sur une plateforme aussi vaste et flexible.
+Robotix est un système de gestion de robots où les utilisateurs peuvent enregistrer différents robots pour exécuter diverses activités. Ce logiciel permet également aux fournisseurs de vendre des composants de robots. Les utilisateurs peuvent profiter d'une longue liste de fonctionnalités, incluant, mais ne se limitant pas à, la visualisation des tâches, la création de robots, l'achat de composants et la participation à diverses activités. La plateforme est conçue pour offrir des activités ludiques et enseigner différentes compétences telles que l'apprentissage des langues, la programmation informatique, les mathématiques, etc. Finalement, la créativité est sans fin sur une plateforme aussi vaste et flexible.
 
 ## Fonctionnalités
 - Se connecter
   - Gérer Profile
     - Visualiser mes données
     - Gérer mes données
-      - Changer de nom
-      - Changer de prénom
       - Changer de nom d'utilisateur
       - Changer de mot de passe
       - Changer d'adresse courriel
       - Changer de nom d'entrepise
       - Changer de numéro de téléphone
-      - Follow quelqu'un
-      - Unfollow quelqu'un
-      - Retour
-    - Retour
-  - Gérer Portefeuille
-    - Regarder la quantité d'argent dans mon portefeuille
-    - Ajouter de l'argent dans mon compte
-    - Retour
-  - Gérer Commandes
-    - Voir mes commandes (Voir mes ventes pour Fournisseur)
-    - Commander une composante (seulement Client)
-    - Retour
-  - Gérer Activité
+  - Activité (seulement Client)
     - Ajouter une activité
     - Modifier une activité
     - Supprimer une activité
     - Créer une activité
     - Visualiser mes activités
-    - Ajouter un intérêt (seulement Client)
-    - Supprimer un intérêt (seulement Client)
-    - Afficher mes intérêts (seulement Client)
-    - Retour
-  - Gérer Flotte de Robots
-     - Voir mes robots
-     - Créer un robot
-     - Supprimer une robot
-     - Examiner un robot
-     - Retour
-  - Gérer Inventaire
-      - Voir mon inventaire
-      - Enlever une composantes de mon inventaire
-      - Ajouter une composante de mon inventaire (seulement Fournisseur)
-      - Retour
-  - Gérer Temps
-      - Afficher le temps actuel
-      - Sauter d'une journée
-      - Retour
+  - Flotte de Robots (seulement Client)
+    - Voir mes robots
+    - Créer un robot
+    - Supprimer une robot
+    - Examiner un robot
+  - Inventaire
+    - Voir mon inventaire
+    - Ajouter une composante de mon inventaire (seulement Fournisseur)
+    - Modifier une Composante (seulement Fournisseur)
+    - Supprimer une Composante (seulement Fournisseur)
+  - Achat
+    - Afficher Shop (tous les composants des Fournisseurs)
+    - Acheter Composant
+    - Filtrer Composants
+  - Inbox
+    - Recevoir des Notifications (Création d'activités avec les mêmes intérêts pour les clients & Composant vendu pour fournisseur)
+    - Recevoir Emails (Lien de confirmation & potentiellement notification si l'utilisateur choisit)
   - Se Déconnecter
-- Créer un compte
-- Commandes publiques
-- Quitter
+- Créer un compte (Client & Fournisseur)
+- Gérer Temps
+    - Afficher le temps actuel
+    - Fixer une date pour le système
 
 Quelques commentaires que nous aimerions ajouter pour une meilleure compréhension de notre système :
 
@@ -75,82 +60,211 @@ Quelques commentaires que nous aimerions ajouter pour une meilleure compréhensi
     
 ## Organisation des fichiers
 ```bash
-├── Analyse/
-│ ├── fichiersVPP/
-│ │ ├── activityAction.vpp
-│ │ ├── activityBookActivity.vpp
-│ │ ├── activityBuyComponent.vpp
-│ │ ├── activityPrincipal.vpp
-│ │ ├── activityRegisterRobot.vpp
-│ │ ├── activityTask.vpp
-│ │ ├── classDiagram.vpp
-│ │ ├── sequenceAction.vpp
-│ │ ├── sequenceBookActivity.vpp
-│ │ ├── sequenceBuyComponent.vpp
-│ │ ├── sequenceRegisterRobot.vpp
-│ │ └── sequenceTask.vpp
-│ ├── action.svg
-│ ├── activity.svg
-│ ├── activityDiagram.html
-│ ├── analyse.html
-│ ├── classDiagram.html
-│ ├── component.svg
-│ ├── principal.svg
-│ ├── rapport2.html
-│ ├── robot.svg
-│ ├── sequenceDiagram.html
-│ ├── stats1.png
-│ ├── stats2.png
-│ ├── stats3.png
-│ └── task.svg
-├── Conception/
-│ ├── actionSequence.svg
-│ ├── bookActivity.svg
-│ ├── buyComponent.svg
-│ ├── classDiagram.svg
-│ ├── robotRegistration.svg
-│ └── taskSequence.svg
-├── Exigences/
-│ ├── besoinNF.html
-│ ├── cu.html
-│ ├── glossaire.html
-│ ├── rapport1.html
-│ ├── risque.html
-│ ├── tache1.png
-│ └── tache2.svg
-├── Implémentation/
-│ ├── Controllers/
-│ │ ├── ActivityController.java
-│ │ ├── AdminController.java
-│ │ ├── LoginController.java
-│ │ ├── RobotController.java
-│ │ ├── TimeController.java
-│ │ └── UserController.java
-│ ├── Database/
-│ │ └── Database.java
-│ ├── Models/
-│ │ ├── typeOfRobots/
-│ │ │ ├── AerialRobot.java
-│ │ │ ├── AquaticRobot.java
-│ │ │ └── TerrestrialRobot.java
-│ │ ├── Action.java
-│ │ ├── Activity.java
-│ │ ├── Client.java
-│ │ ├── Component.java
-│ │ ├── Order.java
-│ │ ├── Robot.java
-│ │ ├── RobotFleet.java
-│ │ ├── Supplier.java
-│ │ ├── Task.java
-│ │ └── User.java
-│ ├── Views/
-│ │ ├── ActivityMenu.java
-│ │ ├── Menu.java
-│ │ ├── RobotFleet.java
-│ │ └── UserMenu.java
-│ └── Main.java
-└── README.md
+
+├───Analyse
+│   │   action.svg
+│   │   activity.svg
+│   │   activityDiagram.html
+│   │   analyse.html
+│   │   classDiagram.html
+│   │   component.svg
+│   │   principal.svg
+│   │   rapport2.html
+│   │   robot.svg
+│   │   sequenceDiagram.html
+│   │   stats1.png
+│   │   stats2.png
+│   │   stats3.png
+│   │   task.svg
+│   │
+│   └───fichiersVPP
+│           activityAction.vpp
+│           activityBookActivity.vpp
+│           activityBuyComponent.vpp
+│           activityPrincipal.vpp
+│           activityRegisterRobot.vpp
+│           activityTask.vpp
+│           classDiagram.vpp
+│           sequenceAction.vpp
+│           sequenceBookActivity.vpp
+│           sequenceBuyComponent.vpp
+│           sequenceRegisterRobot.vpp
+│           sequenceTask.vpp
+│
+├───Application
+│   ├───.idea
+│   │       .gitignore
+│   │       aws.xml
+│   │       Devoir3.iml
+│   │       misc.xml
+│   │       modules.xml
+│   │       vcs.xml
+│   │
+│   └───Robotix
+│       │   .gitignore
+│       │   mvnw
+│       │   mvnw.cmd
+│       │   pom.xml
+│       │
+│       ├───.idea
+│       │       .gitignore
+│       │       compiler.xml
+│       │       encodings.xml
+│       │       jarRepositories.xml
+│       │       misc.xml
+│       │       uiDesigner.xml
+│       │       vcs.xml
+│       │       workspace.xml
+│       │
+│       ├───.mvn
+│       │   └───wrapper
+│       │           maven-wrapper.jar
+│       │           maven-wrapper.properties
+│       │
+│       ├───lib
+│       │       error_prone_annotations-2.27.0.jar
+│       │       gson-2.11.0.jar
+│       │
+│       ├───src
+│          ├───main
+│          │   ├───java
+│          │   │   │   module-info.java
+│          │   │   │
+│          │   │   ├───Controller
+│          │   │   │       ActivityController.java
+│          │   │   │       ComponentController.java
+│          │   │   │       CreateAccountController.java
+│          │   │   │       HomepageController.java
+│          │   │   │       InboxController.java
+│          │   │   │       LoginController.java
+│          │   │   │       ProfileController.java
+│          │   │   │       RobotController.java
+│          │   │   │       ShopController.java
+│          │   │   │
+│          │   │   ├───main
+│          │   │   │       Robotix.java
+│          │   │   │
+│          │   │   └───Model
+│          │   │       │   Activity.java
+│          │   │       │   Component.java
+│          │   │       │   Robot.java
+│          │   │       │   Task.java
+│          │   │       │   User.java
+│          │   │       │
+│          │   │       └───TypeOfUsers
+│          │   │               Client.java
+│          │   │               Supplier.java
+│          │   │
+│          │   ├───JsonFiles
+│          │   │       activities.json
+│          │   │       activitiesFinal.json
+│          │   │       client.json
+│          │   │       clientFinal.json
+│          │   │       currentDate.json
+│          │   │       supplier.json
+│          │   │       supplierFinal.json
+│          │   │
+│          │   └───resources
+│          │       ├───CssFiles
+│          │       │       Activity.css
+│          │       │       Component.css
+│          │       │       Homepage.css
+│          │       │       Inbox.css
+│          │       │       LoginAndCreate.css
+│          │       │       Profile.css
+│          │       │       Robot.css
+│          │       │       Shop.css
+│          │       │
+│          │       ├───FxmlPages
+│          │       │       AccountCreationMenu.fxml
+│          │       │       ActivityMenu.fxml
+│          │       │       HomepageMenu.fxml
+│          │       │       InboxMenu.fxml
+│          │       │       LoginMenu.fxml
+│          │       │       MyComponentsMenu.fxml
+│          │       │       ProfileMenu.fxml
+│          │       │       RobotMenu.fxml
+│          │       │       ShopMenu.fxml
+│          │       │
+│          │       └───Images
+│          │               DefaultProfilePic.png
+│          │               HomepageBackground.jpg
+│          │               LoginBackground.jpg
+│          │
+│          └───test
+│              └───java
+│                  └───Controller
+│                          ActivityControllerTest.java
+│                          ComponentControllerTest.java
+│                          CreateAccountControllerTest.java
+│                          ProfileControllerTest.java
+│                          RobotControllerTest.java
+│                          ShopControllerTest.java
+│       
+│     
+├───Conception
+│       actionSequence.svg
+│       bookActivity.svg
+│       buyComponent.svg
+│       classDiagram.svg
+│       robotRegistration.svg
+│       taskSequence.svg
+│
+├───Exigences
+│       besoinNF.html
+│       cu.html
+│       glossaire.html
+│       rapport1.html
+│       risque.html
+│       tache1.png
+│       tache2.svg
+│
+└───Rapport
+    │   rapportFinal.html
+    │
+    └───VPPFiles
+            SequenceActionFinal.svg
+            SequenceBuyComponentFinal.svg
+            SequenceCreateActivity.svg
+            SequenceCreateRobot.svg
+            SequenceTaskFinal.svg
+
 ```
+## Données de départ
+
+Un bouton a été implémenté sur la page de connexion pour afficher les utilisateurs pré-configurés. :D
+
+## Instruction pour installer le projet
+
+1. **Installer Java 22 (JDK 22)**  
+   Assurez-vous que JDK 22 est installé sur votre système.
+2. **Installer Maven 3 (préférablement 3.11.0)**
+    Assurez-vous que Maven est installé sur votre système.
+
+## Instructions pour exécuter le Projet dans IntelliJ IDEA
+
+1. **Ajouter `pom.xml` comme Projet Maven**  
+   - Faites un clic droit sur le fichier `pom.xml`.
+   - Sélectionnez « Ajouter comme Projet Maven ».
+
+2. **Configurer le Répertoire de Travail**  
+   - Allez en haut à droite de l'interface et cliquez sur la configuration actuelle.
+   - Sélectionnez « Modifier les Configurations ».
+   - Définissez le **Répertoire de Travail** (Working Directory) sur le dossier `Robotix Application/Robotix`.
+
+3. **Définir la Classe Principale**  
+   - Réglez la **Classe Principale** (Main Class) à `main.Robotix`.
+
+4. **Ajouter les Options JVM**  
+   - Ajoutez les options suivantes dans les **Options VM** :
+     ```
+     --add-opens java.base/java.time=com.google.gson
+     ```
+
+
+Ces étapes vous permettront de configurer correctement le projet dans IntelliJ IDEA.
+
+
 
 Nous n'avons pas inclus le fichier JAR et tous les fichiers connexes dans la structure des fichiers parce qu'IntelliJ crée plusieurs fichiers supplémentaires que nous n'avons pas écrits et qui ne proviennent pas de nous.
 
