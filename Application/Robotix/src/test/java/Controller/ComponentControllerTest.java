@@ -61,7 +61,7 @@ class ComponentControllerTest {
 
             Supplier supplierTest = new Supplier("supplierTest","supplierTest", "supplierTest",
                     "supplierTest","supplierTest","supplierTest","supplierTest"
-                    ,10);
+                    ,10, false, "2024-11-11");
             Component componentTest1 = new Component("componentTest1",
                     new ArrayList<String>(List.of("componentDescriptionTest1")), 1.0f,
                     1.0f, 1.0f,1.0f, UUID.randomUUID(),UUID.randomUUID());
@@ -123,7 +123,7 @@ class ComponentControllerTest {
         Platform.runLater(() -> {
         Supplier supplierTest = new Supplier("supplierTest","supplierTest", "supplierTest",
                 "supplierTest","supplierTest","supplierTest","supplierTest"
-        ,10);
+        ,10, false, "2024-11-11");
         Component componentTest1 = new Component("componentTest1",
                 new ArrayList<String>(List.of("componentDescriptionTest1")), 1.0f,
                 1.0f, 1.0f,1.0f, UUID.randomUUID(),UUID.randomUUID());

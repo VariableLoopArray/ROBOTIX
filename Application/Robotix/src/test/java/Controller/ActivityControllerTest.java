@@ -57,7 +57,7 @@ class ActivityControllerTest {
 
             Client clientTest = new Client("hello", "hello", "hello22", "hellohello22",
                     "hello@","hello22","111-111-1111",
-                    new ArrayList<Robot>(), new ArrayList<String>());
+                    new ArrayList<Robot>(), new ArrayList<String>(),false, "2024-11-11");
 
 
 

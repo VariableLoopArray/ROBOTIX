@@ -60,7 +60,7 @@ class ProfileControllerTest {
 
             Client clientTest = new Client("clientTest1","clientTest1","clientTest1",
                     "clientTest1","clientTest1","clientTest1","123-123-1234",
-                    new ArrayList<Robot>(), new ArrayList<String>());
+                    new ArrayList<Robot>(), new ArrayList<String>(), false, "2024-11-11");
 
             Client newClient = profileController.handleSaveChangesTest(clientTest, "changesTest1", "changesTest1@",
                     "changesTest1", "321-321-4321",

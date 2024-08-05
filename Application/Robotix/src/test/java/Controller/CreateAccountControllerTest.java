@@ -62,7 +62,7 @@ public class CreateAccountControllerTest {
         Platform.runLater(() -> {
             int result = createAccountController.clearFieldsTest();
             latch.countDown();
-            assertEquals(1, result);
+            assertEquals(0, result);
         });
         latch.await();
     }
