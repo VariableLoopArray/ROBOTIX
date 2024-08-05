@@ -297,4 +297,8 @@ public class RobotController {
             e.printStackTrace();
         }
     }
+    public String GetRobotInfoTest(Robot robot){
+        String result = getRobotInfo(robot);
+        return result;
+    }
 }

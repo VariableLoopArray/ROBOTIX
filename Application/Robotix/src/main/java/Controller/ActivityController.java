@@ -78,11 +78,6 @@ public class ActivityController {
         }
         displayMessage("Welcome to your activities !", false);
     }
-
-    /**
-     *
-     * @param client
-     */
     public void displayActivities(Client client){
         DisplayActivities.setSpacing(10);
         AtomicInteger numberOfActivity = new AtomicInteger();

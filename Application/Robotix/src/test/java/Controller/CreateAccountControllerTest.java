@@ -42,14 +42,14 @@ public class CreateAccountControllerTest {
 
     // Tien Test
     @Test
-    void successHandleCreateClientAccount() throws InterruptedException {
+    void successEmailHandleCreateClientAccount() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
             boolean result = createAccountController.handleClientCreateAccountTest("Hello","Hello",
                     "Hello","HelloHello","Hello@","Hello","111-111-1111"); //
 
             latch.countDown();
-            assertFalse(result);
+            assertTrue(result);
 
         });
         latch.await();
@@ -64,6 +64,19 @@ public class CreateAccountControllerTest {
             int result = createAccountController.clearFieldsTest();
             latch.countDown();
             assertEquals(0, result);
+        });
+        latch.await();
+    }
+    @Test
+    void failHandleCreateClientAccount() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            boolean result = createAccountController.handleClientCreateAccountTest("Hello","Hello",
+                    "Hello","HelloHello","Hello@","Hello","hhh-hhh-hhhh"); //
+
+            latch.countDown();
+            assertFalse(result);
+
         });
         latch.await();
     }
