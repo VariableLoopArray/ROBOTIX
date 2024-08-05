@@ -1,5 +1,6 @@
 package Controller;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 
 import Model.Robot;
@@ -49,15 +50,29 @@ import static org.junit.jupiter.api.Assertions.*;
                 components.add("test");
                 Robot testRobot = new Robot("tests", "tests", components , "10", new float[]{0,0,0}, 10, 10, 10);
                 String test = robotController.GetRobotInfoTest(testRobot);
+                String location = String.format("%.1f, %.1f, %.1f", testRobot.getLocation()[0], testRobot.getLocation()[1], testRobot.getLocation()[2]);
+                String cpuUsage = String.format("%.0f%%", testRobot.getCpuUsage());
+                String expected = String.format("Robot Name: %s%n" +
+                                "Robot Type: %s%n" +
+                                "Robot Battery: %s%%%n" +
+                                "Robot Speed: %.1fm/s%n" +
+                                "Robot CpuUsage: %s%n" +
+                                "Robot Memory: %.1fGB%n" +
+                                "Robot Components: %s%n" +
+                                "Robot Location: %s%n" +
+                                "SerialNumber: %s%n",
+                        testRobot.getName(),
+                        testRobot.getType(),
+                        testRobot.getBattery(),
+                        testRobot.getSpeed(),
+                        cpuUsage,
+                        testRobot.getMemory(),
+                        testRobot.getComponents(),
+                        location,
+                        testRobot.getSerialNumber());
                 latch.countDown();
-                assertEquals("Robot Name: "+ testRobot.getName()+"\n" +
-                        "Robot Type: "+ testRobot.getType()+"\n" +
-                        "Robot Battery: "+testRobot.getBattery()+"%\n" +
-                        "Robot Speed: "+testRobot.getSpeed()+"m/s\n" +
-                        "Robot Memory: "+testRobot.getMemory()+"GB\n" +
-                        "Robot Components: "+testRobot.getComponents()+"\n" +
-                        "Robot Position: "+testRobot.getLocation() +"\n" +
-                        "SerialNumber: "+ testRobot.getSerialNumber(), test);
+
+                assertEquals(expected, test);
 
             });
             latch.await();
