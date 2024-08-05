@@ -644,7 +644,25 @@
     "confirmationLink": "null"
   },
   {
-    "fleet": [],
+    "fleet": [
+      {
+        "name": "1",
+        "type": "1",
+        "components": [
+          "1"
+        ],
+        "serialNumber": "5ae5a4ef-7d53-4c81-b4d5-90e5254a8e3c",
+        "battery": "1",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.0,
+        "cpuUsage": 1.0,
+        "memory": 1.0
+      }
+    ],
     "myActivities": [],
     "myInterests": [
       "Sports and Fitness"
@@ -665,6 +683,25 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "toggleEmail": true,
+    "confirmationLink": "2024-08-04"
+  },
+  {
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [],
+    "firstName": "Hello",
+    "lastName": "Hello",
+    "username": "Hello",
+    "password": "HelloHello",
+    "id": "fd30f9bc-5bbf-4923-949a-a13351947d78",
+    "email": "Hello@",
+    "companyName": "Hello",
+    "phoneNumber": "111-111-1111",
+    "notifications": [],
+    "emailInbox": [
+      "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted"
+    ],
+    "toggleEmail": false,
     "confirmationLink": "2024-08-04"
   }
 ]

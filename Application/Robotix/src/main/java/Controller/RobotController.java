@@ -68,23 +68,20 @@ public class RobotController {
     }
 
 
-    public void showRobot() {
-        DisplayRobots.getChildren().clear();
-        displayRobots();
-    }
 
+    @FXML
     private void displayRobots() {
-        errorMessage.setVisible(false);
-        errorMessage.setManaged(false);
-        supprime.setVisible(false);
-        supprime.setManaged(false);
+//        errorMessage.setVisible(false);
+//        errorMessage.setManaged(false);
+//        supprime.setVisible(false);
+//        supprime.setManaged(false);
         DisplayRobots.getChildren().clear();
-        affiche.setVisible(false);
-        affiche.setManaged(false);
-        create.setVisible(true);
-        create.setManaged(true);
-        tableInfo.setVisible(false);
-        tableInfo.setManaged(false);
+//        affiche.setVisible(false);
+//        affiche.setManaged(false);
+//        create.setVisible(true);
+//        create.setManaged(true);
+//        tableInfo.setVisible(false);
+//        tableInfo.setManaged(false);
 
         if (client.getFleet().isEmpty()) {
             Label noRobotLabel = new Label("You have no robot!");
@@ -212,12 +209,12 @@ public class RobotController {
     public void createRobot() {
         DisplayRobots.getChildren().clear();
         tableInfo.setVisible(true);
-        create.setVisible(false);
-        create.setManaged(false);
-        affiche.setVisible(true);
-        affiche.setManaged(true);
-        supprime.setVisible(false);
-        supprime.setManaged(false);
+//        create.setVisible(false);
+//        create.setManaged(false);
+//        affiche.setVisible(true);
+//        affiche.setManaged(true);
+//        supprime.setVisible(false);
+//        supprime.setManaged(false);
         ScrollPaneRobots.setVisible(true);
         ScrollPaneRobots.setManaged(true);
 
@@ -228,11 +225,56 @@ public class RobotController {
         tableInfo.add(confirmButton, 1, 7);
     }
 
-    public void removeRobot() {
+    public void showPartial() {
         DisplayRobots.getChildren().clear();
-        supprime.setVisible(false);
-        supprime.setManaged(false);
-        showRobot();
+        if (client.getFleet().isEmpty()) {
+            Label noRobotLabel = new Label("You have no robot!");
+            noRobotLabel.getStyleClass().add("label-no-robots");
+            DisplayRobots.getChildren().add(noRobotLabel);
+            return;
+        }
+
+        try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+            Client[] clients = gson.fromJson(reader, Client[].class);
+            for (Client client : clients) {
+                if (client.getId().equals(this.client.getId())) {
+                    VBox robotBoxContainer = new VBox(10);
+                    for (Robot robot : client.getFleet()) {
+                        VBox robotBox = new VBox(10);
+                        robotBox.setMaxWidth(150);
+                        robotBox.setMaxHeight(225);
+                        String newRobot = String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%%%n",
+                                robot.getName(), robot.getType(), Integer.parseInt(robot.getBattery()));
+
+                        Label robotInfoLabel = new Label(newRobot);
+                        robotInfoLabel.setWrapText(true);
+
+                        Button removeButton = new Button("Remove");
+
+                        removeButton.setOnAction(event -> {
+                            client.getFleet().remove(robot);
+                            updateClientJson();
+                            robotBoxContainer.getChildren().remove(robotBox);
+                            DisplayRobots.getChildren().remove(robotBox);
+                        });
+
+                        robotBox.getChildren().addAll(robotInfoLabel, removeButton);
+                        robotBox.setPadding(new javafx.geometry.Insets(10));
+                        robotBoxContainer.getChildren().add(robotBox);
+                        robotBox.getStyleClass().add("robotBox");
+                        DisplayRobots.getChildren().add(robotBox);
+                    }
+                    DisplayRobots.getChildren().add(robotBoxContainer);
+                    this.client = client;
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ScrollPaneRobots.setVisible(false);
+        ScrollPaneRobots.setManaged(false);
+
     }
 
     public void handleGoBack() {
