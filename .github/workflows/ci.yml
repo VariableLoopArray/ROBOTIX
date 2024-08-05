@@ -37,4 +37,4 @@ jobs:
       run: mvn -B package --file Application/Robotix/pom.xml
 
     - name: Run multiple JUnit tests
-      run: mvn -B test --file Application/Robotix/pom.xml -Dtest=ActivityControllerTest,ComponentControllerTest,RobotControllerTest,CreateAccountControllerTest,ProfileControllerTest,ShopControllerTest
+      run: mvn -B test --file Application/Robotix/pom.xml -Dtest=Controller.ActivityControllerTest,Controller.ComponentControllerTest,Controller.CreateAccountControllerTest,Controller.ProfileControllerTest,Controller.RobotControllerTest,Controller.ShopControllerTest
