@@ -53,7 +53,7 @@
                             <TextField fx:id="clientPhoneNumberField" GridPane.rowIndex="6" GridPane.columnIndex="1" promptText="Format ex:111-111-1111"/>
 
                             <CheckBox fx:id="Interest1" text="Sports and Fitness" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                            <CheckBox fx:id="Interest2" text="Arts and Cafts" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                            <CheckBox fx:id="Interest2" text="Arts and Crafts" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
                             <CheckBox fx:id="Interest3" text ="Music and Performing Arts" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
                             <CheckBox fx:id="Interest4" text ="Outdoors Activities and Adventure" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
                             <CheckBox fx:id="Interest5" text ="Video Games and Technology" GridPane.rowIndex="4" GridPane.columnIndex="2"/>
