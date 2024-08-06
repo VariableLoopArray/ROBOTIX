@@ -114,7 +114,8 @@ public class ActivityController {
 
             Button buttonModify = new Button("Modify");
             buttonModify.setOnAction((actionEvent) -> {
-                numberOfActivity.set(buttonModify(index, newTask, everything, buttonBox, confirmPlaces, buttonAddTask));
+                numberOfActivity.set(buttonModify(index, newTask, everything, buttonBox, confirmPlaces,
+                        buttonAddTask, numbersRemoved));
             });
 
             buttonModify.getStyleClass().add("buttons");
@@ -197,13 +198,20 @@ public class ActivityController {
     }
 
     private int buttonModify (int index, TextArea newTask, VBox everything, HBox buttonBox, List<Integer> confirmPlaces,
-                              Button buttonAddTask) {
+                              Button buttonAddTask, List<Integer> numbersRemoved) {
 
         if (buttonAddTask.isVisible()){
             return -1;
         }
+
+        int smaller= 0;
+        for (int number : numbersRemoved){
+            if (number < index){
+                smaller++;
+            }
+        }
         confirmPlaces.clear();
-        VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index);
+        VBox modifyBox = (VBox) DisplayActivities.getChildren().get(index - smaller);
         Label modify = (Label) modifyBox.getChildren().get(0);
         String modifyText = modify.getText().replace("Activity ", "");
         AtomicInteger activityPlace = new AtomicInteger(-1);
@@ -684,7 +692,7 @@ public class ActivityController {
 
 
 
-        int newI = buttonModify(index, newTask, everything, buttonBox, confirmPlaces, buttonAddTask);
+        int newI = buttonModify(index, newTask, everything, buttonBox, confirmPlaces, buttonAddTask, new ArrayList<Integer>());
 
         for (int i = 0; i < confirmPlaces.size(); i++) {
             TextArea newInstructions = (TextArea) everything.getChildren().get(confirmPlaces.get(i));

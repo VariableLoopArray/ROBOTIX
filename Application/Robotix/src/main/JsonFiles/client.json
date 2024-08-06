@@ -177,7 +177,8 @@
     "companyName": "",
     "phoneNumber": "514-333-3333",
     "notifications": [
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1"
     ],
     "emailInbox": [],
     "toggleEmail": false,
@@ -685,7 +686,177 @@
         "memory": 2.0
       }
     ],
-    "myActivities": [],
+    "myActivities": [
+      {
+        "name": "2",
+        "startDate": {
+          "year": 2223,
+          "month": 11,
+          "day": 11
+        },
+        "endDate": {
+          "year": 2222,
+          "month": 11,
+          "day": 11
+        },
+        "points": "",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
+        "tasks": [
+          {
+            "name": "1",
+            "Instructions": [
+              "1"
+            ]
+          }
+        ],
+        "activityId": "01cf7bdb-694a-4ca7-89e1-89540f3b81ce",
+        "description": "1",
+        "status": "Upcoming"
+      },
+      {
+        "name": "4",
+        "startDate": {
+          "year": 4444,
+          "month": 11,
+          "day": 11
+        },
+        "endDate": {
+          "year": 5555,
+          "month": 11,
+          "day": 11
+        },
+        "points": "",
+        "Interests": [
+          "Sports and Fitness"
+        ],
+        "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
+        "tasks": [],
+        "activityId": "a12ce5c0-52b6-4ae4-bc1a-baf5f4950456",
+        "description": "",
+        "status": "Upcoming"
+      },
+      {
+        "name": "1",
+        "startDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "endDate": {
+          "year": 1111,
+          "month": 11,
+          "day": 11
+        },
+        "points": "",
+        "Interests": [
+          "Arts and Crafts"
+        ],
+        "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
+        "tasks": [],
+        "activityId": "df7df257-ff59-40fd-8b3e-cae38760500e",
+        "description": "",
+        "status": "Finished"
+      },
+      {
+        "name": "Object Retrieval",
+        "startDate": {
+          "year": 2023,
+          "month": 7,
+          "day": 20
+        },
+        "endDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 25
+        },
+        "points": "85",
+        "Interests": [
+          "Outdoors Activities and Adventure",
+          "Education and Learning"
+        ],
+        "creatorId": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
+        "tasks": [
+          {
+            "name": "Locate Object",
+            "Instructions": [
+              "Use sensors to scan the environment.",
+              "Identify the target object using object recognition.",
+              "Move towards the identified object."
+            ]
+          },
+          {
+            "name": "Pick Up Object",
+            "Instructions": [
+              "Position the robot\u0027s arm above the object.",
+              "Adjust the gripper to the size of the object.",
+              "Securely grip and lift the object."
+            ]
+          },
+          {
+            "name": "Deliver Object",
+            "Instructions": [
+              "Navigate to the designated drop-off area.",
+              "Position the robot arm to release the object.",
+              "Open the gripper and place the object down."
+            ]
+          }
+        ],
+        "activityId": "681b4022-dba5-44dd-90e1-70da0e11825e",
+        "description": "The robot is tasked with retrieving specific objects from different locations and delivering them to a designated area.",
+        "status": "Finished"
+      },
+      {
+        "name": "Surveillance Patrol",
+        "startDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 30
+        },
+        "endDate": {
+          "year": 2025,
+          "month": 8,
+          "day": 15
+        },
+        "points": "90",
+        "Interests": [
+          "Outdoors Activities and Adventure",
+          "Health and Well-Being"
+        ],
+        "creatorId": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
+        "tasks": [
+          {
+            "name": "Initialize Patrol Route",
+            "Instructions": [
+              "Upload the patrol route to the robot\u0027s system.",
+              "Set patrol schedule and frequency.",
+              "Start the initial patrol."
+            ]
+          },
+          {
+            "name": "Monitor Environment",
+            "Instructions": [
+              "Use sensors to continuously scan the surroundings.",
+              "Record and analyze data for any irregularities.",
+              "Alert the control center if any unusual activity is detected."
+            ]
+          },
+          {
+            "name": "Return to Base",
+            "Instructions": [
+              "Navigate back to the base station after each patrol.",
+              "Dock with the charging station.",
+              "Upload patrol data to the central system."
+            ]
+          }
+        ],
+        "activityId": "14795146-8b32-4d46-b823-468fadb6b995",
+        "description": "The robot is responsible for patrolling a specified area and reporting any unusual activities.",
+        "status": "In Progress"
+      }
+    ],
     "myInterests": [
       "Sports and Fitness"
     ],

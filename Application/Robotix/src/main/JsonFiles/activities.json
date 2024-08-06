@@ -290,5 +290,27 @@
     "activityId": "a12ce5c0-52b6-4ae4-bc1a-baf5f4950456",
     "description": "",
     "status": "Upcoming"
+  },
+  {
+    "name": "1",
+    "startDate": {
+      "year": 1111,
+      "month": 11,
+      "day": 11
+    },
+    "endDate": {
+      "year": 1111,
+      "month": 11,
+      "day": 11
+    },
+    "points": "",
+    "Interests": [
+      "Arts and Crafts"
+    ],
+    "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
+    "tasks": [],
+    "activityId": "df7df257-ff59-40fd-8b3e-cae38760500e",
+    "description": "",
+    "status": "Finished"
   }
 ]

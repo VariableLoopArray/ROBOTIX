@@ -1,11 +1,17 @@
 package Controller;
 
+import Model.TypeOfUsers.Client;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
 
+import java.io.*;
+import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -61,6 +67,26 @@ public class CreateAccountControllerTest extends JavaFXBaseTest {
                 boolean result = createAccountController.handleClientCreateAccountTest(
                         "Hello", "Hello", "Hello", "HelloHello", "Hello@", "Hello", "hhh-hhh-hhhh");
                 assertFalse(result);
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+                ArrayList<Client> clients = new ArrayList<Client>();
+                try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+                    clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>() {}.getType());
+                }
+
+
+
+                catch (IOException e){
+                    e.printStackTrace();
+                }
+
+                clients.removeLast();
+                try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+                    gson.toJson(clients, writer);
+                }
+                catch (IOException e){
+                    e.printStackTrace();
+                }
             } finally {
                 latch.countDown();
             }
