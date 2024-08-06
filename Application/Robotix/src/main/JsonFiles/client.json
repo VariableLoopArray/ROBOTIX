@@ -58,7 +58,8 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 3",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4"
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [],
     "toggleEmail": false,
@@ -175,7 +176,9 @@
     "email": "AnnabelleValdez@gmail.com",
     "companyName": "",
     "phoneNumber": "514-333-3333",
-    "notifications": [],
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+    ],
     "emailInbox": [],
     "toggleEmail": false,
     "confirmationLink": "null"
@@ -700,12 +703,14 @@
       "Email confirmed !",
       "Email confirmed !",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4"
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [
       "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4"
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "toggleEmail": true,
     "confirmationLink": "null"
