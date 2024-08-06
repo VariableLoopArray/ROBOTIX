@@ -42,7 +42,7 @@ Robotix est un système de gestion de robots où les utilisateurs peuvent enregi
     - Afficher le temps actuel
     - Fixer une date pour le système
 
-# Juste pour clarifier certaines fonctionalite:
+### Juste pour clarifier certaines fonctionalite:
 - Dans la page de profil, lorsque vous modifiez vos informations, les changements ne sont pas appliqués en temps réel. Pour voir les modifications, retournez à la page d'accueil, puis revenez à la page de profil.
 - Lors de la création d'un compte, que ce soit en tant que client ou fournisseur, vous recevrez un email dans la section inbox de votre compte. Cet email contient un bouton sur lequel il faut cliquer pour éviter que votre compte soit supprimé 24 heures après la création. Un message dans vos notifications vous confirmera que vous avez bien cliqué sur le bouton. Notez que vous pouvez cliquer plusieurs fois, mais cela ne changera plus rien après la première confirmation.
 - Sur la page de connexion, un bouton permet de changer la date du système. Cela permet de simuler le système à une autre date, par exemple, pour tester la suppression d'un compte non confirmé en ajoutant un jour. De plus, la modification de la date permet aussi de changer le statut des activités.
