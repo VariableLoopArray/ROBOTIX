@@ -2,7 +2,6 @@ package TestController;
 
 import Controller.ActivityController;
 import Model.Activity;
-import Model.Robot;
 import Model.Task;
 import Model.TypeOfUsers.Client;
 import javafx.application.Platform;
@@ -17,11 +16,11 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class ActivityControllerTest {
 
