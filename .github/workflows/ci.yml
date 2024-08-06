@@ -37,12 +37,19 @@ jobs:
       run: |
         export DISPLAY=:99
         Xvfb :99 -screen 0 1280x1024x24 &
+        sleep 5 # Wait for Xvfb to start
+
+    - name: Verify Xvfb is running
+      run: ps aux | grep Xvfb
+
+    - name: Set DISPLAY environment variable
+      run: export DISPLAY=:99
 
     - name: Build and test ActivityControllerTest with Maven
       working-directory: Application/Robotix
-      run: mvn -B test -Dtest=ActivityControllerTest
+      run: mvn -B verify -Dtest=ActivityControllerTest
 
     # Optional: Increase Maven's logging verbosity to debug issues
     - name: Run Maven with Debug Logging
       working-directory: Application/Robotix
-      run: mvn -X test
+      run: mvn -X verify -Dtest=ActivityControllerTest
