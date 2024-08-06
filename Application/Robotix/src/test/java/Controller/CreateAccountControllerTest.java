@@ -23,10 +23,13 @@ public class CreateAccountControllerTest {
     // Starts the JavaFX runtime
     @BeforeAll
     static void startJavaFX() throws InterruptedException {
-        Platform.startup(() -> {
-            javafxLatch.countDown(); // JavaFX has started
-        });
-        javafxLatch.await(); // Wait until JavaFX is started
+        if (!Platform.isFxApplicationThread()) {
+            javafxLatch = new CountDownLatch(1);
+            Platform.startup(() -> {
+                javafxLatch.countDown(); // Notify that JavaFX has started
+            });
+            javafxLatch.await(); // Wait for JavaFX to initialize
+        }
     }
 
     @BeforeEach

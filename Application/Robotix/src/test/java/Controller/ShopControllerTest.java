@@ -31,11 +31,13 @@ class ShopControllerTest {
 
     @BeforeAll
     static void setUpClass() throws InterruptedException {
-        javafxLatch = new CountDownLatch(1);
-        Platform.startup(() -> {
-            javafxLatch.countDown(); // Notify that JavaFX has started
-        });
-        javafxLatch.await(); // Wait for JavaFX to initialize
+        if (!Platform.isFxApplicationThread()) {
+            javafxLatch = new CountDownLatch(1);
+            Platform.startup(() -> {
+                javafxLatch.countDown(); // Notify that JavaFX has started
+            });
+            javafxLatch.await(); // Wait for JavaFX to initialize
+        }
     }
 
     @BeforeEach

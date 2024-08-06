@@ -30,9 +30,13 @@ class ActivityControllerTest {
 
     @BeforeAll
     static void setUpClass() throws InterruptedException {
-        javafxLatch = new CountDownLatch(1);
-        Platform.startup(() -> javafxLatch.countDown());
-        javafxLatch.await(); // Ensure JavaFX is properly initialized
+        if (!Platform.isFxApplicationThread()) {
+            javafxLatch = new CountDownLatch(1);
+            Platform.startup(() -> {
+                javafxLatch.countDown(); // Notify that JavaFX has started
+            });
+            javafxLatch.await(); // Wait for JavaFX to initialize
+        }
     }
 
     @BeforeEach
