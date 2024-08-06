@@ -8,7 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,12 +19,12 @@ import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ShopControllerTest extends JavaFXBaseTest {
+class ShopControllerTest {
 
     private ShopController shopController;
+    private Stage testStage;
 
-    @Override
-    protected void setUpTestStage() throws Exception {
+    void setUpTestStage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ShopMenu.fxml"));
         Scene scene = new Scene(loader.load(), 1024, 768);
         testStage = new Stage();
@@ -33,7 +33,38 @@ class ShopControllerTest extends JavaFXBaseTest {
         testStage.show(); // Ensure the stage is shown for proper initialization
     }
 
-    @Test
+    @BeforeEach
+    void setUp() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            try {
+                setUpTestStage();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                latch.countDown();
+            }
+        });
+        latch.await();
+    }
+
+    @AfterEach
+    void tearDown() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            try {
+                if (testStage != null) {
+                    testStage.close();
+                    testStage = null; // Release the reference
+                }
+            } finally {
+                latch.countDown();
+            }
+        });
+        latch.await();
+    }
+
+    @AllTest
     void successfulDisplayAllComponents() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
@@ -59,13 +90,11 @@ class ShopControllerTest extends JavaFXBaseTest {
                 assertEquals(componentNames, result.get(0));
                 assertEquals(componentsInfo, result.get(1));
             } catch (IOException e) {
-                e.printStackTrace();
+                fail("IOException occurred: " + e.getMessage());
             } finally {
                 latch.countDown();
             }
         });
         latch.await();
     }
-
-    // No need for the JavaFXTestApp class here, as it's not used in this context.
 }

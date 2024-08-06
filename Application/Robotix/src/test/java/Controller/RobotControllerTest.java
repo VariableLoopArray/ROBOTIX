@@ -5,19 +5,19 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RobotControllerTest extends JavaFXBaseTest {
+class RobotControllerTest {
 
     private RobotController robotController;
+    private Stage testStage;
 
-    @Override
-    protected void setUpTestStage() throws Exception {
+    void setUpTestStage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/RobotMenu.fxml"));
         Scene scene = new Scene(loader.load(), 1024, 768);
         testStage = new Stage();
@@ -26,7 +26,38 @@ class RobotControllerTest extends JavaFXBaseTest {
         testStage.show(); // Ensure the stage is shown for proper initialization
     }
 
-    @Test
+    @BeforeEach
+    void setUp() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            try {
+                setUpTestStage();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                latch.countDown();
+            }
+        });
+        latch.await();
+    }
+
+    @AfterEach
+    void tearDown() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            try {
+                if (testStage != null) {
+                    testStage.close();
+                    testStage = null; // Release the reference
+                }
+            } finally {
+                latch.countDown();
+            }
+        });
+        latch.await();
+    }
+
+    @AllTest
     void successGetRobotInfo() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {

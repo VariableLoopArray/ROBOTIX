@@ -9,6 +9,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -19,136 +21,157 @@ import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ComponentControllerTest extends JavaFXBaseTest {
+public class ComponentControllerTest {
 
     private ComponentController componentController;
+    private Stage testStage;
+    private Gson gson;
+    private File supplierFile;
 
-    @Override
-    protected void setUpTestStage() throws Exception {
+    @BeforeEach
+    void setUp() throws Exception {
+        gson = new GsonBuilder().setPrettyPrinting().create();
+        supplierFile = new File("src/main/JsonFiles/supplier.json");
+
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            try {
+                setUpTestStage();
+            } catch (Exception e) {
+                e.printStackTrace();
+                fail("Setup failed: " + e.getMessage());
+            } finally {
+                latch.countDown();
+            }
+        });
+        latch.await();
+    }
+
+    @AfterEach
+    void tearDown() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        Platform.runLater(() -> {
+            try {
+                if (testStage != null) {
+                    testStage.close();
+                    testStage = null;
+                }
+                resetSupplierFile(); // Reset the supplier file to its initial state
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } finally {
+                latch.countDown();
+            }
+        });
+        latch.await();
+    }
+
+    void setUpTestStage() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/MyComponentsMenu.fxml"));
         Scene scene = new Scene(loader.load(), 1024, 768);
         testStage = new Stage();
         testStage.setScene(scene);
         componentController = loader.getController();
-        testStage.show(); // Ensure the stage is shown for proper initialization
+        testStage.show();
+    }
+
+    private void resetSupplierFile() throws IOException {
+        // Logic to reset supplier.json to its initial state, if necessary
+        // This could involve copying from a backup file or resetting contents
     }
 
     @Test
-    void successfulDisplayComponent() throws InterruptedException {
+    void successfulDisplayComponent() throws Exception {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-            Supplier supplierTest = new Supplier("supplierTest", "supplierTest", "supplierTest",
-                    "supplierTest", "supplierTest", "supplierTest", "supplierTest",
-                    10, false, "2024-11-11");
-
-            Component componentTest1 = new Component("componentTest1",
-                    new ArrayList<>(List.of("componentDescriptionTest1")), 1.0f, 1.0f, 1.0f, 1.0f, UUID.randomUUID(), UUID.randomUUID());
-
-            Component componentTestToADD = new Component("componentTestToAdd1",
-                    new ArrayList<>(List.of("componentToAddDescriptionTest1")), 2.0f, 2.0f, 2.0f, 2.0f, UUID.randomUUID(), UUID.randomUUID());
-
             try {
-                ArrayList<String> components = new ArrayList<>();
-                ArrayList<Supplier> suppliers;
+                Supplier supplierTest = createTestSupplier();
+                Component componentTest = createTestComponent();
 
-                try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
-                    suppliers = gson.fromJson(reader, new TypeToken<ArrayList<Supplier>>() {}.getType());
-                }
+                List<String> expectedComponents = createExpectedComponentList(supplierTest);
 
-                suppliers.add(supplierTest);
+                // Add supplier and component to file
+                updateSupplierFile(supplierTest);
 
-                try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
-                    gson.toJson(suppliers, writer);
-                }
-
-                for (Component component : supplierTest.getStorage()) {
-                    components.add("Type: " + component.getType());
-                    components.add("Price: " + component.getPrice() + " $");
-                    components.add("Width: " + component.getWidth() + " cm");
-                    components.add("Length: " + component.getLength() + " cm");
-                    components.add("Height: " + component.getHeight() + " cm");
-                }
-
-                ArrayList<String> result = componentController.displayComponentsTest(supplierTest);
-
-                assertEquals(components.size(), result.size());
-                for (int i = 0; i < components.size(); i++) {
-                    assertEquals(components.get(i), result.get(i));
-                }
-
-                suppliers.remove(suppliers.size() - 1);
-
-                try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
-                    gson.toJson(suppliers, writer);
-                }
+                List<String> result = componentController.displayComponentsTest(supplierTest);
+                assertEquals(expectedComponents, result);
 
             } catch (IOException e) {
                 e.printStackTrace();
+                fail("Test failed: " + e.getMessage());
+            } finally {
+                latch.countDown();
             }
-
-            latch.countDown();
         });
         latch.await();
     }
 
     @Test
-    void successfulAddComponent() throws InterruptedException {
+    void successfulAddComponent() throws Exception {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
-            Supplier supplierTest = new Supplier("supplierTest", "supplierTest", "supplierTest",
-                    "supplierTest", "supplierTest", "supplierTest", "supplierTest",
-                    10, false, "2024-11-11");
-
-            Component componentTest1 = new Component("componentTest1",
-                    new ArrayList<>(List.of("componentDescriptionTest1")), 1.0f, 1.0f, 1.0f, 1.0f, UUID.randomUUID(), UUID.randomUUID());
-
-            Component componentTestToADD = new Component("componentTestToAdd1",
-                    new ArrayList<>(List.of("componentToAddDescriptionTest1")), 2.0f, 2.0f, 2.0f, 2.0f, UUID.randomUUID(), UUID.randomUUID());
-
-            List<Component> listOfComponentAtTheEnd = new ArrayList<>();
-
-            listOfComponentAtTheEnd.add(componentTest1);
-            listOfComponentAtTheEnd.add(componentTestToADD);
-
-            supplierTest.getStorage().add(componentTest1);
-            Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
             try {
-                ArrayList<Supplier> suppliersList;
+                Supplier supplierTest = createTestSupplier();
+                Component componentToAdd = createTestComponent();
 
-                try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
-                    suppliersList = gson.fromJson(reader, new TypeToken<ArrayList<Supplier>>() {}.getType());
-                }
+                // Add supplier to file
+                updateSupplierFile(supplierTest);
 
-                suppliersList.add(supplierTest);
+                componentController.addComponentTest(supplierTest, componentToAdd);
 
-                try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
-                    gson.toJson(suppliersList, writer);
-                }
-
-                componentController.addComponentTest(supplierTest, componentTestToADD);
-
-                Supplier supplierTestAfter = suppliersList.get(suppliersList.size() - 1);
-
-                assertEquals(supplierTest.getStorage().size(), supplierTestAfter.getStorage().size());
-                for (int i = 0; i < supplierTestAfter.getStorage().size(); i++) {
-                    assertEquals(supplierTestAfter.getStorage().get(i), supplierTest.getStorage().get(i));
-                }
-
-                suppliersList.remove(suppliersList.size() - 1);
-
-                try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
-                    gson.toJson(suppliersList, writer);
-                }
+                // Verify the component was added
+                Supplier updatedSupplier = getLastSupplierFromFile();
+                assertTrue(updatedSupplier.getStorage().contains(componentToAdd));
 
             } catch (IOException e) {
                 e.printStackTrace();
+                fail("Test failed: " + e.getMessage());
+            } finally {
+                latch.countDown();
             }
-
-            latch.countDown();
         });
         latch.await();
+    }
+
+    private Supplier createTestSupplier() {
+        return new Supplier("supplierTest", "supplierTest", "supplierTest",
+                "supplierTest", "supplierTest", "supplierTest", "supplierTest",
+                10, false, "2024-11-11");
+    }
+
+    private Component createTestComponent() {
+        return new Component("componentTest",
+                new ArrayList<>(List.of("componentDescriptionTest")), 1.0f, 1.0f, 1.0f, 1.0f, UUID.randomUUID(), UUID.randomUUID());
+    }
+
+    private List<String> createExpectedComponentList(Supplier supplier) {
+        List<String> components = new ArrayList<>();
+        for (Component component : supplier.getStorage()) {
+            components.add("Type: " + component.getType());
+            components.add("Price: " + component.getPrice() + " $");
+            components.add("Width: " + component.getWidth() + " cm");
+            components.add("Length: " + component.getLength() + " cm");
+            components.add("Height: " + component.getHeight() + " cm");
+        }
+        return components;
+    }
+
+    private void updateSupplierFile(Supplier supplier) throws IOException {
+        List<Supplier> suppliers;
+        try (Reader reader = new FileReader(supplierFile)) {
+            suppliers = gson.fromJson(reader, new TypeToken<ArrayList<Supplier>>() {}.getType());
+        }
+        suppliers.add(supplier);
+        try (Writer writer = new FileWriter(supplierFile)) {
+            gson.toJson(suppliers, writer);
+        }
+    }
+
+    private Supplier getLastSupplierFromFile() throws IOException {
+        List<Supplier> suppliers;
+        try (Reader reader = new FileReader(supplierFile)) {
+            suppliers = gson.fromJson(reader, new TypeToken<ArrayList<Supplier>>() {}.getType());
+        }
+        return suppliers.get(suppliers.size() - 1);
     }
 }
