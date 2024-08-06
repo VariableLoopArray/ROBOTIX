@@ -40,6 +40,9 @@ jobs:
 
     - name: List directory contents
       run: ls -R Application/Robotix
+      
+    - name: Build and test with Maven
+      run: mvn clean test -DargLine="--add-opens java.base/java.time=com.google.gson"
 
     - name: Build and test with Maven
       run: mvn -B test -DargLine="--add-opens java.base/java.time=com.google.gson"

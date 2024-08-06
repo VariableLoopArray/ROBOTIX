@@ -5,6 +5,7 @@ module main.Robotix {
     requires com.dlsc.formsfx;
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
+    requires com.google.gson;
 
     opens Model;
     opens Controller to javafx.fxml;
