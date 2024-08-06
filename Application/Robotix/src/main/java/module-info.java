@@ -1,4 +1,4 @@
-module main.robotix {
+module main.Robotix {
     requires javafx.controls;
     requires javafx.fxml;
 
