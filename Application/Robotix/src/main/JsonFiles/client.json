@@ -1,1 +1,737 @@
-[{"fleet":[{"name":"Robo1","type":"Worker","components":["Sensor","Motor","Camera"],"serialNumber":"fbc731ab-e21d-41e6-ab99-91dd2bf596ea","battery":"87","location":[0.0,0.0,0.0],"speed":1.5,"cpuUsage":45.0,"memory":8.0},{"name":"Robo2","type":"Cleaner","components":["Motor","Wheel","Laser"],"serialNumber":"8f08ea52-8b0b-4e17-a4ab-943fd311c0eb","battery":"74","location":[0.0,0.0,0.0],"speed":1.2,"cpuUsage":38.0,"memory":16.0}],"myActivities":[],"myInterests":["Sports and Fitness"],"firstName":"John","lastName":"Doe","username":"johndoe123","password":"password1","id":"839b05a7-483e-4beb-9887-c8b7bb43dce0","email":"johndoe@gmail.com","companyName":"","phoneNumber":"514-111-1111","notifications":["A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 3","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo3","type":"Guard","components":["Camera","Arm","Laser"],"serialNumber":"194af871-fcde-4ab6-b4dc-166c3c356035","battery":"62","location":[0.0,0.0,0.0],"speed":0.8,"cpuUsage":55.0,"memory":12.0},{"name":"Robo4","type":"Companion","components":["Sensor","Camera","Arm"],"serialNumber":"2056f761-bbd5-40ec-b078-5341bdeb85cf","battery":"90","location":[0.0,0.0,0.0],"speed":1.0,"cpuUsage":30.0,"memory":4.0}],"myActivities":[],"myInterests":["Cooking and gastronomy"],"firstName":"Zane","lastName":"Underwood","username":"ZaneUnderwood231","password":"password2","id":"57e274c7-1e7f-407e-87ac-255bb313f26c","email":"ZaneUnderwood@gmail.com","companyName":"Nvidia","phoneNumber":"514-222-2222","notifications":[],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo5","type":"Explorer","components":["Gripper","Wheel","Laser"],"serialNumber":"03734531-7ab7-44b8-a5fc-c140cf046ec3","battery":"53","location":[0.0,0.0,0.0],"speed":2.5,"cpuUsage":60.0,"memory":8.0},{"name":"Robo6","type":"Worker","components":["Sensor","Motor","Gripper"],"serialNumber":"8331a3e3-7efd-4474-9bf3-19cf5184e08e","battery":"81","location":[0.0,0.0,0.0],"speed":1.7,"cpuUsage":50.0,"memory":10.0}],"myActivities":[],"myInterests":["Arts and Crafts"],"firstName":"Annabelle","lastName":"Valdez","username":"AnnabelleValdez562","password":"password3","id":"5c5fb621-0a49-4d51-9d4f-8f71dd202c78","email":"AnnabelleValdez@gmail.com","companyName":"","phoneNumber":"514-333-3333","notifications":[],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo7","type":"Cleaner","components":["Wheel","Motor","Sensor"],"serialNumber":"7e6eb4e1-8f64-46df-a0a9-f7c378b8f158","battery":"49","location":[0.0,0.0,0.0],"speed":1.4,"cpuUsage":42.0,"memory":6.0},{"name":"Robo8","type":"Guard","components":["Camera","Laser","Arm"],"serialNumber":"4132383c-928c-4f6b-a080-cbeeac65ba73","battery":"68","location":[0.0,0.0,0.0],"speed":1.9,"cpuUsage":35.0,"memory":12.0}],"myActivities":[],"myInterests":["Reading and Writing"],"firstName":"Gianluca","lastName":"Gray","username":"GianlucaGray135","password":"password4","id":"a47c6b9e-d447-4445-8cef-796e5fc22c65","email":"GianlucaGray@gmail.com","companyName":"PepsiCo","phoneNumber":"514-444-4444","notifications":[],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo9","type":"Companion","components":["Sensor","Camera","Motor"],"serialNumber":"366cfb43-42c4-4521-87e2-a0ceedab2b1f","battery":"95","location":[0.0,0.0,0.0],"speed":0.7,"cpuUsage":25.0,"memory":16.0},{"name":"Robo10","type":"Explorer","components":["Gripper","Arm","Wheel"],"serialNumber":"ac02dc0f-4529-40e8-8fe4-4b7a6f47f737","battery":"77","location":[0.0,0.0,0.0],"speed":2.0,"cpuUsage":65.0,"memory":10.0}],"myActivities":[],"myInterests":["Music and Performing Arts"],"firstName":"Jaydon","lastName":"Sanchez","username":"JaydonSanchez213","password":"password5","id":"f8c579c2-2863-431c-9c99-1b00abc4f91c","email":"JaydonSanchez@gmail.com","companyName":"","phoneNumber":"514-555-5555","notifications":[],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo11","type":"Worker","components":["Sensor","Motor","Camera"],"serialNumber":"7c2d8d05-8862-4046-9cbc-7e5c733e3bdf","battery":"66","location":[0.0,0.0,0.0],"speed":1.3,"cpuUsage":55.0,"memory":8.0},{"name":"Robo12","type":"Cleaner","components":["Motor","Wheel","Laser"],"serialNumber":"c355d30c-27c2-4b64-af9b-48f89d2f6890","battery":"82","location":[0.0,0.0,0.0],"speed":1.1,"cpuUsage":30.0,"memory":14.0}],"myActivities":[],"myInterests":["Travel and Culture"],"firstName":"Ray","lastName":"Charles","username":"JazzyBoy","password":"password6","id":"ab3bb08d-fc25-4f40-a379-d4ee3f22f6f2","email":"RayCharles@gmail.com","companyName":"","phoneNumber":"514-666-6666","notifications":["A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo13","type":"Guard","components":["Camera","Arm","Laser"],"serialNumber":"6c571225-0a38-4200-9929-aa496a5ccd26","battery":"58","location":[0.0,0.0,0.0],"speed":1.6,"cpuUsage":40.0,"memory":4.0},{"name":"Robo14","type":"Companion","components":["Sensor","Camera","Arm"],"serialNumber":"0c322d9f-7fdc-4787-9dbb-9673fe7889e4","battery":"73","location":[0.0,0.0,0.0],"speed":0.9,"cpuUsage":50.0,"memory":12.0}],"myActivities":[],"myInterests":["Outdoors Activities and Adventure"],"firstName":"Frank","lastName":"Sinatra","username":"DeepBlueEyes","password":"password7","id":"6cc3ffd8-5764-467a-8253-7d39c2d7d77a","email":"FrankSinatra@gmail.com","companyName":"","phoneNumber":"514-777-7777","notifications":["A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Object Retrieval","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Surveillance Patrol","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo15","type":"Explorer","components":["Gripper","Wheel","Laser"],"serialNumber":"214c6cad-b397-483f-bdd6-f9c1cc8b7f01","battery":"88","location":[0.0,0.0,0.0],"speed":2.3,"cpuUsage":70.0,"memory":6.0},{"name":"Robo16","type":"Worker","components":["Sensor","Motor","Gripper"],"serialNumber":"67ede7a3-9ad2-42c7-a957-276a94867b01","battery":"79","location":[0.0,0.0,0.0],"speed":1.8,"cpuUsage":45.0,"memory":10.0}],"myActivities":[{"name":"Assemble Circuit Board","startDate":{"year":2024,"month":7,"day":28},"endDate":{"year":2024,"month":7,"day":31},"points":"90","Interests":["Education and learning"],"creatorId":"839b05a7-483e-4beb-9887-c8b7bb43dce0","tasks":[],"activityId":"f0cd5d87-b575-469c-aaf2-e46ee7e98b6f","description":"The robot must assemble a complex circuit board with multiple components.","status":"Completed"},{"name":"Robotic Arm Calibration","startDate":{"year":2024,"month":8,"day":6},"endDate":{"year":2024,"month":10,"day":20},"points":"80","Interests":["Video Games and Technology"],"creatorId":"5b7f017f-88fe-4cf7-a4dd-08844478b1ab","tasks":[],"activityId":"ef5e45bd-0bab-4040-a036-01069b6503b5","description":"The robot must calibrate its robotic arm to ensure precision in its movements.Tasks:","status":"Upcoming"}],"myInterests":["Education and learning"],"firstName":"George","lastName":"Washington","username":"MakeAmerica","password":"password8","id":"5b7f017f-88fe-4cf7-a4dd-08844478b1ab","email":"GeorgeWashington@gmail.com","companyName":"","phoneNumber":"514-888-8888","notifications":["A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Object Retrieval","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Inventory Management","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo17","type":"Cleaner","components":["Wheel","Motor","Sensor"],"serialNumber":"0357c4e0-8c59-4bbf-9048-d5b70ab5e750","battery":"52","location":[0.0,0.0,0.0],"speed":1.5,"cpuUsage":35.0,"memory":8.0},{"name":"Robo18","type":"Guard","components":["Camera","Laser","Arm"],"serialNumber":"5961bc04-8fda-4631-a4ae-ca189db32ea2","battery":"61","location":[0.0,0.0,0.0],"speed":1.7,"cpuUsage":48.0,"memory":14.0}],"myActivities":[],"myInterests":["Video Games and Technology"],"firstName":"Teddy","lastName":"Roosevelt","username":"BullMoose","password":"password9","id":"97fca936-98f7-4ea0-9cd4-5d1845a5682d","email":"TeddyRoosevelt@gmail.com","companyName":"","phoneNumber":"514-999-9999","notifications":[],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"Robo19","type":"Explorer","components":["Gripper","Arm","Wheel"],"serialNumber":"27e03b1d-a7b6-42d0-ad54-62ddb9b556b9","battery":"70","location":[0.0,0.0,0.0],"speed":2.2,"cpuUsage":60.0,"memory":12.0},{"name":"Robo20","type":"Explorer","components":["Gripper","Arm","Wheel"],"serialNumber":"bb5ff3be-42c4-48f5-bd42-77784e68fe4b","battery":"70","location":[0.0,0.0,0.0],"speed":2.2,"cpuUsage":60.0,"memory":12.0}],"myActivities":[],"myInterests":["Health and Well-Being"],"firstName":"Manfred","lastName":"Albert","username":"TheRedBaron","password":"password10","id":"eb481d68-bfa5-4e08-807e-dc062a3d96c4","email":"ManfredAlbert@gmail.com","companyName":"","phoneNumber":"514-101-0101","notifications":["A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Surveillance Patrol"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"fleet":[{"name":"1","type":"1","components":["1"],"serialNumber":"94af51fe-8f9b-48ea-a88f-5ffcd92dda8e","battery":"1","location":[0.0,0.0,0.0],"speed":1.0,"cpuUsage":1.0,"memory":1.0},{"name":"2","type":"2","components":["2"],"serialNumber":"4b688e54-13a9-4e5f-a3a8-8b66cf36734c","battery":"2","location":[0.0,0.0,0.0],"speed":2.0,"cpuUsage":2.0,"memory":2.0}],"myActivities":[],"myInterests":["Sports and Fitness"],"firstName":"1","lastName":"1","username":"1","password":"11111111","id":"3afcb79c-1023-490b-82f6-b0250def2bbd","email":"1@","companyName":"1","phoneNumber":"111-111-1111","storage":[{"name":"1","type":["1"],"price":1.0,"width":1.0,"length":1.0,"height":1.0,"supplierID":"9348ebe1-8cff-4d62-9d12-1dbec6dd4f55","serialNumber":"fe84f1d6-5fdd-48b4-a5a4-6bbb2b001b0a"},{"name":"2","type":["2"],"price":2.0,"width":2.0,"length":2.0,"height":2.0,"supplierID":"9348ebe1-8cff-4d62-9d12-1dbec6dd4f55","serialNumber":"0c26225d-49a7-4616-a443-a69b48a0ce76"},{"name":"ASUS ROG Strix Z590-E","type":["HighPerformance","Overclocking"],"price":379.0,"width":30.0,"length":24.0,"height":3.0,"supplierID":"288ba4d9-b686-4d34-adf0-b42c0dcdf3da","serialNumber":"4b8f98e8-256b-4de8-b60a-e1d8a88764ff"},{"name":"Cooler Master Hyper 212","type":["Air-Cooled","Quiet"],"price":49.0,"width":12.0,"length":7.9,"height":15.8,"supplierID":"288ba4d9-b686-4d34-adf0-b42c0dcdf3da","serialNumber":"c7a2e9e4-ea45-460e-a1d2-754aaa887cbb"},{"name":"EVGA 750W Power Supply","type":["EnergyEfficient","Modular"],"price":109.0,"width":15.0,"length":15.0,"height":8.6,"supplierID":"288ba4d9-b686-4d34-adf0-b42c0dcdf3da","serialNumber":"71c52a21-bd85-4203-910a-cdd888532b6c"},{"name":"Logitech MX Master 3 Mouse","type":["Ergonomic","Wireless"],"price":99.0,"width":12.5,"length":8.4,"height":5.1,"supplierID":"288ba4d9-b686-4d34-adf0-b42c0dcdf3da","serialNumber":"fb7ea3e7-a283-4cd9-b138-abfb787bd496"},{"name":"Dell Ultrasharp 27\" Monitor","type":["HighResolution","Adjustable"],"price":599.0,"width":61.0,"length":36.0,"height":18.0,"supplierID":"288ba4d9-b686-4d34-adf0-b42c0dcdf3da","serialNumber":"aaf53f89-25ec-4345-b149-661bae2a0813"},{"name":"Name: Intel Atom x7-E3950","type":["EnergyEfficient","HighPerformance"],"price":200.0,"width":2.0,"length":2.0,"height":0.3,"supplierID":"85ffa26b-bac9-456a-a309-8727c332901c","serialNumber":"a7070b49-c06c-4363-b854-514eea22905c"},{"name":"Nvidia Jetson Nano","type":["HighPerformance","AIOptimized"],"price":99.0,"width":6.9,"length":4.5,"height":1.8,"supplierID":"85ffa26b-bac9-456a-a309-8727c332901c","serialNumber":"a45c676d-5ea8-4064-8858-e74e02e4a479"},{"name":"5V Voltage Regulator","type":["EnergyEfficient","Compact"],"price":57.0,"width":51.0,"length":25.3,"height":1.0,"supplierID":"ab49dfcd-991a-4b71-afbb-0e3d0970a059","serialNumber":"34801bb1-473d-49eb-a7b9-48f79886a3c3"},{"name":"Stepper Motor NEMA 17","type":["HighPrecision","Durable"],"price":25.0,"width":4.2,"length":4.2,"height":4.7,"supplierID":"ab49dfcd-991a-4b71-afbb-0e3d0970a059","serialNumber":"05756628-ef3c-4b81-aac4-889445faa07f"},{"name":"GPS Module NEO-6M","type":["HighAccuracy","Compact"],"price":15.0,"width":3.0,"length":2.2,"height":1.0,"supplierID":"ab49dfcd-991a-4b71-afbb-0e3d0970a059","serialNumber":"8d9c31eb-5711-4910-9f9a-1d9e37745c36"},{"name":"DC Gear Motor 12V","type":["HighTorque","Compact"],"price":20.0,"width":3.0,"length":2.0,"height":2.0,"supplierID":"98acf9ff-3d59-43fe-a995-27dca8774df7","serialNumber":"90092c22-fd37-4e80-a426-343e77cbaaa4"},{"name":"OLED Display 1.3\"","type":["HighContrast","EnergyEfficient"],"price":10.0,"width":3.5,"length":2.8,"height":0.2,"supplierID":"98acf9ff-3d59-43fe-a995-27dca8774df7","serialNumber":"f0d22f64-68f4-48ac-b824-2dfd68b9c630"},{"name":"Intel RealSense Depth Camera","type":["3DVision","HighResolution"],"price":149.0,"width":10.0,"length":2.0,"height":2.0,"supplierID":"98acf9ff-3d59-43fe-a995-27dca8774df7","serialNumber":"7ddeda96-b93a-4fd2-ba3a-dc725913305c"},{"name":"MPU-6050 Gyro Sensor","type":["MotionTracking","Compact"],"price":5.0,"width":2.0,"length":1.0,"height":0.3,"supplierID":"98acf9ff-3d59-43fe-a995-27dca8774df7","serialNumber":"29049dad-0f0f-4275-b216-09c16dc5ab9a"},{"name":"Raspberry Pi 4 Model B","type":["Versatile","HighPerformance"],"price":55.0,"width":8.5,"length":5.6,"height":1.7,"supplierID":"85ffa26b-bac9-456a-a309-8727c332901c","serialNumber":"39df37f6-5400-45f3-b2fb-02668f1d2ada"},{"name":"Bluetooth Module HC-05","type":["Wireless","EnergyEfficient"],"price":6.0,"width":3.6,"length":1.5,"height":10.0,"supplierID":"ab49dfcd-991a-4b71-afbb-0e3d0970a059","serialNumber":"0399dde1-465c-4f51-8fa5-a1a1aee462f1"},{"name":"Micro Servo Motor SG90","type":["Compact","Precision"],"price":4.0,"width":2.3,"length":1.2,"height":2.9,"supplierID":"85ffa26b-bac9-456a-a309-8727c332901c","serialNumber":"6e91a309-85c5-4de9-98bb-9e91da3711ef"},{"name":"Li-Po Battery 5000mAh","type":["HighCapacity","Lightweight"],"price":45.0,"width":7.0,"length":4.0,"height":1.0,"supplierID":"85ffa26b-bac9-456a-a309-8727c332901c","serialNumber":"8850cbc7-a787-472e-9dae-11d1e25c9917"},{"name":"L298N Motor Driver","type":["DualH-Bridge","HighCurrent"],"price":8.0,"width":4.3,"length":4.3,"height":3.0,"supplierID":"98acf9ff-3d59-43fe-a995-27dca8774df7","serialNumber":"887b2adf-f00a-4845-8d06-0fb8acf1e8ee"},{"name":"IR Proximity Sensor","type":["ObstacleDetection","Compact"],"price":2.0,"width":5.0,"length":1.3,"height":0.8,"supplierID":"ab49dfcd-991a-4b71-afbb-0e3d0970a059","serialNumber":"74cbd44d-407d-4d9b-9a8f-559bb62fbcbe"}],"notifications":["A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1","Email confirmed !","Email confirmed !","Email confirmed !","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4"],"emailInbox":["Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1","A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4"],"toggleEmail":true,"confirmationLink":"null"}]
+[
+  {
+    "fleet": [
+      {
+        "name": "Robo1",
+        "type": "Worker",
+        "components": [
+          "Sensor",
+          "Motor",
+          "Camera"
+        ],
+        "serialNumber": "fbc731ab-e21d-41e6-ab99-91dd2bf596ea",
+        "battery": "87",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.5,
+        "cpuUsage": 45.0,
+        "memory": 8.0
+      },
+      {
+        "name": "Robo2",
+        "type": "Cleaner",
+        "components": [
+          "Motor",
+          "Wheel",
+          "Laser"
+        ],
+        "serialNumber": "8f08ea52-8b0b-4e17-a4ab-943fd311c0eb",
+        "battery": "74",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.2,
+        "cpuUsage": 38.0,
+        "memory": 16.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness"
+    ],
+    "firstName": "John",
+    "lastName": "Doe",
+    "username": "johndoe123",
+    "password": "password1",
+    "id": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
+    "email": "johndoe@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-111-1111",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 3",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo3",
+        "type": "Guard",
+        "components": [
+          "Camera",
+          "Arm",
+          "Laser"
+        ],
+        "serialNumber": "194af871-fcde-4ab6-b4dc-166c3c356035",
+        "battery": "62",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 0.8,
+        "cpuUsage": 55.0,
+        "memory": 12.0
+      },
+      {
+        "name": "Robo4",
+        "type": "Companion",
+        "components": [
+          "Sensor",
+          "Camera",
+          "Arm"
+        ],
+        "serialNumber": "2056f761-bbd5-40ec-b078-5341bdeb85cf",
+        "battery": "90",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.0,
+        "cpuUsage": 30.0,
+        "memory": 4.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Cooking and gastronomy"
+    ],
+    "firstName": "Zane",
+    "lastName": "Underwood",
+    "username": "ZaneUnderwood231",
+    "password": "password2",
+    "id": "57e274c7-1e7f-407e-87ac-255bb313f26c",
+    "email": "ZaneUnderwood@gmail.com",
+    "companyName": "Nvidia",
+    "phoneNumber": "514-222-2222",
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo5",
+        "type": "Explorer",
+        "components": [
+          "Gripper",
+          "Wheel",
+          "Laser"
+        ],
+        "serialNumber": "03734531-7ab7-44b8-a5fc-c140cf046ec3",
+        "battery": "53",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.5,
+        "cpuUsage": 60.0,
+        "memory": 8.0
+      },
+      {
+        "name": "Robo6",
+        "type": "Worker",
+        "components": [
+          "Sensor",
+          "Motor",
+          "Gripper"
+        ],
+        "serialNumber": "8331a3e3-7efd-4474-9bf3-19cf5184e08e",
+        "battery": "81",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.7,
+        "cpuUsage": 50.0,
+        "memory": 10.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Arts and Crafts"
+    ],
+    "firstName": "Annabelle",
+    "lastName": "Valdez",
+    "username": "AnnabelleValdez562",
+    "password": "password3",
+    "id": "5c5fb621-0a49-4d51-9d4f-8f71dd202c78",
+    "email": "AnnabelleValdez@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-333-3333",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo7",
+        "type": "Cleaner",
+        "components": [
+          "Wheel",
+          "Motor",
+          "Sensor"
+        ],
+        "serialNumber": "7e6eb4e1-8f64-46df-a0a9-f7c378b8f158",
+        "battery": "49",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.4,
+        "cpuUsage": 42.0,
+        "memory": 6.0
+      },
+      {
+        "name": "Robo8",
+        "type": "Guard",
+        "components": [
+          "Camera",
+          "Laser",
+          "Arm"
+        ],
+        "serialNumber": "4132383c-928c-4f6b-a080-cbeeac65ba73",
+        "battery": "68",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.9,
+        "cpuUsage": 35.0,
+        "memory": 12.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Reading and Writing"
+    ],
+    "firstName": "Gianluca",
+    "lastName": "Gray",
+    "username": "GianlucaGray135",
+    "password": "password4",
+    "id": "a47c6b9e-d447-4445-8cef-796e5fc22c65",
+    "email": "GianlucaGray@gmail.com",
+    "companyName": "PepsiCo",
+    "phoneNumber": "514-444-4444",
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo9",
+        "type": "Companion",
+        "components": [
+          "Sensor",
+          "Camera",
+          "Motor"
+        ],
+        "serialNumber": "366cfb43-42c4-4521-87e2-a0ceedab2b1f",
+        "battery": "95",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 0.7,
+        "cpuUsage": 25.0,
+        "memory": 16.0
+      },
+      {
+        "name": "Robo10",
+        "type": "Explorer",
+        "components": [
+          "Gripper",
+          "Arm",
+          "Wheel"
+        ],
+        "serialNumber": "ac02dc0f-4529-40e8-8fe4-4b7a6f47f737",
+        "battery": "77",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.0,
+        "cpuUsage": 65.0,
+        "memory": 10.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Music and Performing Arts"
+    ],
+    "firstName": "Jaydon",
+    "lastName": "Sanchez",
+    "username": "JaydonSanchez213",
+    "password": "password5",
+    "id": "f8c579c2-2863-431c-9c99-1b00abc4f91c",
+    "email": "JaydonSanchez@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-555-5555",
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo11",
+        "type": "Worker",
+        "components": [
+          "Sensor",
+          "Motor",
+          "Camera"
+        ],
+        "serialNumber": "7c2d8d05-8862-4046-9cbc-7e5c733e3bdf",
+        "battery": "66",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.3,
+        "cpuUsage": 55.0,
+        "memory": 8.0
+      },
+      {
+        "name": "Robo12",
+        "type": "Cleaner",
+        "components": [
+          "Motor",
+          "Wheel",
+          "Laser"
+        ],
+        "serialNumber": "c355d30c-27c2-4b64-af9b-48f89d2f6890",
+        "battery": "82",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.1,
+        "cpuUsage": 30.0,
+        "memory": 14.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Travel and Culture"
+    ],
+    "firstName": "Ray",
+    "lastName": "Charles",
+    "username": "JazzyBoy",
+    "password": "password6",
+    "id": "ab3bb08d-fc25-4f40-a379-d4ee3f22f6f2",
+    "email": "RayCharles@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-666-6666",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo13",
+        "type": "Guard",
+        "components": [
+          "Camera",
+          "Arm",
+          "Laser"
+        ],
+        "serialNumber": "6c571225-0a38-4200-9929-aa496a5ccd26",
+        "battery": "58",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.6,
+        "cpuUsage": 40.0,
+        "memory": 4.0
+      },
+      {
+        "name": "Robo14",
+        "type": "Companion",
+        "components": [
+          "Sensor",
+          "Camera",
+          "Arm"
+        ],
+        "serialNumber": "0c322d9f-7fdc-4787-9dbb-9673fe7889e4",
+        "battery": "73",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 0.9,
+        "cpuUsage": 50.0,
+        "memory": 12.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Outdoors Activities and Adventure"
+    ],
+    "firstName": "Frank",
+    "lastName": "Sinatra",
+    "username": "DeepBlueEyes",
+    "password": "password7",
+    "id": "6cc3ffd8-5764-467a-8253-7d39c2d7d77a",
+    "email": "FrankSinatra@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-777-7777",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Object Retrieval",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Surveillance Patrol",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo15",
+        "type": "Explorer",
+        "components": [
+          "Gripper",
+          "Wheel",
+          "Laser"
+        ],
+        "serialNumber": "214c6cad-b397-483f-bdd6-f9c1cc8b7f01",
+        "battery": "88",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.3,
+        "cpuUsage": 70.0,
+        "memory": 6.0
+      },
+      {
+        "name": "Robo16",
+        "type": "Worker",
+        "components": [
+          "Sensor",
+          "Motor",
+          "Gripper"
+        ],
+        "serialNumber": "67ede7a3-9ad2-42c7-a957-276a94867b01",
+        "battery": "79",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.8,
+        "cpuUsage": 45.0,
+        "memory": 10.0
+      }
+    ],
+    "myActivities": [
+      {
+        "name": "Assemble Circuit Board",
+        "startDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 28
+        },
+        "endDate": {
+          "year": 2024,
+          "month": 7,
+          "day": 31
+        },
+        "points": "90",
+        "Interests": [
+          "Education and learning"
+        ],
+        "creatorId": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
+        "tasks": [],
+        "activityId": "f0cd5d87-b575-469c-aaf2-e46ee7e98b6f",
+        "description": "The robot must assemble a complex circuit board with multiple components.",
+        "status": "Completed"
+      },
+      {
+        "name": "Robotic Arm Calibration",
+        "startDate": {
+          "year": 2024,
+          "month": 8,
+          "day": 6
+        },
+        "endDate": {
+          "year": 2024,
+          "month": 10,
+          "day": 20
+        },
+        "points": "80",
+        "Interests": [
+          "Video Games and Technology"
+        ],
+        "creatorId": "5b7f017f-88fe-4cf7-a4dd-08844478b1ab",
+        "tasks": [],
+        "activityId": "ef5e45bd-0bab-4040-a036-01069b6503b5",
+        "description": "The robot must calibrate its robotic arm to ensure precision in its movements.Tasks:",
+        "status": "Upcoming"
+      }
+    ],
+    "myInterests": [
+      "Education and learning"
+    ],
+    "firstName": "George",
+    "lastName": "Washington",
+    "username": "MakeAmerica",
+    "password": "password8",
+    "id": "5b7f017f-88fe-4cf7-a4dd-08844478b1ab",
+    "email": "GeorgeWashington@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-888-8888",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Object Retrieval",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Inventory Management",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Disaster Response"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo17",
+        "type": "Cleaner",
+        "components": [
+          "Wheel",
+          "Motor",
+          "Sensor"
+        ],
+        "serialNumber": "0357c4e0-8c59-4bbf-9048-d5b70ab5e750",
+        "battery": "52",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.5,
+        "cpuUsage": 35.0,
+        "memory": 8.0
+      },
+      {
+        "name": "Robo18",
+        "type": "Guard",
+        "components": [
+          "Camera",
+          "Laser",
+          "Arm"
+        ],
+        "serialNumber": "5961bc04-8fda-4631-a4ae-ca189db32ea2",
+        "battery": "61",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.7,
+        "cpuUsage": 48.0,
+        "memory": 14.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Video Games and Technology"
+    ],
+    "firstName": "Teddy",
+    "lastName": "Roosevelt",
+    "username": "BullMoose",
+    "password": "password9",
+    "id": "97fca936-98f7-4ea0-9cd4-5d1845a5682d",
+    "email": "TeddyRoosevelt@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-999-9999",
+    "notifications": [],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "Robo19",
+        "type": "Explorer",
+        "components": [
+          "Gripper",
+          "Arm",
+          "Wheel"
+        ],
+        "serialNumber": "27e03b1d-a7b6-42d0-ad54-62ddb9b556b9",
+        "battery": "70",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.2,
+        "cpuUsage": 60.0,
+        "memory": 12.0
+      },
+      {
+        "name": "Robo20",
+        "type": "Explorer",
+        "components": [
+          "Gripper",
+          "Arm",
+          "Wheel"
+        ],
+        "serialNumber": "bb5ff3be-42c4-48f5-bd42-77784e68fe4b",
+        "battery": "70",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.2,
+        "cpuUsage": 60.0,
+        "memory": 12.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Health and Well-Being"
+    ],
+    "firstName": "Manfred",
+    "lastName": "Albert",
+    "username": "TheRedBaron",
+    "password": "password10",
+    "id": "eb481d68-bfa5-4e08-807e-dc062a3d96c4",
+    "email": "ManfredAlbert@gmail.com",
+    "companyName": "",
+    "phoneNumber": "514-101-0101",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Surveillance Patrol"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [
+      {
+        "name": "1",
+        "type": "1",
+        "components": [
+          "1"
+        ],
+        "serialNumber": "94af51fe-8f9b-48ea-a88f-5ffcd92dda8e",
+        "battery": "1",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 1.0,
+        "cpuUsage": 1.0,
+        "memory": 1.0
+      },
+      {
+        "name": "2",
+        "type": "2",
+        "components": [
+          "2"
+        ],
+        "serialNumber": "4b688e54-13a9-4e5f-a3a8-8b66cf36734c",
+        "battery": "2",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.0,
+        "cpuUsage": 2.0,
+        "memory": 2.0
+      }
+    ],
+    "myActivities": [],
+    "myInterests": [
+      "Sports and Fitness"
+    ],
+    "firstName": "1",
+    "lastName": "1",
+    "username": "1",
+    "password": "11111111",
+    "id": "3afcb79c-1023-490b-82f6-b0250def2bbd",
+    "email": "1@",
+    "companyName": "1",
+    "phoneNumber": "111-111-1111",
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "Email confirmed !",
+      "Email confirmed !",
+      "Email confirmed !",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+    ],
+    "emailInbox": [
+      "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+    ],
+    "toggleEmail": true,
+    "confirmationLink": "null"
+  },
+  {
+    "fleet": [],
+    "myActivities": [],
+    "myInterests": [],
+    "firstName": "Hello",
+    "lastName": "Hello",
+    "username": "Hello",
+    "password": "HelloHello",
+    "id": "06188ff7-d1d8-40fb-8d1b-4738ae7ca0fa",
+    "email": "Hello@",
+    "companyName": "Hello",
+    "phoneNumber": "111-111-1111",
+    "notifications": [],
+    "emailInbox": [
+      "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted"
+    ],
+    "toggleEmail": false,
+    "confirmationLink": "2024-08-05"
+  }
+]

@@ -4,14 +4,10 @@ import Model.Component;
 import Model.TypeOfUsers.Supplier;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileReader;
@@ -23,46 +19,18 @@ import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ShopControllerTest {
+class ShopControllerTest extends JavaFXBaseTest {
 
-    private static Stage testStage;
     private ShopController shopController;
-    private static CountDownLatch javafxLatch;
 
-    @BeforeAll
-    static void setUpClass() throws InterruptedException {
-        if (!Platform.isFxApplicationThread()) {
-            javafxLatch = new CountDownLatch(1);
-            Platform.startup(() -> {
-                javafxLatch.countDown(); // Notify that JavaFX has started
-            });
-            javafxLatch.await(); // Wait for JavaFX to initialize
-        }
-    }
-
-    @BeforeEach
-    void setUp() throws IOException {
-        Platform.runLater(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ShopMenu.fxml"));
-                Scene scene = new Scene(loader.load(), 1024, 768);
-                testStage = new Stage();
-                testStage.setScene(scene);
-                shopController = loader.getController();
-                testStage.show(); // Ensure the stage is shown for proper initialization
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    @AfterEach
-    void tearDown() {
-        Platform.runLater(() -> {
-            if (testStage != null) {
-                testStage.close();
-            }
-        });
+    @Override
+    protected void setUpTestStage() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ShopMenu.fxml"));
+        Scene scene = new Scene(loader.load(), 1024, 768);
+        testStage = new Stage();
+        testStage.setScene(scene);
+        shopController = loader.getController();
+        testStage.show(); // Ensure the stage is shown for proper initialization
     }
 
     @Test
@@ -90,17 +58,14 @@ class ShopControllerTest {
                 ArrayList<List<String>> result = shopController.displayAllComponentsTest();
                 assertEquals(componentNames, result.get(0));
                 assertEquals(componentsInfo, result.get(1));
-                latch.countDown();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                latch.countDown();
             }
         });
         latch.await();
     }
 
-    public static class JavaFXTestApp extends Application {
-        @Override
-        public void start(Stage primaryStage) {
-        }
-    }
+    // No need for the JavaFXTestApp class here, as it's not used in this context.
 }

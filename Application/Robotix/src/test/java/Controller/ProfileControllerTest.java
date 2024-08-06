@@ -5,7 +5,6 @@ import Model.TypeOfUsers.Client;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,46 +18,18 @@ import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProfileControllerTest {
+class ProfileControllerTest extends JavaFXBaseTest {
 
-    private static Stage testStage;
     private ProfileController profileController;
-    private static CountDownLatch javafxLatch;
 
-    @BeforeAll
-    static void setUpClass() throws InterruptedException {
-        if (!Platform.isFxApplicationThread()) {
-            javafxLatch = new CountDownLatch(1);
-            Platform.startup(() -> {
-                javafxLatch.countDown(); // Notify that JavaFX has started
-            });
-            javafxLatch.await(); // Wait for JavaFX to initialize
-        }
-    }
-
-    @BeforeEach
-    void setUp() throws IOException {
-        Platform.runLater(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ProfileMenu.fxml"));
-                Scene scene = new Scene(loader.load(), 1024, 768);
-                testStage = new Stage();
-                testStage.setScene(scene);
-                profileController = loader.getController();
-                testStage.show(); // Ensure the stage is shown for proper initialization
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
-
-    @AfterEach
-    void tearDown() {
-        Platform.runLater(() -> {
-            if (testStage != null) {
-                testStage.close();
-            }
-        });
+    @Override
+    protected void setUpTestStage() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ProfileMenu.fxml"));
+        Scene scene = new Scene(loader.load(), 1024, 768);
+        testStage = new Stage();
+        testStage.setScene(scene);
+        profileController = loader.getController();
+        testStage.show(); // Ensure the stage is shown for proper initialization
     }
 
     @Test
@@ -146,11 +117,5 @@ class ProfileControllerTest {
             latch.countDown();
         });
         latch.await();
-    }
-
-    public static class JavaFXTestApp extends Application {
-        @Override
-        public void start(Stage primaryStage) {
-        }
     }
 }
