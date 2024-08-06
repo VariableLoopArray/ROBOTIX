@@ -98,9 +98,6 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <compilerArgs>
-                        <arg>-Djava.awt.headless=true</arg>
-                    </compilerArgs>
                 </configuration>
             </plugin>
 
