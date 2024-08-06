@@ -119,9 +119,7 @@
           <includes>
             <include>**/*Test.java</include>
           </includes>
-          <parallel>all</parallel> <!-- Enable parallel execution -->
-          <threadCount>4</threadCount> <!-- Number of threads to use -->
-          <useUnlimitedThreads>false</useUnlimitedThreads>
+          <parallel>none</parallel> <!-- Disable parallel execution -->
           <argLine>
             --add-opens main.Robotix/Controller=ALL-UNNAMED
             --add-opens java.base/java.time=ALL-UNNAMED
