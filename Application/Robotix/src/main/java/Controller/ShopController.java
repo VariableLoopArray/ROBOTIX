@@ -32,7 +32,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This is the controller that manages user actions in ShopMenu
+ * This is the controller that manages user actions in ShopMenu.
+ * This controller includes functionality such as displaying all components, applying filters and buying components.
  */
 public class ShopController {
     @FXML

@@ -24,6 +24,7 @@ import java.util.List;
 
 /**
  * Controller class for handling the inbox interface, including notifications and emails.
+ * The user can toggle email notifications on and off.
  */
 public class InboxController {
     @FXML

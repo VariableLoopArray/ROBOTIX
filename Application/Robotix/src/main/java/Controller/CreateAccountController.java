@@ -24,6 +24,7 @@ import java.util.UUID;
 
 /**
  * This controller manage user actions in Account Creation Menu
+ * It allows the user to create an account as a client or as a supplier
  */
 public class CreateAccountController {
     @FXML

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 /**
  * This is the controller that manages user actions in RobotMenu
+ * It allows the user to create, display and delete robots
  */
 public class RobotController {
 

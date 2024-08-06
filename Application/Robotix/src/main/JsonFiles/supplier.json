@@ -1,1 +1,109 @@
-[{"productionCapacity":10,"firstName":"Michael","lastName":"Oliver","username":"MichaelOliver521","password":"password1","id":"9348ebe1-8cff-4d62-9d12-1dbec6dd4f55","email":"MichaelOliver@gmail.com","companyName":"Amazon","phoneNumber":"514-111-1111","storage":[],"notifications":["Your component 1 has been bought by 1!","Your component 2 has been bought by 1!"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"productionCapacity":7,"firstName":"Frankie","lastName":"Charles","username":"FrankieCharles178","password":"password2","id":"288ba4d9-b686-4d34-adf0-b42c0dcdf3da","email":"FrankieCharles@gmail.com","companyName":"WheelCar.inc","phoneNumber":"514-222-2222","storage":[],"notifications":["Your component ASUS ROG Strix Z590-E has been bought by 1!","Your component Cooler Master Hyper 212 has been bought by 1!","Your component EVGA 750W Power Supply has been bought by 1!","Your component Logitech MX Master 3 Mouse has been bought by 1!","Your component Dell Ultrasharp 27\" Monitor has been bought by 1!"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"productionCapacity":4,"firstName":"Josh","lastName":"Burton","username":"JoshBurton412","password":"password3","id":"85ffa26b-bac9-456a-a309-8727c332901c","email":"JoshBurton@gmail.com","companyName":"Apple","phoneNumber":"514-333-3333","storage":[],"notifications":["Your component Name: Intel Atom x7-E3950 has been bought by 1!","Your component Nvidia Jetson Nano has been bought by 1!","Your component Raspberry Pi 4 Model B has been bought by 1!","Your component Micro Servo Motor SG90 has been bought by 1!","Your component Li-Po Battery 5000mAh has been bought by 1!"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"productionCapacity":5,"firstName":"Sophie","lastName":"Moreno","username":"SophieMoreno723","password":"password4","id":"98acf9ff-3d59-43fe-a995-27dca8774df7","email":"SophieMoreno@gmail.com","companyName":"Google","phoneNumber":"514-444-4444","storage":[],"notifications":["Your component DC Gear Motor 12V has been bought by 1!","Your component OLED Display 1.3\" has been bought by 1!","Your component Intel RealSense Depth Camera has been bought by 1!","Your component MPU-6050 Gyro Sensor has been bought by 1!","Your component L298N Motor Driver has been bought by 1!"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"},{"productionCapacity":8,"firstName":"Edward","lastName":"Blair","username":"EdwardBlair413","password":"password5","id":"ab49dfcd-991a-4b71-afbb-0e3d0970a059","email":"EdwardBlair@gmail.com","companyName":"AeroX","phoneNumber":"514-555-5555","storage":[],"notifications":["Your component 5V Voltage Regulator has been bought by 1!","Your component Stepper Motor NEMA 17 has been bought by 1!","Your component GPS Module NEO-6M has been bought by 1!","Your component Bluetooth Module HC-05 has been bought by 1!","Your component IR Proximity Sensor has been bought by 1!"],"emailInbox":[],"toggleEmail":false,"confirmationLink":"null"}]
+[
+  {
+    "productionCapacity": 10,
+    "firstName": "Michael",
+    "lastName": "Oliver",
+    "username": "MichaelOliver521",
+    "password": "password1",
+    "id": "9348ebe1-8cff-4d62-9d12-1dbec6dd4f55",
+    "email": "MichaelOliver@gmail.com",
+    "companyName": "Amazon",
+    "phoneNumber": "514-111-1111",
+    "storage": [],
+    "notifications": [
+      "Your component 1 has been bought by 1!",
+      "Your component 2 has been bought by 1!"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "productionCapacity": 7,
+    "firstName": "Frankie",
+    "lastName": "Charles",
+    "username": "FrankieCharles178",
+    "password": "password2",
+    "id": "288ba4d9-b686-4d34-adf0-b42c0dcdf3da",
+    "email": "FrankieCharles@gmail.com",
+    "companyName": "WheelCar.inc",
+    "phoneNumber": "514-222-2222",
+    "storage": [],
+    "notifications": [
+      "Your component ASUS ROG Strix Z590-E has been bought by 1!",
+      "Your component Cooler Master Hyper 212 has been bought by 1!",
+      "Your component EVGA 750W Power Supply has been bought by 1!",
+      "Your component Logitech MX Master 3 Mouse has been bought by 1!",
+      "Your component Dell Ultrasharp 27\" Monitor has been bought by 1!"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "productionCapacity": 4,
+    "firstName": "Josh",
+    "lastName": "Burton",
+    "username": "JoshBurton412",
+    "password": "password3",
+    "id": "85ffa26b-bac9-456a-a309-8727c332901c",
+    "email": "JoshBurton@gmail.com",
+    "companyName": "Apple",
+    "phoneNumber": "514-333-3333",
+    "storage": [],
+    "notifications": [
+      "Your component Name: Intel Atom x7-E3950 has been bought by 1!",
+      "Your component Nvidia Jetson Nano has been bought by 1!",
+      "Your component Raspberry Pi 4 Model B has been bought by 1!",
+      "Your component Micro Servo Motor SG90 has been bought by 1!",
+      "Your component Li-Po Battery 5000mAh has been bought by 1!"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "productionCapacity": 5,
+    "firstName": "Sophie",
+    "lastName": "Moreno",
+    "username": "SophieMoreno723",
+    "password": "password4",
+    "id": "98acf9ff-3d59-43fe-a995-27dca8774df7",
+    "email": "SophieMoreno@gmail.com",
+    "companyName": "Google",
+    "phoneNumber": "514-444-4444",
+    "storage": [],
+    "notifications": [
+      "Your component DC Gear Motor 12V has been bought by 1!",
+      "Your component OLED Display 1.3\" has been bought by 1!",
+      "Your component Intel RealSense Depth Camera has been bought by 1!",
+      "Your component MPU-6050 Gyro Sensor has been bought by 1!",
+      "Your component L298N Motor Driver has been bought by 1!"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  },
+  {
+    "productionCapacity": 8,
+    "firstName": "Edward",
+    "lastName": "Blair",
+    "username": "EdwardBlair413",
+    "password": "password5",
+    "id": "ab49dfcd-991a-4b71-afbb-0e3d0970a059",
+    "email": "EdwardBlair@gmail.com",
+    "companyName": "AeroX",
+    "phoneNumber": "514-555-5555",
+    "storage": [],
+    "notifications": [
+      "Your component 5V Voltage Regulator has been bought by 1!",
+      "Your component Stepper Motor NEMA 17 has been bought by 1!",
+      "Your component GPS Module NEO-6M has been bought by 1!",
+      "Your component Bluetooth Module HC-05 has been bought by 1!",
+      "Your component IR Proximity Sensor has been bought by 1!"
+    ],
+    "emailInbox": [],
+    "toggleEmail": false,
+    "confirmationLink": "null"
+  }
+]

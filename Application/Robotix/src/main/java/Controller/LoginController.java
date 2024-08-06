@@ -29,6 +29,7 @@ import java.util.List;
 
 /**
  * The LoginController class handles the login functionality for clients and suppliers
+ * by validating the email and password entered by the user and loading the respective
  */
 public class LoginController {
 

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"m":"main.Robotix","l":"Controller"},{"m":"main.Robotix","l":"main"},{"m":"main.Robotix","l":"Model"},{"m":"main.Robotix","l":"Model.TypeOfUsers"}];updateSearchResults();

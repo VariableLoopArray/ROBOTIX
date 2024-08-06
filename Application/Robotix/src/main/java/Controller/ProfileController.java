@@ -25,7 +25,8 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Initializes the profile controller.
+ *  The ProfileController class is responsible for handling the profile view of the user.
+ *  It displays the user's information and allows the user to update their information.
  */
 
 public class ProfileController {

@@ -26,7 +26,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This controller manage user actions in Homepage Menu
+ * This controller manage user actions in Homepage Menu.
+ * It allows the user to navigate to different pages in the application.
  */
 public class HomepageController {
     @FXML

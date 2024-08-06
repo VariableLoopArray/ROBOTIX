@@ -24,6 +24,7 @@ import java.util.*;
 
 /**
  * This controller manage user actions in Component Menu
+ * It allows Supplier to add, edit and delete components and client to view their components.
  */
 public class ComponentController {
     @FXML

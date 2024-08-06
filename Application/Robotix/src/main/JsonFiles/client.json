@@ -61,6 +61,7 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [],
@@ -181,7 +182,9 @@
     "notifications": [
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2313"
     ],
     "emailInbox": [],
     "toggleEmail": false,
@@ -655,29 +658,12 @@
   {
     "fleet": [
       {
-        "name": "1",
-        "type": "1",
-        "components": [
-          "1"
-        ],
-        "serialNumber": "94af51fe-8f9b-48ea-a88f-5ffcd92dda8e",
-        "battery": "1",
-        "location": [
-          0.0,
-          0.0,
-          0.0
-        ],
-        "speed": 1.0,
-        "cpuUsage": 1.0,
-        "memory": 1.0
-      },
-      {
         "name": "2",
         "type": "2",
         "components": [
           "2"
         ],
-        "serialNumber": "4b688e54-13a9-4e5f-a3a8-8b66cf36734c",
+        "serialNumber": "0d325379-d6ae-434c-aa41-3c419ce8131b",
         "battery": "2",
         "location": [
           0.0,
@@ -687,210 +673,45 @@
         "speed": 2.0,
         "cpuUsage": 2.0,
         "memory": 2.0
-      }
-    ],
-    "myActivities": [
-      {
-        "name": "2",
-        "startDate": {
-          "year": 2223,
-          "month": 11,
-          "day": 11
-        },
-        "endDate": {
-          "year": 2222,
-          "month": 11,
-          "day": 11
-        },
-        "points": "",
-        "Interests": [
-          "Sports and Fitness"
-        ],
-        "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
-        "tasks": [
-          {
-            "name": "1",
-            "Instructions": [
-              "1"
-            ]
-          }
-        ],
-        "activityId": "01cf7bdb-694a-4ca7-89e1-89540f3b81ce",
-        "description": "1",
-        "status": "Upcoming"
       },
       {
         "name": "4",
-        "startDate": {
-          "year": 4444,
-          "month": 11,
-          "day": 11
-        },
-        "endDate": {
-          "year": 5555,
-          "month": 11,
-          "day": 11
-        },
-        "points": "",
-        "Interests": [
-          "Sports and Fitness"
+        "type": "4",
+        "components": [
+          "4"
         ],
-        "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
-        "tasks": [],
-        "activityId": "a12ce5c0-52b6-4ae4-bc1a-baf5f4950456",
-        "description": "",
-        "status": "Upcoming"
-      },
-      {
-        "name": "1",
-        "startDate": {
-          "year": 1111,
-          "month": 11,
-          "day": 11
-        },
-        "endDate": {
-          "year": 1111,
-          "month": 11,
-          "day": 11
-        },
-        "points": "",
-        "Interests": [
-          "Arts and Crafts"
+        "serialNumber": "56c10822-f875-4fe9-a6ca-48b55192b242",
+        "battery": "4",
+        "location": [
+          0.0,
+          0.0,
+          0.0
         ],
-        "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
-        "tasks": [],
-        "activityId": "df7df257-ff59-40fd-8b3e-cae38760500e",
-        "description": "",
-        "status": "Finished"
-      },
-      {
-        "name": "Object Retrieval",
-        "startDate": {
-          "year": 2023,
-          "month": 7,
-          "day": 20
-        },
-        "endDate": {
-          "year": 2024,
-          "month": 7,
-          "day": 25
-        },
-        "points": "85",
-        "Interests": [
-          "Outdoors Activities and Adventure",
-          "Education and Learning"
-        ],
-        "creatorId": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
-        "tasks": [
-          {
-            "name": "Locate Object",
-            "Instructions": [
-              "Use sensors to scan the environment.",
-              "Identify the target object using object recognition.",
-              "Move towards the identified object."
-            ]
-          },
-          {
-            "name": "Pick Up Object",
-            "Instructions": [
-              "Position the robot\u0027s arm above the object.",
-              "Adjust the gripper to the size of the object.",
-              "Securely grip and lift the object."
-            ]
-          },
-          {
-            "name": "Deliver Object",
-            "Instructions": [
-              "Navigate to the designated drop-off area.",
-              "Position the robot arm to release the object.",
-              "Open the gripper and place the object down."
-            ]
-          }
-        ],
-        "activityId": "681b4022-dba5-44dd-90e1-70da0e11825e",
-        "description": "The robot is tasked with retrieving specific objects from different locations and delivering them to a designated area.",
-        "status": "Finished"
-      },
-      {
-        "name": "Surveillance Patrol",
-        "startDate": {
-          "year": 2024,
-          "month": 7,
-          "day": 30
-        },
-        "endDate": {
-          "year": 2025,
-          "month": 8,
-          "day": 15
-        },
-        "points": "90",
-        "Interests": [
-          "Outdoors Activities and Adventure",
-          "Health and Well-Being"
-        ],
-        "creatorId": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
-        "tasks": [
-          {
-            "name": "Initialize Patrol Route",
-            "Instructions": [
-              "Upload the patrol route to the robot\u0027s system.",
-              "Set patrol schedule and frequency.",
-              "Start the initial patrol."
-            ]
-          },
-          {
-            "name": "Monitor Environment",
-            "Instructions": [
-              "Use sensors to continuously scan the surroundings.",
-              "Record and analyze data for any irregularities.",
-              "Alert the control center if any unusual activity is detected."
-            ]
-          },
-          {
-            "name": "Return to Base",
-            "Instructions": [
-              "Navigate back to the base station after each patrol.",
-              "Dock with the charging station.",
-              "Upload patrol data to the central system."
-            ]
-          }
-        ],
-        "activityId": "14795146-8b32-4d46-b823-468fadb6b995",
-        "description": "The robot is responsible for patrolling a specified area and reporting any unusual activities.",
-        "status": "In Progress"
+        "speed": 4.0,
+        "cpuUsage": 4.0,
+        "memory": 4.0
       }
     ],
+    "myActivities": [],
     "myInterests": [
-      "Sports and Fitness"
+      "Arts and Crafts"
     ],
     "firstName": "1",
     "lastName": "1",
     "username": "1",
     "password": "11111111",
-    "id": "3afcb79c-1023-490b-82f6-b0250def2bbd",
+    "id": "eeb01aa8-95d8-4033-b9d1-d79844ca6247",
     "email": "1@",
     "companyName": "1",
     "phoneNumber": "111-111-1111",
     "notifications": [
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "Email confirmed !",
-      "Email confirmed !",
-      "Email confirmed !",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2313"
     ],
     "emailInbox": [
-      "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
-      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+      "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted"
     ],
-    "toggleEmail": true,
+    "toggleEmail": false,
     "confirmationLink": "null"
   }
 ]
