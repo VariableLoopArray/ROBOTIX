@@ -30,11 +30,5 @@ jobs:
         restore-keys: 
           ${{ runner.os }}-maven-
 
-    - name: Change directory
-      run: cd Application/Robotix
-
-    - name: Build with Maven
-      run: mvn -B package --file Application/Robotix/pom.xml
-
-    - name: Run multiple JUnit tests
-      run: mvn -B test --file Application/Robotix/pom.xml -Dtest=Controller.ActivityControllerTest,Controller.ComponentControllerTest,Controller.CreateAccountControllerTest,Controller.ProfileControllerTest,Controller.RobotControllerTest,Controller.ShopControllerTest
+    - name: Build and test with Maven
+      run: mvn -B test --file Application/Robotix/pom.xml
