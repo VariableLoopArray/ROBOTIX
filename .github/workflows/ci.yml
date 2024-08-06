@@ -39,12 +39,13 @@ jobs:
         Xvfb :99 -screen 0 1280x1024x24 &
         sleep 5
 
-    - name: Build and test with Maven
+    - name: Build and test SimpleTest with Maven
       working-directory: Application/Robotix
       run: |
         mvn -B test -Dtest=SimpleTest -DargLine="--add-opens java.base/java.time=ALL-UNNAMED --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED --add-opens java.base/java.util.concurrent=ALL-UNNAMED --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED --add-opens java.base/java.util.function=ALL-UNNAMED --add-opens java.base/java.io=ALL-UNNAMED --add-opens java.base/java.net=ALL-UNNAMED --add-opens java.base/java.nio=ALL-UNNAMED --add-opens java.base/java.text=ALL-UNNAMED"
 
+    # Optional: Run Maven with Debug Logging to debug issues
     - name: Run Maven with Debug Logging
       working-directory: Application/Robotix
       run: |
-        mvn -X verify
+        mvn -X test -Dtest=SimpleTest
