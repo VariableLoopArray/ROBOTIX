@@ -7,11 +7,12 @@ module main.Robotix {
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
     requires com.google.gson;
-    opens Model;
 
-    opens Controller to javafx.fxml;
-    exports Controller;
-    exports main;
+    opens Model;
+    opens Controller to javafx.fxml, org.junit.jupiter.api;
     opens main to javafx.fxml;
     opens Model.TypeOfUsers;
+
+    exports Controller;
+    exports main;
 }
