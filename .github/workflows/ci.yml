@@ -38,11 +38,14 @@ jobs:
         Xvfb :99 -screen 0 1024x768x24 &
         export DISPLAY=:99
 
+    - name: List directory contents
+      run: ls -R Application/Robotix
+
     - name: Build and test with Maven
-      run: mvn -B test --file Application/Robotix/pom.xml -DargLine="--add-opens java.base/java.time=com.google.gson"
-      working-directory: Application/Robotix  # Change to the directory where your pom.xml is located
+      run: mvn -B test -DargLine="--add-opens java.base/java.time=com.google.gson"
+      working-directory: Application/Robotix
 
     # Optional: Increase Maven's logging verbosity to debug issues
     - name: Run Maven with Debug Logging
-      run: mvn -X test --file Application/Robotix/pom.xml
-      working-directory: Application/Robotix  # Ensure to use the correct directory
+      run: mvn -X test
+      working-directory: Application/Robotix
