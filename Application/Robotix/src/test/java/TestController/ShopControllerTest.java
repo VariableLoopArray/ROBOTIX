@@ -1,5 +1,6 @@
-package Controller;
+package TestController;
 
+import Controller.ShopController;
 import Model.Component;
 import Model.TypeOfUsers.Supplier;
 import com.google.gson.Gson;

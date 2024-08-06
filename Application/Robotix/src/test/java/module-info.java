@@ -3,9 +3,11 @@ module test {
     requires org.junit.jupiter.engine;
     requires javafx.controls;
     requires javafx.fxml;
+    requires main.Robotix;
+    requires com.google.gson;
 
-    // Allow access to main module packages for testing
-    opens Controller to org.junit.jupiter.api, javafx.fxml;
+    // Open packages for testing
+    opens TestController to org.junit.jupiter.api, javafx.fxml;
     opens Model to org.junit.jupiter.api, javafx.fxml;
     opens main to org.junit.jupiter.api;
 }
