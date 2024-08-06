@@ -93,6 +93,7 @@
           <target>22</target>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
@@ -123,7 +124,6 @@
           </includes>
           <parallel>none</parallel> <!-- Disable parallel execution -->
           <argLine>
-            --add-opens main.Robotix/Controller=ALL-UNNAMED
             --add-opens java.base/java.time=ALL-UNNAMED
             --add-opens java.base/java.lang=ALL-UNNAMED
             --add-opens java.base/java.lang.reflect=ALL-UNNAMED
@@ -138,7 +138,6 @@
           </argLine>
         </configuration>
       </plugin>
-
 
     </plugins>
   </build>
