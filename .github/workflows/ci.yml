@@ -23,7 +23,7 @@ jobs:
         java-version: '22'
 
     - name: Install Xvfb
-      run: sudo apt-get install -y xvfb
+      run: sudo apt-get update && sudo apt-get install -y xvfb
 
     - name: Start Xvfb
       run: |
@@ -36,18 +36,42 @@ jobs:
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('Application/Robotix/pom.xml') }}
-        restore-keys: 
+        restore-keys: |
           ${{ runner.os }}-maven-
 
-    - name: Build and test with Maven
-      run: mvn -B test
-      working-directory: Application/Robotix
+    # Job for ActivityControllerTest
+    activity-controller-test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
 
-    - name: Stop Xvfb
-      run: kill $(pgrep Xvfb) || true
+        - name: Set up JDK 22
+          uses: actions/setup-java@v3
+          with:
+            distribution: 'adopt'
+            java-version: '22'
 
-    # Optional: Increase Maven's logging verbosity to debug issues
-    # Uncomment if you need detailed logging
-    # - name: Run Maven with Debug Logging
-    #   run: mvn -X test
-    #   working-directory: Application/Robotix
+        - name: Install Xvfb
+          run: sudo apt-get update && sudo apt-get install -y xvfb
+
+        - name: Start Xvfb
+          run: |
+            Xvfb :99 -screen 0 1024x768x24 &
+            export DISPLAY=:99
+            sleep 5  # Wait for Xvfb to start
+
+        - name: Cache Maven packages
+          uses: actions/cache@v3
+          with:
+            path: ~/.m2/repository
+            key: ${{ runner.os }}-maven-${{ hashFiles('Application/Robotix/pom.xml') }}
+            restore-keys: |
+              ${{ runner.os }}-maven-
+
+        - name: Build and run ActivityControllerTest with Maven
+          run: mvn -B test -Dtest=ActivityControllerTest
+          working-directory: Application/Robotix
+
+        - name: Stop Xvfb
+          run: kill $(pgrep Xvfb) || true

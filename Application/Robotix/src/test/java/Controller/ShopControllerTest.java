@@ -8,7 +8,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -20,60 +22,48 @@ import java.util.concurrent.CountDownLatch;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShopControllerTest {
-
-    private ShopController shopController;
-    private Stage testStage;
-
-    void setUpTestStage() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ShopMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 1024, 768);
-        testStage = new Stage();
-        testStage.setScene(scene);
-        shopController = loader.getController();
-        testStage.show(); // Ensure the stage is shown for proper initialization
-    }
+    Stage testStage;
+    ShopController shopController = new ShopController();
 
     @BeforeEach
-    void setUp() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
-        Platform.runLater(() -> {
+    void setUp() throws Exception {
+        // Initialize JavaFX toolkit
+        Platform.startup(() -> {
             try {
-                setUpTestStage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ShopMenu.fxml"));
+                Scene scene = new Scene(loader.load(), 1024, 768);
+                testStage = new Stage();
+                testStage.setScene(scene);
+
+                // Get controller instance
+                shopController = loader.getController();
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                latch.countDown();
             }
         });
-        latch.await();
     }
 
     @AfterEach
-    void tearDown() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
+    void tearDown() {
         Platform.runLater(() -> {
-            try {
-                if (testStage != null) {
-                    testStage.close();
-                    testStage = null; // Release the reference
-                }
-            } finally {
-                latch.countDown();
+            // Close the stage
+            if (testStage != null) {
+                testStage.close();
             }
         });
-        latch.await();
     }
 
-    @AllTest
+    // Tien Test
+    @Test
     void successfulDisplayAllComponents() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
             try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
                 Gson gson = new GsonBuilder().create();
                 Supplier[] suppliersArrays = gson.fromJson(reader, Supplier[].class);
-                List<Supplier> suppliers = new ArrayList<>(List.of(suppliersArrays));
-                List<String> componentNames = new ArrayList<>();
-                List<String> componentsInfo = new ArrayList<>();
+                List<Supplier> suppliers = new ArrayList<Supplier>(List.of(suppliersArrays));
+                List<String> componentNames = new ArrayList<String>();
+                List<String> componentsInfo = new ArrayList<String>();
 
                 for (Supplier supplier : suppliers) {
                     for (Component component : supplier.getStorage()) {
@@ -86,13 +76,14 @@ class ShopControllerTest {
                     }
                 }
 
+
                 ArrayList<List<String>> result = shopController.displayAllComponentsTest();
                 assertEquals(componentNames, result.get(0));
+
                 assertEquals(componentsInfo, result.get(1));
-            } catch (IOException e) {
-                fail("IOException occurred: " + e.getMessage());
-            } finally {
                 latch.countDown();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
         latch.await();

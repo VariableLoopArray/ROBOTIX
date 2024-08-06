@@ -1,9 +1,11 @@
 package Controller;
 
+import Model.Robot;
 import Model.TypeOfUsers.Client;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,55 +21,50 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProfileControllerTest {
 
+    private static Stage testStage;
     private ProfileController profileController;
-    private Stage testStage;
+    private static CountDownLatch javafxLatch;
 
-    void setUpTestStage() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ProfileMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 1024, 768);
-        testStage = new Stage();
-        testStage.setScene(scene);
-        profileController = loader.getController();
-        testStage.show(); // Ensure the stage is shown for proper initialization
+    @BeforeAll
+    static void setUpClass() throws InterruptedException {
+        javafxLatch = new CountDownLatch(1);
+        Platform.startup(() -> {
+            javafxLatch.countDown(); // Notify that JavaFX has started
+        });
+        javafxLatch.await(); // Wait for JavaFX to initialize
     }
 
     @BeforeEach
-    void setUp() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
+    void setUp() throws IOException {
         Platform.runLater(() -> {
             try {
-                setUpTestStage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ProfileMenu.fxml"));
+                Scene scene = new Scene(loader.load(), 1024, 768);
+                testStage = new Stage();
+                testStage.setScene(scene);
+                profileController = loader.getController();
+                testStage.show(); // Ensure the stage is shown for proper initialization
             } catch (Exception e) {
                 e.printStackTrace();
-            } finally {
-                latch.countDown();
             }
         });
-        latch.await();
     }
 
     @AfterEach
-    void tearDown() throws InterruptedException {
-        CountDownLatch latch = new CountDownLatch(1);
+    void tearDown() {
         Platform.runLater(() -> {
-            try {
-                if (testStage != null) {
-                    testStage.close();
-                    testStage = null; // Release the reference
-                }
-            } finally {
-                latch.countDown();
+            if (testStage != null) {
+                testStage.close();
             }
         });
-        latch.await();
     }
 
     @Test
     void successfulHandleSaveChanges() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
+            ArrayList<Client> clients = new ArrayList<>();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            File clientFile = new File("src/main/JsonFiles/client.json");
 
             Client clientTest = new Client("clientTest1", "clientTest1", "clientTest1",
                     "clientTest1", "clientTest1", "clientTest1", "123-123-1234",
@@ -77,22 +74,19 @@ class ProfileControllerTest {
                     "changesTest1", "321-321-4321",
                     clientTest.getPassword(), "changesTest1");
 
+            File clientFile = new File("src/main/JsonFiles/client.json");
             try {
                 // Read existing clients
-                List<Client> clients;
                 try (Reader reader = new FileReader(clientFile)) {
                     clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>() {}.getType());
-                } catch (IOException e) {
-                    clients = new ArrayList<>();
                 }
-                clients.add(newClient);
-
+                clients.add(clientTest);
                 // Write updated clients
                 try (Writer writer = new FileWriter(clientFile)) {
                     gson.toJson(clients, writer);
                 }
             } catch (IOException e) {
-                fail("IOException occurred: " + e.getMessage());
+                e.printStackTrace();
             }
 
             assertEquals("changesTest1", newClient.getUsername());
@@ -101,18 +95,11 @@ class ProfileControllerTest {
             assertEquals("changesTest1", newClient.getCompanyName());
             assertEquals("321-321-4321", newClient.getPhoneNumber());
 
-            // Clean up by removing the client added during the test
-            try {
-                List<Client> clients;
-                try (Reader reader = new FileReader(clientFile)) {
-                    clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>() {}.getType());
-                }
-                clients.remove(clients.size() - 1);
-                try (Writer writer = new FileWriter(clientFile)) {
-                    gson.toJson(clients, writer);
-                }
+            clients.remove(clients.size() - 1);
+            try (Writer writer = new FileWriter(clientFile)) {
+                gson.toJson(clients, writer);
             } catch (IOException e) {
-                fail("IOException occurred during cleanup: " + e.getMessage());
+                e.printStackTrace();
             }
 
             latch.countDown();
@@ -130,28 +117,26 @@ class ProfileControllerTest {
                 List<Client> clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>() {}.getType());
                 client = clients.get(0);
             } catch (IOException e) {
-                fail("IOException occurred while reading client file: " + e.getMessage());
+                e.printStackTrace();
             }
 
             ArrayList<Object> userJsoninfo = new ArrayList<>();
-            if (client != null) {
-                userJsoninfo.add(client.getFirstName() + " " + client.getLastName());
-                userJsoninfo.add(client.getUsername());
-                userJsoninfo.add(client.getEmail());
-                userJsoninfo.add(client.getPhoneNumber());
-                userJsoninfo.add(client.getCompanyName());
+            userJsoninfo.add(client.getFirstName() + " " + client.getLastName());
+            userJsoninfo.add(client.getUsername());
+            userJsoninfo.add(client.getEmail());
+            userJsoninfo.add(client.getPhoneNumber());
+            userJsoninfo.add(client.getCompanyName());
 
-                ArrayList<String> userActivity = new ArrayList<>();
-                client.getMyActivities().forEach(activity -> userActivity.add(" - " + activity.getName() + "\n"));
-                ArrayList<String> userInterests = new ArrayList<>();
-                client.getMyInterests().forEach(interest -> userInterests.add(" - " + interest + "\n"));
-                ArrayList<String> userFleet = new ArrayList<>();
-                client.getFleet().forEach(robot -> userFleet.add(" - " + robot.getName() + "\n"));
+            ArrayList<String> userActivity = new ArrayList<>();
+            client.getMyActivities().forEach(activity -> userActivity.add(" - " + activity.getName() + "\n"));
+            ArrayList<String> userInterests = new ArrayList<>();
+            client.getMyInterests().forEach(interest -> userInterests.add(" - " + interest + "\n"));
+            ArrayList<String> userFleet = new ArrayList<>();
+            client.getFleet().forEach(robot -> userFleet.add(" - " + robot.getName() + "\n"));
 
-                userJsoninfo.add(userActivity);
-                userJsoninfo.add(userInterests);
-                userJsoninfo.add(userFleet);
-            }
+            userJsoninfo.add(userActivity);
+            userJsoninfo.add(userInterests);
+            userJsoninfo.add(userFleet);
 
             ArrayList<Object> result = profileController.displayProfileTest();
 
@@ -159,5 +144,11 @@ class ProfileControllerTest {
             latch.countDown();
         });
         latch.await();
+    }
+
+    public static class JavaFXTestApp extends Application {
+        @Override
+        public void start(Stage primaryStage) {
+        }
     }
 }

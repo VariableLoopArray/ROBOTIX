@@ -59,6 +59,7 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [],
@@ -177,6 +178,7 @@
     "companyName": "",
     "phoneNumber": "514-333-3333",
     "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [],
@@ -704,12 +706,14 @@
       "Email confirmed !",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [
       "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "toggleEmail": true,
@@ -723,7 +727,7 @@
     "lastName": "Hello",
     "username": "Hello",
     "password": "HelloHello",
-    "id": "06188ff7-d1d8-40fb-8d1b-4738ae7ca0fa",
+    "id": "0343ffba-7d18-44fe-99d4-b62c7108e19f",
     "email": "Hello@",
     "companyName": "Hello",
     "phoneNumber": "111-111-1111",
