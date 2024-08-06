@@ -33,23 +33,17 @@ jobs:
     - name: Install Xvfb
       run: sudo apt-get install -y xvfb
 
-    - name: Set up Xvfb
+    - name: Set up Xvfb and Run Tests
       run: |
         export DISPLAY=:99
         Xvfb :99 -screen 0 1280x1024x24 &
-        sleep 5 # Wait for Xvfb to start
-
-    - name: Verify Xvfb is running
-      run: ps aux | grep Xvfb
-
-    - name: Set DISPLAY environment variable
-      run: export DISPLAY=:99
-
-    - name: Build and test ActivityControllerTest with Maven
-      working-directory: Application/Robotix
-      run: mvn -B verify -Dtest=ActivityControllerTest
+        sleep 5
+        mvn -B verify -Dtest=ActivityControllerTest
 
     # Optional: Increase Maven's logging verbosity to debug issues
     - name: Run Maven with Debug Logging
-      working-directory: Application/Robotix
-      run: mvn -X verify -Dtest=ActivityControllerTest
+      run: |
+        export DISPLAY=:99
+        Xvfb :99 -screen 0 1280x1024x24 &
+        sleep 5
+        mvn -X verify -Dtest=ActivityControllerTest
