@@ -7,6 +7,7 @@ module main.Robotix {
     requires org.kordamp.bootstrapfx.core;
     requires com.google.gson;
 
+
     opens Model;
     opens Controller to javafx.fxml, junit.jupiter.api;
     opens main to javafx.fxml;
