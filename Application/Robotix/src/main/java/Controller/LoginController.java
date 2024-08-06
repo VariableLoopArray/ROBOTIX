@@ -27,7 +27,9 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * The LoginController class handles the login functionality for clients and suppliers
+ */
 public class LoginController {
 
     @FXML
@@ -79,12 +81,18 @@ public class LoginController {
     private List<Client> clients;
     private List<Supplier> suppliers;
 
+    //Costructor of LoginController class
     public LoginController(){
         clients = loadClients();
         suppliers = loadSuppliers();
     }
 
-
+    /**
+     * Loads and displays the account creation menu.
+     * This method is used when the user wants to create a new account.
+     * It loads the AccountCreationMenu FXML file
+     * @throws IOException if the FXML file cannot be loaded.
+     */
     @FXML
     private void handleCreateAccount() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/AccountCreationMenu.fxml"));
@@ -98,6 +106,12 @@ public class LoginController {
     }
 
 
+    /**
+     * Validates the provided email and password for a client.
+     * This method checks if there exists a client with given email and password
+     * in the list of clients.
+     * @return  Client object if the email and password are valid, otherwise null
+     */
      private Client isClientValid(String email, String password){
         if (clients != null) {
             if (clients.stream().anyMatch(client -> client.getEmail().equals(email) && client.getPassword().equals(password)))
@@ -106,6 +120,12 @@ public class LoginController {
         return null;
     }
 
+    /**
+     * Validates the provided email and password for a supplier.
+     * This method checks if there exists a supplier with given email and password
+     * in the list of supplier.
+     * @return  Supplier object if the email and password are valid, otherwise null
+     */
     private Supplier isSupplierValid(String email, String password){
         if (suppliers != null) {
             if (suppliers.stream().anyMatch(Supplier -> Supplier.getEmail().equals(email) && Supplier.getPassword().equals(password)))
@@ -114,6 +134,13 @@ public class LoginController {
         return null;
     }
 
+
+    /**
+     * Loads the list of clients from a JSON file by reading the JSON file
+     * and returns a list of Client objects. If an IOException
+     * occurs during reading, the method catches the exception,
+     * @return a list of Client objects or an empty list if an error occurs
+     */
     private List<Client> loadClients() {
 
         try (InputStream inputStream = new FileInputStream(String.valueOf(clientFile))) {
@@ -128,6 +155,12 @@ public class LoginController {
         }
     }
 
+    /**
+     * Loads the list of supplier from a JSON file by reading the JSON file
+     * and returns a list of Supplier objects. If an IOException
+     * occurs during reading, the method catches the exception,
+     * @return a list of Supplier objects or an empty list if an error occurs
+     */
     private List<Supplier> loadSuppliers() {
         try (InputStream inputStream = new FileInputStream(String.valueOf(supplierFile))) {
             InputStreamReader reader = new InputStreamReader(inputStream);
@@ -140,7 +173,11 @@ public class LoginController {
         }
     }
 
-
+    /**
+     * Handles the client login process by retrieving the email and password from the
+     * client login form, make sure it is valid and loads the client's homepage.
+     * If the credentials are invalid, an error message is displayed.
+     */
     public void clientLogin() {
         String email = emailFieldClient.getText();
         String password = passwordFieldClient.getText();
@@ -175,6 +212,11 @@ public class LoginController {
 
     }
 
+    /**
+     * Handles the supplier login process by retrieving the email and password from the
+     * supplier login form, make sure it is valid and loads the supplier's homepage.
+     * If the credentials are invalid, an error message is displayed.
+     */
     public void supplierLogin() {
         String email = emailFieldSupplier.getText();
         String password = passwordFieldSupplier.getText();
@@ -206,6 +248,10 @@ public class LoginController {
 
     }
 
+    /**
+     * Handles the switching of the login form from client to supplier using the choice box.
+     * It hides the client login form and displays the supplier login form.
+     */
     public void clientSwitchForm() {
         String clientSelectedForm = clientLoginChoice.getValue();
         if (clientSelectedForm.equals("Supplier")) {
@@ -216,7 +262,10 @@ public class LoginController {
             errorMessage.setText("");
         }
     }
-
+    /**
+     * Handles the switching of the login form from supplier to client using the choice box.
+     * It hides the supplier login form and displays the client login form.
+     */
     public void supplierSwitchForm() {
         String supplierSelectedForm = supplierLoginChoice.getValue();
         if (supplierSelectedForm.equals("Client")) {
@@ -227,6 +276,8 @@ public class LoginController {
             errorMessageSupplier.setText("");
         }
     }
+
+
     public void showInfoPopup() {
         if (infoStage == null || !infoStage.isShowing()) {
             infoStage = new Stage();
