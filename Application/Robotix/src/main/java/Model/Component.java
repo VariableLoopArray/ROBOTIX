@@ -103,13 +103,6 @@ public class Component {
         return supplierID;
     }
 
-    /**
-     * Gets the serial number of the component.
-     * @return The serial number of the component
-     */
-    public UUID getSerialNumber() {
-        return serialNumber;
-    }
 
     /**
      * Sets the name of the component.
@@ -153,17 +146,4 @@ public class Component {
         this.height = height;
     }
 
-    /**
-     * Sets the supplier ID of the component.
-     */
-    public void setSupplierID(UUID supplierID) {
-        this.supplierID = supplierID;
-    }
-
-    /**
-     * Sets the serial number of the component.
-     */
-    public void setSerialNumber(UUID serialNumber) {
-        this.serialNumber = serialNumber;
-    }
 }

@@ -3,6 +3,10 @@ package Model;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * The Robot class represents a robot.
+ * It contains the name, type, components, serial number, battery, location, speed, cpu usage, and memory of the robot.
+ */
 public class Robot {
     /**The name of the robot.*/
     private String name;
@@ -92,12 +96,6 @@ public class Robot {
         return serialNumber;
     }
 
-    /**
-     * Sets the serial number of the robot.
-     */
-    public void setSerialNumber(UUID serialNumber) {
-        this.serialNumber = serialNumber;
-    }
 
     /**
      * Gets  type of battery of the robot.
@@ -107,12 +105,6 @@ public class Robot {
         return battery;
     }
 
-    /**
-     * Sets the type of battery of the robot.
-     */
-    public void setBattery(String battery) {
-        this.battery = battery;
-    }
 
     /**
      * Gets the location of the robot.
@@ -122,12 +114,6 @@ public class Robot {
         return location;
     }
 
-    /**
-     * Sets the location of the robot.
-     */
-    public void setLocation(float[] location) {
-        this.location = location;
-    }
 
     /**
      * Gets the speed of the robot.
@@ -137,12 +123,6 @@ public class Robot {
         return speed;
     }
 
-    /**
-     * Sets the speed of the robot.
-     */
-    public void setSpeed(float speed) {
-        this.speed = speed;
-    }
 
     /**
      * Gets the CPU usage of the robot.
@@ -152,12 +132,6 @@ public class Robot {
         return cpuUsage;
     }
 
-    /**
-     * Sets the CPU usage of the robot.
-     */
-    public void setCpuUsage(float cpuUsage) {
-        this.cpuUsage = cpuUsage;
-    }
 
     /**
      * Gets the memory of the robot.
@@ -166,14 +140,6 @@ public class Robot {
     public float getMemory() {
         return memory;
     }
-
-    /**
-     * Sets the memory of the robot.
-     */
-    public void setMemory(float memory) {
-        this.memory = memory;
-    }
-
 
 
 }

@@ -2,6 +2,10 @@ package Model;
 
 import java.util.ArrayList;
 
+/**
+ * The Task class represents a task.
+ * It contains the name and list of instructions of the task.
+ */
 public class Task {
     /**
      * Name of the instructions
@@ -45,10 +49,4 @@ public class Task {
         return Instructions;
     }
 
-    /**
-     * Sets the list of instructions.
-     */
-    public void setInstructions(ArrayList<String> instructions) {
-        this.Instructions = instructions;
-    }
 }

@@ -67,12 +67,6 @@ public class Client extends User{
         return myInterests;
     }
 
-    /**
-     * Sets the list of interests.
-     */
-    public void setInterests(ArrayList<String> myinterests) {
-        myInterests = myinterests;
-    }
 
     /**
      * Adds an activity to the list of activities.

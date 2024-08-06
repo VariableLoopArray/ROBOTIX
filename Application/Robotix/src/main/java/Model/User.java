@@ -4,6 +4,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * The User class represents a user.
+ * It contains the first name, last name, username, password, email, company name, phone number, storage, notifications, email inbox, toggle email, and confirmation link of the user.
+ */
 public class User {
     /**The first name of the user*/
     private String firstName;
@@ -110,12 +114,6 @@ public class User {
         return firstName;
     }
 
-    /**
-     * Sets the first name of the user.
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
 
     /**
      * Gets the last name of the user.
@@ -125,12 +123,6 @@ public class User {
         return lastName;
     }
 
-    /**
-     * Sets the last name of the user.
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     /**
      * Gets the id of the user.
@@ -201,12 +193,6 @@ public class User {
         return notifications;
     }
 
-    /**
-     * Sets the list of notifications of the user.
-     */
-    public void setNotifications(ArrayList<String> notifications) {
-        this.notifications = notifications;
-    }
 
     /**
      * Gets the list of email inbox the user.
@@ -217,20 +203,27 @@ public class User {
     }
 
     /**
-     * Sets the list of email inbox of the user.
+     * gets the email inbox state to receive notifications through email.
      */
-    public void setEmailInbox(ArrayList<String> emailInbox) {
-        this.emailInbox = emailInbox;
-    }
     public boolean isToggleEmail() {
         return toggleEmail;
     }
+    /**
+     * Sets the email inbox to receive notifications through email.
+     */
     public void setToggleEmail(boolean toggleEmail) {
         this.toggleEmail = toggleEmail;
     }
+    /**
+     * Gets the confirmation link of the user.
+     * @return the confirmation link of the user
+     */
     public String getConfirmationLink() {
         return confirmationLink;
     }
+    /**
+     * Sets the confirmation link of the user.
+     */
     public void setConfirmationLink(String confirmationLink) {
         this.confirmationLink = confirmationLink;
     }

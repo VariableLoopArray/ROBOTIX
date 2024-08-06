@@ -32,11 +32,5 @@ public class Supplier extends User{
         return productionCapacity;
     }
 
-    /**
-     * Sets the production capacity.
-     */
-    public void setProductionCapacity(int productionCapacity) {
-        this.productionCapacity = productionCapacity;
-    }
 
 }

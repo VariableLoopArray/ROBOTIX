@@ -4,14 +4,18 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.UUID;
 
+/**
+ * The Activity class represents an activity.
+ * It contains the name, robot, start date, end date, points, interests, creator ID, tasks, activity ID, description, and status of the activity.
+ */
 public class Activity {
     /**name of the activity*/
     private String name;
-    /*The robot associated with the activity*/
+    /**The robot associated with the activity*/
     private String robot;
-    /*Start date of the activity*/
+    /**Start date of the activity*/
     private LocalDate startDate;
-    /*End date of the activity*/
+    /**End date of the activity*/
     private LocalDate endDate;
     /**Points associated with the activity*/
     private String points;
@@ -69,20 +73,6 @@ public class Activity {
         return tasks;
     }
 
-    /**
-     * Sets the list of tasks within the activity.
-     */
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
-
-    /**
-     * Gets the ID of the creator of the activity.
-     * @return The ID of the creator.
-     */
-    public UUID getCreatorID() {
-        return creatorId;
-    }
 
     /**
      * Gets the ID of the activity.
@@ -100,12 +90,6 @@ public class Activity {
         return Interests;
     }
 
-    /**
-     * Sets the list of interests related to the activity.
-     */
-    public void setInterests(ArrayList<String> interests) {
-        Interests = interests;
-    }
 
     /**
      * Gets the points of an activity.
@@ -115,12 +99,6 @@ public class Activity {
         return points;
     }
 
-    /**
-     * Sets the points associated with the activity.
-     */
-    public void setPoints(String points) {
-        this.points = points;
-    }
 
     /**
      * Gets the end date of the activity.
@@ -131,13 +109,6 @@ public class Activity {
     }
 
     /**
-     * Sets the end date of the activity.
-     */
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
-    /**
      * Gets the start date of the activity.
      * @return The start date.
      */
@@ -145,12 +116,6 @@ public class Activity {
         return startDate;
     }
 
-    /**
-     * Sets the start date of the activity.
-     */
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
 
     /**
      * Gets the robot of activity.
@@ -190,12 +155,6 @@ public class Activity {
         return description;
     }
 
-    /**
-     * Sets the description of the activity.
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
 
 }

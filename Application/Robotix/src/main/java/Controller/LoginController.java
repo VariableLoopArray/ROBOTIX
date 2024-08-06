@@ -293,33 +293,6 @@ public class LoginController {
             VBox vbox = new VBox(infoLabel);
             vbox.setSpacing(10);
 
-            Gson gson = new Gson();
-
-            HBox userList = new HBox(100);
-            HBox clientList = new HBox(10);
-            HBox supplierList = new HBox(10);
-
-//            try (Reader reader = new FileReader("src/main/JsonFiles/client.json")){
-//
-//                Client [] Clients = gson.fromJson(reader, Client[].class);
-//                for (int i = 0; i < Clients.length; i++){
-//                    VBox user = new VBox(10);
-//                    Label firstNameInfo = new Label(Clients[i].getFirstName());
-//                    Label lastNameInfo = new Label(Clients[i].getLastName());
-//                    Label usernameInfo = new Label(Clients[i].getUsername());
-//                    Label passwordInfo = new Label(Clients[i].getPassword());
-//                    Label emailInfo = new Label(Clients[i].getEmail());
-//                    Label companyNameInfo = new Label(Clients[i].getCompanyName());
-//                    Label phoneNumberInfo = new Label(Clients[i].getPhoneNumber());
-//                    user.getChildren().addAll(emailInfo, passwordInfo);
-//                    clientList.getChildren().add(user);
-//                }
-//
-//            }
-//            catch (IOException e){
-//                e.printStackTrace();
-//            }
-
             ListView<String> clients = new ListView<>();
             ListView<String> suppliers = new ListView<>();
             List<String> ClientList = new ArrayList<String>();
@@ -342,98 +315,6 @@ public class LoginController {
             SupplierList.add("Type: Supplier, Email: SophieMoreno@gmail.com, Password: password4");
             SupplierList.add("Type: Supplier, Email: EdwardBlair@gmail.com, Password: password5");
 
-//            VBox user = new VBox(10);
-//            Label type = new Label("Type : Client");
-//            Label email = new Label("johndoe@gmail.com");
-//            Label password = new Label("password1");
-//            user.getChildren().addAll(type,email, password);
-//            clientList.getChildren().add(user);
-//
-//            VBox user2 = new VBox(10);
-//            Label email2 = new Label("ZaneUnderwood@gmail.com");
-//            Label password2 = new Label("password2");
-//            user.getChildren().addAll(email2, password2);
-//            clientList.getChildren().add(user2);
-//
-//            VBox user3 = new VBox(10);
-//            Label email3 = new Label("AnnabelleValdez@gmail.com");
-//            Label password3 = new Label("password3");
-//            user.getChildren().addAll(email3, password3);
-//            clientList.getChildren().add(user3);
-//
-//            VBox user4 = new VBox(10);
-//            Label email4 = new Label("GianlucaGray@gmail.com");
-//            Label password4 = new Label("password4");
-//            user.getChildren().addAll(email4, password4);
-//            clientList.getChildren().add(user4);
-//
-//            VBox user5 = new VBox(10);
-//            Label email5 = new Label("JaydonSanchez@gmail.com");
-//            Label password5 = new Label("password5");
-//            user.getChildren().addAll(email5, password5);
-//            clientList.getChildren().add(user5);
-//
-//            VBox user6 = new VBox(10);
-//            Label email6 = new Label("RayCharles@gmail.com");
-//            Label password6 = new Label("password6");
-//            user.getChildren().addAll(email6, password6);
-//            clientList.getChildren().add(user6);
-//
-//            VBox user7 = new VBox(10);
-//            Label email7 = new Label("FrankSinatra@gmail.com");
-//            Label password7 = new Label("password7");
-//            user.getChildren().addAll(email7, password7);
-//            clientList.getChildren().add(user7);
-//
-//            VBox user8 = new VBox(10);
-//            Label email8 = new Label("GeorgeWashington@gmail.com");
-//            Label password8 = new Label("password8");
-//            user.getChildren().addAll(email8, password8);
-//            clientList.getChildren().add(user8);
-//
-//            VBox user9 = new VBox(10);
-//            Label email9 = new Label("TeddyRoosevelt@gmail.com");
-//            Label password9 = new Label("password9");
-//            user.getChildren().addAll(email9, password9);
-//            clientList.getChildren().add(user9);
-//
-//            VBox user10 = new VBox(10);
-//            Label email10 = new Label("ManfredAlbert@gmail.com");
-//            Label password10 = new Label("password10");
-//            user.getChildren().addAll(email10, password10);
-//            clientList.getChildren().add(user10);
-//
-//
-//            VBox user11 = new VBox(10);
-//            Label type2 = new Label("Type : Supplier");
-//            Label email11 = new Label("MichaelOliver@gmail.com");
-//            Label password11 = new Label("password1");
-//            user11.getChildren().addAll(type2 ,email11, password11);
-//            supplierList.getChildren().add(user11);
-//
-//            VBox user12 = new VBox(10);
-//            Label email12 = new Label("FrankieCharles@gmail.com");
-//            Label password12 = new Label("password2");
-//            user11.getChildren().addAll(email12, password12);
-//            supplierList.getChildren().add(user12);
-//
-//            VBox user13 = new VBox(10);
-//            Label email13 = new Label("JoshBurton@gmail.com");
-//            Label password13 = new Label("password3");
-//            user11.getChildren().addAll(email13, password13);
-//            supplierList.getChildren().add(user13);
-//
-//            VBox user14 = new VBox(10);
-//            Label email14 = new Label("SophieMoreno@gmail.com");
-//            Label password14 = new Label("password4");
-//            user11.getChildren().addAll(email14, password14);
-//            supplierList.getChildren().add(user14);
-//
-//            VBox user15 = new VBox(10);
-//            Label email15 = new Label("EdwardBlair@gmail.com");
-//            Label password15 = new Label("password5");
-//            user11.getChildren().addAll(email15, password15);
-//            supplierList.getChildren().add(user15);
 
             clients.getItems().addAll(ClientList);
             suppliers.getItems().addAll(SupplierList);

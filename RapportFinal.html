@@ -242,7 +242,8 @@
         Nous savons exécuter des GitHub Actions, mais la mise en œuvre de nos tests s'avère trop complexe.
         Malgré toutes nos tentatives, nous n'avons pas réussi à contourner les difficultés liées à la simulation
         de l'interface graphique, même avec Xvfb. Voici comment fonctionnent nos tests :
-
+        <br>
+        <br>
         La méthode de test appelle une méthode du contrôleur pour accéder à certaines méthodes privées,
         en lui fournissant les arguments nécessaires (par exemple, pour la méthode createAccountClient,
         nous fournissons toutes les informations d'un utilisateur). Cette méthode écrit sur une interface
@@ -252,9 +253,13 @@
         fournies via la méthode intermédiaire. Si le processus échoue, aucune donnée ne sera enregistrée
         ; de plus, toute erreur dans l'écriture sera également détectée. Enfin, le test supprime l'utilisateur
         de la base de données, car cet utilisateur a été créé uniquement pour les besoins du test.
-        
-        En fin de compte, nous avons créé une classe SimpleTest pour démontrer notre capacité à utiliser le fichier YAML
-        afin de déclencher des GitHub Actions à chaque push dans la branche main.
+        <br>
+        <br>
+        En fin de compte, nous avons créé une classe SimpleTest pour démontrer notre capacité à utiliser le fichier
+        YAML afin de déclencher des GitHub Actions à chaque push dans la branche main. Nous avons conservé une longue
+        liste d'instructions qui étaient supposées être utilisées mais ne fonctionnaient pas comme trace de notre travail.
+        <br>
+
 
 </body>
 

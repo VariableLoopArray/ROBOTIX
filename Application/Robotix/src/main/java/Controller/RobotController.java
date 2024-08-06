@@ -81,17 +81,7 @@ public class RobotController {
      */
     @FXML
     private void displayRobots() {
-//        errorMessage.setVisible(false);
-//        errorMessage.setManaged(false);
-//        supprime.setVisible(false);
-//        supprime.setManaged(false);
         DisplayRobots.getChildren().clear();
-//        affiche.setVisible(false);
-//        affiche.setManaged(false);
-//        create.setVisible(true);
-//        create.setManaged(true);
-//        tableInfo.setVisible(false);
-//        tableInfo.setManaged(false);
 
         if (client.getFleet().isEmpty()) {
             Label noRobotLabel = new Label("You have no robot!");
@@ -236,12 +226,6 @@ public class RobotController {
     public void createRobot() {
         DisplayRobots.getChildren().clear();
         tableInfo.setVisible(true);
-//        create.setVisible(false);
-//        create.setManaged(false);
-//        affiche.setVisible(true);
-//        affiche.setManaged(true);
-//        supprime.setVisible(false);
-//        supprime.setManaged(false);
         ScrollPaneRobots.setVisible(true);
         ScrollPaneRobots.setManaged(true);
 
