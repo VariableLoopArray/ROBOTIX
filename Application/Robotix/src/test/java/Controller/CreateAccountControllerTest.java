@@ -1,6 +1,8 @@
-package TestController;
+package Controller;
 
-import Controller.CreateAccountController;
+import Model.TypeOfUsers.Client;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +13,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.Reader;
+import java.io.Writer;
+import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -62,6 +69,18 @@ public class CreateAccountControllerTest {
             try {
                 boolean result = createAccountController.handleClientCreateAccountTest(
                         "Hello", "Hello", "Hello", "HelloHello", "Hello@", "Hello", "111-111-1111");
+                ArrayList<Client> clients = new ArrayList<>();
+                Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                try(Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+                    clients = gson.fromJson(reader, clients.getClass());
+                    clients.removeLast();
+                    try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                        gson.toJson(clients, writer);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 assertTrue(result);
             } finally {
                 latch.countDown();

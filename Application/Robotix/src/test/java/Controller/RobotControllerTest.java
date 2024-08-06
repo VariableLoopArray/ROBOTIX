@@ -1,9 +1,7 @@
-package TestController;
+package Controller;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 
-import Controller.RobotController;
 import Model.Robot;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;

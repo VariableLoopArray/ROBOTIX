@@ -1,6 +1,5 @@
-package TestController;
+package Controller;
 
-import Controller.ActivityController;
 import Model.Activity;
 import Model.Task;
 import Model.TypeOfUsers.Client;

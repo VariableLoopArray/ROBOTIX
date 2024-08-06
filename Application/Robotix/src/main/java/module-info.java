@@ -15,6 +15,7 @@ module main.Robotix {
 
     // Open packages for reflection
     opens Controller to javafx.fxml;
-    opens Model to javafx.fxml;
+    opens Model to javafx.fxml , com.google.gson;
     opens main to javafx.fxml;
+    opens Model.TypeOfUsers to javafx.fxml, com.google.gson;
 }
