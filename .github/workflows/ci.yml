@@ -22,6 +22,15 @@ jobs:
         distribution: 'adopt'
         java-version: '22'
 
+    - name: Install Xvfb
+      run: sudo apt-get install -y xvfb
+
+    - name: Start Xvfb
+      run: |
+        Xvfb :99 -screen 0 1024x768x24 &
+        export DISPLAY=:99
+        sleep 5  # Wait for Xvfb to start
+
     - name: Cache Maven packages
       uses: actions/cache@v3
       with:
@@ -34,7 +43,11 @@ jobs:
       run: mvn -B test
       working-directory: Application/Robotix
 
+    - name: Stop Xvfb
+      run: kill $(pgrep Xvfb) || true
+
     # Optional: Increase Maven's logging verbosity to debug issues
-    - name: Run Maven with Debug Logging
-      run: mvn -X test
-      working-directory: Application/Robotix
+    # Uncomment if you need detailed logging
+    # - name: Run Maven with Debug Logging
+    #   run: mvn -X test
+    #   working-directory: Application/Robotix
