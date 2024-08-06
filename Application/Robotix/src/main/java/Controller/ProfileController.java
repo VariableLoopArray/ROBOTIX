@@ -24,6 +24,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Initializes the profile controller.
+ */
+
 public class ProfileController {
 
     @FXML
@@ -93,12 +97,18 @@ public class ProfileController {
     public ProfileController() {
     }
 
+    /**
+     * Initializes the profile controller by clearing all error or success messages.
+     */
     @FXML
     public void initialize() {
         errorMessage.setText("");
         successMessage.setText("");
     }
 
+/**
+ * Displays the user's information in the profile view with all the attributs of user's class attributs
+ */
     public void displayUserInfo() {
         for (int i = 0; i < profileInfo.getRowConstraints().size(); i++) {
             RowConstraints rowConstraints = new RowConstraints();
@@ -155,6 +165,7 @@ public class ProfileController {
         }
     }
 
+
     public void setUser(User user) {
         if (user instanceof Client) {
             try (Reader reader = new FileReader(clientFile)) {
@@ -187,7 +198,11 @@ public class ProfileController {
         }
     }
 
-
+    /**
+     * Sets the user for the profile controller based on a user or supplier and
+     * loads data and update the JSON file
+     *
+     */
     public void handleSaveChanges() {
         errorMessage.setText("");
         successMessage.setText("");
@@ -248,6 +263,10 @@ public class ProfileController {
         }
     }
 
+
+    /**
+     * Updates the details of a user in the corresponding JSON file by remplacing the old attribute by the new one
+     */
     public void updateUserJson(UUID id, String attribute, String newValue, User user) {
         try {
             Gson gson = new Gson();
@@ -336,7 +355,11 @@ public class ProfileController {
         }
     }
 
-
+    /**
+     * Searches for a supplier based on the input provided by the client in the searchSupplier TextField.
+     * and displays the information of the supplier that matches what the user inputs
+     * If no supplier is found, displays a message that 0 supplier was found
+     */
     public void searchSupplier() {
         // Clear the previous search results
         displaySearchedSupplier.getChildren().clear();
@@ -421,6 +444,9 @@ public class ProfileController {
         }
     }
 
+    /**
+     * Handles the Go Back action by navigating the user to the homepage.
+     */
     public void handleGoBack() {
         try {
             Stage stage = (Stage) goBack.getScene().getWindow();
