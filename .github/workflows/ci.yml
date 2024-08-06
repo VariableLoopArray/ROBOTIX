@@ -1,7 +1,5 @@
 name: Java CI for Robotix
 
-name: Java CI for Robotix
-
 on:
   push:
     branches:
