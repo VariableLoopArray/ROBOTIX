@@ -1,34 +1,64 @@
-package Controller;
+package TestController;
 
+import Controller.ActivityController;
 import Model.Activity;
+import Model.Robot;
 import Model.Task;
 import Model.TypeOfUsers.Client;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ActivityControllerTest extends JavaFXBaseTest {
+class ActivityControllerTest {
 
+    private Stage testStage;
     private ActivityController activityController;
+    private static CountDownLatch javafxLatch;
 
-    @Override
-    protected void setUpTestStage() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ActivityMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 1024, 768);
-        testStage = new Stage();
-        testStage.setScene(scene);
-        activityController = loader.getController();
-        testStage.show(); // Ensure the stage is shown for proper initialization
+    @BeforeAll
+    static void setUpClass() throws InterruptedException {
+        javafxLatch = new CountDownLatch(1);
+        Platform.startup(() -> javafxLatch.countDown());
+        javafxLatch.await(); // Ensure JavaFX is properly initialized
+    }
+
+    @BeforeEach
+    void setUp() {
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ActivityMenu.fxml"));
+                Scene scene = new Scene(loader.load(), 1024, 768);
+                testStage = new Stage();
+                testStage.setScene(scene);
+                activityController = loader.getController();
+                testStage.show(); // Ensure the stage is shown
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @AfterEach
+    void tearDown() {
+        Platform.runLater(() -> {
+            if (testStage != null) {
+                testStage.close();
+            }
+        });
     }
 
     @Test

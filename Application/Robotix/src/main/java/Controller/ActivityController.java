@@ -52,8 +52,11 @@ public class ActivityController {
     private Label errorLabel;
     @FXML
     private TextField activityDescription;
-    @FXML
+
     Client client;
+
+
+
     @FXML
     public void displayMessage(String message, boolean isError) {
         if (!isError) {

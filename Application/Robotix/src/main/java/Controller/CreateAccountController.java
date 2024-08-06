@@ -451,6 +451,9 @@ public class CreateAccountController {
         clientCompanyNameField.setText(companyName);
         clientPhoneNumberField.setText(phoneNumber);
 
+
+
+
         return handleClientCreateAccount();
     }
 
