@@ -64,6 +64,7 @@ class ShopControllerTest {
                 List<Supplier> suppliers = new ArrayList<Supplier>(List.of(suppliersArrays));
                 List<String> componentNames = new ArrayList<String>();
                 List<String> componentsInfo = new ArrayList<String>();
+                System.out.println("Hello");
 
                 for (Supplier supplier : suppliers) {
                     for (Component component : supplier.getStorage()) {
