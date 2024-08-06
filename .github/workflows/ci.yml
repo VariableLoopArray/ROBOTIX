@@ -1,5 +1,7 @@
 name: Java CI for Robotix
 
+name: Java CI for Robotix
+
 on:
   push:
     branches:
@@ -22,6 +24,14 @@ jobs:
         distribution: 'adopt'
         java-version: '22'
 
+    - name: Install Xvfb
+      run: sudo apt-get install -y xvfb
+
+    - name: Start Xvfb
+      run: |
+        Xvfb :99 -screen 0 1024x768x24 &
+        export DISPLAY=:99
+
     - name: Cache Maven packages
       uses: actions/cache@v3
       with:
@@ -32,18 +42,9 @@ jobs:
 
     - name: Build and test with Maven
       run: mvn -B test --file Application/Robotix/pom.xml -X
-      working-directory: Application/Robotix  # Change to the directory where your pom.xml is located
-
-    - name: Install Xvfb
-      run: sudo apt-get install -y xvfb
-
-    - name: Start Xvfb
-      run: |
-        Xvfb :99 -screen 0 1024x768x24 &
-        export DISPLAY=:99
-        mvn test --file Application/Robotix/pom.xml
+      working-directory: Application/Robotix
 
     # Optional: Increase Maven's logging verbosity to debug issues
     - name: Run Maven with Debug Logging
       run: mvn -X test --file Application/Robotix/pom.xml
-      working-directory: Application/Robotix  # Ensure to use the correct directory
+      working-directory: Application/Robotix
