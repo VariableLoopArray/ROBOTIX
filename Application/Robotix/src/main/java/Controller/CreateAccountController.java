@@ -359,6 +359,9 @@ public class CreateAccountController {
         }
     }
 
+    /**
+     * Switches the form view between client and supplier forms based on the selected value from the  clientFormChoiceBox
+     */
     public void clientSwitchForm() {
         String clientSelectedForm = clientFormChoiceBox.getValue();
         if (clientSelectedForm.equals("Supplier")) {
@@ -370,6 +373,10 @@ public class CreateAccountController {
             clearFields();
         }
     }
+
+    /**
+     * Switches the form view between client and supplier forms based on the selected value from the  clientFormChoiceBox
+     */
     public void supplierSwitchForm() {
         String SupplierSelectedForm = supplierFormChoiceBox.getValue();
 
@@ -450,6 +457,9 @@ public class CreateAccountController {
         clientEmailField.setText(email);
         clientCompanyNameField.setText(companyName);
         clientPhoneNumberField.setText(phoneNumber);
+
+
+
 
         return handleClientCreateAccount();
     }

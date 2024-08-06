@@ -148,8 +148,6 @@ public class RobotController {
 
     /**
      * This method returns the information of the robot
-     * @param robot The robot whose information is being returned.
-     * @return
      */
     private String getRobotInfo(Robot robot) {
         return String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%%%nRobot Speed: %sm/s%n" +

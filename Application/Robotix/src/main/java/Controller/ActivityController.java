@@ -28,6 +28,10 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * ActivityController class for managing activities in the application.
+ * Handles the creation and display of activities.
+ */
 public class ActivityController {
     public VBox DisplayActivities;
     @FXML
@@ -58,6 +62,10 @@ public class ActivityController {
 
 
     @FXML
+
+    /**
+     * Displays a message to the user in the activity menu.
+     */
     public void displayMessage(String message, boolean isError) {
         if (!isError) {
             activityWelcome.setText(message);
@@ -65,6 +73,12 @@ public class ActivityController {
             activityWelcome.setText("Error: " + message);
         }
     }
+
+
+    /**
+     * Sets the current client by loading the client's information from the JSON file.
+     * It searches for the client with a matching ID, and displays a welcome message.
+     */
     public void setUserActivity(Client client){
         try(Reader reader = new FileReader("src/main/JsonFiles/client.json")){
             Gson gson = new Gson();
@@ -81,6 +95,11 @@ public class ActivityController {
         }
         displayMessage("Welcome to your activities !", false);
     }
+
+    /**
+     * Displays the list activities of the  client in the `DisplayActivities` VBox and
+     * creating UI components for each activity
+     */
     public void displayActivities(Client client){
         DisplayActivities.setSpacing(10);
         AtomicInteger numberOfActivity = new AtomicInteger();
@@ -439,6 +458,10 @@ public class ActivityController {
         }
     }
 
+    /**
+     * Sets the visibility of the `activityGrid`, used for adding new activities.
+     * If it is visible, it will be hidden. If it is hidden, it will be made visible.
+     */
     public void openAddActivity(){
         if (activityGrid.isVisible()){
             activityGrid.setVisible(false);
@@ -448,6 +471,12 @@ public class ActivityController {
         successLabel.setText("");
         errorLabel.setText("");
     }
+
+
+    /**
+     * Creates a new activity based on user input and collects the activity details like  interests, tasks, start and end dates,
+     * Tells  the activity's status based on the current date and updates the list of activities
+     */
     public void createActivity() {
         try {
             ArrayList<String> interests = new ArrayList<>();
@@ -565,6 +594,9 @@ public class ActivityController {
     }
 
 
+    /**
+     * handle the go back button
+     */
     public void handleGoBack() {
         try {
             Stage stage = (Stage) activityWelcome.getScene().getWindow();

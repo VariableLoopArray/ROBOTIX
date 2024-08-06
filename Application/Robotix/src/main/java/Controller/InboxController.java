@@ -22,6 +22,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller class for handling the inbox interface, including notifications and emails.
+ */
 public class InboxController {
     @FXML
     private Client client;
@@ -46,6 +49,7 @@ public class InboxController {
     public class NotificationListCell extends ListCell<String> {
         private final Label label;
 
+        //constructor of the class
         public NotificationListCell() {
             label = new Label();
             label.setWrapText(true);
@@ -57,6 +61,9 @@ public class InboxController {
             setGraphic(vbox);
         }
 
+        /**
+         * Updates the cell's display based on the item added
+         */
         @Override
         protected void updateItem(String item, boolean empty) {
             super.updateItem(item, empty);
@@ -93,6 +100,11 @@ public class InboxController {
         }
 
         @Override
+
+        /**
+         * update the options based on user choice. If the item is chosen and confirmed
+         * the confirm button is made visible. For any other item, the confirm button is hidden
+         */
         protected void updateItem(String item, boolean empty) {
             super.updateItem(item, empty);
             if (empty || item == null) {
@@ -155,12 +167,19 @@ public class InboxController {
         }
     }
 
+    /**
+     * Initializes the InboxController
+     */
     @FXML
     public void initialize() {
         notificationSpace.setCellFactory(param -> new NotificationListCell());
         emailSpace.setCellFactory(param -> new EmailListCell());
     }
 
+
+    /**
+     * Sets the current user for the inbox view depending if it is an user or a supplier
+     */
     public void setUserInbox(User user) {
         if (user instanceof Client) {
             try (FileReader reader = new FileReader("src/main/JsonFiles/client.json")) {
@@ -191,6 +210,9 @@ public class InboxController {
         }
     }
 
+    /**
+     * Displays the inbox for the current user.
+     */
     public void displayInbox() throws FileNotFoundException {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         if (client != null) {
@@ -240,6 +262,9 @@ public class InboxController {
         }
     }
 
+    /**
+     *Handle to Go back option, returning to the home page
+     */
     public void handleGoBack() {
         try {
             Stage stage = (Stage) goBack.getScene().getWindow();
@@ -264,6 +289,9 @@ public class InboxController {
         }
     }
 
+    /**
+     * Handles the action to enable email notifications for current user
+     */
     public void handleToggleEmailOn() throws FileNotFoundException {
         if (client != null) {
             try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
@@ -303,6 +331,9 @@ public class InboxController {
         displayInbox();
     }
 
+    /**
+     * Handles the action to close email notifications for current user
+     */
     public void handleToggleEmailOff() throws FileNotFoundException {
         if (client != null) {
             try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {

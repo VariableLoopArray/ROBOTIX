@@ -42,9 +42,17 @@ public class HomepageController {
     private Client client;
     private Supplier supplier;
 
+    /**
+     * The controller for the Homepage view in the application.
+     * Manage and display the functionality of the homepage UI components.
+     */
     public HomepageController() {
     }
     @FXML
+
+    /**
+     * Displays the correct menu items based on the type of user (Client or Supplier).
+     */
     public void displayCorrectMenu(){
         menuProfile.alignmentProperty().setValue(javafx.geometry.Pos.CENTER);
         menuProfile.setPadding(new Insets(10, 10, 10, 10));
@@ -63,6 +71,11 @@ public class HomepageController {
         }
     }
 
+    /**
+     * Displays all available activities client has not joined.The client
+     * can join an activity by clicking the "Join" button, which will add
+     * the activity to their list and update the JSON file.
+     */
     public void displayRobotixActivities(){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         robotixActivities.getChildren().clear();
@@ -151,7 +164,9 @@ public class HomepageController {
         }
     }
 
-
+    /**
+     * Sets the user for the homepage based on a client or a supplier
+     */
     public void setUserHomepage(User user){
         if (user instanceof Client) {
             client = (Client) user;
@@ -160,6 +175,9 @@ public class HomepageController {
         }
     }
 
+    /**
+     * Loads the profile page FXML file and goes to the user's profile page.
+     */
     public void goToMyProfile(){
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();
@@ -182,6 +200,10 @@ public class HomepageController {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Loads the activity FXML file and goes to the user's activities page.
+     */
     public void goToMyActivity() throws IOException {
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();
@@ -200,6 +222,9 @@ public class HomepageController {
             e.printStackTrace();        }
     }
 
+    /**
+     * Loads the components FXML file and goes to the user's components page.
+     */
     public void goToMyComponent() {
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();
@@ -225,7 +250,9 @@ public class HomepageController {
 
     }
 
-
+    /**
+     * Loads the Robot FXML file and goes to the user's Robot page.
+     */
     public void gotoRobot() throws IOException {
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();
@@ -243,6 +270,10 @@ public class HomepageController {
         catch (IOException e) {
             e.printStackTrace();        }
     }
+
+    /**
+     * Loads the Shop FXML file and goes to the user's shopping page.
+     */
     public void goToShop(){
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();
@@ -262,6 +293,9 @@ public class HomepageController {
         }
     }
 
+    /**
+     * Loads the Inbox FXML file and goes to the user's email inbox page.
+     */
     public void goToInbox(){
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();
@@ -286,7 +320,9 @@ public class HomepageController {
         }
     }
 
-
+    /**
+     * Exit application
+     */
     public void Logout(){
         try {
             Stage stage = (Stage) menuProfile.getScene().getWindow();

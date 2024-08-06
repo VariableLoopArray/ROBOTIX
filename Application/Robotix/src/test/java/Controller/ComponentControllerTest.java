@@ -9,6 +9,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -19,18 +22,42 @@ import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ComponentControllerTest extends JavaFXBaseTest {
+class ComponentControllerTest {
 
+    private Stage testStage;
     private ComponentController componentController;
+    private static CountDownLatch javafxLatch;
 
-    @Override
-    protected void setUpTestStage() throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/MyComponentsMenu.fxml"));
-        Scene scene = new Scene(loader.load(), 1024, 768);
-        testStage = new Stage();
-        testStage.setScene(scene);
-        componentController = loader.getController();
-        testStage.show(); // Ensure the stage is shown for proper initialization
+    @BeforeAll
+    static void setUpClass() throws InterruptedException {
+        javafxLatch = new CountDownLatch(1);
+        Platform.startup(() -> javafxLatch.countDown());
+        javafxLatch.await(); // Ensure JavaFX is properly initialized
+    }
+
+    @BeforeEach
+    void setUp() throws IOException {
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/MyComponentsMenu.fxml"));
+                Scene scene = new Scene(loader.load(), 1024, 768);
+                testStage = new Stage();
+                testStage.setScene(scene);
+                componentController = loader.getController();
+                testStage.show(); // Ensure the stage is shown
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    @AfterEach
+    void tearDown() {
+        Platform.runLater(() -> {
+            if (testStage != null) {
+                testStage.close();
+            }
+        });
     }
 
     @Test
