@@ -4,6 +4,7 @@ module test {
     requires javafx.controls;
     requires javafx.fxml;
 
+    // Allow access to main module packages for testing
     opens Controller to org.junit.jupiter.api, javafx.fxml;
     opens Model to org.junit.jupiter.api, javafx.fxml;
     opens main to org.junit.jupiter.api;
