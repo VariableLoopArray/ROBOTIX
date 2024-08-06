@@ -113,20 +113,23 @@
           <includes>
             <include>**/*Test.java</include>
           </includes>
-            <argLine>
-              --add-opens main.Robotix/Controller=ALL-UNNAMED
-              --add-opens java.base/java.time=ALL-UNNAMED
-              --add-opens java.base/java.lang=ALL-UNNAMED
-              --add-opens java.base/java.lang.reflect=ALL-UNNAMED
-              --add-opens java.base/java.util=ALL-UNNAMED
-              --add-opens java.base/java.util.concurrent=ALL-UNNAMED
-              --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED
-              --add-opens java.base/java.util.function=ALL-UNNAMED
-              --add-opens java.base/java.io=ALL-UNNAMED
-              --add-opens java.base/java.net=ALL-UNNAMED
-              --add-opens java.base/java.nio=ALL-UNNAMED
-              --add-opens java.base/java.text=ALL-UNNAMED
-            </argLine>
+          <parallel>all</parallel> <!-- Enable parallel execution -->
+          <threadCount>4</threadCount> <!-- Number of threads to use -->
+          <useUnlimitedThreads>false</useUnlimitedThreads>
+          <argLine>
+            --add-opens main.Robotix/Controller=ALL-UNNAMED
+            --add-opens java.base/java.time=ALL-UNNAMED
+            --add-opens java.base/java.lang=ALL-UNNAMED
+            --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+            --add-opens java.base/java.util=ALL-UNNAMED
+            --add-opens java.base/java.util.concurrent=ALL-UNNAMED
+            --add-opens java.base/java.util.concurrent.locks=ALL-UNNAMED
+            --add-opens java.base/java.util.function=ALL-UNNAMED
+            --add-opens java.base/java.io=ALL-UNNAMED
+            --add-opens java.base/java.net=ALL-UNNAMED
+            --add-opens java.base/java.nio=ALL-UNNAMED
+            --add-opens java.base/java.text=ALL-UNNAMED
+          </argLine>
         </configuration>
       </plugin>
     </plugins>
