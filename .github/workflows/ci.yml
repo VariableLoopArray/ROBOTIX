@@ -38,12 +38,6 @@ jobs:
         Xvfb :99 -screen 0 1024x768x24 &
         export DISPLAY=:99
 
-    - name: List directory contents
-      run: ls -R Application/Robotix
-      
-    - name: Build and test with Maven
-      run: mvn clean test -DargLine="--add-opens java.base/java.time=com.google.gson"
-
     - name: Build and test with Maven
       run: mvn -B test -DargLine="--add-opens java.base/java.time=com.google.gson"
       working-directory: Application/Robotix
