@@ -14,7 +14,7 @@
     "points": "85",
     "Interests": [
       "Outdoors Activities and Adventure",
-      "Education and Learning"
+      "Education and learning"
     ],
     "creatorId": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
     "tasks": [
@@ -241,98 +241,129 @@
     "status": "In Progress"
   },
   {
-    "name": "2",
+    "name": "Robot Calibration and Testing",
     "startDate": {
-      "year": 2223,
-      "month": 11,
-      "day": 11
-    },
-    "endDate": {
-      "year": 2222,
-      "month": 11,
-      "day": 11
-    },
-    "points": "",
-    "Interests": [
-      "Sports and Fitness"
-    ],
-    "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
-    "tasks": [
-      {
-        "name": "1",
-        "Instructions": [
-          "1"
-        ]
-      }
-    ],
-    "activityId": "01cf7bdb-694a-4ca7-89e1-89540f3b81ce",
-    "description": "1",
-    "status": "Upcoming"
-  },
-  {
-    "name": "4",
-    "startDate": {
-      "year": 4444,
-      "month": 11,
-      "day": 11
-    },
-    "endDate": {
-      "year": 5555,
-      "month": 11,
-      "day": 11
-    },
-    "points": "",
-    "Interests": [
-      "Sports and Fitness"
-    ],
-    "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
-    "tasks": [],
-    "activityId": "a12ce5c0-52b6-4ae4-bc1a-baf5f4950456",
-    "description": "",
-    "status": "Upcoming"
-  },
-  {
-    "name": "1",
-    "startDate": {
-      "year": 1111,
-      "month": 11,
-      "day": 11
-    },
-    "endDate": {
-      "year": 1111,
-      "month": 11,
-      "day": 11
-    },
-    "points": "",
-    "Interests": [
-      "Arts and Crafts"
-    ],
-    "creatorId": "3afcb79c-1023-490b-82f6-b0250def2bbd",
-    "tasks": [],
-    "activityId": "df7df257-ff59-40fd-8b3e-cae38760500e",
-    "description": "",
-    "status": "Finished"
-  },
-  {
-    "name": "2313",
-    "startDate": {
-      "year": 2222,
-      "month": 10,
+      "year": 2024,
+      "month": 8,
       "day": 10
     },
     "endDate": {
-      "year": 2222,
-      "month": 11,
+      "year": 2024,
+      "month": 8,
+      "day": 20
+    },
+    "points": "89",
+    "Interests": [
+      "Sports and Fitness",
+      "Outdoors Activities and Adventure"
+    ],
+    "creatorId": "839b05a7-483e-4beb-9887-c8b7bb43dce0",
+    "tasks": [
+      {
+        "name": "Initial Calibration",
+        "Instructions": [
+          "Set up the robot in the calibration area and adjust sensors and actuators. Use the calibration tool to fine-tune sensors until readings are within acceptable limits."
+        ]
+      },
+      {
+        "name": "Performance Testing",
+        "Instructions": [
+          "Conduct tests to measure the robot’s speed, accuracy, and response time. Record data and compare with expected metrics."
+        ]
+      },
+      {
+        "name": "Final Verification",
+        "Instructions": [
+          "Perform a full system check to confirm all components are functioning correctly. Save calibration settings and ensure the robot operates well in different conditions."
+        ]
+      }
+    ],
+    "activityId": "10a735d5-c4a2-4dbd-9b10-691937e626cb",
+    "description": "Ensure the robot is accurately calibrated and performs optimally through a series of tests.",
+    "status": "Upcoming"
+  },
+  {
+    "name": "Environmental Monitoring",
+    "startDate": {
+      "year": 2023,
+      "month": 1,
       "day": 11
     },
-    "points": "31",
+    "endDate": {
+      "year": 2024,
+      "month": 12,
+      "day": 4
+    },
+    "points": "45",
     "Interests": [
-      "Arts and Crafts"
+      "Outdoors Activities and Adventure",
+      "Travel and Culture",
+      "Health and Well-Being"
     ],
-    "creatorId": "eeb01aa8-95d8-4033-b9d1-d79844ca6247",
-    "tasks": [],
-    "activityId": "db011353-2145-429c-a0f7-035ad7569076",
-    "description": "4",
+    "creatorId": "57e274c7-1e7f-407e-87ac-255bb313f26c",
+    "tasks": [
+      {
+        "name": "Temperature Monitoring",
+        "Instructions": [
+          "Use temperature sensors to measure ambient temperature at various locations. Record data and report any temperature deviations from acceptable ranges."
+        ]
+      },
+      {
+        "name": "Air Quality Analysis",
+        "Instructions": [
+          "Measure air quality parameters such as CO2 levels and particulate matter. Analyze the data and identify any areas with poor air quality."
+        ]
+      },
+      {
+        "name": "Data Reporting",
+        "Instructions": [
+          "Compile the collected environmental data into a report. Highlight any issues and suggest potential corrective actions based on the data."
+        ]
+      }
+    ],
+    "activityId": "c4033df7-b1b4-4a15-90b5-99120e1de6be",
+    "description": "Robots will monitor environmental conditions and report data",
+    "status": "In Progress"
+  },
+  {
+    "name": "Inventory Sorting and Reorganization",
+    "startDate": {
+      "year": 2024,
+      "month": 9,
+      "day": 25
+    },
+    "endDate": {
+      "year": 2024,
+      "month": 10,
+      "day": 5
+    },
+    "points": "87",
+    "Interests": [
+      "Outdoors Activities and Adventure"
+    ],
+    "creatorId": "a47c6b9e-d447-4445-8cef-796e5fc22c65",
+    "tasks": [
+      {
+        "name": "Inventory Check",
+        "Instructions": [
+          "Scan and verify inventory items against the database. Identify any discrepancies and update inventory records."
+        ]
+      },
+      {
+        "name": "Reorganization",
+        "Instructions": [
+          "Relocate items to optimize storage space and accessibility. Follow new layout plans and ensure items are correctly labeled."
+        ]
+      },
+      {
+        "name": "Label Update",
+        "Instructions": [
+          "Update or replace labels on shelves and storage bins to reflect the new organization. Ensure all labels are clear and accurate."
+        ]
+      }
+    ],
+    "activityId": "8816aa2c-101c-4e0d-a51e-9456ed8a9229",
+    "description": "Robots will sort and reorganize inventory in a storage facility",
     "status": "Upcoming"
   }
 ]

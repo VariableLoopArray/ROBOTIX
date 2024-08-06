@@ -42,21 +42,11 @@ Robotix est un système de gestion de robots où les utilisateurs peuvent enregi
     - Afficher le temps actuel
     - Fixer une date pour le système
 
-Quelques commentaires que nous aimerions ajouter pour une meilleure compréhension de notre système :
-
-- Il est possible que nous ayons omis d'ajouter des blocs try-catch à certains endroits, étant donné le grand nombre de fonctionnalités. Nous avons fait de notre mieux pour essayer de tout tester. De plus, plusieurs méthodes peuvent être désorganisées car il s'agit encore d'un prototype. Nous sommes toujours en train de discuter de la structure MVC, ce qui peut parfois être déroutant, et certaines méthodes peuvent ne pas être cohérentes avec d'autres du même type dans notre code.
-
-- Notre code contient plusieurs instances de scanners non fermées. Cela est dû au fait que nous avons initialement commencé à coder de cette manière. Cependant, nous avons découvert plus tard dans notre processus de développement qu'il n'est pas possible de fermer un scanner même s'il est initialisé dans une méthode différente (en Java, une fois qu'un objet Scanner est fermé, il ne peut pas être réouvert pour lire de nouvelles entrées). Ainsi, nous avons plusieurs scanners initialisés qui restent ouverts sans être fermés correctement.
-
-- Pour créer une activité, il est nécessaire d'avoir un robot.
-
-- Lors de la commande d'une composante, la livraison est fixée à 5 jours. Cela signifie que vous devez accéder à "Gérer le temps" et avancer de 6 jours pour que le statut de la commande passe à "livré". De même, les commandes ne disparaissent pas de la section "Voir mes commandes" mais changent simplement de statut pour permettre le suivi des commandes passées.
-  
-- En ce qui concerne les activités, nous avons noté que le système Robotix propose des activités que les utilisateurs peuvent ajouter à leur compte. Les utilisateurs peuvent également créer des activités pour Robotix, devenant ainsi les créateurs. Cependant, ils doivent ajouter ces activités à leur compte eux-mêmes (elles ne sont pas ajoutées automatiquement). Seuls les créateurs des différentes activitées peuvent modifier ces dernières.
-  
-- Nous avions l'intention de coder plusieurs autres fonctionnalités : déduction d'argent de l'utilisateur lorsqu'il commande des composants, vérification de diverses méthodes telles que le mot de passe, les tâches, les activités, etc., système de gestion de la batterie pour les activités en cours qui utilisent un certain nombre de batteries des robots par jour, système de points pour les activités (actuellement sans signification), système de gestion de l'utilisation du CPU et de la mémoire (statique pour le moment), et création de robots avec des composants retirés des utilisateurs. (mais nous manquons de temps pour le moment !)
-
-- Lorsque nous demandons un nom, veuillez écrire le nom demandé. Si nous demandons un numéro, veuillez écrire le numéro correspondant (Lisez bien!).
+# Juste pour clarifier certaines fonctionalite:
+- Dans la page de profil, lorsque vous modifiez vos informations, les changements ne sont pas appliqués en temps réel. Pour voir les modifications, retournez à la page d'accueil, puis revenez à la page de profil.
+- Lors de la création d'un compte, que ce soit en tant que client ou fournisseur, vous recevrez un email dans la section inbox de votre compte. Cet email contient un bouton sur lequel il faut cliquer pour éviter que votre compte soit supprimé 24 heures après la création. Un message dans vos notifications vous confirmera que vous avez bien cliqué sur le bouton. Notez que vous pouvez cliquer plusieurs fois, mais cela ne changera plus rien après la première confirmation.
+- Sur la page de connexion, un bouton permet de changer la date du système. Cela permet de simuler le système à une autre date, par exemple, pour tester la suppression d'un compte non confirmé en ajoutant un jour. De plus, la modification de la date permet aussi de changer le statut des activités.
+- Lors de la création d'une activité, une tâche doit être accompagnée d'une description, sinon elle ne sera pas créée.
     
 ## Organisation des fichiers
 ```bash
@@ -250,7 +240,7 @@ Un bouton a été implémenté sur la page de connexion pour afficher les utilis
 2. **Configurer le Répertoire de Travail**  
    - Allez en haut à droite de l'interface et cliquez sur la configuration actuelle.
    - Sélectionnez « Modifier les Configurations ».
-   - Définissez le **Répertoire de Travail** (Working Directory) sur le dossier `Robotix Application/Robotix`.
+   - Définissez le **Répertoire de Travail** (Working Directory) sur le dossier `Application/Robotix`.
 
 3. **Définir la Classe Principale**  
    - Réglez la **Classe Principale** (Main Class) à `main.Robotix`.
@@ -262,16 +252,6 @@ Un bouton a été implémenté sur la page de connexion pour afficher les utilis
      ```
 
 
-Ces étapes vous permettront de configurer correctement le projet dans IntelliJ IDEA.
 
-
-
-Nous n'avons pas inclus le fichier JAR et tous les fichiers connexes dans la structure des fichiers parce qu'IntelliJ crée plusieurs fichiers supplémentaires que nous n'avons pas écrits et qui ne proviennent pas de nous.
-
-(En ce qui concerne les types de robots, nous avons réalisé un peu tard qu'il aurait été nécessaire d'intégrer des types abstraits dans notre diagramme de classe. Modifier notre code pour rendre la classe Utilisateur abstraite pour inclure Client et Fournisseur a été très difficile, donc nous avons implémenté ces types de robots. Plus tard, nous avons appris que le prototype ne nécessitait pas forcément de correspondre exactement à nos diagramme  :C )
-
-
-Pour exécuter le code source, vous pouvez soit utiliser un IDE qui permet de le lancer directement à partir de la classe Main, soit le compiler et l'exécuter depuis le répertoire Implementation.
-
-Pour exécuter un fichier JAR, installez la dernière version de Java, allez dans le répertoire où se trouve le fichier JAR, et écrivez la commande "java -jar Implementation.jar".
+Pour exécuter un fichier JAR, installez la dernière version de Java, allez dans le répertoire où se trouve le fichier JAR, et écrivez la commande.
 
