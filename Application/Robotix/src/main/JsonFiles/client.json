@@ -56,6 +56,9 @@
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Delivery Service",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 1",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 3",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [],
@@ -163,7 +166,7 @@
     ],
     "myActivities": [],
     "myInterests": [
-      "Arts and Cafts"
+      "Arts and Crafts"
     ],
     "firstName": "Annabelle",
     "lastName": "Valdez",
@@ -173,7 +176,9 @@
     "email": "AnnabelleValdez@gmail.com",
     "companyName": "",
     "phoneNumber": "514-333-3333",
-    "notifications": [],
+    "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
+    ],
     "emailInbox": [],
     "toggleEmail": false,
     "confirmationLink": "null"
@@ -502,7 +507,7 @@
         "tasks": [],
         "activityId": "ef5e45bd-0bab-4040-a036-01069b6503b5",
         "description": "The robot must calibrate its robotic arm to ensure precision in its movements.Tasks:",
-        "status": "Completed"
+        "status": "Upcoming"
       }
     ],
     "myInterests": [
@@ -651,7 +656,7 @@
         "components": [
           "1"
         ],
-        "serialNumber": "5ae5a4ef-7d53-4c81-b4d5-90e5254a8e3c",
+        "serialNumber": "94af51fe-8f9b-48ea-a88f-5ffcd92dda8e",
         "battery": "1",
         "location": [
           0.0,
@@ -661,6 +666,23 @@
         "speed": 1.0,
         "cpuUsage": 1.0,
         "memory": 1.0
+      },
+      {
+        "name": "2",
+        "type": "2",
+        "components": [
+          "2"
+        ],
+        "serialNumber": "4b688e54-13a9-4e5f-a3a8-8b66cf36734c",
+        "battery": "2",
+        "location": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "speed": 2.0,
+        "cpuUsage": 2.0,
+        "memory": 2.0
       }
     ],
     "myActivities": [],
@@ -676,14 +698,22 @@
     "companyName": "1",
     "phoneNumber": "111-111-1111",
     "notifications": [
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "Email confirmed !",
+      "Email confirmed !",
+      "Email confirmed !",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 2",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "emailInbox": [
       "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1",
+      "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: 4",
       "A new activity that may interest you has been created in Robotix.\nStay ahead and check it out now!\nName of the activity: Activity1"
     ],
     "toggleEmail": true,
-    "confirmationLink": "2024-08-04"
+    "confirmationLink": "null"
   },
   {
     "fleet": [],
@@ -693,7 +723,7 @@
     "lastName": "Hello",
     "username": "Hello",
     "password": "HelloHello",
-    "id": "fd30f9bc-5bbf-4923-949a-a13351947d78",
+    "id": "06188ff7-d1d8-40fb-8d1b-4738ae7ca0fa",
     "email": "Hello@",
     "companyName": "Hello",
     "phoneNumber": "111-111-1111",
@@ -702,6 +732,6 @@
       "Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted"
     ],
     "toggleEmail": false,
-    "confirmationLink": "2024-08-04"
+    "confirmationLink": "2024-08-05"
   }
 ]

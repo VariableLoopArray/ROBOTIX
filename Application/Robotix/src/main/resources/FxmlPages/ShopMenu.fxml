@@ -32,10 +32,12 @@
                     <CheckBox text="Medium (less than 100cm³)" fx:id="filter6"/>
                     <CheckBox text="large (more than 100cm³)" fx:id="filter7"/>
                     <CheckBox text="Any size" fx:id="filter8"/>
-                    <Label text="Specific Types"/>
+                    <Label text="Types"/>
                     <TextField fx:id="filter9" prefWidth="300" promptText='Enter types separated by ","'/>
-                    <Label text="Specific Supplier"/>
+                    <Label text="Suppliers"/>
                     <TextField fx:id="filter10" prefWidth="300" promptText='Enter suppliers usernames seperated by ","'/>
+                    <Label text="Components names"/>
+                    <TextField fx:id="filter11" prefWidth="300" promptText='Enter component names seperated by ","'/>
                     <Button text="Apply Filters" onAction="#applyFilters" styleClass="customButton" />
                 </VBox>
 

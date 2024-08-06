@@ -1,0 +1,53 @@
+name: Java CI for Robotix
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up JDK 22
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: '22'
+
+    - name: Install Xvfb
+      run: sudo apt-get install -y xvfb
+
+    - name: Start Xvfb
+      run: |
+        Xvfb :99 -screen 0 1024x768x24 &
+        export DISPLAY=:99
+        sleep 5  # Wait for Xvfb to start
+
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('Application/Robotix/pom.xml') }}
+        restore-keys: 
+          ${{ runner.os }}-maven-
+
+    - name: Build and test with Maven
+      run: mvn -B test
+      working-directory: Application/Robotix
+
+    - name: Stop Xvfb
+      run: kill $(pgrep Xvfb) || true
+
+    # Optional: Increase Maven's logging verbosity to debug issues
+    # Uncomment if you need detailed logging
+    # - name: Run Maven with Debug Logging
+    #   run: mvn -X test
+    #   working-directory: Application/Robotix

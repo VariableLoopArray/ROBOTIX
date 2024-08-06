@@ -15,10 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.RowConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 import java.io.*;
@@ -79,6 +76,12 @@ public class ProfileController {
     private Label errorMessage;
     @FXML
     private Label successMessage;
+    @FXML
+    private VBox displaySearchedSupplier;
+    @FXML
+    private TextField searchSupplier;
+    @FXML
+    private VBox displaySearchedSupplierMoreInfo;
 
     private final String clientFile = "src/main/JsonFiles/Client.json";
     private final String supplierFile = "src/main/JsonFiles/Supplier.json";
@@ -184,29 +187,6 @@ public class ProfileController {
         }
     }
 
-    public void handleGoBack() {
-        try {
-            Stage stage = (Stage) goBack.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
-            Scene homepage = new Scene(fxmlLoader.load(), 1024, 768);
-            homepage.getStylesheets().remove(getClass().getResource("/CssFiles/Profile.css").toExternalForm());
-            homepage.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
-            HomepageController homepageController = fxmlLoader.getController();
-            if (client != null) {
-                homepageController.setUserHomepage(client);
-                homepageController.displayRobotixActivities();
-            } else if (supplier != null) {
-                homepageController.setUserHomepage(supplier);
-            }
-            homepageController.displayCorrectMenu();
-            stage.setTitle("Homepage");
-            stage.setScene(homepage);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-
-        }
-    }
 
     public void handleSaveChanges() {
         errorMessage.setText("");
@@ -357,6 +337,114 @@ public class ProfileController {
     }
 
 
+    public void searchSupplier() {
+        // Clear the previous search results
+        displaySearchedSupplier.getChildren().clear();
+        displaySearchedSupplierMoreInfo.getChildren().clear();
+
+        try (Reader reader = new FileReader(supplierFile)) {
+            Gson gson = new Gson();
+            List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {
+            }.getType());
+
+            Supplier supplierSearchedFor = findSupplier(suppliers, searchSupplier.getText());
+
+            if (supplierSearchedFor == null) {
+                displaySearchedSupplier.getChildren().add(new Label("No supplier found"));
+            } else {
+                displaySupplierInfo(displaySearchedSupplier, supplierSearchedFor);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Supplier findSupplier(List<Supplier> suppliers, String searchText) {
+        for (Supplier supplier : suppliers) {
+            if (supplier.getUsername().equals(searchText)) {
+                return supplier;
+            }
+            for (Component component : supplier.getStorage()) {
+                if (component.getType().contains(searchText)) {
+                    return supplier;
+                }
+            }
+        }
+        return null;
+    }
+
+    private void displaySupplierInfo(VBox displaySearchedSupplier, Supplier supplierSearchedFor) {
+        displaySearchedSupplier.getChildren().add(new Label("Supplier: " + supplierSearchedFor.getUsername()));
+        displaySearchedSupplier.getChildren().add(new Label("Storage: "));
+
+        FlowPane storagePane = new FlowPane();
+        storagePane.setPrefWrapLength(300); // Set the preferred width for wrapping
+
+        for (Component component : supplierSearchedFor.getStorage()) {
+            VBox componentInfo = new VBox();
+            componentInfo.getChildren().add(new Label(component.getName() + "\n"));
+
+            VBox typeInfo = new VBox();
+            for (String type : component.getType()) {
+                typeInfo.getChildren().add(new Label(" - " + type + "\n"));
+            }
+            componentInfo.getChildren().add(typeInfo);
+
+            storagePane.getChildren().add(componentInfo);
+        }
+
+        displaySearchedSupplier.getChildren().add(storagePane);
+
+        Button moreInfo = new Button("More Info");
+        moreInfo.setOnAction(e -> toggleMoreSupplierInfo(supplierSearchedFor));
+        displaySearchedSupplier.getChildren().add(moreInfo);
+    }
+
+    private void toggleMoreSupplierInfo(Supplier supplierSearchedFor) {
+        if (displaySearchedSupplierMoreInfo.getChildren().isEmpty()) {
+            displayMoreSupplierInfo(supplierSearchedFor);
+        } else {
+            displaySearchedSupplierMoreInfo.getChildren().clear();
+        }
+    }
+
+    private void displayMoreSupplierInfo(Supplier supplierSearchedFor) {
+        try {
+            displaySearchedSupplierMoreInfo.getChildren().add(new Label("Name: " + supplierSearchedFor.getFirstName() + " " + supplierSearchedFor.getLastName()));
+            displaySearchedSupplierMoreInfo.getChildren().add(new Label("Email: " + supplierSearchedFor.getEmail()));
+            displaySearchedSupplierMoreInfo.getChildren().add(new Label("Phone Number: " + supplierSearchedFor.getPhoneNumber()));
+            displaySearchedSupplierMoreInfo.getChildren().add(new Label("Company Name: " + supplierSearchedFor.getCompanyName()));
+            displaySearchedSupplierMoreInfo.getChildren().add(new Label("Production Capacity: " + supplierSearchedFor.getProductionCapacity()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleGoBack() {
+        try {
+            Stage stage = (Stage) goBack.getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/FxmlPages/HomepageMenu.fxml"));
+            Scene homepage = new Scene(fxmlLoader.load(), 1024, 768);
+            homepage.getStylesheets().remove(getClass().getResource("/CssFiles/Profile.css").toExternalForm());
+            homepage.getStylesheets().add(getClass().getResource("/CssFiles/Homepage.css").toExternalForm());
+            HomepageController homepageController = fxmlLoader.getController();
+            if (client != null) {
+                homepageController.setUserHomepage(client);
+                homepageController.displayRobotixActivities();
+            } else if (supplier != null) {
+                homepageController.setUserHomepage(supplier);
+            }
+            homepageController.displayCorrectMenu();
+            stage.setTitle("Homepage");
+            stage.setScene(homepage);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
+    }
+
     // TEST FUNCTIONS
 
     public ArrayList<Object> displayProfileTest() {
@@ -402,7 +490,7 @@ public class ProfileController {
     }
 
     public Client handleSaveChangesTest(Client clientTest, String username, String email, String companyName,
-    String phoneNumber, String previousPassword, String password){
+                                        String phoneNumber, String previousPassword, String password) {
 
         client = clientTest;
 

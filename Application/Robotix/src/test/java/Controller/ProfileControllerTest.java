@@ -9,9 +9,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,63 +18,47 @@ import java.util.concurrent.CountDownLatch;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProfileControllerTest {
-    Stage testStage;
-    ProfileController profileController = new ProfileController();
+class ProfileControllerTest extends JavaFXBaseTest {
 
-    @BeforeEach
-    void setUp(){
+    private ProfileController profileController;
 
-        Platform.startup(() -> {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ProfileMenu.fxml"));
-                Scene scene = new Scene(loader.load(), 1024, 768);
-                testStage = new Stage();
-                testStage.setScene(scene);
-                profileController = loader.getController();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        });
-    }
-
-    @AfterEach
-    void tearDown() {
-        Platform.runLater(() -> {
-            if (testStage != null) {
-                testStage.close();
-            }
-        });
+    @Override
+    protected void setUpTestStage() throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FxmlPages/ProfileMenu.fxml"));
+        Scene scene = new Scene(loader.load(), 1024, 768);
+        testStage = new Stage();
+        testStage.setScene(scene);
+        profileController = loader.getController();
+        testStage.show(); // Ensure the stage is shown for proper initialization
     }
 
     @Test
     void successfulHandleSaveChanges() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
-
-            ArrayList<Client> clients = new ArrayList<Client>();
+            ArrayList<Client> clients = new ArrayList<>();
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-            Client clientTest = new Client("clientTest1","clientTest1","clientTest1",
-                    "clientTest1","clientTest1","clientTest1","123-123-1234",
-                    new ArrayList<Robot>(), new ArrayList<String>(), false, "2024-11-11");
+            Client clientTest = new Client("clientTest1", "clientTest1", "clientTest1",
+                    "clientTest1", "clientTest1", "clientTest1", "123-123-1234",
+                    new ArrayList<>(), new ArrayList<>(), false, "2024-11-11");
 
             Client newClient = profileController.handleSaveChangesTest(clientTest, "changesTest1", "changesTest1@",
                     "changesTest1", "321-321-4321",
                     clientTest.getPassword(), "changesTest1");
 
-            try{
-                try (Reader reader = new FileReader("src/main/JsonFiles/client.json")){
+            File clientFile = new File("src/main/JsonFiles/client.json");
+            try {
+                // Read existing clients
+                try (Reader reader = new FileReader(clientFile)) {
                     clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>() {}.getType());
                 }
                 clients.add(clientTest);
-                try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+                // Write updated clients
+                try (Writer writer = new FileWriter(clientFile)) {
                     gson.toJson(clients, writer);
                 }
-
-
-            } catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
@@ -86,62 +68,53 @@ class ProfileControllerTest {
             assertEquals("changesTest1", newClient.getCompanyName());
             assertEquals("321-321-4321", newClient.getPhoneNumber());
 
-            clients.removeLast();
-
-            try(Writer writer = new FileWriter("src/main/JsonFiles/client.json")){
+            clients.remove(clients.size() - 1);
+            try (Writer writer = new FileWriter(clientFile)) {
                 gson.toJson(clients, writer);
-            }
-            catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
-
 
             latch.countDown();
         });
         latch.await();
     }
-    // Dawson Test
+
     @Test
     void successfulDisplayProfileTest() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);
         Platform.runLater(() -> {
             Client client = null;
-            try(Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+            try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
                 Gson gson = new GsonBuilder().create();
-                List<Client> clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>(){}.getType());
+                List<Client> clients = gson.fromJson(reader, new TypeToken<ArrayList<Client>>() {}.getType());
                 client = clients.get(0);
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             ArrayList<Object> userJsoninfo = new ArrayList<>();
-            userJsoninfo.add(client.getFirstName()+" "+client.getLastName());
+            userJsoninfo.add(client.getFirstName() + " " + client.getLastName());
             userJsoninfo.add(client.getUsername());
             userJsoninfo.add(client.getEmail());
             userJsoninfo.add(client.getPhoneNumber());
             userJsoninfo.add(client.getCompanyName());
+
             ArrayList<String> userActivity = new ArrayList<>();
-            for (int i = 0; i < client.getMyActivities().size(); i++) {
-                userActivity.add(" - " + client.getMyActivities().get(i).getName() + "\n");
-            }
+            client.getMyActivities().forEach(activity -> userActivity.add(" - " + activity.getName() + "\n"));
             ArrayList<String> userInterests = new ArrayList<>();
-            for (int i = 0; i < client.getMyInterests().size(); i++) {
-                userInterests.add(" - " + client.getMyInterests().get(i) + "\n");
-            }
+            client.getMyInterests().forEach(interest -> userInterests.add(" - " + interest + "\n"));
             ArrayList<String> userFleet = new ArrayList<>();
-            for (int i = 0; i < client.getFleet().size(); i++) {
-                userFleet.add(" - " + client.getFleet().get(i).getName() + "\n");
-            }
+            client.getFleet().forEach(robot -> userFleet.add(" - " + robot.getName() + "\n"));
+
             userJsoninfo.add(userActivity);
             userJsoninfo.add(userInterests);
             userJsoninfo.add(userFleet);
 
             ArrayList<Object> result = profileController.displayProfileTest();
 
-            latch.countDown();
             assertEquals(userJsoninfo, result);
-
+            latch.countDown();
         });
         latch.await();
     }

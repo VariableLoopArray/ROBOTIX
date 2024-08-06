@@ -19,11 +19,11 @@
             <Button fx:id="goBack" text="Go Back" onAction="#handleGoBack" styleClass="sideMenuButton" />
         </VBox>
         <Pane prefWidth="40"/>
-        <VBox alignment="TOP_CENTER">
+        <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
             <Pane prefHeight="40"/>
                 <Label text="Profile Menu" styleClass="title" alignment="CENTER"/>
             <Pane prefHeight="60"/>
-            <HBox alignment="CENTER">
+            <HBox alignment="CENTER" HBox.hgrow="ALWAYS">
                 <VBox>
                     <Label text="My Profile" style="-fx-font-size: 24px" lineSpacing="40"/>
                     <Pane prefHeight="20"/>
@@ -73,7 +73,25 @@
                     </GridPane>
                 </VBox>
             </HBox>
+            <Pane prefHeight="10"/>
+            <Separator orientation="HORIZONTAL" />
+            <Pane prefHeight="10"/>
+            <HBox VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS">
+                <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                    <Label text="Search supplier username"/>
+                    <Pane prefHeight="10"/>
+                    <TextField fx:id="searchSupplier" prefWidth="100" promptText='Enter supplier username'/>
+                    <Pane prefHeight="10"/>
+                    <Button text="Search" onAction="#searchSupplier" styleClass="customButton" />
+                </VBox>
+                <Pane prefWidth="20"/>
+                <VBox fx:id="displaySearchedSupplier" maxHeight="250">
+                </VBox>
+                <VBox  fx:id="displaySearchedSupplierMoreInfo" maxHeight="300">
+                </VBox>
+            </HBox>
         </VBox>
+        <Pane prefWidth="10"/>
     </HBox>
 
 </StackPane>

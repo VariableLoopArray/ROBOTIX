@@ -82,7 +82,9 @@ public class InboxController {
             label.setMaxWidth(Double.MAX_VALUE);
 
             confirmButton = new Button("Confirm");
-            confirmButton.setOnAction(e -> handleConfirmButtonClick(getItem())); // Handle button click
+            confirmButton.setOnAction(e -> handleConfirmButtonClick(getItem()));
+            confirmButton.setVisible(false); // Initially hide the button
+            confirmButton.setManaged(false); // Ensure it's not part of the layout's space
 
             vbox = new VBox(label, confirmButton);
             vbox.prefWidthProperty().bind(this.widthProperty().subtract(30));
@@ -98,6 +100,14 @@ public class InboxController {
                 setGraphic(null);
             } else {
                 label.setText(item);
+                if ("Click on the following button to confirm your account if not done in the next 24 hours your account will be deleted".equals(item)) {
+                    confirmButton.setVisible(true);
+                    confirmButton.setManaged(true);
+                } else {
+                    confirmButton.setVisible(false);
+                    confirmButton.setManaged(false);
+                }
+
                 setGraphic(vbox);
             }
         }
@@ -111,9 +121,9 @@ public class InboxController {
                         if (client.getEmail().equals(InboxController.this.client.getEmail())) {
                             client.setConfirmationLink("null");
                             client.getNotifications().add("Email confirmed !");
-                            try(Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                            try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
                                 gson.toJson(clients, writer);
-                            }catch (Exception e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                             displayInbox();
@@ -130,9 +140,9 @@ public class InboxController {
                         if (supplier.getEmail().equals(InboxController.this.supplier.getEmail())) {
                             supplier.setConfirmationLink("null");
                             supplier.getNotifications().add("Email confirmed !");
-                            try(Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                            try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
                                 gson.toJson(suppliers, writer);
-                            }catch (Exception e) {
+                            } catch (Exception e) {
                                 e.printStackTrace();
                             }
                             displayInbox();
@@ -153,7 +163,7 @@ public class InboxController {
 
     public void setUserInbox(User user) {
         if (user instanceof Client) {
-            try(FileReader reader = new FileReader("src/main/JsonFiles/client.json")) {
+            try (FileReader reader = new FileReader("src/main/JsonFiles/client.json")) {
                 Gson gson = new Gson();
                 List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
                 for (Client client : clients) {
@@ -166,7 +176,7 @@ public class InboxController {
                 e.printStackTrace();
             }
         } else if (user instanceof Supplier) {
-            try(FileReader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
+            try (FileReader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
                 Gson gson = new Gson();
                 List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
                 for (Supplier supplier : suppliers) {
@@ -253,12 +263,12 @@ public class InboxController {
             e.printStackTrace();
         }
     }
+
     public void handleToggleEmailOn() throws FileNotFoundException {
         if (client != null) {
             try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
                 Gson gson = new Gson();
-                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {
-                }.getType());
+                List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
                 for (Client client : clients) {
                     if (client.getEmail().equals(this.client.getEmail())) {
                         client.setToggleEmail(true);
@@ -272,12 +282,10 @@ public class InboxController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
         } else if (supplier != null) {
             try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
                 Gson gson = new Gson();
-                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {
-                }.getType());
+                List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
                 for (Supplier supplier : suppliers) {
                     if (supplier.getEmail().equals(this.supplier.getEmail())) {
                         supplier.setToggleEmail(true);
@@ -294,17 +302,18 @@ public class InboxController {
         }
         displayInbox();
     }
+
     public void handleToggleEmailOff() throws FileNotFoundException {
-        if (client != null){
-            try(Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
+        if (client != null) {
+            try (Reader reader = new FileReader("src/main/JsonFiles/client.json")) {
                 Gson gson = new Gson();
                 List<Client> clients = gson.fromJson(reader, new TypeToken<List<Client>>() {}.getType());
                 for (Client client : clients) {
                     if (client.getEmail().equals(this.client.getEmail())) {
                         client.setToggleEmail(false);
-                        try(Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
+                        try (Writer writer = new FileWriter("src/main/JsonFiles/client.json")) {
                             gson.toJson(clients, writer);
-                        }catch (Exception e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -313,15 +322,15 @@ public class InboxController {
                 e.printStackTrace();
             }
         } else if (supplier != null) {
-            try(Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
+            try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
                 Gson gson = new Gson();
                 List<Supplier> suppliers = gson.fromJson(reader, new TypeToken<List<Supplier>>() {}.getType());
                 for (Supplier supplier : suppliers) {
                     if (supplier.getEmail().equals(this.supplier.getEmail())) {
                         supplier.setToggleEmail(false);
-                        try(Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
+                        try (Writer writer = new FileWriter("src/main/JsonFiles/supplier.json")) {
                             gson.toJson(suppliers, writer);
-                        }catch (Exception e) {
+                        } catch (Exception e) {
                             e.printStackTrace();
                         }
                     }
@@ -331,6 +340,5 @@ public class InboxController {
             }
         }
         displayInbox();
-
     }
 }

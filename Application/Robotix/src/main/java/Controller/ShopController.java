@@ -58,6 +58,8 @@ public class ShopController {
     @FXML
     private TextField filter10;
     @FXML
+    private TextField filter11;
+    @FXML
     private FlowPane productsFlowPane;
     @FXML
     private Label thankYouMessage;
@@ -224,7 +226,8 @@ public class ShopController {
                     && !filter7.isSelected()
                     && !filter8.isSelected()
                     && filter9.getText().isEmpty()
-                    && filter10.getText().isEmpty();
+                    && filter10.getText().isEmpty()
+                    && filter11.getText().isEmpty();
 
             for (Supplier supplier : suppliers) {
                 for (Component component : supplier.getStorage()) {
@@ -252,10 +255,11 @@ public class ShopController {
 
                     if (!filter9.getText().isEmpty()) {
                         try {
-
-                            String[] types = filter9.getText().replace(" ", "").split(",");
+                            // Remove spaces before and after commas
+                            String text = filter9.getText().replaceAll("\\s*,\\s*", ",");
+                            String[] types = text.split(",");
                             for (String type : types) {
-                                if (component.getType().contains(type)) {
+                                if (component.getType().contains(type.trim())) {
                                     addComponent = true;
                                     break;
                                 }
@@ -267,9 +271,26 @@ public class ShopController {
 
                     if (!filter10.getText().isEmpty()) {
                         try {
-                            String[] suppliersNames = filter10.getText().replace(" ", "").split(",");
+                            // Remove spaces before and after commas
+                            String text = filter10.getText().replaceAll("\\s*,\\s*", ",");
+                            String[] suppliersNames = text.split(",");
                             for (String supplierName : suppliersNames) {
-                                if (supplier.getUsername().equals(supplierName)) {
+                                if (supplier.getCompanyName().equalsIgnoreCase(supplierName.trim())) {
+                                    addComponent = true;
+                                    break;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!filter11.getText().isEmpty()) {
+                        try {
+                            // Remove spaces before and after commas
+                            String text = filter11.getText().replaceAll("\\s*,\\s*", ",");
+                            String[] names = text.split(",");
+                            for (String name : names) {
+                                if (component.getName().equalsIgnoreCase(name.trim())) {
                                     addComponent = true;
                                     break;
                                 }
