@@ -25,7 +25,9 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * This controller manage user actions in Homepage Menu
+ */
 public class HomepageController {
     @FXML
     private HBox menuProfile;

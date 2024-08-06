@@ -22,6 +22,9 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.*;
 
+/**
+ * This controller manage user actions in Component Menu
+ */
 public class ComponentController {
     @FXML
     Supplier supplier;

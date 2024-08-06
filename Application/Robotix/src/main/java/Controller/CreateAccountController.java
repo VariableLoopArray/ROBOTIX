@@ -22,7 +22,9 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
-
+/**
+ * This controller manage user actions in Account Creation Menu
+ */
 public class CreateAccountController {
     @FXML
     private TextField clientFirstNameField;
