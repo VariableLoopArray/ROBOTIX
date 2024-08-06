@@ -243,15 +243,23 @@ Un bouton a été implémenté sur la page de connexion pour afficher les utilis
    - Définissez le **Répertoire de Travail** (Working Directory) sur le dossier `Application/Robotix`.
 
 3. **Définir la Classe Principale**  
+   - Allez en haut à droite de l'interface et cliquez sur la configuration actuelle.
+   - Sélectionnez « Modifier les Configurations ».
    - Réglez la **Classe Principale** (Main Class) à `main.Robotix`.
 
 4. **Ajouter les Options JVM**  
+   - Allez en haut à droite de l'interface et cliquez sur la configuration actuelle.
+   - Sélectionnez « Modifier les Configurations ».
    - Ajoutez les options suivantes dans les **Options VM** :
      ```
      --add-opens java.base/java.time=com.google.gson
      ```
 
 
-
-Pour exécuter un fichier JAR, installez la dernière version de Java, allez dans le répertoire où se trouve le fichier JAR, et écrivez la commande.
+- Pour exécuter les tests, ajoutez les options JVM `--add-opens java.base/java.time=com.google.gson` pour chaque classe de test que vous voulez éxécuter.
+  
+- Pour exécuter le fichier JAR, assurez-vous d'avoir installé JDK 22 et toutes les dépendances mentionnées ci-dessus. Ensuite, cliquez simplement sur le fichier JAR ou naviguez jusqu'au répertoire contenant le fichier JAR et exécutez la commande suivante :
+  ```
+  java -jar Robotix.jar
+  ```
 
