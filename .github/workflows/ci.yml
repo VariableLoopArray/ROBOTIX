@@ -30,14 +30,17 @@ jobs:
         restore-keys: 
           ${{ runner.os }}-maven-
 
-    - name: Install Xvfb
-      run: sudo apt-get install -y xvfb
+    - name: Install Xvfb and other dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb libglu1-mesa
+        sudo apt-get install -y xauth x11-apps
 
-    - name: Set up Xvfb
+    - name: Start Xvfb
       run: |
         export DISPLAY=:99
         Xvfb :99 -screen 0 1280x1024x24 &
-        sleep 5  # Allow time for Xvfb to start
+        sleep 5
 
     - name: Build and test ActivityControllerTest with Maven
       working-directory: Application/Robotix
