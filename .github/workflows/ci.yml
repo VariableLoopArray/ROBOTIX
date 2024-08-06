@@ -37,9 +37,12 @@ jobs:
       run: |
         Xvfb :99 -screen 0 1024x768x24 &
         export DISPLAY=:99
-        mvn -B test --file Application/Robotix/pom.xml -Dtest=ActivityControllerTest
+
+    - name: Build and test with Maven
+      run: mvn -B test --file Application/Robotix/pom.xml -DargLine="--add-opens java.base/java.time=com.google.gson"
+      working-directory: Application/Robotix  # Change to the directory where your pom.xml is located
 
     # Optional: Increase Maven's logging verbosity to debug issues
     - name: Run Maven with Debug Logging
-      run: mvn -X test --file Application/Robotix/pom.xml -Dtest=ActivityControllerTest
+      run: mvn -X test --file Application/Robotix/pom.xml
       working-directory: Application/Robotix  # Ensure to use the correct directory
