@@ -33,10 +33,12 @@ jobs:
     - name: Install Xvfb
       run: sudo apt-get install -y xvfb
 
-    - name: Start Xvfb
+    - name: Set up Xvfb
       run: |
-        Xvfb :99 -screen 0 1024x768x24 &
+        sudo apt-get update
+        sudo apt-get install -y xvfb
         export DISPLAY=:99
+        Xvfb :99 -screen 0 1280x1024x24 &
 
     - name: Build and test ActivityControllerTest with Maven
       working-directory: Application/Robotix
