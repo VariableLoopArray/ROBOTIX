@@ -55,6 +55,15 @@ public class ComponentController {
     private FlowPane clientComponents;
     @FXML
     private Label messageLabel;
+
+
+
+    /**
+     * Sets the user and displays their components based on their type.
+     * If the user is a supplier, the method loads the supplier data from the JSON file,
+     * sets the supplier, updates the welcome message, and displays the supplier's components.
+     * If the user is a Client, the method loads the client data and updates the welcome message,
+     */
     public void setUserComponent(User user) {
         if (user instanceof Supplier) {
             try (Reader reader = new FileReader("src/main/JsonFiles/supplier.json")) {
@@ -89,6 +98,10 @@ public class ComponentController {
         }
 
     }
+
+    /**
+     * Display user components of the client
+     */
     public void displayComponents(Client client){
         clientComponents.getChildren().clear();
         mainScroll.setVisible(false);
@@ -114,7 +127,9 @@ public class ComponentController {
         }
     }
 
-
+    /**
+     * Display user components of the supplier
+     */
     public void displayComponents(Supplier supplier){
         userComponents.getChildren().clear();
         mainScrollClient.setVisible(false);
@@ -267,14 +282,28 @@ public class ComponentController {
         }
 
     }
+
+    /**
+     * Displays the component addition interface by making it visible.
+     */
     public void displayAddComponent(){
         addComponentGrid.setVisible(true);
         closeButton.setVisible(true);
     }
+
+    /**
+     * Closer the component addition interface by making it not visible.
+     */
     public void closeDisplayAddComponent(){
         addComponentGrid.setVisible(false);
         closeButton.setVisible(false);
     }
+
+
+    /**
+     * Adds a new component to the supplier's storage and updates the supplier's data
+     * If there is an error during the process, an error message is displayed.
+     */
     public void addComponent(){
         try {
             String allTypes = componentType.getText().replace(" ", "");
@@ -312,6 +341,10 @@ public class ComponentController {
             messageLabel.setText("error input or missing input");
         }
     }
+
+    /**
+     * handle the go back button, return to the previous interface
+     */
     public void handleGoBack() {
         try {
             Stage stage = (Stage) componentWelcome.getScene().getWindow();
