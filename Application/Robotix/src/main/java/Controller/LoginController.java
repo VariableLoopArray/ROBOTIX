@@ -277,7 +277,10 @@ public class LoginController {
         }
     }
 
-
+    /**
+     * Displays an information popup window and creates a new window with a title "Information" containing an informational message and lists for
+     * displaying client and supplier information.
+     */
     public void showInfoPopup() {
         if (infoStage == null || !infoStage.isShowing()) {
             infoStage = new Stage();
@@ -441,6 +444,12 @@ public class LoginController {
             infoStage.show();
         }
     }
+
+    /**
+     * Opens a window that allows the user to change the  date and updates the data based on the new date. It allows
+     * the user to input a new date updates the status of activities and removes clients and suppliers
+     * based on the new date.
+     */
     public void changeDate(){
         if (!dateBool || !manageDate.isShowing()) {
             manageDate = new Stage();
