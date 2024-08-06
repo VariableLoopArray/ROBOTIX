@@ -34,15 +34,15 @@ jobs:
       uses: actions/cache@v3
       with:
         path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        key: ${{ runner.os }}-maven-${{ hashFiles('Application/Robotix/pom.xml') }}
         restore-keys: 
           ${{ runner.os }}-maven-
 
     - name: Build and test with Maven
-      run: mvn -B test --file Application/Robotix/pom.xml -X
+      run: mvn -B test
       working-directory: Application/Robotix
 
     # Optional: Increase Maven's logging verbosity to debug issues
     - name: Run Maven with Debug Logging
-      run: mvn -X test --file Application/Robotix/pom.xml
+      run: mvn -X test
       working-directory: Application/Robotix
