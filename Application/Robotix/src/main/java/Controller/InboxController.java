@@ -41,6 +41,8 @@ public class InboxController {
     private ObservableList<String> notificationItems;
     private ObservableList<String> emailItems;
 
+
+
     public class NotificationListCell extends ListCell<String> {
         private final Label label;
 

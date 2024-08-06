@@ -20,6 +20,9 @@ import java.util.stream.IntStream;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * This is the controller that manages user actions in RobotMenu
+ */
 public class RobotController {
 
     @FXML
@@ -54,7 +57,7 @@ public class RobotController {
     private Label errorMessage;
     @FXML
     private ScrollPane ScrollPaneRobots;
-
+    @FXML
     private Client client;
     private Gson gson;
 
@@ -62,13 +65,19 @@ public class RobotController {
         gson = new GsonBuilder().setPrettyPrinting().create();
     }
 
+    /**
+     *
+     * @param client put the client into the controller
+     */
     public void setUserRobot(Client client) {
         this.client = client;
         RobotWelcome.setText("Welcome to your robots !");
     }
 
 
-
+    /**
+     * when the button Show Robot is clicked this method is called, it serves to display the robots
+     */
     @FXML
     private void displayRobots() {
 //        errorMessage.setVisible(false);
@@ -110,6 +119,11 @@ public class RobotController {
         ScrollPaneRobots.setManaged(false);
     }
 
+    /**
+     * This method is called to create a box that contains all the informations of each robot
+     * @param robot The robot whose informations is being displayed
+     * @param robotBoxContainer The container in which the robot will be displayed
+     */
     private void createRobotBox(Robot robot, VBox robotBoxContainer) {
         VBox robotBox = new VBox(10);
         robotBox.setMaxWidth(200);;
@@ -132,6 +146,11 @@ public class RobotController {
         DisplayRobots.getChildren().add(robotBox);
     }
 
+    /**
+     * This method returns the information of the robot
+     * @param robot The robot whose information is being returned.
+     * @return
+     */
     private String getRobotInfo(Robot robot) {
         return String.format("Robot Name: %s%nRobot Type: %s%nRobot Battery: %s%%%nRobot Speed: %sm/s%n" +
                         "Robot CpuUsage: %s%%%nRobot Memory: %sGB%nRobot Components: %s%n" +
@@ -147,6 +166,11 @@ public class RobotController {
                 .collect(Collectors.joining(", "));
     }
 
+
+    /**
+     * This method is called when creating a robot and the confirm button is pressed.
+     * The method creates a robot and adds it to the client list of robots.
+     */
     public void confirmRobot() {
         try {
             ArrayList<String> allComponents = new ArrayList<>();
@@ -189,6 +213,7 @@ public class RobotController {
         }
     }
 
+
     private void displaySuccessMessage(String message) {
         Label successLabel = new Label(message);
         successLabel.getStyleClass().add("label-success");
@@ -206,6 +231,9 @@ public class RobotController {
         }
     }
 
+    /**
+     * This method is called when clicking the create robot button, it serves to display the fields to create a robot.
+     */
     public void createRobot() {
         DisplayRobots.getChildren().clear();
         tableInfo.setVisible(true);
@@ -224,6 +252,11 @@ public class RobotController {
 
         tableInfo.add(confirmButton, 1, 7);
     }
+
+    /**
+     * This method is called when clicking the Show Partial button, it serves to
+     * display limited information about the robots, such as its name, type and battery
+     */
 
     public void showPartial() {
         DisplayRobots.getChildren().clear();
@@ -277,6 +310,9 @@ public class RobotController {
 
     }
 
+    /**
+     * This method is called when pressing the go back button, it takes the user back to the Homepage Menu
+     */
     public void handleGoBack() {
         try {
             Stage stage = (Stage) RobotWelcome.getScene().getWindow();
@@ -297,6 +333,8 @@ public class RobotController {
             e.printStackTrace();
         }
     }
+
+    // TEST FUNCTIONS
     public String GetRobotInfoTest(Robot robot){
         String result = getRobotInfo(robot);
         return result;
